@@ -7,7 +7,12 @@ authors:
     given-names: "Mark"
 version: "1.0.0"
 date-released: "2026-05-24"
+doi: "10.5281/zenodo.20369891"
 url: "https://github.com/markl02us/persistent-thermal-sources-sicily"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20369891"
+    description: "Zenodo deposition for v1.0.0"
 license: CC-BY-4.0
 abstract: >
   An open data catalog of persistent thermal anomalies in Sicily that
