@@ -1,0 +1,34 @@
+{
+  "title": "Persistent Thermal Sources Catalog - Sicily",
+  "description": "An open data catalog of persistent thermal anomalies in Sicily (volcanoes, refineries, glasshouses, solar farms, quarries) that commonly cause false-positive wildfire detections from satellite thermal sensors. Built by the PHOENIX research wildfire-detection system from 30-day detection history + AI-vision classification + OpenStreetMap cross-reference.",
+  "creators": [
+    {
+      "name": "Ludwikowski, Mark",
+      "affiliation": "Independent research (PHOENIX wildfire detection)"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "wildfire detection",
+    "false positives",
+    "thermal anomalies",
+    "Sicily",
+    "satellite remote sensing",
+    "FIRMS",
+    "EUMETSAT",
+    "open data"
+  ],
+  "access_right": "open",
+  "version": "1.0.0",
+  "language": "eng",
+  "communities": [
+    {"identifier": "earth-observation"}
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://adr-wildfire.com/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

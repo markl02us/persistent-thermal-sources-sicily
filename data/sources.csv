@@ -1,0 +1,9 @@
+id,name_en,name_it,category,subcategory,lat,lon,radius_km,country,region,province,false_positive_confidence
+etna-summit,Mt. Etna summit craters,Mt. Etna — crateri sommitali,volcanic,active_stratovolcano,37.751,14.9934,15.0,IT,Sicilia,Catania,1.0
+stromboli,Stromboli volcano,Vulcano Stromboli,volcanic,continuously_active_volcano,38.789,15.213,5.0,IT,Sicilia,Messina,1.0
+vulcano-fossa,La Fossa crater (Vulcano island),Cratere La Fossa (Isola di Vulcano),volcanic,fumarolic_field,38.404,14.964,3.0,IT,Sicilia,Messina,0.95
+augusta-priolo-melilli,Augusta-Priolo-Melilli petrochemical complex,Polo petrolchimico Augusta-Priolo-Melilli,industrial,petrochemical_gas_flares,37.2,15.2,5.0,IT,Sicilia,Siracusa,0.98
+gela-refinery,Gela refinery,Raffineria di Gela,industrial,refinery,37.06,14.27,3.0,IT,Sicilia,Caltanissetta,0.97
+milazzo-refinery,Milazzo refinery,Raffineria di Milazzo,industrial,refinery_with_flare,38.22,15.24,3.0,IT,Sicilia,Messina,0.97
+termini-imerese,Former Fiat plant + Termini Imerese industrial port,Ex stabilimento Fiat + porto industriale di Termini Imerese,industrial,industrial_port,37.99,13.7,3.0,IT,Sicilia,Palermo,0.9
+catania-port,Catania port and industrial area,Porto e area industriale di Catania,industrial,port_industrial,37.5,15.1,2.0,IT,Sicilia,Catania,0.85

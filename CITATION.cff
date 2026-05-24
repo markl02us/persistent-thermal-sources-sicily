@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this catalog, please cite it as below."
+type: dataset
+title: "Persistent Thermal Sources Catalog - Sicily"
+authors:
+  - family-names: "Ludwikowski"
+    given-names: "Mark"
+version: "1.0.0"
+date-released: "2026-05-24"
+url: "https://github.com/phoenix-wildfire/persistent-thermal-sources-sicily"
+license: CC-BY-4.0
+abstract: >
+  An open data catalog of persistent thermal anomalies in Sicily that
+  commonly cause false-positive wildfire detections from satellite thermal
+  sensors. Built from 30-day detection history + AI-vision classification +
+  OSM cross-reference. Includes 18+ sources across volcanic, industrial,
+  glasshouse, quarry, and solar-farm categories.
