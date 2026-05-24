@@ -7,7 +7,7 @@ authors:
     given-names: "Mark"
 version: "1.0.0"
 date-released: "2026-05-24"
-url: "https://github.com/phoenix-wildfire/persistent-thermal-sources-sicily"
+url: "https://github.com/markl02us/persistent-thermal-sources-sicily"
 license: CC-BY-4.0
 abstract: >
   An open data catalog of persistent thermal anomalies in Sicily that
