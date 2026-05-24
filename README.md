@@ -68,7 +68,7 @@ output, build similar catalogs for other regions.
   year         = 2026,
   publisher    = {Zenodo},
   version      = {v1.0.0},
-  doi          = {10.5281/zenodo.PENDING}
+  doi          = {10.5281/zenodo.20369891}
 }
 ```
 
