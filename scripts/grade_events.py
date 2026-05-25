@@ -167,6 +167,8 @@ MIGRATIONS = [
     "ALTER TABLE event_grades ADD COLUMN t45d_outcome TEXT",
     "ALTER TABLE event_grades ADD COLUMN t45d_outcome_evidence TEXT",
     "ALTER TABLE event_grades ADD COLUMN t45d_reconciled_at TEXT",
+    "ALTER TABLE event_grades ADD COLUMN wui_built_pct REAL",
+    "ALTER TABLE event_grades ADD COLUMN wui_class TEXT",
 ]
 
 
@@ -212,20 +214,36 @@ def _worldcover():
     return _WC_CACHE
 
 def biome_at(lat, lng):
-    """Return (class, dnbr_threshold) for the dominant landcover at (lat,lng)."""
+    """Return (class, dnbr_threshold, built_pct, wui_class) for the cell."""
     wc = _worldcover()
     key = f"{lat:.2f}:{lng:.2f}"
     cell = wc.get(key)
     if not cell:
-        return ("mixed", BIOME_DNBR["mixed"])
-    # Dominant class
+        return ("mixed", BIOME_DNBR["mixed"], None, None)
+    built_pct = cell.get("built", 0) or 0
+    tree_pct  = cell.get("tree", 0) or 0
+    shrub_pct = cell.get("shrub", 0) or 0
+    crop_pct  = cell.get("crop", 0) or 0
+    # WUI class (firefighter seat recommendation):
+    #   U: Urban dense           built > 50%
+    #   I: WUI Interface         built 5-50% AND (tree+shrub) > 20%
+    #   W: Wildland              built < 5% AND (tree+shrub) > 30%
+    #   N: Other (bare/crop/water/built-low-veg)
+    if built_pct > 50:
+        wui_class = "U"
+    elif 5 <= built_pct <= 50 and (tree_pct + shrub_pct) > 20:
+        wui_class = "I"
+    elif built_pct < 5 and (tree_pct + shrub_pct) > 30:
+        wui_class = "W"
+    else:
+        wui_class = "N"
     classes = {k: v for k, v in cell.items() if k in BIOME_DNBR}
     if not classes:
-        return ("mixed", BIOME_DNBR["mixed"])
+        return ("mixed", BIOME_DNBR["mixed"], built_pct, wui_class)
     dom = max(classes, key=classes.get)
-    if classes[dom] < 40:  # no clear majority
-        return ("mixed", BIOME_DNBR["mixed"])
-    return (dom, BIOME_DNBR.get(dom))
+    if classes[dom] < 40:
+        return ("mixed", BIOME_DNBR["mixed"], built_pct, wui_class)
+    return (dom, BIOME_DNBR.get(dom), built_pct, wui_class)
 
 
 # ---------- data load ----------
@@ -388,8 +406,8 @@ def grade_event(ev, corr, phx_idx):
     has_lst  = False
     has_burn = False
 
-    # biome lookup
-    biome, biome_threshold = biome_at(ev["lat"], ev["lng"])
+    # biome + WUI lookup
+    biome, biome_threshold, wui_built_pct, wui_class = biome_at(ev["lat"], ev["lng"])
 
     # burn-scar verification from raw_json
     burn_dnbr = None
@@ -517,6 +535,8 @@ def grade_event(ev, corr, phx_idx):
         below_comparator_floor=int(below_floor_all),
         biome_class=biome,
         dnbr_threshold_biome=biome_threshold,
+        wui_built_pct=wui_built_pct,
+        wui_class=wui_class,
         phoenix_had_coverage=phx_cov,
         graded_at=datetime.now(timezone.utc).isoformat(),
         grader_version=GRADER_VERSION,
@@ -646,8 +666,9 @@ INSERT INTO event_grades (
     comparator_source, comparator_revisit_min, graded_at, grader_version,
     comparator_class, comparator_panel, capable_comparator_count,
     worst_capable_lead_min, race_strict, below_comparator_floor,
-    biome_class, dnbr_threshold_biome, phoenix_had_coverage
-) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    biome_class, dnbr_threshold_biome, phoenix_had_coverage,
+    wui_built_pct, wui_class
+) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 ON CONFLICT(event_key) DO UPDATE SET
     verification_tier=excluded.verification_tier,
     corroborator_families=excluded.corroborator_families,
@@ -676,7 +697,9 @@ ON CONFLICT(event_key) DO UPDATE SET
     below_comparator_floor=excluded.below_comparator_floor,
     biome_class=excluded.biome_class,
     dnbr_threshold_biome=excluded.dnbr_threshold_biome,
-    phoenix_had_coverage=excluded.phoenix_had_coverage
+    phoenix_had_coverage=excluded.phoenix_had_coverage,
+    wui_built_pct=excluded.wui_built_pct,
+    wui_class=excluded.wui_class
 """
 
 def upsert(con, g):
@@ -692,6 +715,7 @@ def upsert(con, g):
         g["comparator_class"], g["comparator_panel"], g["capable_comparator_count"],
         g["worst_capable_lead_min"], g["race_strict"], g["below_comparator_floor"],
         g["biome_class"], g["dnbr_threshold_biome"], g["phoenix_had_coverage"],
+        g["wui_built_pct"], g["wui_class"],
     ))
 
 
