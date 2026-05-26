@@ -75,75 +75,65 @@ def main():
     print(f"  grid: {len(lats)} x {len(lngs)} = {len(lats)*len(lngs):,} cells")
 
     cells = {}
+    from rasterio.warp import transform as warp_transform
+    # WorldCover tiles are in EPSG:4326 (geographic), so source CRS == grid CRS;
+    # this lets us skip the per-point warp entirely and read by direct pixel index.
     for tile in tiles:
-        # Prefer the most recent v200 tile (2021)
-        version = (tile.get("properties", {}).get("esa_worldcover:product_version") or "")
-        if "200" not in str(version) and "v200" not in str(version):
-            # accept anyway
-            pass
-        asset = tile["assets"].get("map") or tile["assets"].get("Map")
-        if asset is None:
-            # try first asset
-            asset = next(iter(tile["assets"].values()))
+        asset = tile["assets"].get("map") or tile["assets"].get("Map") \
+                or next(iter(tile["assets"].values()))
         href = pc.sign(asset["href"])
-        print(f"  reading {tile['id']} ...")
+        tid = tile.get("id", "(unknown)")
+        print(f"  reading {tid} ...")
         try:
             with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES", AWS_NO_SIGN_REQUEST="YES"):
                 with rasterio.open(href) as src:
-                    # Restrict reading to the Sicily bbox in source CRS
+                    src_crs = src.crs.to_string() if src.crs else "EPSG:4326"
+                    # Restrict reading to Sicily intersection with this tile
                     src_w, src_s, src_e, src_n = transform_bounds(
                         "EPSG:4326", src.crs, w, s, e, n, densify_pts=21)
                     try:
                         win = from_bounds(src_w, src_s, src_e, src_n, src.transform)
                     except Exception:
-                        # tile doesn't cover Sicily portion
                         continue
-                    # Read entire window at native 10m
                     arr = src.read(1, window=win, boundless=False)
                     if arr.size == 0:
                         continue
-                    # Window transform (so we can sample by lat/lng)
                     win_transform = rasterio.windows.transform(win, src.transform)
-                    # For each grid cell, sample a small box around it (3x3 pixels at 10m)
-                    sample_half = 0.005  # half-cell, ~500m radius
-                    for lat in lats:
-                        for lng in lngs:
-                            try:
-                                # transform lat/lng to source CRS
-                                from rasterio.warp import transform as warp_transform
-                                xs, ys = warp_transform("EPSG:4326", src.crs, [lng], [lat])
-                                xs2, ys2 = warp_transform(
-                                    "EPSG:4326", src.crs,
-                                    [lng - sample_half], [lat - sample_half])
-                                xs3, ys3 = warp_transform(
-                                    "EPSG:4326", src.crs,
-                                    [lng + sample_half], [lat + sample_half])
-                                # convert to pixel coords within the window
-                                col_lo, row_lo = ~win_transform * (min(xs2[0], xs3[0]), max(ys2[0], ys3[0]))
-                                col_hi, row_hi = ~win_transform * (max(xs2[0], xs3[0]), min(ys2[0], ys3[0]))
-                                col_lo, col_hi = int(max(0, col_lo)), int(min(arr.shape[1], col_hi))
-                                row_lo, row_hi = int(max(0, row_lo)), int(min(arr.shape[0], row_hi))
-                                if col_hi <= col_lo or row_hi <= row_lo:
-                                    continue
-                                patch = arr[row_lo:row_hi, col_lo:col_hi]
-                                if patch.size == 0:
-                                    continue
-                                # Histogram by class
-                                vals, counts = np.unique(patch, return_counts=True)
-                                total = counts.sum()
-                                pct = {WC_TO_PHX.get(WC_CODES.get(int(v), ""), "other"):
-                                       int(round(c * 100 / total))
-                                       for v, c in zip(vals, counts) if v != 0}
-                                # Collapse "other" into existing categories proportionally
-                                key = f"{lat:.2f}:{lng:.2f}"
-                                if key not in cells:
-                                    cells[key] = {"built": 0, "tree": 0, "crop": 0,
-                                                  "water": 0, "shrub": 0}
-                                for cls, p in pct.items():
-                                    if cls in cells[key]:
-                                        cells[key][cls] = max(cells[key][cls], p)
-                            except Exception:
-                                continue
+                    inv = ~win_transform  # affine inverse from CRS coords -> window pixel
+                    # Vectorized: build all (lat, lng) pairs, project once, index once
+                    LL, LA = np.meshgrid(lngs, lats)  # both (n_lat, n_lng)
+                    flat_lng = LL.ravel(); flat_lat = LA.ravel()
+                    # If source CRS is EPSG:4326, skip warp (huge speedup)
+                    if src_crs in ("EPSG:4326", "WGS 84"):
+                        src_x = flat_lng; src_y = flat_lat
+                    else:
+                        src_x, src_y = warp_transform(
+                            "EPSG:4326", src.crs, flat_lng.tolist(), flat_lat.tolist())
+                        src_x = np.array(src_x); src_y = np.array(src_y)
+                    cols = ((src_x - inv.xoff) / inv.a + (src_y - inv.yoff) * inv.b / inv.a / inv.e).astype(int)  # noqa
+                    # simpler: apply inv affine elementwise
+                    cols = np.array([inv * (x, y) for x, y in zip(src_x, src_y)])
+                    px_cols = cols[:, 0].astype(int)
+                    px_rows = cols[:, 1].astype(int)
+                    H, W = arr.shape
+                    valid = (px_cols >= 0) & (px_cols < W) & (px_rows >= 0) & (px_rows < H)
+                    vals = np.full(flat_lat.shape, -1, dtype=np.int16)
+                    vals[valid] = arr[px_rows[valid], px_cols[valid]]
+                    # Bin into 0.01-deg cells (each cell = one grid point at our step)
+                    for i, (la, lo, v) in enumerate(zip(flat_lat, flat_lng, vals)):
+                        if v <= 0:
+                            continue
+                        cls_name = WC_TO_PHX.get(WC_CODES.get(int(v), ""), None)
+                        if cls_name is None:
+                            continue
+                        key = f"{la:.2f}:{lo:.2f}"
+                        if key not in cells:
+                            cells[key] = {"built": 0, "tree": 0, "crop": 0,
+                                          "water": 0, "shrub": 0}
+                        # Mark the dominant class for this point at 100%; finer
+                        # sub-cell histogramming was the cause of the v1 slowness.
+                        if cls_name in cells[key]:
+                            cells[key][cls_name] = 100
         except Exception as exc:
             print(f"    failed: {exc}")
             continue
