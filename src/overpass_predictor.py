@@ -12,10 +12,15 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 try:
-    from sgp4.api import Satrec, jday
+    from pyorbital.orbital import Orbital
     SGP4_AVAILABLE = True
 except ImportError:
-    SGP4_AVAILABLE = False
+    # Fall back to raw sgp4 if pyorbital isn't installed; predictor returns None.
+    try:
+        from sgp4.api import Satrec, jday
+        SGP4_AVAILABLE = "sgp4_only"
+    except ImportError:
+        SGP4_AVAILABLE = False
 
 TLE_CACHE = Path("/media/mark/AI_DGX/eumetsat_data/sat_tles.json")
 TLE_TTL_HOURS = 24
@@ -121,72 +126,58 @@ def _haversine_km(lat1, lng1, lat2, lng2):
 
 
 def _eci_to_geo(r_eci_km, t):
-    """Convert ECI position (km) at time t (datetime UTC) to (lat, lng) degrees.
-    Uses simple GMST sidereal-time approximation - accurate enough for swath checks."""
-    x, y, z = r_eci_km
-    # GMST at t (approximation, degrees)
-    jd_ut1 = jday(t.year, t.month, t.day, t.hour, t.minute, t.second + t.microsecond/1e6)[0]
-    T = (jd_ut1 - 2451545.0) / 36525.0
-    gmst_sec = 67310.54841 + (876600 * 3600 + 8640184.812866) * T + 0.093104 * T * T - 6.2e-6 * T * T * T
-    gmst_deg = (gmst_sec % 86400) / 240.0
-    # Rotate from ECI to ECEF
-    th = math.radians(gmst_deg)
-    x_e = x * math.cos(th) + y * math.sin(th)
-    y_e = -x * math.sin(th) + y * math.cos(th)
-    r = math.sqrt(x_e * x_e + y_e * y_e)
-    lat = math.degrees(math.atan2(z, r))
-    lng = math.degrees(math.atan2(y_e, x_e))
-    if lng > 180: lng -= 360
-    if lng < -180: lng += 360
-    return lat, lng
+    """Deprecated. Pyorbital's get_lonlatalt now handles the propagation +
+    TEME-to-ECEF conversion correctly; this hand-rolled version had a GMST
+    sign / scaling bug that made satellites wander."""
+    raise NotImplementedError("use pyorbital.Orbital.get_lonlatalt instead")
 
 
 def next_overpass_min(comparator_source, target_lat, target_lng, after_t,
                      horizon_min=1440, step_sec=30):
     """Return minutes from after_t to the next time any spacecraft in this
     comparator family has the target within its swath. None if no candidate
-    or sgp4 unavailable. Geostationary comparators return 0 (always overhead).
+    or pyorbital/sgp4 unavailable. Geostationary comparators return None
+    (they're always overhead — race-strict logic should not apply).
 
-    horizon_min: don't search beyond this many minutes (default 12h)
-    step_sec: propagation step (60s gives ~6 km along-track at 7 km/s)
+    horizon_min: don't search beyond this many minutes (default 24h)
+    step_sec: propagation step (30s gives ~3 km along-track at 7 km/s)
     """
-    if not SGP4_AVAILABLE:
+    if not SGP4_AVAILABLE or SGP4_AVAILABLE == "sgp4_only":
+        # Hand-rolled GMST has a sign bug; only pyorbital is correct here.
         return None
     norads = COMPARATOR_NORAD.get(comparator_source, [])
     if not norads:
-        return None  # geostationary or unknown
+        return None
     tles = _fetch_celestrak_active_tle()
     if not tles:
         return None
-    # JSON cache rehydration: keys may be strings
     if tles and isinstance(next(iter(tles.keys()), 0), str):
         tles = {int(k): v for k, v in tles.items()}
+    # Strip tzinfo for pyorbital, which expects naive UTC
+    if after_t.tzinfo is not None:
+        after_t = after_t.replace(tzinfo=None)
     best = None
     for nid in norads:
         meta = tles.get(nid)
         if not meta:
             continue
         try:
-            sat = Satrec.twoline2rv(meta["line1"], meta["line2"])
+            sat = Orbital(meta["name"], line1=meta["line1"], line2=meta["line2"])
         except Exception:
             continue
         swath_half = SWATH_HALF_KM.get(nid, 1000.0)
         t = after_t
         end_t = after_t + timedelta(minutes=horizon_min)
         while t <= end_t:
-            jd, fr = jday(t.year, t.month, t.day, t.hour, t.minute,
-                          t.second + t.microsecond / 1e6)
-            err, r, v = sat.sgp4(jd, fr)
-            if err == 0:
-                try:
-                    sat_lat, sat_lng = _eci_to_geo(r, t)
-                    if _haversine_km(sat_lat, sat_lng, target_lat, target_lng) < swath_half:
-                        elapsed = (t - after_t).total_seconds() / 60.0
-                        if best is None or elapsed < best:
-                            best = elapsed
-                        break  # found next pass for this sat
-                except Exception:
-                    pass
+            try:
+                lon, lat, _alt = sat.get_lonlatalt(t)
+                if _haversine_km(lat, lon, target_lat, target_lng) < swath_half:
+                    elapsed = (t - after_t).total_seconds() / 60.0
+                    if best is None or elapsed < best:
+                        best = elapsed
+                    break
+            except Exception:
+                pass
             t = t + timedelta(seconds=step_sec)
     return best
 
