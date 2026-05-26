@@ -126,8 +126,13 @@ migrations/
 └── 003_fire_events_schema.sql       fire_events + fire_event_evidence + audit + counts
 
 docs/
-├── ororatech_eval.md
-├── sar_cloud_penetration_eval.md
+├── methodology.md                  How the FP catalog was built
+├── data-schema.md                  Schema of data/sources.json
+├── win-classification.md           How PHOENIX counts wins (v2 permissive, 2026-05-26)
+├── PHOENIX_EXSUM_EN.md             External executive summary (English)
+├── PHOENIX_EXSUM_IT.md             External executive summary (Italian)
+├── PHOENIX_INGV_Pack_v1.2_Updates_EN.md
+├── PHOENIX_INGV_Pack_v1.2_Updates_IT.md
 └── (additional published methodology notes)
 ```
 
