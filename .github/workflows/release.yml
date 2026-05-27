@@ -1,0 +1,60 @@
+name: Tagged release with PDFs attached
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: install tooling
+        run: |
+          npm install -g @mermaid-js/mermaid-cli md-to-pdf
+          python -m pip install --upgrade pip
+          pip install matplotlib numpy
+
+      - name: install puppeteer chrome deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 \
+            libdrm2 libgbm1 libgtk-3-0 libpango-1.0-0 libxkbcommon0 libxss1 \
+            libasound2t64 libxshmfence1
+
+      - name: full PDF build
+        run: |
+          python scripts/generate_maps.py
+          python scripts/render_mermaid.py
+          python scripts/build_pdf_inputs.py
+          md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_INGV_Pack_EN_FINAL.md
+          md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_INGV_Pack_IT_FINAL.md
+          md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_EXSUM_EN.md
+          md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_EXSUM_IT.md
+          mkdir -p dist/pdf
+          mv docs/PHOENIX_INGV_Pack_EN_FINAL.pdf dist/pdf/PHOENIX_INGV_Pack_EN.pdf
+          mv docs/PHOENIX_INGV_Pack_IT_FINAL.pdf dist/pdf/PHOENIX_INGV_Pack_IT.pdf
+          mv docs/PHOENIX_EXSUM_EN.pdf dist/pdf/PHOENIX_EXSUM_EN.pdf
+          mv docs/PHOENIX_EXSUM_IT.pdf dist/pdf/PHOENIX_EXSUM_IT.pdf
+
+      - name: create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/pdf/PHOENIX_INGV_Pack_EN.pdf
+            dist/pdf/PHOENIX_INGV_Pack_IT.pdf
+            dist/pdf/PHOENIX_EXSUM_EN.pdf
+            dist/pdf/PHOENIX_EXSUM_IT.pdf
