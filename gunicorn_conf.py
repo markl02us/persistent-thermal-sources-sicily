@@ -427,3 +427,31 @@ def post_fork(server, worker):
         _log.info("null bootstrap daemon started (nightly at 02:00 UTC)")
     except Exception as _e:
         _log.error("bootstrap daemon start failed: %s", _e)
+
+    # PHOENIX 2026-05-26 - daily regrade watchdog
+    # Runs scripts/regrade.py against today's published snapshot and reports
+    # any mismatch on shared event_keys. Fires at 03:00 UTC, after snapshot+bootstrap.
+    try:
+        from threading import Thread
+        import time as _wdt
+        import subprocess as _wdsp
+        from datetime import datetime as _wddt, timezone as _wdtz
+        def _watchdog_loop():
+            cwd = "/home/mark/.openclaw/workspace/eumetsat_wildfire_detection"
+            last_date = None
+            while True:
+                try:
+                    now = _wddt.now(_wdtz.utc)
+                    # Fire once per day at 03:00 UTC (after snapshot 00:00 + bootstrap 02:00)
+                    if now.hour == 3 and last_date != now.date():
+                        _wdsp.run(["python3", "scripts/regrade_watchdog.py"],
+                                  cwd=cwd, check=False, capture_output=True, timeout=900)
+                        _log.info("regrade watchdog completed for %s", now.date())
+                        last_date = now.date()
+                except Exception as _ie:
+                    _log.warning("watchdog daemon error: %s", _ie)
+                _wdt.sleep(1800)  # check every 30 min
+        Thread(target=_watchdog_loop, daemon=True).start()
+        _log.info("regrade watchdog daemon started (nightly at 03:00 UTC)")
+    except Exception as _e:
+        _log.error("watchdog daemon start failed: %s", _e)

@@ -3332,11 +3332,48 @@ def _wins_json_graded():
             d['refuted'] += 1
         else:
             d['unconfirmed'] += 1
+    # Compute per-detector binomial test against the null "all detections are FP"
+    # (i.e., precision = 0). p-value = 1 - CDF_binomial(confirmed-1, total, p_null=0).
+    # Then apply Benjamini-Hochberg q-values across detectors.
+    import math as _math
+    raw_p = {}
+    for src, d in detector_buckets.items():
+        resolved = d['confirmed'] + d['refuted']
+        # Null: p_null = average refuted rate across all PHX detectors as a global FP prior
+        # Empirical estimate of expected-confirmed-under-null: each confirmation
+        # is 'noise' if the detector is FP-dominated. Use one-sided binomial test:
+        # H0: precision <= 0.5%; H1: precision > 0.5%.
+        p_null = 0.005
+        # P(X >= confirmed | n=resolved, p=p_null)
+        if resolved == 0 or d['confirmed'] == 0:
+            raw_p[src] = 1.0
+            continue
+        # one-sided binomial p-value via simple sum
+        try:
+            from math import comb
+            pv = sum(comb(resolved, k) * (p_null**k) * ((1-p_null)**(resolved-k))
+                     for k in range(d['confirmed'], resolved + 1))
+            raw_p[src] = max(0.0, min(1.0, pv))
+        except Exception:
+            raw_p[src] = 1.0
+    # Benjamini-Hochberg q-values
+    sorted_p = sorted(raw_p.items(), key=lambda kv: kv[1])
+    m = max(1, len(sorted_p))
+    q_values = {}
+    prev_q = 1.0
+    for i, (src, p) in enumerate(reversed(sorted_p)):
+        rank = m - i
+        q = min(prev_q, p * m / rank)
+        q_values[src] = q
+        prev_q = q
+
     for src, d in detector_buckets.items():
         resolved = d['confirmed'] + d['refuted']
         lo, hi = _wilson_ci(d['confirmed'], max(1, resolved))
         per_detector[src] = {
             **d,
+            'binomial_p_value': raw_p.get(src),
+            'bh_q_value': q_values.get(src),
             'resolved_n': resolved,
             'precision_point': (d['confirmed'] / resolved) if resolved > 0 else None,
             'precision_wilson_lo': lo,
@@ -3941,6 +3978,12 @@ const I18N = {
     auth_p: 'Union of every fire that Vigili del Fuoco, NASA FIRMS, EUMETSAT, Sentinel-3 SLSTR, or other authoritative sources reported. These are the ground-truth events for the week; PHOENIX\\'s contribution to each (co-detected / missed) is shown per row.',
     race_h2: '✅ Race-strict algorithmic leads (PHOENIX-led)',
     race_p: 'PHOENIX detected before a satellite comparator AND the lead is &lt;50% of the comparator\\'s revisit window. Refuted events excluded.',
+    section_codetected: '🤝 Co-detected with comparator',
+    section_external_only: '👏 Caught by others, missed by PHOENIX',
+    section_refuted: '❌ Refuted at T+72h (likely false positives)',
+    section_unconfirmed: '🟡 Unconfirmed PHOENIX leads (T0, awaiting T+72h)',
+    section_unverifiable: '⚠️ Unverifiable (cloud-blocked or no Sentinel-2 scene)',
+    section_below_floor: '📉 Below comparator detection floor',
   },
   it: {
     nav_map: '← Mappa', nav_accuracy: 'Precisione per fonte',
@@ -3953,6 +3996,12 @@ const I18N = {
     auth_p: 'Unione di ogni incendio segnalato da Vigili del Fuoco, NASA FIRMS, EUMETSAT, Sentinel-3 SLSTR o altre fonti autoritative. Sono gli eventi di ground-truth della settimana; il contributo di PHOENIX a ciascuno (co-rilevato / mancato) è mostrato per riga.',
     race_h2: '✅ Anticipi algoritmici stretti (PHOENIX in testa)',
     race_p: 'PHOENIX ha rilevato prima di un comparatore satellitare E l\\'anticipo è &lt;50% del periodo di rivisita del comparatore. Eventi confutati esclusi.',
+    section_codetected: '🤝 Co-rilevati con un comparatore',
+    section_external_only: '👏 Catturati da altri, mancati da PHOENIX',
+    section_refuted: '❌ Confutati a T+72h (probabili falsi positivi)',
+    section_unconfirmed: '🟡 Anticipi PHOENIX non confermati (T0, in attesa T+72h)',
+    section_unverifiable: '⚠️ Non verificabile (S-2 oscurato da nuvole o assente)',
+    section_below_floor: '📉 Sotto la soglia di rilevazione del comparatore',
   }
 };
 function applyLang(lang){
@@ -3976,7 +4025,10 @@ function provenance(w){
   const d = w.first_ts ? w.first_ts.slice(0, 10) : '';
   const firms = `https://firms.modaps.eosdis.nasa.gov/map/#d:${d};@${w.lng},${w.lat},10z`;
   const cop = `https://browser.dataspace.copernicus.eu/?zoom=13&lat=${w.lat}&lng=${w.lng}&fromTime=${d}T00:00:00.000Z&toTime=${d}T23:59:59.999Z&datasetId=S2L2A`;
-  return `<a href="${firms}" target="_blank" aria-label="Verify on NASA FIRMS map">🛰️ FIRMS</a> · <a href="${cop}" target="_blank" aria-label="Verify on Copernicus Browser">🌍 Copernicus Browser</a>`;
+  // Wayback Machine archived snapshot of the FIRMS map at this date.
+  // ``if_/`` strips the Wayback toolbar so the underlying page is rendered as-served at archive time.
+  const wb = `https://web.archive.org/web/${d.replace(/-/g,'')}000000if_/${firms}`;
+  return `<a href="${firms}" target="_blank" aria-label="Verify on NASA FIRMS map">🛰️ FIRMS</a> · <a href="${cop}" target="_blank" aria-label="Verify on Copernicus Browser">🌍 Copernicus</a> · <a href="${wb}" target="_blank" aria-label="Archived FIRMS snapshot via Wayback Machine">📚 Wayback</a>`;
 }
 function raceBadge(w){
   if(w.race_strict === true) return '<span class="race-valid" aria-label="Race-strict win">RACE-STRICT</span>';
@@ -4160,10 +4212,16 @@ function renderPerDetector(per){
   return Object.entries(per).sort((a,b)=>b[1].total - a[1].total).map(([src, d]) => {
     const point = d.precision_point === null ? 'n/a' : pct(d.precision_point);
     const interval = ci(d.precision_wilson_lo, d.precision_wilson_hi);
+    const q = d.bh_q_value;
+    const qDisplay = (q === null || q === undefined) ? '—'
+                      : q < 0.001 ? '<0.001'
+                      : q.toFixed(3);
+    const qColor = (q !== null && q !== undefined && q < 0.05) ? '#2ecc71' : '#e67e22';
     return `<div class="detchip">
       <b>${label(src)}</b><br>
       <span style="color:#bdc3c7">total ${d.total} · confirmed ${d.confirmed} · refuted ${d.refuted} · pending ${d.unconfirmed} · unverif ${d.unverifiable} · below-floor ${d.below_floor}</span><br>
-      precision <span class="pct">${point}</span> <span class="ci">${interval}</span> <span class="ci" style="font-size:.8em">(n=${d.resolved_n} resolved)</span>
+      precision <span class="pct">${point}</span> <span class="ci">${interval}</span> <span class="ci" style="font-size:.8em">(n=${d.resolved_n} resolved)</span><br>
+      <span style="font-size:.75em;color:#95a5a6">BH q-value vs null (p_null=0.5%): <span style="color:${qColor}">${qDisplay}</span> ${q !== null && q !== undefined && q < 0.05 ? '(separable from FP-noise)' : '(not separable)'}</span>
     </div>`;
   }).join('');
 }
