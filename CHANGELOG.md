@@ -8,6 +8,49 @@ non-data corrections (authorship, metadata), minor for additive data changes
 
 ---
 
+## [1.2.2] — 2026-05-29 — Burn-scar driven relabel patch (training-positives only)
+
+### Changed
+
+- Applied 8 burn-scar-driven relabel suggestions to the v1.2.1 manual-review session. No mask catalog changes — these are training-positive bucket corrections (7 unsure-to-ag_burn/real_fire promotions, 1 ag_burn-to-unsure regression for a cell still showing persistent thermal activity in the last 48h).
+- The objective evidence (Sentinel-2 dNBR scar at the USGS-standard moderate-burn threshold of 0.27 or higher; still-active-in-48h thermal signal for the regression case) disagreed with the v1.2.1 reviewer call for these 8 cells. Auto-applied because (a) dNBR is unambiguous geophysics, and (b) 7 of 8 are pure bucket moves between training-positive files (no FP-mask catalog impact).
+
+### Relabel detail (8 cells)
+
+| idx | from | to | dNBR max | severity | basis |
+|---|---|---|---|---|---|
+| 0 | unsure | ag_burn | 0.35 | moderate | localized scar NE quadrant ~244m, signal cooled past 48h |
+| 2 | unsure | ag_burn | 0.36 | moderate | localized scar SW quadrant ~170m, signal cooled past 48h |
+| 18 | unsure | ag_burn | 0.36 | moderate | localized scar SE quadrant ~257m, signal cooled past 48h |
+| 40 | ag_burn | unsure | 0.16 | low | no post-window scar, signal STILL ACTIVE in 48h (persistent not transient) |
+| 79 | unsure | real_fire | 0.48 | high | localized scar SW quadrant ~185m, signal cooled past 48h |
+| 83 | unsure | real_fire | 0.40 | moderate | localized scar SE quadrant ~183m, signal cooled past 48h |
+| 84 | unsure | real_fire | 0.48 | high | localized scar SW quadrant ~247m, signal cooled past 48h |
+| 100 | unsure | ag_burn | 0.27 | moderate | localized scar NE quadrant ~74m, signal cooled past 48h |
+
+### New session totals after v1.2.2
+
+- classified (mask): 17 (unchanged)
+- real_fire: 20 + 3 = 23
+- ag_burn: 65 + 4 - 1 = 68
+- unsure: 12 - 7 + 1 = 6
+- total: 114
+
+### Updated files
+
+- `docs/manual_review_progress_2026_05_29.json` — appended 8 new action records (audit trail preserved; `compute_counts` is last-action-wins per idx, so totals flip correctly).
+- `docs/manual_review_real_fire_2026_05_29.json` — added 3 entries (idx 79, 83, 84) with `applied_from = "burn_scar_suggestion"` and `basis` text.
+- `docs/manual_review_agricultural_burns_2026_05_29.json` — added 4 entries (idx 0, 2, 18, 100), removed 1 (idx 40).
+- `docs/manual_review_unsure_2026_05_29.json` — added 1 entry (idx 40, flagged `removed_from_ag_burn_pending_review`), removed 7 (idx 0, 2, 18, 79, 83, 84, 100).
+
+### Honesty notes
+
+- No mask catalog changes. `data/sources.json`, `data/sources.csv`, `data/sources.geojson` are byte-identical to v1.2.1. Total mask entries remain 335 (318 baseline + 17 from v1.2.1).
+- The idx 40 regression preserves audit trail: its original ag_burn evidence is retained as the `basis` field on the new unsure record, and `flag = "removed_from_ag_burn_pending_review"` marks why it was dropped from the training-positive set.
+- The dNBR 0.27 threshold is the USGS-standard moderate-burn cutoff (Key & Benson 2006); applying it as the auto-relabel gate aligns with established burn-severity classification.
+
+---
+
 ## [1.2.1] — 2026-05-29 — Manual review of 114 ambiguous cells
 
 ### Added

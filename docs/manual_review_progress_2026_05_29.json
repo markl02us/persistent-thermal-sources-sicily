@@ -1059,6 +1059,86 @@
       "lat": 37.42,
       "lon": 13.56,
       "ts": "2026-05-29T22:31:11.937570+00:00"
+    },
+    {
+      "idx": 0,
+      "action": "ag_burn",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 37.55,
+      "lon": 14.69,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 2,
+      "action": "ag_burn",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 37.55,
+      "lon": 14.67,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 18,
+      "action": "ag_burn",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 36.95,
+      "lon": 14.79,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 40,
+      "action": "unsure",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 36.93,
+      "lon": 14.81,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 79,
+      "action": "real_fire",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 37.21,
+      "lon": 14.51,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 83,
+      "action": "real_fire",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 37.05,
+      "lon": 14.91,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 84,
+      "action": "real_fire",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 37.01,
+      "lon": 14.87,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 100,
+      "action": "ag_burn",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 37.25,
+      "lon": 14.55,
+      "ts": "2026-05-29T22:44:59.297600+00:00",
+      "applied_from": "burn_scar_suggestion"
     }
   ],
   "started_at": "2026-05-29T22:00:58.912949+00:00"

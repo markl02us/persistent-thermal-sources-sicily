@@ -247,6 +247,27 @@
     "training_label": "real_wildfire_positive"
   },
   {
+    "idx": 79,
+    "lat": 37.21,
+    "lon": 14.51,
+    "hits_7d": 3,
+    "avg_frp_mw": 9.23,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Residential and commercial development with regular street grid, buildings, and surrounding agricultural fields indicating suburban/peri-urban area.",
+      "vision_primary": "urban",
+      "suggested_mask_radius_m": 600
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.48, severity=high, localized scar in SW quadrant, ~185m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+  },
+  {
     "idx": 82,
     "lat": 37.25,
     "lon": 14.39,
@@ -264,6 +285,48 @@
     "flagged_at": "2026-05-29T22:29:47.150672+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 83,
+    "lat": 37.05,
+    "lon": 14.91,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.52,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed residential and agricultural area with buildings, roads, and small field parcels scattered throughout wooded terrain.",
+      "vision_primary": "urban",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.40, severity=moderate, localized scar in SE quadrant, ~183m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+  },
+  {
+    "idx": 84,
+    "lat": 37.01,
+    "lon": 14.87,
+    "hits_7d": 3,
+    "avg_frp_mw": 7.83,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Large white plume consistent with active smoke or dust cloud obscuring much of the tile, with visible agricultural fields and orchards around the periphery.",
+      "vision_primary": "possible_fire",
+      "suggested_mask_radius_m": 500
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.48, severity=high, localized scar in SW quadrant, ~247m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
   },
   {
     "idx": 93,

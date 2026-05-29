@@ -1,5 +1,49 @@
 [
   {
+    "idx": 0,
+    "lat": 37.55,
+    "lon": 14.69,
+    "hits_7d": 9,
+    "avg_frp_mw": 4.03,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural landscape with cultivated fields, some organized tree plantings, and natural vegetation patterns without persistent thermal anomaly sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.35, severity=moderate, localized scar in NE quadrant, ~244m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+  },
+  {
+    "idx": 2,
+    "lat": 37.55,
+    "lon": 14.67,
+    "hits_7d": 8,
+    "avg_frp_mw": 2.83,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural land with green fields, terraced slopes, and orchards but no persistent industrial thermal sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.36, severity=moderate, localized scar in SW quadrant, ~170m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+  },
+  {
     "idx": 5,
     "lat": 37.43,
     "lon": 14.53,
@@ -158,6 +202,28 @@
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 18,
+    "lat": 36.95,
+    "lon": 14.79,
+    "hits_7d": 5,
+    "avg_frp_mw": 2.89,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Rural agricultural landscape with mixed crop fields and a small settlement, showing typical Mediterranean farming patterns with no industrial heat sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.36, severity=moderate, localized scar in SE quadrant, ~257m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
   },
   {
     "idx": 19,
@@ -375,26 +441,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:28:02.644424+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 40,
-    "lat": 36.93,
-    "lon": 14.81,
-    "hits_7d": 4,
-    "avg_frp_mw": 3.08,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Terraced agricultural landscape with contour patterns, scattered buildings, and mixed crop/orchard cultivation on hillsides.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:05.434609+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -1138,6 +1184,28 @@
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 100,
+    "lat": 37.25,
+    "lon": 14.55,
+    "hits_7d": 3,
+    "avg_frp_mw": 9.91,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Highway interchange with surrounding agricultural fields and vegetation corridor, no clear persistent thermal source.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 350
+    },
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "Sentinel-2 dNBR scar present (max=0.27, severity=moderate, localized scar in NE quadrant, ~74m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
   },
   {
     "idx": 105,

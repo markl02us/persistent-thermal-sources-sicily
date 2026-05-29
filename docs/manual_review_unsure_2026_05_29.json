@@ -1,21 +1,5 @@
 [
   {
-    "idx": 0,
-    "lat": 37.55,
-    "lon": 14.69,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Mixed agricultural landscape with cultivated fields, some organized tree plantings, and natural vegetation patterns without persistent thermal anomaly sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:00:58.911707+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
     "idx": 1,
     "lat": 37.59,
     "lon": 14.95,
@@ -29,22 +13,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:01:01.023489+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
-    "idx": 2,
-    "lat": 37.55,
-    "lon": 14.67,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Mixed agricultural land with green fields, terraced slopes, and orchards but no persistent industrial thermal sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:01:02.886153+00:00",
     "reviewer": "Alessandria Della Rocca Applications"
   },
   {
@@ -80,22 +48,6 @@
     "reviewer": "Alessandria Della Rocca Applications"
   },
   {
-    "idx": 18,
-    "lat": 36.95,
-    "lon": 14.79,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Rural agricultural landscape with mixed crop fields and a small settlement, showing typical Mediterranean farming patterns with no industrial heat sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:26:08.864077+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
     "idx": 33,
     "lat": 37.12,
     "lon": 14.12,
@@ -112,52 +64,23 @@
     "reviewer": "Alessandria Della Rocca Applications"
   },
   {
-    "idx": 79,
-    "lat": 37.21,
-    "lon": 14.51,
+    "idx": 40,
+    "lat": 36.93,
+    "lon": 14.81,
     "vision_prior": {
       "category": null,
       "subcategory": null,
       "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Residential and commercial development with regular street grid, buildings, and surrounding agricultural fields indicating suburban/peri-urban area.",
-      "vision_primary": "urban",
-      "suggested_mask_radius_m": 600
-    },
-    "flagged_at": "2026-05-29T22:29:40.898030+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
-    "idx": 83,
-    "lat": 37.05,
-    "lon": 14.91,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Mixed residential and agricultural area with buildings, roads, and small field parcels scattered throughout wooded terrain.",
-      "vision_primary": "urban",
+      "confidence": 0.8,
+      "evidence": "Terraced agricultural landscape with contour patterns, scattered buildings, and mixed crop/orchard cultivation on hillsides.",
+      "vision_primary": "agricultural_field",
       "suggested_mask_radius_m": 300
     },
-    "flagged_at": "2026-05-29T22:29:51.988323+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
-    "idx": 84,
-    "lat": 37.01,
-    "lon": 14.87,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Large white plume consistent with active smoke or dust cloud obscuring much of the tile, with visible agricultural fields and orchards around the periphery.",
-      "vision_primary": "possible_fire",
-      "suggested_mask_radius_m": 500
-    },
-    "flagged_at": "2026-05-29T22:29:54.771252+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
+    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "applied_from": "burn_scar_suggestion",
+    "basis": "no Sentinel-2 dNBR scar in post-window (max=0.16, severity=low) + thermal signal still active within 48h (last internal ts 2026-05-29T10:55:11.273294+00:00) \u2192 signal is persistent, not transient burn",
+    "flag": "removed_from_ag_burn_pending_review"
   },
   {
     "idx": 89,
@@ -173,22 +96,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:30:18.097321+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
-    "idx": 100,
-    "lat": 37.25,
-    "lon": 14.55,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Highway interchange with surrounding agricultural fields and vegetation corridor, no clear persistent thermal source.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 350
-    },
-    "flagged_at": "2026-05-29T22:30:44.621340+00:00",
     "reviewer": "Alessandria Della Rocca Applications"
   }
 ]
