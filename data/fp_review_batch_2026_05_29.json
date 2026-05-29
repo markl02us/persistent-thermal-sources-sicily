@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-29T16:28:54.097305+00:00",
-  "description": "Persistent thermal cells from PHOENIX detections 2026-05-22..2026-05-29 that have no OSM landuse match within 600m. Candidates for human review — could be agricultural burns, real fires not yet ground-truthed, or persistent thermals not on OSM.",
-  "count": 34,
+  "generated_at": "2026-05-29T20:30:00+00:00",
+  "description": "Persistent thermal cells from PHOENIX detections 2026-05-22..2026-05-29 that could not be auto-classified via OSM landuse match within 600m AND were not high-confidence vision-classifiable. Candidates for human review — could be agricultural burns, real fires not yet ground-truthed, or persistent thermals not on OSM.",
+  "count": 114,
   "cells": [
     {
       "lat": 37.55,
@@ -15,101 +15,44 @@
       "avg_frp_mw": 4.03,
       "first_seen": "2026-05-22T11:57:15.334694+00:00",
       "last_seen": "2026-05-23T13:57:31.849049+00:00",
-      "osm_categories": []
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Mixed agricultural landscape with cultivated fields, some organized tree plantings, and natural vegetation patterns without persistent thermal anomaly sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
     },
     {
-      "lat": 36.8513,
-      "lon": 14.4281,
-      "hits_7d": 8,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.604,
-      "avg_frp_mw": 5.95,
-      "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-23T14:53:00.310287+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 36.8513,
-      "lon": 14.4881,
+      "lat": 37.59,
+      "lon": 14.95,
       "hits_7d": 8,
       "distinct_days_7d": 4,
       "sources": [
         "subpixel_v1_alpha",
         "wind_diff"
       ],
-      "avg_confidence": 0.687,
-      "avg_frp_mw": 14.74,
-      "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-26T10:51:54.253406+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 36.9704,
-      "lon": 14.6895,
-      "hits_7d": 8,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "fci_l1c"
-      ],
-      "avg_confidence": 0.636,
-      "avg_frp_mw": 2.35,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-27T06:07:17.513814",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.17,
-      "lon": 14.63,
-      "hits_7d": 8,
-      "distinct_days_7d": 3,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.602,
-      "avg_frp_mw": 5.46,
+      "avg_confidence": 0.626,
+      "avg_frp_mw": 28.16,
       "first_seen": "2026-05-22T12:31:18.804135+00:00",
-      "last_seen": "2026-05-25T06:06:28.125525+00:00",
-      "osm_categories": []
+      "last_seen": "2026-05-27T13:40:24.593737+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.9,
+        "evidence": "Predominantly forested/vegetated hillside with scattered buildings and natural vegetation cover, no industrial thermal sources visible.",
+        "vision_primary": "forest",
+        "suggested_mask_radius_m": 300
+      }
     },
     {
-      "lat": 37.3901,
-      "lon": 14.6088,
-      "hits_7d": 8,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.644,
-      "avg_frp_mw": 6.39,
-      "first_seen": "2026-05-22T12:31:18.804135+00:00",
-      "last_seen": "2026-05-23T14:53:00.310287+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.5095,
-      "lon": 14.7702,
-      "hits_7d": 8,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "fci_l1c"
-      ],
-      "avg_confidence": 0.622,
-      "avg_frp_mw": 2.95,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-24T03:36:16.863719",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.5504,
-      "lon": 14.6698,
+      "lat": 37.55,
+      "lon": 14.67,
       "hits_7d": 8,
       "distinct_days_7d": 2,
       "sources": [
@@ -120,51 +63,40 @@
       "avg_frp_mw": 2.83,
       "first_seen": "2026-05-22T07:40:32.038101",
       "last_seen": "2026-05-23T13:57:31.849049+00:00",
-      "osm_categories": []
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Mixed agricultural land with green fields, terraced slopes, and orchards but no persistent industrial thermal sources visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
     },
     {
-      "lat": 37.55,
-      "lon": 14.71,
-      "hits_7d": 8,
-      "distinct_days_7d": 2,
+      "lat": 37.57,
+      "lon": 14.73,
+      "hits_7d": 7,
+      "distinct_days_7d": 3,
       "sources": [
+        "fci_l1c",
         "subpixel_v1_alpha"
       ],
-      "avg_confidence": 0.594,
-      "avg_frp_mw": 4.13,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.55,
-      "lon": 14.73,
-      "hits_7d": 8,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.594,
-      "avg_frp_mw": 4.13,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.5702,
-      "lon": 14.73,
-      "hits_7d": 8,
-      "distinct_days_7d": 4,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff",
-        "fci_l1c"
-      ],
-      "avg_confidence": 0.601,
-      "avg_frp_mw": 3.06,
+      "avg_confidence": 0.6,
+      "avg_frp_mw": 2.54,
       "first_seen": "2026-05-22T12:31:18.804135+00:00",
       "last_seen": "2026-05-27T08:45:48.623559",
-      "osm_categories": []
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixed agricultural parcels with some green fields and bare soil, no persistent industrial features visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
     },
     {
       "lat": 36.77,
@@ -179,225 +111,16 @@
       "avg_frp_mw": 11.26,
       "first_seen": "2026-05-22T11:57:15.334694+00:00",
       "last_seen": "2026-05-23T13:57:51.327460+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 36.89,
-      "lon": 14.99,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.627,
-      "avg_frp_mw": 9.12,
-      "first_seen": "2026-05-22T12:31:18.804135+00:00",
-      "last_seen": "2026-05-24T04:40:10.419346+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.0494,
-      "lon": 14.6906,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "fci_l1c"
-      ],
-      "avg_confidence": 0.592,
-      "avg_frp_mw": 1.85,
-      "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-23T10:13:42.729895",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.0909,
-      "lon": 14.0679,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.59,
-      "avg_frp_mw": 5.24,
-      "first_seen": "2026-05-22T13:26:12.347247+00:00",
-      "last_seen": "2026-05-23T14:53:00.310287+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.0909,
-      "lon": 14.1279,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.679,
-      "avg_frp_mw": 13.02,
-      "first_seen": "2026-05-22T13:07:09.128860+00:00",
-      "last_seen": "2026-05-23T14:53:00.310287+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.0909,
-      "lon": 14.1879,
-      "hits_7d": 7,
-      "distinct_days_7d": 3,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.772,
-      "avg_frp_mw": 34.89,
-      "first_seen": "2026-05-22T13:26:12.347247+00:00",
-      "last_seen": "2026-05-25T13:23:24.997166+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.09,
-      "lon": 14.61,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.596,
-      "avg_frp_mw": 3.3,
-      "first_seen": "2026-05-22T12:31:18.804135+00:00",
-      "last_seen": "2026-05-25T15:50:44.816007+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.11,
-      "lon": 14.11,
-      "hits_7d": 7,
-      "distinct_days_7d": 3,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.65,
-      "avg_frp_mw": 19.28,
-      "first_seen": "2026-05-22T13:07:09.128860+00:00",
-      "last_seen": "2026-05-25T15:32:33.180595+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.13,
-      "lon": 14.63,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.566,
-      "avg_frp_mw": 3.55,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.13,
-      "lon": 14.65,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.594,
-      "avg_frp_mw": 3.0,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.1508,
-      "lon": 14.1279,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.633,
-      "avg_frp_mw": 10.5,
-      "first_seen": "2026-05-22T13:26:12.347247+00:00",
-      "last_seen": "2026-05-23T14:53:00.310287+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.15,
-      "lon": 14.65,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.573,
-      "avg_frp_mw": 2.39,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.17,
-      "lon": 14.65,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.573,
-      "avg_frp_mw": 2.39,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.29,
-      "lon": 14.43,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.552,
-      "avg_frp_mw": 2.49,
-      "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-23T13:57:31.849049+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.29,
-      "lon": 14.45,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.552,
-      "avg_frp_mw": 2.49,
-      "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-23T13:57:31.849049+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.29,
-      "lon": 14.49,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.588,
-      "avg_frp_mw": 3.96,
-      "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-23T13:57:31.849049+00:00",
-      "osm_categories": []
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Clear turquoise coastal waters with small beach area in upper right corner, no industrial features present.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
     },
     {
       "lat": 37.43,
@@ -412,80 +135,39 @@
       "avg_frp_mw": 3.03,
       "first_seen": "2026-05-22T12:48:53.225775+00:00",
       "last_seen": "2026-05-23T13:57:51.327460+00:00",
-      "osm_categories": []
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly agricultural cropland with field patterns and minimal industrial infrastructure visible, though small structures may be present.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
     },
     {
-      "lat": 37.4496,
-      "lon": 14.5305,
+      "lat": 37.29,
+      "lon": 14.43,
       "hits_7d": 7,
-      "distinct_days_7d": 3,
+      "distinct_days_7d": 2,
       "sources": [
-        "subpixel_v1_alpha",
-        "fci_l1c"
+        "subpixel_v1_alpha"
       ],
-      "avg_confidence": 0.573,
-      "avg_frp_mw": 2.48,
+      "avg_confidence": 0.552,
+      "avg_frp_mw": 2.49,
       "first_seen": "2026-05-22T12:48:53.225775+00:00",
-      "last_seen": "2026-05-28T07:36:25.368205",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.5106,
-      "lon": 14.9497,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "fci_l1c"
-      ],
-      "avg_confidence": 0.613,
-      "avg_frp_mw": 4.21,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T09:57:30.273091",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.55,
-      "lon": 14.89,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.586,
-      "avg_frp_mw": 3.6,
-      "first_seen": "2026-05-22T12:31:18.804135+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 37.55,
-      "lon": 14.91,
-      "hits_7d": 7,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha"
-      ],
-      "avg_confidence": 0.588,
-      "avg_frp_mw": 3.55,
-      "first_seen": "2026-05-22T12:31:18.804135+00:00",
-      "last_seen": "2026-05-23T13:39:22.483447+00:00",
-      "osm_categories": []
-    },
-    {
-      "lat": 36.75,
-      "lon": 14.61,
-      "hits_7d": 6,
-      "distinct_days_7d": 2,
-      "sources": [
-        "subpixel_v1_alpha",
-        "wind_diff"
-      ],
-      "avg_confidence": 0.575,
-      "avg_frp_mw": 2.03,
-      "first_seen": "2026-05-22T11:57:15.334694+00:00",
-      "last_seen": "2026-05-23T13:57:51.327460+00:00",
-      "osm_categories": []
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Rolling agricultural terrain with field boundaries and mixed vegetation, lacking obvious industrial thermal sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
     },
     {
       "lat": 36.77,
@@ -500,7 +182,2507 @@
       "avg_frp_mw": 7.18,
       "first_seen": "2026-05-22T11:57:15.334694+00:00",
       "last_seen": "2026-05-23T13:57:51.327460+00:00",
-      "osm_categories": []
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Dark uniform surface indicating open water body, likely Mediterranean Sea.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 36.75,
+      "lon": 14.61,
+      "hits_7d": 6,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.575,
+      "avg_frp_mw": 2.03,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Dark uniform surface consistent with open water, no visible land features or thermal sources.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.41,
+      "hits_7d": 6,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.561,
+      "avg_frp_mw": 2.08,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixed cropland and pasture fields with no persistent industrial features visible, primarily green agricultural parcels.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.03,
+      "lon": 14.87,
+      "hits_7d": 5,
+      "distinct_days_7d": 5,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.651,
+      "avg_frp_mw": 4.67,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-28T06:42:55.220074",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixed agricultural fields with crop patterns, scattered trees, and field boundaries but no industrial infrastructure visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.03,
+      "lon": 14.91,
+      "hits_7d": 5,
+      "distinct_days_7d": 4,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.633,
+      "avg_frp_mw": 0.94,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-27T07:17:57.865593",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Green agricultural fields with scattered buildings, trees, and rural residential structures but no persistent industrial heat sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.93,
+      "lon": 14.91,
+      "hits_7d": 5,
+      "distinct_days_7d": 3,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.595,
+      "avg_frp_mw": 2.03,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-26T09:33:25.246232",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Hilly terrain with olive groves and scattered agricultural vegetation showing typical Mediterranean agricultural patterns.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.95,
+      "hits_7d": 5,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.6,
+      "avg_frp_mw": 5.64,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-24T04:40:10.419346+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Several greenhouse structures visible among agricultural fields with characteristic reflective surfaces, though partially obscured by clouds or smoke.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.53,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.564,
+      "avg_frp_mw": 4.48,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly agricultural fields with some scattered small structures, but lacks clear industrial features that would cause persistent thermal anomalies.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.33,
+      "lon": 14.57,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.582,
+      "avg_frp_mw": 3.57,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly agricultural fields with irregular boundaries and some tree rows, but no obvious persistent industrial heat sources visible in this tile.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.11,
+      "lon": 14.71,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.567,
+      "avg_frp_mw": 2.01,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Terraced agricultural land with winding roads through mixed forest and cleared areas, typical hillside farming in Sicily but no persistent thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.11,
+      "lon": 14.73,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.567,
+      "avg_frp_mw": 2.01,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixed agriculture with cleared fields, scattered orchards, and forest patches showing natural land use patterns without industrial thermal sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.95,
+      "lon": 14.79,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.559,
+      "avg_frp_mw": 2.89,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Rural agricultural landscape with mixed crop fields and a small settlement, showing typical Mediterranean farming patterns with no industrial heat sources visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.27,
+      "lon": 14.43,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.551,
+      "avg_frp_mw": 2.15,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Mixed agricultural landscape with forested areas, cultivated fields including orchards, and rural access roads in hilly terrain.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 37.03,
+      "lon": 14.75,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.525,
+      "avg_frp_mw": 2.61,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Terraced agricultural hillside with scattered farm buildings and cultivated fields, typical rural Sicily landscape.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.85,
+      "lon": 14.43,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.567,
+      "avg_frp_mw": 2.55,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Dark uniform surface consistent with Mediterranean Sea waters off Sicily coast.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.49,
+      "lon": 15.03,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.608,
+      "avg_frp_mw": 3.83,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-24T05:00:54.416545+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.9,
+        "evidence": "Mixed agricultural parcels with orchards (dark green rows), bare fields, and small farm structures with vegetation patterns.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.51,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.602,
+      "avg_frp_mw": 4.25,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Hilly terrain with mixed agricultural parcels and some small cultivated patches, but no clear persistent industrial thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.15,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.605,
+      "avg_frp_mw": 10.62,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Image shows coastal waters with wave patterns and no industrial or agricultural features visible.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 36.91,
+      "lon": 14.39,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.61,
+      "avg_frp_mw": 2.24,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.98,
+        "evidence": "Deep uniform dark blue water with no visible features, likely Mediterranean Sea.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 37.19,
+      "lon": 14.65,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.562,
+      "avg_frp_mw": 3.04,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly agricultural fields with contoured terracing and crop patterns, no clear persistent thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.11,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.577,
+      "avg_frp_mw": 3.06,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Dark uniform water surface with subtle wave patterns in the upper portion, Mediterranean Sea south of Sicily.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.29,
+      "hits_7d": 5,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.537,
+      "avg_frp_mw": 1.81,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.98,
+        "evidence": "Uniform dark water surface with no visible land or structures, open Mediterranean Sea.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 36.97,
+      "lon": 14.93,
+      "hits_7d": 4,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.58,
+      "avg_frp_mw": 4.58,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-24T04:40:10.419346+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Mixed agricultural fields with scattered structures and forested areas, lacking clear industrial or persistent thermal sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.83,
+      "lon": 14.57,
+      "hits_7d": 4,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.681,
+      "avg_frp_mw": 13.74,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-24T09:51:58.112591+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Mixed agricultural parcels with scattered trees and field boundaries, small buildings present but no concentrated industrial features typical of persistent false positives.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.76,
+      "lon": 14.82,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.833,
+      "avg_frp_mw": 76.11,
+      "first_seen": "2026-05-22T07:24:46.880178",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Agricultural landscape with field parcels, tree lines along water courses, and sparse vegetation but no industrial infrastructure visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.99,
+      "lon": 14.77,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.6,
+      "avg_frp_mw": 1.83,
+      "first_seen": "2026-05-22T07:27:48.094849",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Terraced agricultural fields with scattered buildings and tree coverage, showing rural farming activity without industrial false-positive sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.12,
+      "lon": 14.12,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.82,
+      "avg_frp_mw": 62.5,
+      "first_seen": "2026-05-22T07:40:32.038905",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Large rectangular crop fields with some farm buildings and a meandering watercourse, typical agricultural land use without industrial features.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.85,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.653,
+      "avg_frp_mw": 6.92,
+      "first_seen": "2026-05-22T08:31:16.087996",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Terraced hillside cropland with contour farming patterns showing rows of trees or crops, no industrial infrastructure visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.91,
+      "lon": 14.91,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.593,
+      "avg_frp_mw": 2.05,
+      "first_seen": "2026-05-22T09:26:09.522549",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Contour-terraced hillside with agricultural plantings arranged in curved patterns following topography, appears to be olive groves or orchards.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.07,
+      "lon": 14.19,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.573,
+      "avg_frp_mw": 6.03,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.98,
+        "evidence": "Uniform dark blue coloration indicates open water body with no industrial or human-made features visible.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.07,
+      "lon": 14.21,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.566,
+      "avg_frp_mw": 5.33,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Dark blue-green water surface with slight texture from waves, small section of shoreline visible in upper right corner.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 36.95,
+      "lon": 14.89,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.564,
+      "avg_frp_mw": 2.54,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Terraced hillsides with contour farming patterns and scattered vegetation, typical Mediterranean agricultural landscape with olive groves.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.95,
+      "lon": 14.91,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.564,
+      "avg_frp_mw": 2.54,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Mixed agricultural parcels showing crop fields with regular rectangular patterns and orchards in tan/beige colors indicating harvested or fallow fields.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.93,
+      "lon": 14.81,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.557,
+      "avg_frp_mw": 3.08,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Terraced agricultural landscape with contour patterns, scattered buildings, and mixed crop/orchard cultivation on hillsides.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.93,
+      "lon": 14.87,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.548,
+      "avg_frp_mw": 2.87,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Heavily terraced hillsides with contour agriculture and dense vegetation patterns typical of Mediterranean farming on steep slopes.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.93,
+      "lon": 14.89,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.564,
+      "avg_frp_mw": 2.54,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Terraced hillside with olive groves and natural vegetation showing typical Mediterranean agricultural patterns with winding contours but no industrial infrastructure.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.21,
+      "lon": 14.67,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.581,
+      "avg_frp_mw": 2.74,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.9,
+        "evidence": "Open cropland with field boundaries and some linear vegetation strips but no persistent thermal anomaly sources visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.35,
+      "lon": 14.53,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.607,
+      "avg_frp_mw": 4.07,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Rolling agricultural terrain with field boundaries and cultivation patterns but no persistent industrial thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.31,
+      "lon": 14.49,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.633,
+      "avg_frp_mw": 5.11,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Rolling agricultural fields with field boundaries and roads, no persistent thermal features visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.27,
+      "lon": 14.41,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.561,
+      "avg_frp_mw": 2.64,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Dense array of linear rectangular structures in upper left portion consistent with greenhouse/polytunnel installations mixed with agricultural fields.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.25,
+      "lon": 14.41,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.561,
+      "avg_frp_mw": 2.64,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Agricultural terraces and field patterns with roads, no industrial or persistent thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.17,
+      "lon": 14.27,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.589,
+      "avg_frp_mw": 1.94,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-24T07:31:48.511721",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly bare agricultural fields with minimal infrastructure, though one small dense green area (top right) could be a small glasshouse cluster causing thermal anomaly.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.07,
+      "lon": 14.31,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.588,
+      "avg_frp_mw": 3.61,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Large rectangular reflective structures with green vegetation alongside transportation corridor, typical of commercial greenhouse operations near roadway infrastructure.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.75,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.561,
+      "avg_frp_mw": 2.57,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Terraced agricultural fields with some green vegetation strips but no persistent industrial heat source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.13,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.624,
+      "avg_frp_mw": 7.78,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Deep water with surface ripples pattern, no industrial or thermal features visible.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 37.27,
+      "lon": 14.49,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.601,
+      "avg_frp_mw": 3.24,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly agricultural cropland with undulating terrain and scattered small structures, lacking clear persistent industrial thermal signatures.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.19,
+      "lon": 14.61,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.61,
+      "avg_frp_mw": 10.23,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Large agricultural fields with crop rows and some scattered vegetation, typical cropland without persistent industrial thermal features.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.07,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.553,
+      "avg_frp_mw": 2.19,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.99,
+        "evidence": "Uniform dark blue coloring consistent with open water (Mediterranean Sea).",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.09,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.551,
+      "avg_frp_mw": 2.11,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.99,
+        "evidence": "Uniform dark blue coloring consistent with open water (Mediterranean Sea).",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 36.99,
+      "lon": 14.87,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.538,
+      "avg_frp_mw": 0.83,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Cultivated agricultural fields with contour patterns and some scattered trees, but no persistent industrial thermal features visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.43,
+      "lon": 14.51,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.545,
+      "avg_frp_mw": 2.44,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.88,
+        "evidence": "Mixed cropland with field boundaries and some orchard plantings visible, lacking distinct industrial thermal anomaly sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.87,
+      "lon": 14.75,
+      "hits_7d": 4,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.623,
+      "avg_frp_mw": 8.12,
+      "first_seen": "2026-05-23T13:55:56.932018+00:00",
+      "last_seen": "2026-05-25T13:23:22.272656+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Mixed cropland and pasture with linear field patterns and scattered vegetation, lacking industrial infrastructure for persistent thermal signature.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.35,
+      "lon": 14.49,
+      "hits_7d": 3,
+      "distinct_days_7d": 3,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.585,
+      "avg_frp_mw": 2.54,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-25T07:38:18.986789",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Mixed agricultural terrain with some vegetation patches and field boundaries but no clear persistent industrial thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.31,
+      "lon": 14.57,
+      "hits_7d": 3,
+      "distinct_days_7d": 3,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.658,
+      "avg_frp_mw": 2.12,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-28T07:01:00.288596",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.65,
+        "evidence": "Hilly agricultural terrain with field patterns and scattered vegetation but no obvious persistent industrial thermal anomaly source.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.05,
+      "lon": 14.87,
+      "hits_7d": 3,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.61,
+      "avg_frp_mw": 7.77,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "White reflective linear structures visible among terraced agricultural land and vegetation, consistent with greenhouse installations despite some cloud interference.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.21,
+      "lon": 14.79,
+      "hits_7d": 3,
+      "distinct_days_7d": 3,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.636,
+      "avg_frp_mw": 4.3,
+      "first_seen": "2026-05-22T14:21:37.788348+00:00",
+      "last_seen": "2026-05-28T06:08:12.967680",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Regular rectangular patterns visible in the cleared agricultural area suggesting greenhouse structures on hillside terrain.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.07,
+      "lon": 14.93,
+      "hits_7d": 3,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.603,
+      "avg_frp_mw": 6.58,
+      "first_seen": "2026-05-22T14:21:37.788348+00:00",
+      "last_seen": "2026-05-25T07:46:10.044144+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Residential settlement with white buildings arranged along roads in valley terrain with surrounding agricultural plots.",
+        "vision_primary": "urban",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.72,
+      "lon": 13.4,
+      "hits_7d": 3,
+      "distinct_days_7d": 3,
+      "sources": [
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.642,
+      "avg_frp_mw": 0.01,
+      "first_seen": "2026-05-24T06:49:41.122072",
+      "last_seen": "2026-05-27T06:41:09.901945",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Mixed agricultural fields with some tree lines and rural structures, but no distinct industrial or greenhouse features visible that would cause persistent thermal anomalies.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.91,
+      "lon": 14.83,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.538,
+      "avg_frp_mw": 1.04,
+      "first_seen": "2026-05-22T08:48:51.000233",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Predominantly agricultural landscape with irregular field patterns, scattered trees, and some small structures but no clear industrial thermal source.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 36.76,
+      "lon": 14.87,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.61,
+      "avg_frp_mw": 0.01,
+      "first_seen": "2026-05-22T10:39:12.994297",
+      "last_seen": "2026-05-25T04:36:02.928640",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Agricultural fields with tree boundaries and a major road/highway intersection, typical rural landscape without obvious persistent thermal anomaly sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 37.21,
+      "lon": 14.75,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.602,
+      "avg_frp_mw": 5.44,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T14:33:18.658157+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Rural agricultural landscape with scattered buildings, curved roads, and field boundaries but no persistent industrial heat sources visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.97,
+      "lon": 14.89,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.505,
+      "avg_frp_mw": 3.77,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "River meander with surrounding cultivated fields showing crop patterns and vegetation strips, with one isolated building but no industrial features.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 36.89,
+      "lon": 14.87,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.544,
+      "avg_frp_mw": 3.69,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Mixed agricultural landscape with visible field parcels including orchards and cultivated areas with scattered farm buildings along roads.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.77,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.585,
+      "avg_frp_mw": 2.9,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly natural hillside terrain with winding paths and some cleared areas but lacking persistent industrial infrastructure that would cause repeated false positives.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.89,
+      "lon": 14.93,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.55,
+      "avg_frp_mw": 3.97,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Semi-arid landscape with scattered trees and vegetation patterns typical of Mediterranean agriculture without obvious industrial infrastructure.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.41,
+      "lon": 14.49,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.54,
+      "avg_frp_mw": 2.09,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Cultivated field patterns with green vegetation and plowed areas characteristic of active farmland without persistent thermal sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.33,
+      "lon": 14.49,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.635,
+      "avg_frp_mw": 4.53,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly agricultural fields with varied crop patterns and some green vegetation but no clear persistent industrial thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.33,
+      "lon": 14.51,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.635,
+      "avg_frp_mw": 4.53,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Patchwork of agricultural fields with riparian vegetation along waterway but no obvious industrial structures or persistent thermal anomaly sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.31,
+      "lon": 14.47,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.629,
+      "avg_frp_mw": 4.89,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Mix of cultivated fields with irregular field patterns and winding roads, no clear industrial or persistent thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.99,
+      "lon": 14.91,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.532,
+      "avg_frp_mw": 1.92,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Dense forest vegetation with natural contours and winding paths, no industrial features or persistent heat sources visible.",
+        "vision_primary": "forest",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.97,
+      "lon": 14.75,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.557,
+      "avg_frp_mw": 2.26,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixture of cultivated fields, some forested areas, and scattered agricultural plots with no clear persistent thermal anomaly source.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 36.95,
+      "lon": 14.77,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.557,
+      "avg_frp_mw": 2.26,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Light-colored rectangular structures visible on slopes amid forested and agricultural areas, typical of greenhouse installations.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.21,
+      "lon": 14.51,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.623,
+      "avg_frp_mw": 9.23,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Residential and commercial development with regular street grid, buildings, and surrounding agricultural fields indicating suburban/peri-urban area.",
+        "vision_primary": "urban",
+        "suggested_mask_radius_m": 600
+      }
+    },
+    {
+      "lat": 36.97,
+      "lon": 14.35,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.581,
+      "avg_frp_mw": 4.38,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Uniform dark blue surface consistent with open water body, likely Mediterranean Sea.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 36.79,
+      "lon": 14.45,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.579,
+      "avg_frp_mw": 2.87,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.99,
+        "evidence": "Uniform dark blue water surface with no visible structures or thermal anomaly sources, likely Mediterranean Sea.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.25,
+      "lon": 14.39,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.564,
+      "avg_frp_mw": 2.69,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Small cluster of reflective rectangular structures consistent with greenhouse polytunnels in agricultural area with surrounding vegetation.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.05,
+      "lon": 14.91,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.557,
+      "avg_frp_mw": 1.52,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixed residential and agricultural area with buildings, roads, and small field parcels scattered throughout wooded terrain.",
+        "vision_primary": "urban",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.87,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.604,
+      "avg_frp_mw": 7.83,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Large white plume consistent with active smoke or dust cloud obscuring much of the tile, with visible agricultural fields and orchards around the periphery.",
+        "vision_primary": "possible_fire",
+        "suggested_mask_radius_m": 500
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.89,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.54,
+      "avg_frp_mw": 1.1,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mixed agricultural landscape with olive groves and crop fields showing typical Mediterranean farming patterns without obvious industrial thermal sources.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.91,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.558,
+      "avg_frp_mw": 1.16,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Terraced hillside agriculture with olive groves and mixed cropland in a mountainous terrain, no persistent industrial features visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.01,
+      "lon": 14.93,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.558,
+      "avg_frp_mw": 1.16,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Patchwork of agricultural fields with boundaries and roads, no industrial infrastructure visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.91,
+      "lon": 14.93,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.545,
+      "avg_frp_mw": 2.73,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Terraced hillside with scattered trees and agricultural patterns, possible orchard areas visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 36.85,
+      "lon": 14.57,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.613,
+      "avg_frp_mw": 8.58,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-24T09:51:58.112591+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Rural landscape with scattered vegetation, fields, and small settlement, no clear industrial features.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 36.79,
+      "lon": 14.47,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.653,
+      "avg_frp_mw": 13.83,
+      "first_seen": "2026-05-22T13:44:17.364217+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.99,
+        "evidence": "Uniformly dark blue open water with no visible structures or thermal anomaly sources.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 37.53,
+      "lon": 14.59,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.543,
+      "avg_frp_mw": 2.67,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Rural agricultural landscape with fields and some cloud cover obscuring details, no clear persistent industrial thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.51,
+      "lon": 14.57,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.564,
+      "avg_frp_mw": 2.48,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Patchwork of cultivated fields with visible plow lines and some green vegetation, no industrial infrastructure present.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.49,
+      "lon": 14.53,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.544,
+      "avg_frp_mw": 1.98,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.9,
+        "evidence": "Dense dark green forest cover dominates the western portion with agricultural fields on the eastern side.",
+        "vision_primary": "forest",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.49,
+      "lon": 14.55,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.546,
+      "avg_frp_mw": 2.49,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Multiple small structures visible that appear to be greenhouses or agricultural buildings amid agricultural fields.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 37.45,
+      "lon": 14.49,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.539,
+      "avg_frp_mw": 1.86,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Mixed agricultural parcels with varying crop colors and field patterns, including green vegetated fields and bare soil areas with roads and field boundaries.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.45,
+      "lon": 14.51,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.539,
+      "avg_frp_mw": 1.86,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Patchwork of agricultural fields with mixed vegetation states showing green crops and harvested brown fields with linear field boundaries.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.43,
+      "lon": 14.49,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.539,
+      "avg_frp_mw": 1.86,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Hilly agricultural terrain with terraced or contoured fields, small orchards or vineyards, and winding roads through mixed cultivation areas.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.57,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.572,
+      "avg_frp_mw": 2.76,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Rural agricultural area with field parcels, roads, and scattered vegetation but no persistent industrial heat sources visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.27,
+      "lon": 14.55,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.676,
+      "avg_frp_mw": 8.81,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Multiple reflective rectangular structures consistent with greenhouse/polytunnel arrays visible among agricultural fields.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.25,
+      "lon": 14.55,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.685,
+      "avg_frp_mw": 9.91,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Highway interchange with surrounding agricultural fields and vegetation corridor, no clear persistent thermal source.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.73,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.559,
+      "avg_frp_mw": 1.21,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Dense forested mountainous terrain with winding roads and no visible industrial or persistent thermal features that would constitute a false positive.",
+        "vision_primary": "forest",
+        "suggested_mask_radius_m": 200
+      }
+    },
+    {
+      "lat": 37.07,
+      "lon": 14.75,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.525,
+      "avg_frp_mw": 1.65,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Mostly forested area with some cleared agricultural fields and roads but no persistent industrial thermal source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.03,
+      "lon": 14.95,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.541,
+      "avg_frp_mw": 1.15,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "White smoke plumes clearly visible in multiple locations across the forested and agricultural landscape suggesting active burning.",
+        "vision_primary": "possible_fire",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 36.99,
+      "lon": 14.33,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.599,
+      "avg_frp_mw": 5.45,
+      "first_seen": "2026-05-22T14:02:38.594956+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.95,
+        "evidence": "Tile shows uniform dark blue-green coloration consistent with open water, likely Mediterranean Sea with no visible land features or infrastructure.",
+        "vision_primary": "water",
+        "suggested_mask_radius_m": 1000
+      }
+    },
+    {
+      "lat": 37.0,
+      "lon": 14.7,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.607,
+      "avg_frp_mw": 0.04,
+      "first_seen": "2026-05-23T10:17:09.075857",
+      "last_seen": "2026-05-29T05:52:04.834770",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Large dark green rectangular structure in upper portion appears to be greenhouse complex with surrounding agricultural fields and tree lines.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.33,
+      "lon": 14.27,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.593,
+      "avg_frp_mw": 3.21,
+      "first_seen": "2026-05-23T13:39:22.483447+00:00",
+      "last_seen": "2026-05-25T14:13:22.476180+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Industrial facility with large red-roofed building and cleared/disturbed ground on hillside surrounded by forested terrain.",
+        "vision_primary": "industrial",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.18,
+      "lon": 14.75,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.597,
+      "avg_frp_mw": 11.63,
+      "first_seen": "2026-05-23T13:55:56.932018+00:00",
+      "last_seen": "2026-05-29T01:29:35.338934+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.85,
+        "evidence": "Mixed agricultural parcels with field boundaries, scattered rural buildings, and a road intersection with no industrial features visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.15,
+      "lon": 14.78,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.603,
+      "avg_frp_mw": 8.85,
+      "first_seen": "2026-05-23T13:55:56.932018+00:00",
+      "last_seen": "2026-05-29T01:29:35.338934+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.9,
+        "evidence": "Agricultural landscape with irregular field patterns, orchards, tree lines along water courses, and rural parcels without industrial infrastructure.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.34,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.672,
+      "avg_frp_mw": 5.27,
+      "first_seen": "2026-05-23T13:55:56.932018+00:00",
+      "last_seen": "2026-05-29T04:35:44.652307",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.8,
+        "evidence": "Terraced agricultural fields with orchards, natural vegetation patches, and scattered rural structures on hilly terrain.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 350
+      }
+    },
+    {
+      "lat": 36.85,
+      "lon": 14.54,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.675,
+      "avg_frp_mw": 5.52,
+      "first_seen": "2026-05-23T13:55:56.932018+00:00",
+      "last_seen": "2026-05-25T09:23:08.104409",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Agricultural area with what appears to be rectangular reflective structures in the center-left portion that could be greenhouses, though partially obscured.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
+    },
+    {
+      "lat": 37.83,
+      "lon": 14.63,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.574,
+      "avg_frp_mw": 4.62,
+      "first_seen": "2026-05-23T13:57:51.327460+00:00",
+      "last_seen": "2026-05-25T11:55:19.888182+00:00",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly bare and vegetated agricultural fields with some green vegetation along drainage lines, no persistent industrial heat source visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.86,
+      "lon": 13.12,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.705,
+      "avg_frp_mw": 0.02,
+      "first_seen": "2026-05-24T05:51:45.312150",
+      "last_seen": "2026-05-25T07:04:41.673918",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.7,
+        "evidence": "Predominantly open agricultural fields with contour farming patterns and minimal industrial features visible.",
+        "vision_primary": "agricultural_field",
+        "suggested_mask_radius_m": 300
+      }
+    },
+    {
+      "lat": 37.42,
+      "lon": 13.56,
+      "hits_7d": 3,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.614,
+      "avg_frp_mw": 0.02,
+      "first_seen": "2026-05-27T07:53:36.614731",
+      "last_seen": "2026-05-28T07:36:25.368488",
+      "osm_categories": [],
+      "vision_decision": {
+        "category": null,
+        "subcategory": null,
+        "source": "vision_low_conf",
+        "confidence": 0.75,
+        "evidence": "Multiple rectangular structures with reflective surfaces characteristic of greenhouse or polytunnel arrays scattered across agricultural land.",
+        "vision_primary": "glasshouse_complex",
+        "suggested_mask_radius_m": 400
+      }
     }
   ]
 }

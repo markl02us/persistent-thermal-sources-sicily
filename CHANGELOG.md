@@ -8,6 +8,58 @@ non-data corrections (authorship, metadata), minor for additive data changes
 
 ---
 
+## [1.2.0] — 2026-05-29 — Full 7-day harvest + vision pass (+284 entries)
+
+### Added
+
+- **284 new persistent thermal source entries** from the full PHOENIX
+  `internal_fires` 7-day window (not just the top-50 of v1.1.0). Breakdown:
+  - 218 glasshouse complexes (continued dominance of the Vittoria-Comiso-Pachino
+    polytunnel belt; vision picked up many cells OSM missed due to incomplete
+    landuse tagging in rural OSM)
+  - 24 quarries
+  - 22 urban heat-island cells
+  - 10 solar farms
+  - 10 industrial sites (light industrial, mixed)
+- **55 OSM-promoted** (unambiguous landuse polygon within 600 m).
+- **229 vision-promoted** via Claude Sonnet 4.5 satellite-imagery
+  classification on Esri World Imagery tiles. Threshold: confidence ≥ 0.85
+  AND predicted class ∈ persistent-FP set. Vision cost: $0.85 USD for the
+  full batch (86 batched calls × 4 tiles each).
+- `docs/WEEKLY_FP_REPORT_2026_05_29_v1_2_0.md` — full v1.2.0 methodology +
+  category breakdown + confidence distribution.
+- `docs/MANUAL_REVIEW_BATCH_2026_05_29.md` — 114-cell manual review queue
+  with per-cell vision result + Google Maps satellite link.
+- `data/fp_candidates_2026_05_29.json` regenerated with all 398 novel
+  candidates (was 50 in v1.1.0).
+- `data/fp_review_batch_2026_05_29.json` updated to 114 vision-flagged cells
+  (was 34 OSM-unmatched cells in v1.1.0).
+- `data/sources.csv` and `data/sources.geojson` regenerated.
+
+### Schema additions (per-entry, on new auto-promoted records)
+
+- `annotation_source`: `"osm"` or `"vision"` — disambiguates auto-promotion
+  origin. Existing v1.1.0 entries kept their schema (some had no
+  `annotation_source`; v1.2.0 entries always include it).
+- `annotation_confidence`: vision confidence (0.85–1.00) or 0.85/0.90 for
+  OSM (synthetic).
+- `evidence`: 1-sentence rationale from the vision call or OSM tag string.
+- `phoenix_stats`: per-cell hit count + distinct days + avg confidence + avg
+  FRP + detection-source list from the originating PHOENIX window.
+
+### Honesty notes
+
+- The vision threshold of 0.85 is conservative but not infallible. Any
+  catalog mask that subsequently intersects a FIRMS-confirmed real-fire
+  ground truth should be retired or split — that policy is unchanged.
+- Vision was batched 4 tiles per call for cost discipline. Output is
+  structured JSON-array with per-tile `index` field; no misalignments
+  observed but the manual-review queue is the safety net.
+- 114 cells did not pass vision auto-promote thresholds. These remain
+  outside the public catalog pending human review (Mark + Gaetano).
+
+---
+
 ## [1.1.0] — 2026-05-29 — First weekly FP harvest (+16 entries)
 
 ### Added
