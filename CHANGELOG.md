@@ -8,6 +8,31 @@ non-data corrections (authorship, metadata), minor for additive data changes
 
 ---
 
+## [1.2.1] — 2026-05-29 — Manual review of 114 ambiguous cells
+
+### Added
+
+- **17 new persistent thermal source entries** from human review of the v1.2.0 manual-review queue (114 cells that did not pass auto-vision thresholds). Reviewer classification breakdown:
+  - 17 water_body
+- `docs/manual_review_real_fire_2026_05_29.json` — 20 cell(s) flagged as candidate real-fire signal (NOT added to mask catalog; routed to training-positives).
+- `docs/manual_review_agricultural_burns_2026_05_29.json` — 65 cell(s) classified as agricultural burns (NOT added to mask catalog; routed to training-positives — same thermal characteristics as wildfire, valuable small-fire detector training signal).
+- `docs/manual_review_unsure_2026_05_29.json` — 12 cell(s) left unclassified pending further evidence.
+- `docs/manual_review_progress_2026_05_29.json` — full action log for the review session.
+
+### Schema additions
+
+- `annotation`: `"manual"` for human-reviewed entries.
+- `annotation_source`: `"manual_review_2026_05_29"`.
+- `annotation_confidence`: `"human_high"`.
+- `annotation_author`: `"Alessandria Della Rocca Applications"`.
+
+### Honesty notes
+
+- Cells classified as `real_fire` or `ag_burn` were NOT added to the mask catalog and remain visible to downstream PHOENIX detection. They are logged separately as positive training signal for the small-fire detector.
+- Cells marked `unsure` remain outside the catalog pending a second review pass or additional sensor evidence.
+
+---
+
 ## [1.2.0] — 2026-05-29 — Full 7-day harvest + vision pass (+284 entries)
 
 ### Added

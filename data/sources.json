@@ -5,9 +5,9 @@
     "license": "CC-BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "source_repo": "https://github.com/phoenix-wildfire/persistent-thermal-sources-sicily",
-    "version": "1.2.0",
-    "updated_at": "2026-05-29T20:30:00+00:00",
-    "n_sources": 318,
+    "version": "1.2.1",
+    "updated_at": "2026-05-29T22:31:17.801276+00:00",
+    "n_sources": 335,
     "methodology_summary": "Static seed from INGV-HOTSAT volcanic knowledge + Round-2 council research on Sicilian industrial sites. Auto-enrichment via OpenStreetMap Overpass. Mining of additional candidates from PHOENIX internal_fires history (cells firing >=6x in 12h windows without VIIRS confirmation).",
     "osm_enriched": true,
     "last_run_summary": {
@@ -16,7 +16,11 @@
       "queued_for_review": 114,
       "vision_cost_usd": 0.853,
       "novel_total": 398,
-      "harvested_at": "2026-05-29T20:30:00+00:00"
+      "harvested_at": "2026-05-29T20:30:00+00:00",
+      "manual_review_classified": 17,
+      "manual_review_real_fire": 20,
+      "manual_review_ag_burn": 65,
+      "manual_review_unsure": 12
     }
   },
   "sources": [
@@ -11450,6 +11454,482 @@
         "avg_frp_mw": 0.01,
         "sources": [
           "fci_l1c"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_7700-14_5900",
+      "name_it": "Cella persistente 36.7700N 14.5900E (water_body)",
+      "name_en": "Persistent cell 36.7700N 14.5900E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.77,
+      "lon": 14.59,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 7,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.623,
+        "avg_frp_mw": 11.26,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_7700-14_5700",
+      "name_it": "Cella persistente 36.7700N 14.5700E (water_body)",
+      "name_en": "Persistent cell 36.7700N 14.5700E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.77,
+      "lon": 14.57,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 6,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.592,
+        "avg_frp_mw": 7.18,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_7500-14_6100",
+      "name_it": "Cella persistente 36.7500N 14.6100E (water_body)",
+      "name_en": "Persistent cell 36.7500N 14.6100E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.75,
+      "lon": 14.61,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 6,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.575,
+        "avg_frp_mw": 2.03,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_8500-14_4300",
+      "name_it": "Cella persistente 36.8500N 14.4300E (water_body)",
+      "name_en": "Persistent cell 36.8500N 14.4300E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.85,
+      "lon": 14.43,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 5,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.567,
+        "avg_frp_mw": 2.55,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0900-14_1500",
+      "name_it": "Cella persistente 37.0900N 14.1500E (water_body)",
+      "name_en": "Persistent cell 37.0900N 14.1500E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.09,
+      "lon": 14.15,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 5,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.605,
+        "avg_frp_mw": 10.62,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_9100-14_3900",
+      "name_it": "Cella persistente 36.9100N 14.3900E (water_body)",
+      "name_en": "Persistent cell 36.9100N 14.3900E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.91,
+      "lon": 14.39,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.98).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 5,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.61,
+        "avg_frp_mw": 2.24,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0900-14_1100",
+      "name_it": "Cella persistente 37.0900N 14.1100E (water_body)",
+      "name_en": "Persistent cell 37.0900N 14.1100E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.09,
+      "lon": 14.11,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 5,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.577,
+        "avg_frp_mw": 3.06,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0100-14_2900",
+      "name_it": "Cella persistente 37.0100N 14.2900E (water_body)",
+      "name_en": "Persistent cell 37.0100N 14.2900E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.01,
+      "lon": 14.29,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.98).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 5,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.537,
+        "avg_frp_mw": 1.81,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0700-14_1900",
+      "name_it": "Cella persistente 37.0700N 14.1900E (water_body)",
+      "name_en": "Persistent cell 37.0700N 14.1900E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.07,
+      "lon": 14.19,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.98).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 4,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.573,
+        "avg_frp_mw": 6.03,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0700-14_2100",
+      "name_it": "Cella persistente 37.0700N 14.2100E (water_body)",
+      "name_en": "Persistent cell 37.0700N 14.2100E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.07,
+      "lon": 14.21,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 4,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.566,
+        "avg_frp_mw": 5.33,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0900-14_1300",
+      "name_it": "Cella persistente 37.0900N 14.1300E (water_body)",
+      "name_en": "Persistent cell 37.0900N 14.1300E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.09,
+      "lon": 14.13,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 4,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.624,
+        "avg_frp_mw": 7.78,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0900-14_0700",
+      "name_it": "Cella persistente 37.0900N 14.0700E (water_body)",
+      "name_en": "Persistent cell 37.0900N 14.0700E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.09,
+      "lon": 14.07,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.99).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 4,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.553,
+        "avg_frp_mw": 2.19,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0900-14_0900",
+      "name_it": "Cella persistente 37.0900N 14.0900E (water_body)",
+      "name_en": "Persistent cell 37.0900N 14.0900E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 37.09,
+      "lon": 14.09,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.99).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 4,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.551,
+        "avg_frp_mw": 2.11,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_9700-14_3500",
+      "name_it": "Cella persistente 36.9700N 14.3500E (water_body)",
+      "name_en": "Persistent cell 36.9700N 14.3500E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.97,
+      "lon": 14.35,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 3,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.581,
+        "avg_frp_mw": 4.38,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_7900-14_4500",
+      "name_it": "Cella persistente 36.7900N 14.4500E (water_body)",
+      "name_en": "Persistent cell 36.7900N 14.4500E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.79,
+      "lon": 14.45,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.99).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 3,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.579,
+        "avg_frp_mw": 2.87,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_7900-14_4700",
+      "name_it": "Cella persistente 36.7900N 14.4700E (water_body)",
+      "name_en": "Persistent cell 36.7900N 14.4700E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.79,
+      "lon": 14.47,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.99).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 3,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.653,
+        "avg_frp_mw": 13.83,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-36_9900-14_3300",
+      "name_it": "Cella persistente 36.9900N 14.3300E (water_body)",
+      "name_en": "Persistent cell 36.9900N 14.3300E (water_body)",
+      "category": "water_body",
+      "subcategory": "water_body",
+      "lat": 36.99,
+      "lon": 14.33,
+      "radius_km": 0.5,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as water_body. Vision prior: water (0.95).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 3,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.599,
+        "avg_frp_mw": 5.45,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
         ]
       }
     }
