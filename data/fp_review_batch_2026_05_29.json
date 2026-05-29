@@ -1,0 +1,506 @@
+{
+  "generated_at": "2026-05-29T16:28:54.097305+00:00",
+  "description": "Persistent thermal cells from PHOENIX detections 2026-05-22..2026-05-29 that have no OSM landuse match within 600m. Candidates for human review — could be agricultural burns, real fires not yet ground-truthed, or persistent thermals not on OSM.",
+  "count": 34,
+  "cells": [
+    {
+      "lat": 37.55,
+      "lon": 14.69,
+      "hits_7d": 9,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.593,
+      "avg_frp_mw": 4.03,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.8513,
+      "lon": 14.4281,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.604,
+      "avg_frp_mw": 5.95,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.8513,
+      "lon": 14.4881,
+      "hits_7d": 8,
+      "distinct_days_7d": 4,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.687,
+      "avg_frp_mw": 14.74,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-26T10:51:54.253406+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.9704,
+      "lon": 14.6895,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.636,
+      "avg_frp_mw": 2.35,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-27T06:07:17.513814",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.17,
+      "lon": 14.63,
+      "hits_7d": 8,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.602,
+      "avg_frp_mw": 5.46,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-25T06:06:28.125525+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.3901,
+      "lon": 14.6088,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.644,
+      "avg_frp_mw": 6.39,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.5095,
+      "lon": 14.7702,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.622,
+      "avg_frp_mw": 2.95,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-24T03:36:16.863719",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.5504,
+      "lon": 14.6698,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "fci_l1c",
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.603,
+      "avg_frp_mw": 2.83,
+      "first_seen": "2026-05-22T07:40:32.038101",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.55,
+      "lon": 14.71,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.594,
+      "avg_frp_mw": 4.13,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.55,
+      "lon": 14.73,
+      "hits_7d": 8,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.594,
+      "avg_frp_mw": 4.13,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.5702,
+      "lon": 14.73,
+      "hits_7d": 8,
+      "distinct_days_7d": 4,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff",
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.601,
+      "avg_frp_mw": 3.06,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-27T08:45:48.623559",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.77,
+      "lon": 14.59,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.623,
+      "avg_frp_mw": 11.26,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.89,
+      "lon": 14.99,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.627,
+      "avg_frp_mw": 9.12,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-24T04:40:10.419346+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.0494,
+      "lon": 14.6906,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.592,
+      "avg_frp_mw": 1.85,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T10:13:42.729895",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.0909,
+      "lon": 14.0679,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.59,
+      "avg_frp_mw": 5.24,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.0909,
+      "lon": 14.1279,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.679,
+      "avg_frp_mw": 13.02,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.0909,
+      "lon": 14.1879,
+      "hits_7d": 7,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.772,
+      "avg_frp_mw": 34.89,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-25T13:23:24.997166+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.09,
+      "lon": 14.61,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.596,
+      "avg_frp_mw": 3.3,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-25T15:50:44.816007+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.11,
+      "lon": 14.11,
+      "hits_7d": 7,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.65,
+      "avg_frp_mw": 19.28,
+      "first_seen": "2026-05-22T13:07:09.128860+00:00",
+      "last_seen": "2026-05-25T15:32:33.180595+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.13,
+      "lon": 14.63,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.566,
+      "avg_frp_mw": 3.55,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.13,
+      "lon": 14.65,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.594,
+      "avg_frp_mw": 3.0,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.1508,
+      "lon": 14.1279,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.633,
+      "avg_frp_mw": 10.5,
+      "first_seen": "2026-05-22T13:26:12.347247+00:00",
+      "last_seen": "2026-05-23T14:53:00.310287+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.15,
+      "lon": 14.65,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.573,
+      "avg_frp_mw": 2.39,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.17,
+      "lon": 14.65,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.573,
+      "avg_frp_mw": 2.39,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.43,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.552,
+      "avg_frp_mw": 2.49,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.45,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.552,
+      "avg_frp_mw": 2.49,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.29,
+      "lon": 14.49,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.588,
+      "avg_frp_mw": 3.96,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:31.849049+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.43,
+      "lon": 14.53,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.551,
+      "avg_frp_mw": 3.03,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.4496,
+      "lon": 14.5305,
+      "hits_7d": 7,
+      "distinct_days_7d": 3,
+      "sources": [
+        "subpixel_v1_alpha",
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.573,
+      "avg_frp_mw": 2.48,
+      "first_seen": "2026-05-22T12:48:53.225775+00:00",
+      "last_seen": "2026-05-28T07:36:25.368205",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.5106,
+      "lon": 14.9497,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "fci_l1c"
+      ],
+      "avg_confidence": 0.613,
+      "avg_frp_mw": 4.21,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T09:57:30.273091",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.55,
+      "lon": 14.89,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.586,
+      "avg_frp_mw": 3.6,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 37.55,
+      "lon": 14.91,
+      "hits_7d": 7,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha"
+      ],
+      "avg_confidence": 0.588,
+      "avg_frp_mw": 3.55,
+      "first_seen": "2026-05-22T12:31:18.804135+00:00",
+      "last_seen": "2026-05-23T13:39:22.483447+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.75,
+      "lon": 14.61,
+      "hits_7d": 6,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.575,
+      "avg_frp_mw": 2.03,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": []
+    },
+    {
+      "lat": 36.77,
+      "lon": 14.57,
+      "hits_7d": 6,
+      "distinct_days_7d": 2,
+      "sources": [
+        "subpixel_v1_alpha",
+        "wind_diff"
+      ],
+      "avg_confidence": 0.592,
+      "avg_frp_mw": 7.18,
+      "first_seen": "2026-05-22T11:57:15.334694+00:00",
+      "last_seen": "2026-05-23T13:57:51.327460+00:00",
+      "osm_categories": []
+    }
+  ]
+}

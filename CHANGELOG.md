@@ -8,6 +8,44 @@ non-data corrections (authorship, metadata), minor for additive data changes
 
 ---
 
+## [1.1.0] — 2026-05-29 — First weekly FP harvest (+16 entries)
+
+### Added
+
+- **16 new persistent thermal source entries** auto-promoted from the
+  PHOENIX `internal_fires` 7-day window (2026-05-22..2026-05-29) after
+  cross-referencing against OSM landuse polygons via Overpass. Breakdown:
+  - 10 glasshouse complexes in the Vittoria-Comiso-Pachino belt
+  - 3 photovoltaic solar farms in Caltagirone-Catania province
+  - 2 urban heat-island patches
+  - 1 landfill
+- `docs/WEEKLY_FP_REPORT_2026_05_29.md` — full methodology + auto-promotion
+  table + manual-review batch description.
+- `data/fp_candidates_2026_05_29.json` — raw classified candidate list (50)
+  with OSM categories per cell.
+- `data/fp_review_batch_2026_05_29.json` — 34 unmatched cells flagged for
+  individual human review (could be agricultural burns, undocumented small
+  fires, or OSM coverage gaps).
+- `data/sources.geojson` regenerated to include the new entries.
+
+### Why minor not patch
+
+This is the first additive data release after the v1.0.1 governance bump.
+Per the semver policy in this CHANGELOG, additive data changes bump the
+minor; major would only fire on breaking schema changes. New entries
+maintain the existing schema exactly.
+
+### Honesty note
+
+The 16 auto-promoted entries are flagged `"annotation": "auto"` in the
+JSON. Downstream consumers who want a hand-curated-only subset can filter
+on `annotation == "human"` (the original 18 entries are human-confirmed).
+The auto-promotions are intended to be high-confidence (clear OSM match)
+but consumers should treat them as machine-classified until manual review
+is performed.
+
+---
+
 ## [1.0.1] — 2026-05-29 — First operational version
 
 ### Changed

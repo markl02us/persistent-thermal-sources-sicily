@@ -1,13 +1,5 @@
 {
   "type": "FeatureCollection",
-  "metadata": {
-    "name": "PHOENIX persistent thermal sources — Sicily",
-    "description": "Locations that consistently appear as fires in overhead satellite imagery but are NOT wildfires (volcanic, industrial, agricultural).",
-    "license": "CC-BY 4.0",
-    "source": "https://adr-wildfire.com/",
-    "version": "1.0.0",
-    "updated_at": "2026-05-24T12:11:36.208158+00:00"
-  },
   "features": [
     {
       "type": "Feature",
@@ -24,8 +16,6 @@
         "name_en": "Mt. Etna summit craters",
         "category": "volcanic",
         "subcategory": "active_stratovolcano",
-        "lat": 37.751,
-        "lon": 14.9934,
         "radius_km": 15.0,
         "country": "IT",
         "region": "Sicilia",
@@ -49,7 +39,716 @@
           "street_view": "https://www.google.com/maps/@37.751,14.9934,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@37.751,14.9934,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 82,
+          "matches": [
+            {
+              "osm_id": "n58999222",
+              "category": "volcano",
+              "name": "Etna",
+              "tags": {
+                "name": "Etna",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n418157745",
+              "category": "volcano",
+              "name": "Crateri Silvestri inferiori",
+              "tags": {
+                "name": "Crateri Silvestri inferiori",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n418158100",
+              "category": "volcano",
+              "name": "Crateri Silvestri superiori",
+              "tags": {
+                "name": "Crateri Silvestri superiori",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n418165350",
+              "category": "volcano",
+              "name": "Montagnola",
+              "tags": {
+                "name": "Montagnola",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n418567974",
+              "category": "volcano",
+              "name": "Monte Centenari",
+              "tags": {
+                "name": "Monte Centenari",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n441413717",
+              "category": "volcano",
+              "name": "Cratere Piano del Lago o Escrivà",
+              "tags": {
+                "name": "Cratere Piano del Lago o Escrivà",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n441414520",
+              "category": "volcano",
+              "name": "Cratere di Sud-Est",
+              "tags": {
+                "name": "Cratere di Sud-Est",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n441414522",
+              "category": "volcano",
+              "name": "Cratere di Nord-Est",
+              "tags": {
+                "name": "Cratere di Nord-Est",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n443142157",
+              "category": "volcano",
+              "name": "Monte Simone",
+              "tags": {
+                "name": "Monte Simone",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n488308977",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n488308999",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n488309019",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n488309040",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n488313530",
+              "category": "volcano",
+              "name": "Monte Nero delle Concazze",
+              "tags": {
+                "name": "Monte Nero delle Concazze",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n1284871450",
+              "category": "volcano",
+              "name": "Monte Frumento Supino",
+              "tags": {
+                "name": "Monte Frumento Supino",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n2255020133",
+              "category": "volcano",
+              "name": "Cisternazza",
+              "tags": {
+                "name": "Cisternazza",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n2255587425",
+              "category": "volcano",
+              "name": "Nuovo Cratere di Sud-Est",
+              "tags": {
+                "name": "Nuovo Cratere di Sud-Est",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3006385235",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3006385236",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3006385237",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3006385238",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3378608107",
+              "category": "volcano",
+              "name": "Bocche del 1928 di Fosse Santoro 1",
+              "tags": {
+                "name": "Bocche del 1928 di Fosse Santoro 1",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3378680846",
+              "category": "volcano",
+              "name": "Bocche del 1928 di Fosse Santoro 2",
+              "tags": {
+                "name": "Bocche del 1928 di Fosse Santoro 2",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3378680847",
+              "category": "volcano",
+              "name": "Bocche del 1928 di Fosse Santoro 3",
+              "tags": {
+                "name": "Bocche del 1928 di Fosse Santoro 3",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3680905408",
+              "category": "volcano",
+              "name": "Cratere Monte Grosso",
+              "tags": {
+                "name": "Cratere Monte Grosso",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3914928770",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3914928789",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3914928796",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n4340539259",
+              "category": "volcano",
+              "name": "Cono eruzione 2001",
+              "tags": {
+                "name": "Cono eruzione 2001",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n4340732334",
+              "category": "volcano",
+              "name": "La Voragine",
+              "tags": {
+                "name": "La Voragine",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n4712281130",
+              "category": "volcano",
+              "name": "Coni 1971",
+              "tags": {
+                "name": "Coni 1971",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n4712290840",
+              "category": "volcano",
+              "name": "Bocca Nuova",
+              "tags": {
+                "name": "Bocca Nuova",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n4723791201",
+              "category": "volcano",
+              "name": "Bocche del 1809",
+              "tags": {
+                "name": "Bocche del 1809",
+                "natural": "volcano",
+                "geological": "volcanic_vent"
+              }
+            },
+            {
+              "osm_id": "n9267822704",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9268014927",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9268014948",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9269922149",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9282555270",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9282555271",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9282555287",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9282555304",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9282558221",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n9282558222",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n12823787910",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "w36825018",
+              "category": "industrial_works",
+              "name": "Masseria Passopomo",
+              "tags": {
+                "name": "Masseria Passopomo",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w36825245",
+              "category": "industrial_works",
+              "name": "Zappalà",
+              "tags": {
+                "name": "Zappalà",
+                "operator": "Zappalà s.p.a.",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w52033074",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w52324701",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w52324710",
+              "category": "quarry",
+              "name": "Ex Cava di Nicolosi: Cuore dell'Etna",
+              "tags": {
+                "name": "Ex Cava di Nicolosi: Cuore dell'Etna",
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w52429985",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w56134249",
+              "category": "industrial_landuse",
+              "name": "Area Artigianale Professor Mario Lupo",
+              "tags": {
+                "name": "Area Artigianale Professor Mario Lupo",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w61134358",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w64884769",
+              "category": "quarry",
+              "name": "Cava Sciarelle",
+              "tags": {
+                "name": "Cava Sciarelle",
+                "operator": "Ed.Ca.Ma.",
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w108784759",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w129971879",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w155476490",
+              "category": "farmyard_warehouse",
+              "name": null,
+              "tags": {
+                "landuse": "farmyard"
+              }
+            },
+            {
+              "osm_id": "w217866332",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w246582279",
+              "category": "farmyard_warehouse",
+              "name": "Fattoria Minerva",
+              "tags": {
+                "name": "Fattoria Minerva",
+                "landuse": "farmyard"
+              }
+            },
+            {
+              "osm_id": "w327305217",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w327305218",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w469939984",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w469939986",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w469953242",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w469983633",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w478707714",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w483716211",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "scrub",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w913290917",
+              "category": "volcanic_caldera",
+              "name": "Monte Serra Pizzuta",
+              "tags": {
+                "name": "Monte Serra Pizzuta",
+                "natural": "scrub",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w913294217",
+              "category": "volcanic_caldera",
+              "name": "Monte San Nicola",
+              "tags": {
+                "name": "Monte San Nicola",
+                "natural": "scrub",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w916915111",
+              "category": "volcanic_caldera",
+              "name": "Crateri Barbagallo",
+              "tags": {
+                "name": "Crateri Barbagallo",
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w1115603633",
+              "category": "power_plant",
+              "name": null,
+              "tags": {
+                "plant:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "w1156242540",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w1171445977",
+              "category": "industrial_landuse",
+              "name": "Zona Artigianale di Randazzo",
+              "tags": {
+                "name": "Zona Artigianale di Randazzo",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1177347534",
+              "category": "landfill",
+              "name": null,
+              "tags": {
+                "landuse": "landfill"
+              }
+            },
+            {
+              "osm_id": "w1280010990",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w1282934110",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1282934111",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "w1285086345",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w1285086346",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w1285093788",
+              "category": "quarry",
+              "name": null,
+              "tags": {
+                "landuse": "quarry"
+              }
+            },
+            {
+              "osm_id": "w1285874677",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1366537074",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w1492439565",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:13:10.458199+00:00"
+        },
         "sources_cited": [
           "INGV-HOTSAT",
           "PHOENIX-static"
@@ -71,8 +770,6 @@
         "name_en": "Stromboli volcano",
         "category": "volcanic",
         "subcategory": "continuously_active_volcano",
-        "lat": 38.789,
-        "lon": 15.213,
         "radius_km": 5.0,
         "country": "IT",
         "region": "Sicilia",
@@ -95,7 +792,130 @@
           "street_view": "https://www.google.com/maps/@38.789,15.213,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@38.789,15.213,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 13,
+          "matches": [
+            {
+              "osm_id": "n507681134",
+              "category": "volcano",
+              "name": "Stromboli",
+              "tags": {
+                "name": "Stromboli",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3421750876",
+              "category": "industrial_chimney",
+              "name": "Ciminiera",
+              "tags": {
+                "name": "Ciminiera",
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13150254663",
+              "category": "volcano",
+              "name": null,
+              "tags": {
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "w196336909",
+              "category": "power_generator",
+              "name": "Enel",
+              "tags": {
+                "operator": "Enel",
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w220476458",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w220534924",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w255108035",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w255108039",
+              "category": "volcanic_caldera",
+              "name": null,
+              "tags": {
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w333442100",
+              "category": "power_generator",
+              "name": "ENEL",
+              "tags": {
+                "name": "ENEL",
+                "operator": "Enel",
+                "generator:source": "gasoline",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w333592412",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w335939576",
+              "category": "landfill",
+              "name": "Area raccolta RSU",
+              "tags": {
+                "name": "Area raccolta RSU",
+                "landuse": "landfill"
+              }
+            },
+            {
+              "osm_id": "w337363317",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r11095717",
+              "category": "volcanic_caldera",
+              "name": "Sciara del Fuoco",
+              "tags": {
+                "name": "Sciara del Fuoco",
+                "natural": "scree",
+                "geological": "volcanic_caldera_rim"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:13:19.399243+00:00"
+        },
         "sources_cited": [
           "INGV-HOTSAT",
           "PHOENIX-static"
@@ -117,8 +937,6 @@
         "name_en": "La Fossa crater (Vulcano island)",
         "category": "volcanic",
         "subcategory": "fumarolic_field",
-        "lat": 38.404,
-        "lon": 14.964,
         "radius_km": 3.0,
         "country": "IT",
         "region": "Sicilia",
@@ -141,7 +959,83 @@
           "street_view": "https://www.google.com/maps/@38.404,14.964,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@38.404,14.964,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 8,
+          "matches": [
+            {
+              "osm_id": "n759587801",
+              "category": "volcano",
+              "name": "Vulcano",
+              "tags": {
+                "name": "Vulcano",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n3084410051",
+              "category": "volcano",
+              "name": "Vulcanello",
+              "tags": {
+                "name": "Vulcanello",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "n10951904047",
+              "category": "volcano",
+              "name": "Monte Luccia",
+              "tags": {
+                "name": "Monte Luccia",
+                "natural": "volcano"
+              }
+            },
+            {
+              "osm_id": "w101371583",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w216566657",
+              "category": "volcanic_caldera",
+              "name": "Gran Cratere",
+              "tags": {
+                "name": "Gran Cratere",
+                "natural": "cliff",
+                "geological": "volcanic_caldera_rim"
+              }
+            },
+            {
+              "osm_id": "w734269270",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1365899088",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1365899089",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:13:29.203627+00:00"
+        },
         "sources_cited": [
           "INGV",
           "PHOENIX-static"
@@ -163,8 +1057,6 @@
         "name_en": "Augusta-Priolo-Melilli petrochemical complex",
         "category": "industrial",
         "subcategory": "petrochemical_gas_flares",
-        "lat": 37.2,
-        "lon": 15.2,
         "radius_km": 5.0,
         "country": "IT",
         "region": "Sicilia",
@@ -189,11 +1081,41 @@
           "street_view": "https://www.google.com/maps/@37.2,15.2,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@37.2,15.2,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "error": "HTTP Error 504: Gateway Timeout",
+          "queried_at": "2026-05-24T12:13:43.637169+00:00"
+        },
         "sources_cited": [
           "PHOENIX-council-round2",
           "FIRMS-FP-evidence-2026-05-24"
-        ]
+        ],
+        "vision_result": {
+          "primary": "petrochemical_complex",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "port_industrial",
+            "storage_tanks",
+            "urban"
+          ],
+          "notes": "Large petrochemical and industrial port complex visible on left side of harbor with extensive storage tank farms (circular white tanks), industrial facilities, and port infrastructure. Multiple industrial zones around natural harbor with ships anchored. Dense urban development on right side. This is the Augusta harbor area in Sicily, known for major oil refining and petrochemical operations.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:20:54.984426+00:00",
+          "raw_response_chars": 548
+        },
+        "annotation": {
+          "auto_category": "petrochemical_complex",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "port_industrial",
+            "storage_tanks",
+            "urban"
+          ],
+          "auto_notes": "Large petrochemical and industrial port complex visible on left side of harbor with extensive storage tank farms (circular white tanks), industrial facilities, and port infrastructure. Multiple industrial zones around natural harbor with ships anchored. Dense urban development on right side. This is the Augusta harbor area in Sicily, known for major oil refining and petrochemical operations.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:20:54.984526+00:00"
+        }
       }
     },
     {
@@ -211,8 +1133,6 @@
         "name_en": "Gela refinery",
         "category": "industrial",
         "subcategory": "refinery",
-        "lat": 37.06,
-        "lon": 14.27,
         "radius_km": 3.0,
         "country": "IT",
         "region": "Sicilia",
@@ -234,7 +1154,1004 @@
           "street_view": "https://www.google.com/maps/@37.06,14.27,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@37.06,14.27,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 109,
+          "matches": [
+            {
+              "osm_id": "n1762422623",
+              "category": "gas_flare",
+              "name": null,
+              "tags": {
+                "man_made": "flare"
+              }
+            },
+            {
+              "osm_id": "n1762422626",
+              "category": "gas_flare",
+              "name": null,
+              "tags": {
+                "man_made": "flare"
+              }
+            },
+            {
+              "osm_id": "n1946423826",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2156292362",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2156292370",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2156292374",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2156292414",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2156292448",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2161078489",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2161078574",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2161078578",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2161078640",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2161078712",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2185199242",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2185212037",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2185212039",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2185212048",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2187229796",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2187229798",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2187229805",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2187229813",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2187229821",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n2187229832",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n3888042016",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n3892224291",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n3892224328",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n4412670652",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n4412670803",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n4412670891",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n4412670940",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "n6036436215",
+              "category": "petroleum_well",
+              "name": null,
+              "tags": {
+                "man_made": "petroleum_well"
+              }
+            },
+            {
+              "osm_id": "w181621783",
+              "category": "wastewater_plant",
+              "name": null,
+              "tags": {
+                "man_made": "wastewater_plant"
+              }
+            },
+            {
+              "osm_id": "w181778821",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "w181778839",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "w183830426",
+              "category": "power_plant",
+              "name": null,
+              "tags": {
+                "plant:source": "solar",
+                "generator:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "w184017920",
+              "category": "power_plant",
+              "name": null,
+              "tags": {
+                "plant:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "w184017923",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w184017925",
+              "category": "power_plant",
+              "name": null,
+              "tags": {
+                "plant:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "w184017933",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w310834167",
+              "category": "industrial_works",
+              "name": "Eni GreenStream",
+              "tags": {
+                "name": "Eni GreenStream",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w316975333",
+              "category": "landfill",
+              "name": null,
+              "tags": {
+                "landuse": "landfill"
+              }
+            },
+            {
+              "osm_id": "w320775205",
+              "category": "industrial_works",
+              "name": "Ascot International",
+              "tags": {
+                "name": "Ascot International",
+                "operator": "Ascot Industrial S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w388843143",
+              "category": "industrial_landuse",
+              "name": "Edil Market S.n.c.",
+              "tags": {
+                "name": "Edil Market S.n.c.",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w388843144",
+              "category": "industrial_works",
+              "name": "Gela Fruit",
+              "tags": {
+                "name": "Gela Fruit",
+                "operator": "Gela Fruit S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w388843146",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w388843147",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w388844255",
+              "category": "industrial_works",
+              "name": "Solac Prefabbricati",
+              "tags": {
+                "name": "Solac Prefabbricati",
+                "operator": "Solac Prefabbricati S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w388844256",
+              "category": "industrial_works",
+              "name": "Spinola",
+              "tags": {
+                "name": "Spinola",
+                "operator": "Spinola Ortofrutticola S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w389918406",
+              "category": "industrial_works",
+              "name": "ATO Ambiente CL2",
+              "tags": {
+                "name": "ATO Ambiente CL2",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w405831272",
+              "category": "industrial_landuse",
+              "name": "Scorrazzini Service Car",
+              "tags": {
+                "name": "Scorrazzini Service Car",
+                "operator": "Scorrazzini Service Car S.r.l.",
+                "industrial": "scrap_yard",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w418121377",
+              "category": "industrial_works",
+              "name": "Ergo Meccanica",
+              "tags": {
+                "name": "Ergo Meccanica",
+                "operator": "Ergo Meccanica S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418126488",
+              "category": "industrial_landuse",
+              "name": "Alabiso Francesco",
+              "tags": {
+                "name": "Alabiso Francesco",
+                "industrial": "scrap_yard",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w418126491",
+              "category": "industrial_works",
+              "name": "Cosmisud",
+              "tags": {
+                "name": "Cosmisud",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418126499",
+              "category": "industrial_works",
+              "name": "Eurotec",
+              "tags": {
+                "name": "Eurotec",
+                "operator": "Eurotec S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418126501",
+              "category": "industrial_works",
+              "name": "Gela Gas",
+              "tags": {
+                "name": "Gela Gas",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418126505",
+              "category": "industrial_works",
+              "name": "Gradito Oleodinamica",
+              "tags": {
+                "name": "Gradito Oleodinamica",
+                "operator": "Gradito Oleodinamica S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418126510",
+              "category": "industrial_works",
+              "name": "Induplast",
+              "tags": {
+                "name": "Induplast",
+                "operator": "Induplast S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418126517",
+              "category": "industrial_works",
+              "name": "Pescagel",
+              "tags": {
+                "name": "Pescagel",
+                "operator": "Pescagel Group S.p.a.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418130425",
+              "category": "industrial_works",
+              "name": "Amarù Giovanni",
+              "tags": {
+                "name": "Amarù Giovanni",
+                "operator": "Amarù Giovanni S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418130429",
+              "category": "industrial_works",
+              "name": "Eurorame",
+              "tags": {
+                "name": "Eurorame",
+                "operator": "Eurorame S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418130432",
+              "category": "industrial_works",
+              "name": "Metalmeccanica Iraci",
+              "tags": {
+                "name": "Metalmeccanica Iraci",
+                "operator": "Metalmeccanica Iraci S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w418130436",
+              "category": "industrial_works",
+              "name": "Molino Pellegrino",
+              "tags": {
+                "name": "Molino Pellegrino",
+                "operator": "Molino Pellegrino & C. S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w429994822",
+              "category": "industrial_landuse",
+              "name": "Coge Impianti",
+              "tags": {
+                "name": "Coge Impianti",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w429995779",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w429995780",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w429996791",
+              "category": "industrial_works",
+              "name": "Roma Costruzioni",
+              "tags": {
+                "name": "Roma Costruzioni",
+                "operator": "Roma Costruzioni S.r.l.",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w466139703",
+              "category": "industrial_works",
+              "name": "Costruzioni Edil Ponti Soc. Coop",
+              "tags": {
+                "name": "Costruzioni Edil Ponti Soc. Coop",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w466144345",
+              "category": "industrial_works",
+              "name": "Gruppo Paradiso",
+              "tags": {
+                "name": "Gruppo Paradiso",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w640838763",
+              "category": "power_plant",
+              "name": "Eni",
+              "tags": {
+                "operator": "Eni",
+                "plant:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "w1060072754",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072755",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072756",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072757",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072758",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072759",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072760",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072761",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072762",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072763",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072764",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072765",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072766",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072767",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072768",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072769",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072770",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072771",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072772",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072773",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072774",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072775",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072776",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072777",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072778",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072779",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072780",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072781",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072782",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w1060072783",
+              "category": "power_plant",
+              "name": null,
+              "tags": {
+                "plant:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "r2423951",
+              "category": "industrial_landuse",
+              "name": "Bioraffineria di Gela",
+              "tags": {
+                "name": "Bioraffineria di Gela",
+                "operator": "Eni",
+                "industrial": "oil",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r2452912",
+              "category": "industrial_works",
+              "name": "Irsap Gela",
+              "tags": {
+                "name": "Irsap Gela",
+                "landuse": "commercial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "r2803554",
+              "category": "industrial_landuse",
+              "name": "Settore Nord 1",
+              "tags": {
+                "name": "Settore Nord 1",
+                "operator": "Consorzio ASI Gela",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r5557386",
+              "category": "industrial_works",
+              "name": "Sicilsaldo",
+              "tags": {
+                "name": "Sicilsaldo",
+                "operator": "Sicilsaldo S.p.a.",
+                "industrial": "construction_company",
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "r6290457",
+              "category": "industrial_landuse",
+              "name": "Settore Nord 2",
+              "tags": {
+                "name": "Settore Nord 2",
+                "operator": "Consorzio ASI Gela",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r6290458",
+              "category": "industrial_landuse",
+              "name": "Settore Nord Est",
+              "tags": {
+                "name": "Settore Nord Est",
+                "operator": "Consorzio ASI Gela",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r6602009",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r7368318",
+              "category": "industrial_landuse",
+              "name": "Agroverde",
+              "tags": {
+                "name": "Agroverde",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "r9226626",
+              "category": "power_plant",
+              "name": "Eni",
+              "tags": {
+                "operator": "Eni",
+                "plant:source": "solar",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "r14138021",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "landuse": "industrial",
+                "man_made": "works"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:14:06.747620+00:00"
+        },
         "sources_cited": [
           "PHOENIX-council-round2"
         ]
@@ -255,8 +2172,6 @@
         "name_en": "Milazzo refinery",
         "category": "industrial",
         "subcategory": "refinery_with_flare",
-        "lat": 38.22,
-        "lon": 15.24,
         "radius_km": 3.0,
         "country": "IT",
         "region": "Sicilia",
@@ -277,7 +2192,422 @@
           "street_view": "https://www.google.com/maps/@38.22,15.24,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@38.22,15.24,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 49,
+          "matches": [
+            {
+              "osm_id": "w138069926",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w138069930",
+              "category": "wastewater_plant",
+              "name": "Depuratore comunale",
+              "tags": {
+                "name": "Depuratore comunale",
+                "man_made": "wastewater_plant"
+              }
+            },
+            {
+              "osm_id": "w138069964",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w139107421",
+              "category": "industrial_landuse",
+              "name": "Trio Impianti",
+              "tags": {
+                "name": "Trio Impianti",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w147253329",
+              "category": "industrial_works",
+              "name": null,
+              "tags": {
+                "man_made": "works"
+              }
+            },
+            {
+              "osm_id": "w199148083",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w199148092",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w199275693",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w199428633",
+              "category": "power_plant",
+              "name": "Impianto fotovoltaico di Milazzo",
+              "tags": {
+                "name": "Impianto fotovoltaico di Milazzo",
+                "operator": "Edison",
+                "plant:source": "solar",
+                "landuse": "industrial",
+                "power": "plant"
+              }
+            },
+            {
+              "osm_id": "w201761298",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969281",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969284",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969287",
+              "category": "industrial_landuse",
+              "name": "F.C.C.",
+              "tags": {
+                "name": "F.C.C.",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969290",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969311",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "w256969364",
+              "category": "industrial_landuse",
+              "name": "Topping n.4",
+              "tags": {
+                "name": "Topping n.4",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969379",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969380",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969390",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969402",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969410",
+              "category": "industrial_landuse",
+              "name": "H.D.S. 1",
+              "tags": {
+                "name": "H.D.S. 1",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969414",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969415",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w256969430",
+              "category": "industrial_landuse",
+              "name": "Topping n.3",
+              "tags": {
+                "name": "Topping n.3",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w276539201",
+              "category": "industrial_landuse",
+              "name": "Centro Mercantile Sicilia",
+              "tags": {
+                "name": "Centro Mercantile Sicilia",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325018551",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325018568",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325020557",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325020558",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325020559",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325042873",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325042876",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325051912",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w325062095",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w341414223",
+              "category": "industrial_landuse",
+              "name": "P.S.A.",
+              "tags": {
+                "name": "P.S.A.",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w363002463",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w365684356",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "generator:source": "solar",
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "w448820077",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w462654954",
+              "category": "industrial_landuse",
+              "name": "Mondo Mare Milazzo",
+              "tags": {
+                "name": "Mondo Mare Milazzo",
+                "industrial": "shipyard",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w478005598",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w478005618",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w524790565",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w647412927",
+              "category": "industrial_landuse",
+              "name": "SWS3",
+              "tags": {
+                "name": "SWS3",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w725099091",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1258963625",
+              "category": "industrial_landuse",
+              "name": null,
+              "tags": {
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1258963626",
+              "category": "farmyard_warehouse",
+              "name": null,
+              "tags": {
+                "landuse": "farmyard"
+              }
+            },
+            {
+              "osm_id": "w1258963633",
+              "category": "farmyard_warehouse",
+              "name": null,
+              "tags": {
+                "landuse": "farmyard"
+              }
+            },
+            {
+              "osm_id": "w1258963642",
+              "category": "farmyard_warehouse",
+              "name": null,
+              "tags": {
+                "landuse": "farmyard"
+              }
+            },
+            {
+              "osm_id": "r3437793",
+              "category": "refinery",
+              "name": "Raffineria di Milazzo",
+              "tags": {
+                "name": "Raffineria di Milazzo",
+                "industrial": "refinery",
+                "landuse": "industrial"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:14:33.008789+00:00"
+        },
         "sources_cited": [
           "PHOENIX-council-round2"
         ]
@@ -298,8 +2628,6 @@
         "name_en": "Former Fiat plant + Termini Imerese industrial port",
         "category": "industrial",
         "subcategory": "industrial_port",
-        "lat": 37.99,
-        "lon": 13.7,
         "radius_km": 3.0,
         "country": "IT",
         "region": "Sicilia",
@@ -318,7 +2646,29 @@
           "street_view": "https://www.google.com/maps/@37.99,13.7,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@37.99,13.7,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 2,
+          "matches": [
+            {
+              "osm_id": "w1253267112",
+              "category": "industrial_landuse",
+              "name": "Porto Commerciale",
+              "tags": {
+                "name": "Porto Commerciale",
+                "landuse": "industrial"
+              }
+            },
+            {
+              "osm_id": "w1253267113",
+              "category": "wastewater_plant",
+              "name": null,
+              "tags": {
+                "man_made": "wastewater_plant"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:14:49.496373+00:00"
+        },
         "sources_cited": [
           "PHOENIX-council-round2"
         ]
@@ -339,8 +2689,6 @@
         "name_en": "Catania port and industrial area",
         "category": "industrial",
         "subcategory": "port_industrial",
-        "lat": 37.5,
-        "lon": 15.1,
         "radius_km": 2.0,
         "country": "IT",
         "region": "Sicilia",
@@ -359,9 +2707,1437 @@
           "street_view": "https://www.google.com/maps/@37.5,15.1,3a,75y,90t/data=!3m6!1e1",
           "earth": "https://earth.google.com/web/@37.5,15.1,0a,1000d"
         },
-        "osm_tags": null,
+        "osm_tags": {
+          "n_matches": 19,
+          "matches": [
+            {
+              "osm_id": "n715502355",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n717443772",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n766976075",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n8991458400",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n8994528190",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n8994528191",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n8994528192",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n9828521013",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13479309824",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13479309825",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13479309828",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13479309830",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13479309831",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13479309832",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13580244123",
+              "category": "power_generator",
+              "name": null,
+              "tags": {
+                "power": "generator"
+              }
+            },
+            {
+              "osm_id": "n13703637815",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "n13703637891",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "w351429860",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            },
+            {
+              "osm_id": "w1391110870",
+              "category": "industrial_chimney",
+              "name": null,
+              "tags": {
+                "man_made": "chimney"
+              }
+            }
+          ],
+          "queried_at": "2026-05-24T12:15:33.474572+00:00"
+        },
         "sources_cited": [
           "PHOENIX-council-round2"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.65,
+          37.05
+        ]
+      },
+      "properties": {
+        "id": "minedn37p050n14p650",
+        "name_it": "Sito candidato 37.050, 14.650",
+        "name_en": "Candidate site at 37.050, 14.650",
+        "category": "glasshouse_complex",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 58,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T12:31:18.804135+00:00",
+        "last_observed": "2026-05-24T07:31:48.511841",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@37.05,14.65,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@37.05,14.65,3a,75y",
+          "earth": "https://earth.google.com/web/@37.05,14.65,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:23:14.839925+00:00",
+        "vision_result": {
+          "primary": "glasshouse_complex",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "urban"
+          ],
+          "notes": "Extensive greenhouse complexes visible as reflective rectangular structures interspersed with agricultural fields and scattered urban development. The greenhouses appear in clusters throughout the area, particularly concentrated in the upper left and lower portions of the image. These glass/plastic structures would generate significant heat signatures due to solar heating and climate control systems.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:23:22.695542+00:00",
+          "raw_response_chars": 540
+        },
+        "annotation": {
+          "auto_category": "glasshouse_complex",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "urban"
+          ],
+          "auto_notes": "Extensive greenhouse complexes visible as reflective rectangular structures interspersed with agricultural fields and scattered urban development. The greenhouses appear in clusters throughout the area, particularly concentrated in the upper left and lower portions of the image. These glass/plastic structures would generate significant heat signatures due to solar heating and climate control systems.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:23:22.695778+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.0,
+          37.55
+        ]
+      },
+      "properties": {
+        "id": "minedn37p550n15p000",
+        "name_it": "Sito candidato 37.550, 15.000",
+        "name_en": "Candidate site at 37.550, 15.000",
+        "category": "quarry",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 48,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T06:19:42.413874",
+        "last_observed": "2026-05-24T04:54:20.067784",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@37.55,15.0,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@37.55,15.0,3a,75y",
+          "earth": "https://earth.google.com/web/@37.55,15.0,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:23:22.695818+00:00",
+        "vision_result": {
+          "primary": "quarry",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "industrial_facilities",
+            "urban",
+            "roads"
+          ],
+          "notes": "Multiple large open-pit quarries visible in upper left and central portions of image, showing exposed rock faces and terraced excavation patterns. These quarries create heat anomalies due to exposed rock surfaces. Industrial facilities and residential areas visible in lower left and upper right portions.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:23:30.995225+00:00",
+          "raw_response_chars": 442
+        },
+        "annotation": {
+          "auto_category": "quarry",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "industrial_facilities",
+            "urban",
+            "roads"
+          ],
+          "auto_notes": "Multiple large open-pit quarries visible in upper left and central portions of image, showing exposed rock faces and terraced excavation patterns. These quarries create heat anomalies due to exposed rock surfaces. Industrial facilities and residential areas visible in lower left and upper right portions.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:23:30.995836+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.45,
+          36.95
+        ]
+      },
+      "properties": {
+        "id": "minedn36p950n14p450",
+        "name_it": "Sito candidato 36.950, 14.450",
+        "name_en": "Candidate site at 36.950, 14.450",
+        "category": "glasshouse_complex",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 48,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T08:31:16.088122",
+        "last_observed": "2026-05-24T11:32:22.878033+00:00",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@36.95,14.45,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@36.95,14.45,3a,75y",
+          "earth": "https://earth.google.com/web/@36.95,14.45,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:23:30.995869+00:00",
+        "vision_result": {
+          "primary": "glasshouse_complex",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "rural_roads"
+          ],
+          "notes": "Extensive greenhouse agriculture visible as white/reflective rectangular structures covering large portions of the area. The greenhouses are arranged in various orientations and sizes, interspersed with open agricultural fields. This type of intensive greenhouse farming is common in Sicily and would generate significant heat signatures from solar heating and climate control systems. The pattern is characteristic of commercial agricultural operations in the region.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:23:38.640084+00:00",
+          "raw_response_chars": 611
+        },
+        "annotation": {
+          "auto_category": "glasshouse_complex",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "rural_roads"
+          ],
+          "auto_notes": "Extensive greenhouse agriculture visible as white/reflective rectangular structures covering large portions of the area. The greenhouses are arranged in various orientations and sizes, interspersed with open agricultural fields. This type of intensive greenhouse farming is common in Sicily and would generate significant heat signatures from solar heating and climate control systems. The pattern is characteristic of commercial agricultural operations in the region.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:23:38.640136+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.95,
+          36.95
+        ]
+      },
+      "properties": {
+        "id": "minedn36p950n14p950",
+        "name_it": "Sito candidato 36.950, 14.950",
+        "name_en": "Candidate site at 36.950, 14.950",
+        "category": "quarry",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 43,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-24T04:40:10.419346+00:00",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@36.95,14.95,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@36.95,14.95,3a,75y",
+          "earth": "https://earth.google.com/web/@36.95,14.95,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:23:38.640169+00:00",
+        "vision_result": {
+          "primary": "quarry",
+          "confidence": 0.85,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "forest"
+          ],
+          "notes": "Large open-pit extraction site with exposed light-colored rock/mineral surfaces in center of image. Multiple excavation benches visible with bare earth and disturbed ground. Access roads connect to the quarry. Surrounded by agricultural fields and forested areas. The exposed mineral surfaces would create heat anomalies in infrared sensors.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:23:46.558920+00:00",
+          "raw_response_chars": 467
+        },
+        "annotation": {
+          "auto_category": "quarry",
+          "auto_confidence": 0.85,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "forest"
+          ],
+          "auto_notes": "Large open-pit extraction site with exposed light-colored rock/mineral surfaces in center of image. Multiple excavation benches visible with bare earth and disturbed ground. Access roads connect to the quarry. Surrounded by agricultural fields and forested areas. The exposed mineral surfaces would create heat anomalies in infrared sensors.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:23:46.559036+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6,
+          37.15
+        ]
+      },
+      "properties": {
+        "id": "minedn37p150n14p600",
+        "name_it": "Sito candidato 37.150, 14.600",
+        "name_en": "Candidate site at 37.150, 14.600",
+        "category": "glasshouse_complex",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 40,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-24T06:29:23.861104",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@37.15,14.6,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@37.15,14.6,3a,75y",
+          "earth": "https://earth.google.com/web/@37.15,14.6,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:23:46.559127+00:00",
+        "vision_result": {
+          "primary": "glasshouse_complex",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "roads"
+          ],
+          "notes": "Extensive greenhouse complex visible as reflective rectangular structures in teal/green color scattered across agricultural landscape. The greenhouses have characteristic geometric patterns and reflective surfaces typical of commercial agricultural operations in Sicily. These structures would generate heat signatures due to controlled climate conditions inside.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:23:53.781569+00:00",
+          "raw_response_chars": 500
+        },
+        "annotation": {
+          "auto_category": "glasshouse_complex",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "roads"
+          ],
+          "auto_notes": "Extensive greenhouse complex visible as reflective rectangular structures in teal/green color scattered across agricultural landscape. The greenhouses have characteristic geometric patterns and reflective surfaces typical of commercial agricultural operations in Sicily. These structures would generate heat signatures due to controlled climate conditions inside.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:23:53.783562+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.05,
+          37.6
+        ]
+      },
+      "properties": {
+        "id": "minedn37p600n15p050",
+        "name_it": "Sito candidato 37.600, 15.050",
+        "name_en": "Candidate site at 37.600, 15.050",
+        "category": "urban",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 35,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-24T04:35:32.046335",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@37.6,15.05,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@37.6,15.05,3a,75y",
+          "earth": "https://earth.google.com/web/@37.6,15.05,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:23:53.783670+00:00",
+        "vision_result": {
+          "primary": "urban",
+          "confidence": 0.85,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "forest"
+          ],
+          "notes": "Dense residential area with orange/terracotta roofs typical of Sicilian urban development. Multiple large green open spaces visible including parks and athletic fields. No industrial heat sources identified - likely urban heat island effect from dense housing causing IR anomaly.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:24:00.659997+00:00",
+          "raw_response_chars": 404
+        },
+        "annotation": {
+          "auto_category": "urban",
+          "auto_confidence": 0.85,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "forest"
+          ],
+          "auto_notes": "Dense residential area with orange/terracotta roofs typical of Sicilian urban development. Multiple large green open spaces visible including parks and athletic fields. No industrial heat sources identified - likely urban heat island effect from dense housing causing IR anomaly.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:24:00.662451+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.45,
+          37.25
+        ]
+      },
+      "properties": {
+        "id": "minedn37p250n14p450",
+        "name_it": "Sito candidato 37.250, 14.450",
+        "name_en": "Candidate site at 37.250, 14.450",
+        "category": "quarry",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 33,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T08:31:16.087437",
+        "last_observed": "2026-05-24T06:10:31.923465",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@37.25,14.45,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@37.25,14.45,3a,75y",
+          "earth": "https://earth.google.com/web/@37.25,14.45,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:24:00.662538+00:00",
+        "vision_result": {
+          "primary": "quarry",
+          "confidence": 0.85,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "forest"
+          ],
+          "notes": "Large open-pit excavation site visible in center of image with bare exposed rock/mineral surfaces and disturbed terrain. Multiple extraction levels visible. Surrounded by agricultural fields and forested areas. The exposed light-colored surfaces and ongoing extraction activity would generate significant heat anomalies visible to infrared sensors.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:24:07.789386+00:00",
+          "raw_response_chars": 474
+        },
+        "annotation": {
+          "auto_category": "quarry",
+          "auto_confidence": 0.85,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "forest"
+          ],
+          "auto_notes": "Large open-pit excavation site visible in center of image with bare exposed rock/mineral surfaces and disturbed terrain. Multiple extraction levels visible. Surrounded by agricultural fields and forested areas. The exposed light-colored surfaces and ongoing extraction activity would generate significant heat anomalies visible to infrared sensors.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:24:07.790865+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.95,
+          36.8
+        ]
+      },
+      "properties": {
+        "id": "minedn36p800n14p950",
+        "name_it": "Sito candidato 36.800, 14.950",
+        "name_en": "Candidate site at 36.800, 14.950",
+        "category": "glasshouse_complex",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 33,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-24T07:51:23.099961",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@36.8,14.95,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@36.8,14.95,3a,75y",
+          "earth": "https://earth.google.com/web/@36.8,14.95,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:24:07.790933+00:00",
+        "vision_result": {
+          "primary": "glasshouse_complex",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "urban"
+          ],
+          "notes": "Extensive area of greenhouse structures visible as reflective rectangular patterns across agricultural land. Multiple clusters of glasshouses spread across the region, typical of intensive Mediterranean agriculture. This type of infrastructure generates significant heat signatures due to solar heating and climate control systems.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:24:15.293647+00:00",
+          "raw_response_chars": 468
+        },
+        "annotation": {
+          "auto_category": "glasshouse_complex",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "urban"
+          ],
+          "auto_notes": "Extensive area of greenhouse structures visible as reflective rectangular patterns across agricultural land. Multiple clusters of glasshouses spread across the region, typical of intensive Mediterranean agriculture. This type of infrastructure generates significant heat signatures due to solar heating and climate control systems.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:24:15.294622+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.65,
+          36.8
+        ]
+      },
+      "properties": {
+        "id": "minedn36p800n14p650",
+        "name_it": "Sito candidato 36.800, 14.650",
+        "name_en": "Candidate site at 36.800, 14.650",
+        "category": "glasshouse_complex",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 30,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T06:32:18.989184",
+        "last_observed": "2026-05-24T05:51:45.314272",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@36.8,14.65,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@36.8,14.65,3a,75y",
+          "earth": "https://earth.google.com/web/@36.8,14.65,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:24:15.294699+00:00",
+        "vision_result": {
+          "primary": "glasshouse_complex",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field",
+            "forest"
+          ],
+          "notes": "Large concentrations of reflective rectangular greenhouse structures visible in multiple clusters throughout the image, particularly prominent in the center and lower portions. These glasshouses appear as bright white/reflective rectangular arrays interspersed with agricultural fields and some forested areas. The greenhouses would generate heat signatures due to solar heating and controlled climate operations.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:24:22.994285+00:00",
+          "raw_response_chars": 551
+        },
+        "annotation": {
+          "auto_category": "glasshouse_complex",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field",
+            "forest"
+          ],
+          "auto_notes": "Large concentrations of reflective rectangular greenhouse structures visible in multiple clusters throughout the image, particularly prominent in the center and lower portions. These glasshouses appear as bright white/reflective rectangular arrays interspersed with agricultural fields and some forested areas. The greenhouses would generate heat signatures due to solar heating and controlled climate operations.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:24:22.994336+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.95,
+          36.75
+        ]
+      },
+      "properties": {
+        "id": "minedn36p750n14p950",
+        "name_it": "Sito candidato 36.750, 14.950",
+        "name_en": "Candidate site at 36.750, 14.950",
+        "category": "solar_farm",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 2.0,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": 29,
+        "viirs_confirmed_30d": 0,
+        "first_observed": "2026-05-22T05:23:21.754886",
+        "last_observed": "2026-05-24T05:13:17.103952",
+        "phoenix_sources": [
+          "fci_l1c",
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ],
+        "google_maps": {
+          "satellite": "https://www.google.com/maps/@36.75,14.95,14z/data=!3m1!1e3",
+          "street_view": "https://www.google.com/maps/@36.75,14.95,3a,75y",
+          "earth": "https://earth.google.com/web/@36.75,14.95,0a,1000d"
+        },
+        "sources_cited": [
+          "PHOENIX-miner"
+        ],
+        "discovered_at": "2026-05-24T12:24:22.994365+00:00",
+        "vision_result": {
+          "primary": "solar_farm",
+          "confidence": 0.95,
+          "operator": "",
+          "secondary_features": [
+            "agricultural_field"
+          ],
+          "notes": "Multiple large solar farms visible as regular rectangular arrays of photovoltaic panels, interspersed among agricultural fields. The solar installations show characteristic blue-tinted reflective panels in organized grid patterns. These would generate consistent infrared heat signatures during daylight hours, explaining the thermal anomaly detection.",
+          "model": "claude-sonnet-4-5-20250929",
+          "queried_at": "2026-05-24T12:24:30.548139+00:00",
+          "raw_response_chars": 484
+        },
+        "annotation": {
+          "auto_category": "solar_farm",
+          "auto_confidence": 0.95,
+          "auto_operator": "",
+          "auto_secondary": [
+            "agricultural_field"
+          ],
+          "auto_notes": "Multiple large solar farms visible as regular rectangular arrays of photovoltaic panels, interspersed among agricultural fields. The solar installations show characteristic blue-tinted reflective panels in organized grid patterns. These would generate consistent infrared heat signatures during daylight hours, explaining the thermal anomaly detection.",
+          "auto_source": "claude_sonnet",
+          "decided_at": "2026-05-24T12:24:30.548780+00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4283,
+          36.9111
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_9111-14_4283",
+        "name_it": "Fonte termica persistente 36.911°N 14.428°E",
+        "name_en": "Persistent thermal source 36.911°N 14.428°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 9,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T12:48:53.225775+00:00",
+        "last_observed": "2026-05-23T14:53:00.310287+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.91110,14.42830",
+        "osm_tags": [
+          "greenhouse_complex",
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6081,
+          36.7915
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_7915-14_6081",
+        "name_it": "Fonte termica persistente 36.791°N 14.608°E",
+        "name_en": "Persistent thermal source 36.791°N 14.608°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 8,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T13:07:09.128860+00:00",
+        "last_observed": "2026-05-23T14:53:00.310287+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.79150,14.60810",
+        "osm_tags": [
+          "greenhouse_complex"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3681,
+          36.9711
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_9711-14_3681",
+        "name_it": "Fonte termica persistente 36.971°N 14.368°E",
+        "name_en": "Persistent thermal source 36.971°N 14.368°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 8,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T13:07:09.128860+00:00",
+        "last_observed": "2026-05-23T14:53:00.310287+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.97110,14.36810",
+        "osm_tags": [
+          "greenhouse_complex"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.9896,
+          37.5094
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_5094-14_9896",
+        "name_it": "Fonte termica persistente 37.509°N 14.990°E",
+        "name_en": "Persistent thermal source 37.509°N 14.990°E",
+        "category": "industrial",
+        "subcategory": "landfill",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 8,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 0.85,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-23T09:39:20.835319",
+        "annotation": "auto",
+        "notes_it": "Discarica con possibile attività di compostaggio o combustione interna. Firma termica intermittente.",
+        "notes_en": "Landfill with possible composting or internal combustion activity. Intermittent thermal signature.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=37.50940,14.98960",
+        "osm_tags": [
+          "landfill"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.9297,
+          37.5506
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_5506-14_9297",
+        "name_it": "Fonte termica persistente 37.551°N 14.930°E",
+        "name_en": "Persistent thermal source 37.551°N 14.930°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 8,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T10:56:36.527272",
+        "last_observed": "2026-05-23T13:39:22.483447+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=37.55060,14.92970",
+        "osm_tags": [
+          "greenhouse_complex"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.59,
+          36.79
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_7900-14_5900",
+        "name_it": "Fonte termica persistente 36.790°N 14.590°E",
+        "name_en": "Persistent thermal source 36.790°N 14.590°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-23T13:57:51.327460+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.79000,14.59000",
+        "osm_tags": [
+          "greenhouse_complex",
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.43,
+          36.89
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_8900-14_4300",
+        "name_it": "Fonte termica persistente 36.890°N 14.430°E",
+        "name_en": "Persistent thermal source 36.890°N 14.430°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T12:48:53.225775+00:00",
+        "last_observed": "2026-05-23T13:57:51.327460+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.89000,14.43000",
+        "osm_tags": [
+          "greenhouse_complex",
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5103,
+          36.9702
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_9702-14_5103",
+        "name_it": "Fonte termica persistente 36.970°N 14.510°E",
+        "name_en": "Persistent thermal source 36.970°N 14.510°E",
+        "category": "urban",
+        "subcategory": "urban_heat_island",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 0.7,
+        "first_observed": "2026-05-22T12:48:53.225775+00:00",
+        "last_observed": "2026-05-29T04:35:44.652409",
+        "annotation": "auto",
+        "notes_it": "Area residenziale urbana. Isole di calore urbano possono essere confuse con piccoli incendi a basso FRP.",
+        "notes_en": "Urban residential area. Urban heat islands can be confused with low-FRP small fires.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.97020,14.51030",
+        "osm_tags": [
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.7896,
+          37.0696
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_0696-14_7896",
+        "name_it": "Fonte termica persistente 37.070°N 14.790°E",
+        "name_en": "Persistent thermal source 37.070°N 14.790°E",
+        "category": "solar_farm",
+        "subcategory": "photovoltaic_array",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 0.95,
+        "first_observed": "2026-05-22T13:07:09.128860+00:00",
+        "last_observed": "2026-05-27T06:07:17.513760",
+        "annotation": "auto",
+        "notes_it": "Pannelli fotovoltaici. La superficie può presentare riflessi MIR che innescano falsi positivi quando l'angolo solare è basso.",
+        "notes_en": "Photovoltaic panels. The surface can present MIR reflections that trigger false positives at low solar angles.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=37.06960,14.78960",
+        "osm_tags": [
+          "solar_farm"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.11,
+          37.13
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_1300-14_1100",
+        "name_it": "Fonte termica persistente 37.130°N 14.110°E",
+        "name_en": "Persistent thermal source 37.130°N 14.110°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T13:07:09.128860+00:00",
+        "last_observed": "2026-05-25T15:32:33.180595+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=37.13000,14.11000",
+        "osm_tags": [
+          "greenhouse_complex"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6693,
+          37.1503
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_1503-14_6693",
+        "name_it": "Fonte termica persistente 37.150°N 14.669°E",
+        "name_en": "Persistent thermal source 37.150°N 14.669°E",
+        "category": "solar_farm",
+        "subcategory": "photovoltaic_array",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 0.95,
+        "first_observed": "2026-05-22T11:57:15.334694+00:00",
+        "last_observed": "2026-05-29T01:29:35.338934+00:00",
+        "annotation": "auto",
+        "notes_it": "Pannelli fotovoltaici. La superficie può presentare riflessi MIR che innescano falsi positivi quando l'angolo solare è basso.",
+        "notes_en": "Photovoltaic panels. The surface can present MIR reflections that trigger false positives at low solar angles.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=37.15030,14.66930",
+        "osm_tags": [
+          "solar_farm"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.0493,
+          37.4502
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_4502-15_0493",
+        "name_it": "Fonte termica persistente 37.450°N 15.049°E",
+        "name_en": "Persistent thermal source 37.450°N 15.049°E",
+        "category": "solar_farm",
+        "subcategory": "photovoltaic_array",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 7,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 0.95,
+        "first_observed": "2026-05-22T13:26:12.347247+00:00",
+        "last_observed": "2026-05-24T12:30:21.396177+00:00",
+        "annotation": "auto",
+        "notes_it": "Pannelli fotovoltaici. La superficie può presentare riflessi MIR che innescano falsi positivi quando l'angolo solare è basso.",
+        "notes_en": "Photovoltaic panels. The surface can present MIR reflections that trigger false positives at low solar angles.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=37.45020,15.04930",
+        "osm_tags": [
+          "solar_farm"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.61,
+          36.77
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_7700-14_6100",
+        "name_it": "Fonte termica persistente 36.770°N 14.610°E",
+        "name_en": "Persistent thermal source 36.770°N 14.610°E",
+        "category": "urban",
+        "subcategory": "urban_heat_island",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 6,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 0.7,
+        "first_observed": "2026-05-22T12:48:53.225775+00:00",
+        "last_observed": "2026-05-23T13:57:51.327460+00:00",
+        "annotation": "auto",
+        "notes_it": "Area residenziale urbana. Isole di calore urbano possono essere confuse con piccoli incendi a basso FRP.",
+        "notes_en": "Urban residential area. Urban heat islands can be confused with low-FRP small fires.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.77000,14.61000",
+        "osm_tags": [
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.63,
+          36.77
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_7700-14_6300",
+        "name_it": "Fonte termica persistente 36.770°N 14.630°E",
+        "name_en": "Persistent thermal source 36.770°N 14.630°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 6,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T12:48:53.225775+00:00",
+        "last_observed": "2026-05-23T13:57:51.327460+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.77000,14.63000",
+        "osm_tags": [
+          "greenhouse_complex",
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4875,
+          36.792
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_7920-14_4875",
+        "name_it": "Fonte termica persistente 36.792°N 14.488°E",
+        "name_en": "Persistent thermal source 36.792°N 14.488°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 6,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T13:44:17.364217+00:00",
+        "last_observed": "2026-05-23T14:53:00.310287+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.79200,14.48750",
+        "osm_tags": [
+          "greenhouse_complex",
+          "urban"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.49,
+          36.81
+        ]
+      },
+      "properties": {
+        "id": "phoenix-36_8100-14_4900",
+        "name_it": "Fonte termica persistente 36.810°N 14.490°E",
+        "name_en": "Persistent thermal source 36.810°N 14.490°E",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "province": null,
+        "operators": [],
+        "phoenix_detections_30d": 6,
+        "viirs_confirmed_30d": 0,
+        "false_positive_confidence": 1.0,
+        "first_observed": "2026-05-22T12:31:18.804135+00:00",
+        "last_observed": "2026-05-24T12:10:55.716375+00:00",
+        "annotation": "auto",
+        "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+        "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
+        "evidence_urls": [],
+        "google_maps": "https://www.google.com/maps?q=36.81000,14.49000",
+        "osm_tags": [
+          "greenhouse_complex"
+        ],
+        "vision_result": null,
+        "sources_cited": [
+          "phoenix-internal-fires-2026-05-22-to-2026-05-29",
+          "osm-overpass-2026-05-29"
         ]
       }
     }
