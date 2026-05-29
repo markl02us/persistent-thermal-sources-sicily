@@ -1,75 +1,32 @@
-name: Build INGV PDFs
+name: Bundle INGV PDFs
 on:
   push:
     branches: [main]
     paths:
-      - 'docs/PHOENIX_INGV_Pack_*.md'
-      - 'docs/_methodology_deep_dive_*.md'
-      - 'docs/_decision_history_*.md'
-      - 'scripts/render_mermaid.py'
-      - 'scripts/build_pdf_inputs.py'
-      - 'scripts/merge_addons.py'
-      - 'scripts/generate_maps.py'
-      - 'scripts/pdf_config.js'
+      - 'dist/pdf/*.pdf'
       - '.github/workflows/build-pdfs.yml'
   workflow_dispatch:
 
 jobs:
-  build:
+  bundle:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: install rendering tools
+      - name: verify pre-built PDFs are present
         run: |
-          npm install -g @mermaid-js/mermaid-cli md-to-pdf
-          python -m pip install --upgrade pip
-          pip install matplotlib numpy
-
-      - name: install puppeteer chrome deps
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 \
-            libdrm2 libgbm1 libgtk-3-0 libpango-1.0-0 libxkbcommon0 libxss1 \
-            libasound2t64 libxshmfence1
-
-      - name: generate maps
-        run: python scripts/generate_maps.py
-
-      - name: render mermaid diagrams
-        run: python scripts/render_mermaid.py
-
-      - name: build PDF inputs (image-injected + EXSUM)
-        run: python scripts/build_pdf_inputs.py
-
-      - name: generate technical PDF (EN)
-        run: md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_INGV_Pack_EN_FINAL.md
-
-      - name: generate technical PDF (IT)
-        run: md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_INGV_Pack_IT_FINAL.md
-
-      - name: generate EXSUM PDF (EN)
-        run: md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_EXSUM_EN.md
-
-      - name: generate EXSUM PDF (IT)
-        run: md-to-pdf --config-file scripts/pdf_config.js --launch-options '{"args":["--no-sandbox"]}' --basedir docs --md-file-encoding utf-8 docs/PHOENIX_EXSUM_IT.md
-
-      - name: stage in dist/pdf
-        run: |
-          mkdir -p dist/pdf
-          mv docs/PHOENIX_INGV_Pack_EN_FINAL.pdf dist/pdf/PHOENIX_INGV_Pack_EN.pdf
-          mv docs/PHOENIX_INGV_Pack_IT_FINAL.pdf dist/pdf/PHOENIX_INGV_Pack_IT.pdf
-          mv docs/PHOENIX_EXSUM_EN.pdf dist/pdf/PHOENIX_EXSUM_EN.pdf
-          mv docs/PHOENIX_EXSUM_IT.pdf dist/pdf/PHOENIX_EXSUM_IT.pdf
+          set -e
+          shopt -s nullglob
+          pdfs=(dist/pdf/*.pdf)
+          if [ ${#pdfs[@]} -eq 0 ]; then
+            echo "no PDFs found in dist/pdf/" >&2
+            exit 1
+          fi
+          for f in "${pdfs[@]}"; do
+            [ -s "$f" ] || { echo "empty: $f" >&2; exit 1; }
+            echo "ok: $f ($(stat -c%s "$f") bytes)"
+          done
 
       - name: upload artifacts
         uses: actions/upload-artifact@v4
