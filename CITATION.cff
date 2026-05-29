@@ -3,10 +3,12 @@ message: "If you use this catalog, please cite it as below."
 type: dataset
 title: "Persistent Thermal Sources Catalog - Sicily"
 authors:
-  - family-names: "Ludwikowski"
-    given-names: "Mark"
-version: "1.0.0"
-date-released: "2026-05-24"
+  - name: "Alessandria Della Rocca Applications"
+  - family-names: "Zambito"
+    given-names: "Gaetano"
+    affiliation: "Alessandria Della Rocca Applications (Sicilian representative)"
+version: "1.0.1"
+date-released: "2026-05-29"
 doi: "10.5281/zenodo.20369891"
 url: "https://github.com/markl02us/persistent-thermal-sources-sicily"
 identifiers:

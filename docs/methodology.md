@@ -72,8 +72,8 @@ Each promoted source gets a JSON object in `data/sources.json`:
 ## Step 6: Human review (low-confidence batch)
 
 Candidates with `confidence < 0.85` accumulate into a daily review batch
-that the maintainer (Mark L.) reviews individually with the Esri tile +
-OSM tags + nearby PHOENIX detections.
+that an Alessandria Della Rocca Applications maintainer reviews individually
+with the Esri tile + OSM tags + nearby PHOENIX detections.
 
 Approved → added to sources.json. Rejected → added to `data/excluded.json`
 with reason.

@@ -934,7 +934,7 @@ Prodotti ufficiali Copernicus per valutazione rapida del danno (CEMS RM) + archi
 
 <h2>9. Open data + come citare</h2>
 <p>Tutti i dati prodotti da PHOENIX sono pubblicati con licenza <b>CC-BY 4.0</b> (dati) e <b>MIT</b> (codice). Il catalogo dei falsi positivi sara' su GitHub con DOI Zenodo. Per citare:</p>
-<pre style="background:#f8fafc;padding:12px;border-radius:6px;font-size:0.85em;overflow-x:auto">Ludwikowski, M. (2026). Persistent Thermal Sources Catalog — Sicily (v1.0.0).
+<pre style="background:#f8fafc;padding:12px;border-radius:6px;font-size:0.85em;overflow-x:auto">Alessandria Della Rocca Applications (2026). Persistent Thermal Sources Catalog — Sicily (v1.0.0).
 Zenodo. DOI: 10.5281/zenodo.20369891
 https://doi.org/10.5281/zenodo.20369891
 https://github.com/markl02us/persistent-thermal-sources-sicily</pre>
@@ -949,7 +949,7 @@ https://github.com/markl02us/persistent-thermal-sources-sicily</pre>
 </ul>
 
 <h2>11. Crediti</h2>
-<p>Costruito da Mark L. (ricerca indipendente, non commerciale) con dati di: <b>EUMETSAT</b> (MTG, SEVIRI, MTG-LI, SLSTR), <b>NASA FIRMS</b> (VIIRS, MODIS), <b>Copernicus</b> (EFFIS, CEMS, Sentinel-2/-3/-5P), <b>ESA</b> (WorldCover), <b>EEA/ARPA Sicilia</b> (qualita' dell'aria), <b>Microsoft Planetary Computer</b> (STAC API), <b>ANSA</b>, <b>Corpo Nazionale Vigili del Fuoco</b>, <b>Giornale di Sicilia</b> (segnalazioni cronaca), <b>Open-Meteo</b> (meteo + air quality CAMS), <b>OpenStreetMap + Esri</b> (basemap). Framework open-source: Leaflet, Tailwind, Flask, satpy, rasterio, eumdac. <b>Grazie a tutti.</b></p>
+<p>Costruito dai membri di Alessandria Della Rocca Applications (ricerca accademica, non commerciale) con dati di: <b>EUMETSAT</b> (MTG, SEVIRI, MTG-LI, SLSTR), <b>NASA FIRMS</b> (VIIRS, MODIS), <b>Copernicus</b> (EFFIS, CEMS, Sentinel-2/-3/-5P), <b>ESA</b> (WorldCover), <b>EEA/ARPA Sicilia</b> (qualita' dell'aria), <b>Microsoft Planetary Computer</b> (STAC API), <b>ANSA</b>, <b>Corpo Nazionale Vigili del Fuoco</b>, <b>Giornale di Sicilia</b> (segnalazioni cronaca), <b>Open-Meteo</b> (meteo + air quality CAMS), <b>OpenStreetMap + Esri</b> (basemap). Framework open-source: Leaflet, Tailwind, Flask, satpy, rasterio, eumdac. <b>Grazie a tutti.</b></p>
 
 <p class="footnote mt-12 mb-4 border-t pt-4">PHOENIX e' un progetto sperimentale accademico e non commerciale. Versione 2 - aggiornata 2026-05-24. Contatto + segnalazioni: tramite la <a href="https://github.com/markl02us/persistent-thermal-sources-sicily">repository GitHub del catalogo FP</a>.</p>
 

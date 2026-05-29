@@ -3,7 +3,7 @@
 Sources:
   - INGV-HOTSAT prior knowledge (Mt Etna, Stromboli, Vulcano)
   - Round-2 council research (Augusta-Priolo-Melilli, Gela, Milazzo, Termini, Catania)
-  - Mark Ludwikowski direct (solar farms — to be mined + categorized)
+  - Alessandria Della Rocca Applications direct (solar farms — to be mined + categorized)
   - PHOENIX internal_fires history (auto-mining of cells firing N+ times without VIIRS confirmation)
 
 Outputs:
