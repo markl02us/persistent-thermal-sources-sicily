@@ -29,3 +29,10 @@ re-review.
 Note: Sentinel-1 RTC backscatter delta was usable on all 17 water cells and
 showed `|delta_vv_db| < 1.5 dB` in every case (no SAR scar) — consistent with
 water surfaces, not burned vegetation. The mask is correct.
+
+## Wave v1_3_0_unsure_resolution_full_roster (2026-05-30T01:40:42.591474+00:00)
+
+| idx | lat | lon | proposed | basis |
+|---:|---:|---:|---|---|
+| 3 | 37.5700 | 14.7300 | greenhouse_complex | Sonnet vision (conf 0.92): The false-color composite shows bright cyan rectangular structures characteristic of plastic greenhouse coverings. The top-right corn |
+| 40 | 36.9300 | 14.8100 | solar_farm | Sonnet vision (conf 0.92): The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant, characteristic of solar PV panel |

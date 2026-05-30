@@ -1,0 +1,41 @@
+{
+  "n_cells": 114,
+  "n_analyzed": 114,
+  "n_ok": 97,
+  "n_no_data": 17,
+  "n_error": 0,
+  "n_scars": 49,
+  "n_no_scars": 48,
+  "severity_hist": {
+    "moderate": 40,
+    "unburned": 17,
+    "low": 31,
+    "high": 9
+  },
+  "errors_by_reason": {
+    "no clear post-fire S2 scenes": 17
+  },
+  "n_suggestions": 8,
+  "suggestion_breakdown": {
+    "unsure -> ag_burn": 4,
+    "ag_burn -> unknown_fp": 1,
+    "unsure -> real_fire": 3
+  },
+  "n_unconfirmed_real_fire_ish": 29,
+  "pc_retries": 0,
+  "pc_total_time_sec": 1220.2,
+  "runtime_sec": 312.8,
+  "partial": false,
+  "sample_suggestions": [
+    {
+      "idx": 40,
+      "lat": 36.93,
+      "lon": 14.81,
+      "from": "ag_burn",
+      "to": "unknown_fp",
+      "basis": "no Sentinel-2 dNBR scar in post-window (max=0.16, severity=low) + thermal signal still active within 48h (last internal ts 2026-05-29T10:55:11.273294+00:00) \u2192 signal is persistent, not transient burn"
+    }
+  ],
+  "n_reviewed": 114,
+  "regenerated_at": "2026-05-29T22:40:28.273838+00:00"
+}

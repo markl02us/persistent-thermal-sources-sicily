@@ -271,20 +271,97 @@
   },
   "decisions": {
     "used": [
-      {"id": "sentinel-2-l2a", "role": "primary optical NBR @ 10m (B8A/B12)"},
-      {"id": "landsat-c2-l2", "role": "secondary optical NBR @ 30m (nir08/swir22); covers S2 revisit gaps"},
-      {"id": "sentinel-1-rtc", "role": "cloud-immune SAR backscatter change (VV+VH dB delta)"},
-      {"id": "modis-09A1-061", "role": "8-day 500m SR NBR (b02/b07) — coarse fill across long windows"},
-      {"id": "modis-14A1-061", "role": "daily 1km active-fire mask + MaxFRP — thermal-history corroboration"},
-      {"id": "snapshot_db", "role": "internal+external_fires temporal persistence (FIRMS, VIIRS, MODIS, MTG-AF, SLSTR proxy, VVF, S1-SAR, TROPOMI)"}
+      {
+        "id": "sentinel-2-l2a",
+        "role": "primary optical NBR @ 10m (B8A/B12)"
+      },
+      {
+        "id": "landsat-c2-l2",
+        "role": "secondary optical NBR @ 30m (nir08/swir22); covers S2 revisit gaps"
+      },
+      {
+        "id": "sentinel-1-rtc",
+        "role": "cloud-immune SAR backscatter change (VV+VH dB delta)"
+      },
+      {
+        "id": "modis-09A1-061",
+        "role": "8-day 500m SR NBR (b02/b07) \u2014 coarse fill across long windows"
+      },
+      {
+        "id": "modis-14A1-061",
+        "role": "daily 1km active-fire mask + MaxFRP \u2014 thermal-history corroboration"
+      },
+      {
+        "id": "snapshot_db",
+        "role": "internal+external_fires temporal persistence (FIRMS, VIIRS, MODIS, MTG-AF, SLSTR proxy, VVF, S1-SAR, TROPOMI)"
+      },
+      {
+        "id": "hls2-l30+s30",
+        "role": "harmonized Landsat-Sentinel NBR \u2014 independent NBR timeline"
+      },
+      {
+        "id": "modis-11A1-061",
+        "role": "daily 1km LST \u2014 ECOSTRESS substitute for LST anomaly"
+      },
+      {
+        "id": "sentinel-3-slstr-frp-l2-netcdf",
+        "role": "S3 SLSTR active-fire FRP \u2014 independent thermal signal"
+      },
+      {
+        "id": "sentinel-3-slstr-lst-l2-netcdf",
+        "role": "S3 SLSTR LST 1km \u2014 scene-coverage proxy"
+      },
+      {
+        "id": "sentinel-5p-l2-netcdf",
+        "role": "TROPOMI CO/NO2 column anomaly \u2014 active-combustion signal"
+      },
+      {
+        "id": "viirs-vnp14img-earthdata",
+        "role": "VIIRS 375m active-fire granule count via NASA CMR"
+      },
+      {
+        "id": "viirs-vnp46a1-earthdata",
+        "role": "Black Marble persistence fingerprint via NASA CMR"
+      },
+      {
+        "id": "mtg-fci-l1c-dgx",
+        "role": "MTG FCI L1c DGX-cache file-count signal (Sicily 10-min cadence)"
+      }
     ],
     "skipped": [
-      {"id": "sentinel-3-olci-lfr-l2-land", "reason": "Collection not found on PC (NotFoundError). No public OLCI burn-scar collection exposed under this id."},
-      {"id": "viirs-09a1-001", "reason": "Collection not found on PC under this id. MODIS-09A1 already covers coarse optical NBR."},
-      {"id": "modis-14A2-061", "reason": "Redundant with 14A1 (daily strictly finer than 8-day for thermal history). Held in reserve."},
-      {"id": "modis-09Q1-061", "reason": "Only 2 SR bands (b01/b02) — no SWIR for NBR. 09A1 provides full band stack."},
-      {"id": "sentinel-1-grd", "reason": "Redundant with RTC (RTC = terrain-corrected GRD)."},
-      {"id": "mtg_fci_l1c_dgx", "reason": "DGX SSH timed out at audit; per task budget, skip and document. Not silenced."}
+      {
+        "id": "sentinel-3-olci-lfr-l2-land",
+        "reason": "Collection not found on PC (NotFoundError). No public OLCI burn-scar collection exposed under this id."
+      },
+      {
+        "id": "viirs-09a1-001",
+        "reason": "Collection not found on PC under this id. MODIS-09A1 already covers coarse optical NBR."
+      },
+      {
+        "id": "modis-14A2-061",
+        "reason": "Redundant with 14A1 (daily strictly finer than 8-day for thermal history). Held in reserve."
+      },
+      {
+        "id": "modis-09Q1-061",
+        "reason": "Only 2 SR bands (b01/b02) \u2014 no SWIR for NBR. 09A1 provides full band stack."
+      },
+      {
+        "id": "sentinel-1-grd",
+        "reason": "Redundant with RTC (RTC = terrain-corrected GRD)."
+      },
+      {
+        "id": "mtg_fci_l1c_dgx",
+        "reason": "DGX SSH timed out at audit; per task budget, skip and document. Not silenced."
+      },
+      {
+        "id": "ecostress-eco2lste",
+        "reason": "Not available on Planetary Computer (no collection id). NASA Earthdata download viable but data volume + auth wall too heavy for 114-cell pass. Substituted with MODIS-11A1 daily 1km LST which gives equivalent anomaly signal at coarser resolution."
+      },
+      {
+        "id": "sentinel-3-olci-lfr-l2-netcdf",
+        "reason": "OLCI Land L2 product has no SWIR band suitable for NBR computation. Burn-scar signal from S3 covered by SLSTR LST + SLSTR FRP collections instead."
+      }
     ]
-  }
+  },
+  "full_roster_completed_at": "2026-05-30T01:37:38.132744+00:00"
 }

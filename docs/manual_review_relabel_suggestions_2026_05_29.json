@@ -317,6 +317,120 @@
           "basis": "fused burn-scar across 1 sensors (S2 dNBR_max=0.3965 (moderate); Landsat dNBR_max=0.19 (low); S1 dVV=-0.076dB; MODIS-SR=no_data; MODIS-AF=no_data) + signal cooled (no 48h hits) + vision prior 'agricultural_field' -> transient ag burn"
         }
       ]
+    },
+    {
+      "wave": "v1_3_0_unsure_resolution_full_roster",
+      "generated_at": "2026-05-30T01:40:42.591474+00:00",
+      "method": "Resolve remaining unsure cells by combining full-roster fused burn-scar evidence with Claude Sonnet 4.5 vision pass on a 1024px Esri tile + Sentinel-2 false-color (B12/B11/B8A) composite. Vision confidence >= 0.7 wins; else multi-sensor + temporal fallback.",
+      "n_unsure_at_start": 5,
+      "resolutions": [
+        {
+          "idx": 1,
+          "lat": 37.59,
+          "lon": 14.95,
+          "fused_evidence": "S1 dVV=-0.166dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->7; BM-pers=0.3",
+          "fused_has_scar": false,
+          "fused_agreers": [],
+          "persistence_signal": false,
+          "combustion_signal": false,
+          "temporal_still_active_48h": false,
+          "temporal_still_active_7d": true,
+          "external_sources_ever": [],
+          "vision_classification": {
+            "category": "real_fire",
+            "confidence": 0.85,
+            "basis": "The optical image shows a dark burn scar pattern with scattered trees and disturbed vegetation typical of wildfire. Multi-sensor evidence supports active burning: moderate Sentinel-1 VV decrease (-0.166dB), 10 S3-FRP detections, 22 VNP14 granules, TROPOMI CO decline, and 7-day persistence all consistent with a recent wildfire event rather than a persistent thermal source."
+          },
+          "final_action": "real_fire",
+          "final_category": null,
+          "basis": "Sonnet vision (conf 0.85): The optical image shows a dark burn scar pattern with scattered trees and disturbed vegetation typical of wildfire. Multi-sensor evidence supports active burning: moderate Sentinel-1 VV decrease (-0.166dB), 10 S3-FRP detections, 22 VNP14 granules, TROPOMI CO decline, and 7-day persistence all consistent with a recent wildfire event rather than a persistent thermal source."
+        },
+        {
+          "idx": 3,
+          "lat": 37.57,
+          "lon": 14.73,
+          "fused_evidence": "S1 dVV=-0.033dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->7; BM-pers=0.3",
+          "fused_has_scar": false,
+          "fused_agreers": [],
+          "persistence_signal": false,
+          "combustion_signal": false,
+          "temporal_still_active_48h": false,
+          "temporal_still_active_7d": true,
+          "external_sources_ever": [],
+          "vision_classification": {
+            "category": "greenhouse_complex",
+            "confidence": 0.92,
+            "basis": "The false-color composite shows bright cyan rectangular structures characteristic of plastic greenhouse coverings. The top-right corner shows a distinct white/bright structure in the Esri imagery, and the persistent thermal detections (10 S3-FRP scenes, 23 VNP14 granules, BM-pers=0.3) with minimal SAR change (dVV=-0.033dB) are consistent with solar heating of plastic agricultural infrastructure rather than vegetation combustion."
+          },
+          "final_action": "classify",
+          "final_category": "greenhouse_complex",
+          "basis": "Sonnet vision (conf 0.92): The false-color composite shows bright cyan rectangular structures characteristic of plastic greenhouse coverings. The top-right corner shows a distinct white/bright structure in the Esri imagery, and the persistent thermal detections (10 S3-FRP scenes, 23 VNP14 granules, BM-pers=0.3) with minimal SAR change (dVV=-0.033dB) are consistent with solar heating of plastic agricultural infrastructure rather than vegetation combustion."
+        },
+        {
+          "idx": 11,
+          "lat": 37.03,
+          "lon": 14.91,
+          "fused_evidence": "HLS dNBR=0.2322; S1 dVV=0.126dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.3",
+          "fused_has_scar": false,
+          "fused_agreers": [],
+          "persistence_signal": false,
+          "combustion_signal": false,
+          "temporal_still_active_48h": false,
+          "temporal_still_active_7d": true,
+          "external_sources_ever": [],
+          "vision_classification": {
+            "category": "real_fire",
+            "confidence": 0.82,
+            "basis": "The RGB image shows a complex of buildings surrounded by fields with darker disturbed areas visible. The Sentinel-2 false-color composite displays a bright yellow-green signature characteristic of active thermal anomalies or recent burn scars mixed with agricultural land. The multi-sensor evidence strongly supports a fire event: moderate dNBR (0.23), 10 S3-FRP scenes, 22 VNP14 granules, elevated TROPOMI-CO, and persistence over 7 days but not 24-48h, indicating a recent wildfire or large agricultural burn that has subsided. The location and thermal persistence pattern are consistent with a real thermal event rather than a persistent infrared source."
+          },
+          "final_action": "real_fire",
+          "final_category": null,
+          "basis": "Sonnet vision (conf 0.82): The RGB image shows a complex of buildings surrounded by fields with darker disturbed areas visible. The Sentinel-2 false-color composite displays a bright yellow-green signature characteristic of active thermal anomalies or recent burn scars mixed with agricultural land. The multi-sensor evidence strongly supports a fire event: moderate dNBR (0.23), 10 S3-FRP scenes, 22 VNP14 granules, elevated TROPOMI-CO, and persistence over 7 days but not 24-48h, indicating a recent wildfire or large agricultural burn that has subsided. The location and thermal persistence pattern are consistent with a real thermal event rather than a persistent infrared source."
+        },
+        {
+          "idx": 33,
+          "lat": 37.12,
+          "lon": 14.12,
+          "fused_evidence": "S2 dNBR=0.2388; LS dNBR=0.1575; HLS dNBR=0.1765; S1 dVV=-0.023dB; MODIS-LST \u0394=5.45K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+          "fused_has_scar": false,
+          "fused_agreers": [],
+          "persistence_signal": false,
+          "combustion_signal": false,
+          "temporal_still_active_48h": false,
+          "temporal_still_active_7d": true,
+          "external_sources_ever": [],
+          "vision_classification": {
+            "category": "real_fire",
+            "confidence": 0.82,
+            "basis": "The top orthophoto shows disturbed/darkened agricultural fields consistent with recent burning. Multi-sensor evidence strongly supports fire: positive dNBR (0.24 S2, 0.16 LS), 10 S3-FRP detections, 23 VNP14 granules, and elevated LST. The dark patches in yellow farmland (false-color) match burn scar signatures rather than persistent infrastructure."
+          },
+          "final_action": "real_fire",
+          "final_category": null,
+          "basis": "Sonnet vision (conf 0.82): The top orthophoto shows disturbed/darkened agricultural fields consistent with recent burning. Multi-sensor evidence strongly supports fire: positive dNBR (0.24 S2, 0.16 LS), 10 S3-FRP detections, 23 VNP14 granules, and elevated LST. The dark patches in yellow farmland (false-color) match burn scar signatures rather than persistent infrastructure."
+        },
+        {
+          "idx": 40,
+          "lat": 36.93,
+          "lon": 14.81,
+          "fused_evidence": "S2 dNBR=0.1598; LS dNBR=0.2439; HLS dNBR=0.1824; S1 dVV=-0.112dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+          "fused_has_scar": false,
+          "fused_agreers": [],
+          "persistence_signal": false,
+          "combustion_signal": false,
+          "temporal_still_active_48h": true,
+          "temporal_still_active_7d": true,
+          "external_sources_ever": [],
+          "vision_classification": {
+            "category": "solar_farm",
+            "confidence": 0.92,
+            "basis": "The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant, characteristic of solar PV panels with low reflectance in SWIR. The persistent thermal detections (7d active, 10 S3-FRP scenes, 21 VNP14 granules) combined with very low burn-scar indices (dNBR ~0.16-0.24) and minimal radar change confirm a non-fire persistent thermal source typical of solar farms."
+          },
+          "final_action": "classify",
+          "final_category": "solar_farm",
+          "basis": "Sonnet vision (conf 0.92): The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant, characteristic of solar PV panels with low reflectance in SWIR. The persistent thermal detections (7d active, 10 S3-FRP scenes, 21 VNP14 granules) combined with very low burn-scar indices (dNBR ~0.16-0.24) and minimal radar change confirm a non-fire persistent thermal source typical of solar farms."
+        }
+      ],
+      "total_vision_cost_usd": 0.0422
     }
   ]
 }

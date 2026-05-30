@@ -1,0 +1,33 @@
+{
+  "n_cells": 114,
+  "n_extra_done": 114,
+  "n_fused_scar_after_full_roster": 114,
+  "n_fused_scar_multi_only_before": 59,
+  "new_sensor_success_counts": {
+    "hls_nbr": 95,
+    "modis_lst": 56,
+    "s3_slstr_frp": 114,
+    "s3_slstr_lst": 110,
+    "s5p_tropomi": 114,
+    "viirs_af": 114,
+    "black_marble": 114,
+    "mtg_fci": 8
+  },
+  "runtime_sec": 616.7,
+  "method": "Full-roster burn-scar fusion: Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + Sentinel-3 SLSTR FRP + Sentinel-3 SLSTR LST + MODIS-11A1 daily LST (ECOSTRESS substitute) + Sentinel-5P TROPOMI CO/NO2 anomaly + VIIRS VNP14IMG active-fire (granule count via CMR) + VIIRS VNP46A1 Black Marble persistence + MTG FCI L1c DGX-cache coverage signal. Fused via OR-logic with confidence weighted by agreement count. Persistence + combustion derived from BM + TROPOMI.",
+  "n_fused_scar_strict_after_proxy_demotion": 68,
+  "n_persistent_signal": 0,
+  "n_combustion_signal": 0,
+  "agree_count_distribution": {
+    "0": 46,
+    "1": 30,
+    "2": 33,
+    "3": 5
+  },
+  "sensor_agreers_freq_strict": {
+    "s2_nbr": 39,
+    "hls_nbr": 44,
+    "landsat_nbr": 11,
+    "s1_rtc": 17
+  }
+}

@@ -1154,6 +1154,39 @@
         "s2"
       ],
       "fusion_confidence": "low"
+    },
+    {
+      "idx": 1,
+      "action": "real_fire",
+      "category": null,
+      "hotkey": "f",
+      "lat": 37.59,
+      "lon": 14.95,
+      "ts": "2026-05-30T01:40:42.591474+00:00",
+      "auto_applied_from": "v1_3_0_unsure_resolution_full_roster",
+      "basis": "Sonnet vision (conf 0.85): The optical image shows a dark burn scar pattern with scattered trees and disturbed vegetation typical of wildfire. Multi-sensor evidence supports active burning: moderate Sentinel-1 VV decrease (-0.166dB), 10 S3-FRP detections, 22 VNP14 granules, TROPOMI CO decline, and 7-day persistence all consistent with a recent wildfire event rather than a persistent thermal source."
+    },
+    {
+      "idx": 11,
+      "action": "real_fire",
+      "category": null,
+      "hotkey": "f",
+      "lat": 37.03,
+      "lon": 14.91,
+      "ts": "2026-05-30T01:40:42.591474+00:00",
+      "auto_applied_from": "v1_3_0_unsure_resolution_full_roster",
+      "basis": "Sonnet vision (conf 0.82): The RGB image shows a complex of buildings surrounded by fields with darker disturbed areas visible. The Sentinel-2 false-color composite displays a bright yellow-green signature characteristic of active thermal anomalies or recent burn scars mixed with agricultural land. The multi-sensor evidence strongly supports a fire event: moderate dNBR (0.23), 10 S3-FRP scenes, 22 VNP14 granules, elevated TROPOMI-CO, and persistence over 7 days but not 24-48h, indicating a recent wildfire or large agricultural burn that has subsided. The location and thermal persistence pattern are consistent with a real thermal event rather than a persistent infrared source."
+    },
+    {
+      "idx": 33,
+      "action": "real_fire",
+      "category": null,
+      "hotkey": "f",
+      "lat": 37.12,
+      "lon": 14.12,
+      "ts": "2026-05-30T01:40:42.591474+00:00",
+      "auto_applied_from": "v1_3_0_unsure_resolution_full_roster",
+      "basis": "Sonnet vision (conf 0.82): The top orthophoto shows disturbed/darkened agricultural fields consistent with recent burning. Multi-sensor evidence strongly supports fire: positive dNBR (0.24 S2, 0.16 LS), 10 S3-FRP detections, 23 VNP14 granules, and elevated LST. The dark patches in yellow farmland (false-color) match burn scar signatures rather than persistent infrastructure."
     }
   ],
   "started_at": "2026-05-29T22:00:58.912949+00:00"
