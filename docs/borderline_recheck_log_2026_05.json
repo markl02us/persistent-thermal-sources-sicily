@@ -1,0 +1,75 @@
+{
+  "entries": [
+    {
+      "ts": "2026-05-30T06:54:09.982635+00:00",
+      "idx": 3,
+      "lat": 37.57,
+      "lon": 14.73,
+      "proposed": "greenhouse_complex",
+      "held_since": "2026-05-30",
+      "days_held": 0,
+      "persistence": {
+        "n_hits_since_hold": 0,
+        "distinct_days_since_hold": 0,
+        "last_hit_ts": null,
+        "last_hit_age_hours": null,
+        "still_active_24h": false,
+        "still_active_48h": false,
+        "still_active_7d": false,
+        "internal_n": 0,
+        "external_n": 0,
+        "external_sources_since_hold": []
+      },
+      "burn_scar_fused": {
+        "has_scar_fused": false,
+        "n_sensors_agree_scar": 0,
+        "confidence": "none",
+        "evidence": "S2=no_data; Landsat=no_data; S1 dVV=-0.033dB; MODIS-SR=no_data; MODIS-AF=no_data"
+      },
+      "vision": {
+        "category": "water_body",
+        "confidence": 0.95,
+        "basis": "The top-right portion shows a bright cyan-white feature consistent with shallow water or salt deposits. The vivid blue signature in the Sentinel-2 false-color composite (SWIR-NIR channels) is characteristic of water bodies. No evidence of burn scars, thermal persistence, or human infrastructure."
+      },
+      "vision_cost_usd": 0.0075,
+      "recommendation": "KEEP_HOLDING",
+      "decision_basis": "Inside holding window (days_held=0 < 7)."
+    },
+    {
+      "ts": "2026-05-30T06:54:54.940771+00:00",
+      "idx": 40,
+      "lat": 36.93,
+      "lon": 14.81,
+      "proposed": "solar_farm",
+      "held_since": "2026-05-30",
+      "days_held": 0,
+      "persistence": {
+        "n_hits_since_hold": 0,
+        "distinct_days_since_hold": 0,
+        "last_hit_ts": null,
+        "last_hit_age_hours": null,
+        "still_active_24h": false,
+        "still_active_48h": false,
+        "still_active_7d": false,
+        "internal_n": 0,
+        "external_n": 0,
+        "external_sources_since_hold": []
+      },
+      "burn_scar_fused": {
+        "has_scar_fused": false,
+        "n_sensors_agree_scar": 0,
+        "confidence": "none",
+        "evidence": "S2=no_data; Landsat dNBR_max=0.2439 (low); S1 dVV=-0.112dB; MODIS-SR=no_data; MODIS-AF=no_data"
+      },
+      "vision": {
+        "category": "solar_farm",
+        "confidence": 0.95,
+        "basis": "The visible imagery shows a dark rectangular array with regular grid pattern characteristic of solar panels. The Sentinel-2 false-color composite displays the distinctive dark grey/black signature typical of photovoltaic installations, with no evidence of burn scars or vegetation damage."
+      },
+      "vision_cost_usd": 0.0074,
+      "recommendation": "KEEP_HOLDING",
+      "decision_basis": "Inside holding window (days_held=0 < 7)."
+    }
+  ],
+  "last_run_at": "2026-05-30T06:54:54.940948+00:00"
+}
