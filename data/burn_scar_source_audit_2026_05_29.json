@@ -325,7 +325,7 @@
       },
       {
         "id": "mtg-fci-l1c-dgx",
-        "role": "MTG FCI L1c DGX-cache file-count signal (Sicily 10-min cadence)"
+        "role": "MTG FCI L1c DGX-cache file-count signal (Sicily 10-min cadence); rolling 24h cache covers 8/114 cells in [first_seen,last_seen] window \u2014 sparse signal limited by cache retention, not by code"
       }
     ],
     "skipped": [
@@ -348,10 +348,6 @@
       {
         "id": "sentinel-1-grd",
         "reason": "Redundant with RTC (RTC = terrain-corrected GRD)."
-      },
-      {
-        "id": "mtg_fci_l1c_dgx",
-        "reason": "DGX SSH timed out at audit; per task budget, skip and document. Not silenced."
       },
       {
         "id": "ecostress-eco2lste",
