@@ -21,7 +21,8 @@
       "manual_review_real_fire": 20,
       "manual_review_ag_burn": 65,
       "manual_review_unsure": 12
-    }
+    },
+    "count": 337
   },
   "sources": [
     {
@@ -11932,7 +11933,59 @@
           "wind_diff"
         ]
       }
+    },
+    {
+      "id": "manualv130glasshouse37p57n14p73",
+      "name_it": "Complesso serre — 37.57, 14.73",
+      "name_en": "Glasshouse complex at 37.57, 14.73",
+      "category": "glasshouse_complex",
+      "subcategory": "candidate_persistent_anomaly",
+      "lat": 37.57,
+      "lon": 14.73,
+      "radius_km": 1.5,
+      "country": "IT",
+      "region": "Sicilia",
+      "phoenix_detections_30d": null,
+      "viirs_confirmed_30d": 0,
+      "first_observed": null,
+      "last_observed": null,
+      "false_positive_confidence": 0.92,
+      "notes_it": "Promosso da pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: strutture rettangolari ciano caratteristiche di coperture in plastica per serre (Sonnet 4.5 conf 0.92).",
+      "notes_en": "Promoted from pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: bright cyan rectangular structures characteristic of plastic greenhouse coverings (Sonnet 4.5, conf 0.92).",
+      "sources_cited": [
+        "PHOENIX-miner",
+        "Sonnet-4.5-vision"
+      ],
+      "discovered_at": "2026-05-29T20:30:00+00:00",
+      "promoted_at": "2026-05-30T05:25:16.453999+00:00",
+      "vision_evidence": "The false-color composite shows bright cyan rectangular structures characteristic of plastic greenhouse coverings."
+    },
+    {
+      "id": "manualv130solar36p93n14p81",
+      "name_it": "Impianto fotovoltaico — 36.93, 14.81",
+      "name_en": "Solar PV farm at 36.93, 14.81",
+      "category": "solar_farm",
+      "subcategory": "candidate_persistent_anomaly",
+      "lat": 36.93,
+      "lon": 14.81,
+      "radius_km": 1.5,
+      "country": "IT",
+      "region": "Sicilia",
+      "phoenix_detections_30d": null,
+      "viirs_confirmed_30d": 0,
+      "first_observed": null,
+      "last_observed": null,
+      "false_positive_confidence": 0.92,
+      "notes_it": "Promosso da pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: chiazza scura caratteristica di pannelli fotovoltaici con bassa riflettanza SWIR (Sonnet 4.5 conf 0.92).",
+      "notes_en": "Promoted from pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: distinct dark grey/black patch in upper-right quadrant characteristic of solar PV panels with low SWIR reflectance (Sonnet 4.5, conf 0.92).",
+      "sources_cited": [
+        "PHOENIX-miner",
+        "Sonnet-4.5-vision"
+      ],
+      "discovered_at": "2026-05-29T20:30:00+00:00",
+      "promoted_at": "2026-05-30T05:25:16.454018+00:00",
+      "vision_evidence": "The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant characteristic of solar PV panels with low SWIR reflectance."
     }
   ],
-  "last_updated": "2026-05-29"
+  "last_updated": "2026-05-30T05:25:16.458750+00:00"
 }

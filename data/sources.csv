@@ -334,3 +334,5 @@ phoenix-36_9700-14_3500,Persistent cell 36.9700N 14.3500E (water_body),Cella per
 phoenix-36_7900-14_4500,Persistent cell 36.7900N 14.4500E (water_body),Cella persistente 36.7900N 14.4500E (water_body),water_body,water_body,36.79,14.45,0.5,IT,Sicily,,
 phoenix-36_7900-14_4700,Persistent cell 36.7900N 14.4700E (water_body),Cella persistente 36.7900N 14.4700E (water_body),water_body,water_body,36.79,14.47,0.5,IT,Sicily,,
 phoenix-36_9900-14_3300,Persistent cell 36.9900N 14.3300E (water_body),Cella persistente 36.9900N 14.3300E (water_body),water_body,water_body,36.99,14.33,0.5,IT,Sicily,,
+manualv130glasshouse37p57n14p73,Glasshouse complex at 37.57, 14.73,glasshouse_complex,candidate_persistent_anomaly,37.57,14.73,1.5,IT
+manualv130solar36p93n14p81,Solar PV farm at 36.93, 14.81,solar_farm,candidate_persistent_anomaly,36.93,14.81,1.5,IT
