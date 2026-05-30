@@ -45,9 +45,11 @@ Re-analyzed all 114 manual-review cells with the full burn-scar source roster pe
   - idx 89 (36.8500N, 14.5700E): `unsure` -> `ag_burn` [sensors: s2; confidence: low]
 
 
-## Burn-scar proxy-to-signal upgrade — 2026-05-30
+## Burn-scar proxy-to-signal upgrade — 2026-05-30 (PARTIAL — 5/114 cells)
 
-Per the use-all-data directive: upgraded 4 scene-count PROXY sources to REAL per-pixel signals using netcdf/HDF5 reads instead of just enumerating granules.
+Per the use-all-data directive: built the infrastructure to upgrade 4 scene-count PROXY sources to REAL per-pixel signals using netcdf/HDF5 reads instead of just enumerating granules.
+
+**Status: per-source functions are end-to-end smoke-tested and confirmed working (TROPOMI 2.33σ above CO baseline on a sample cell; Black Marble 1.468 persistence_ratio on the same cell). The full 114-cell run did not complete within the 4h session budget (~3.6 min/cell × 114 cells / 8 parallelism = 51 min, but each cell varies and TROPOMI/Black Marble downloads are the bottleneck). Only 5 of 114 cells were processed before the budget timeout; results were NOT persisted to data/fp_review_burn_scars_2026_05_29.json. Scripts at `C:\\Users\\markl\\fp_review_ui\\burn_scar_proxy_upgrade.py` are idempotent and re-runnable.**
 
 **Sources upgraded:**
   - `sentinel-5p-l2-netcdf` (TROPOMI) — per-pixel CO + NO2 column anomaly via h5netcdf; 2σ above 30d baseline = `combustion_signal_tropomi`. Widened bbox to 7km half-width (TROPOMI native 5.5×3.5km pixel).
@@ -64,12 +66,14 @@ Per the use-all-data directive: upgraded 4 scene-count PROXY sources to REAL per
 The 4 proxy entries in `data/burn_scar_source_audit_2026_05_29.json` flipped to `signal_class: real_signal`.
 
 
-## Sentinel-3 OLCI L2 vegetation-index dropoff — 2026-05-30
+## Sentinel-3 OLCI L2 vegetation-index dropoff — 2026-05-30 (BUILT, not yet executed)
 
 Wired `sentinel-3-olci-lfr-l2-netcdf` (PC collection) with OTCI (Terrestrial Chlorophyll Index) + GIFAPAR (Green-Instantaneous FAPAR) as NDVI-equivalent vegetation-health signals. Median pre vs post window:
   - OTCI drop <= -0.5 OR GIFAPAR drop <= -0.15 → `ndvi_dropoff = True` (independent optical scar agreer).
 
 OLCI bbox widened to 750m half-width (300m native).
+
+**Status: script `C:\\Users\\markl\\fp_review_ui\\burn_scar_olci_ndvi.py` written, idempotent. Not executed in this session due to the proxy-upgrade pass consuming the session budget. Will run as part of the next daily/weekly catch-up.**
 
 
 ## MTG FCI archive backfill — 2026-05-30

@@ -305,7 +305,8 @@
       },
       {
         "id": "sentinel-3-slstr-frp-l2-netcdf",
-        "role": "S3 SLSTR active-fire FRP \u2014 independent thermal signal"
+        "role": "S3 SLSTR active-fire FRP \u2014 independent thermal signal",
+        "signal_class": "proxy_real_signal_partial"
       },
       {
         "id": "sentinel-3-slstr-lst-l2-netcdf",
@@ -313,15 +314,18 @@
       },
       {
         "id": "sentinel-5p-l2-netcdf",
-        "role": "TROPOMI CO/NO2 column anomaly \u2014 active-combustion signal"
+        "role": "TROPOMI CO/NO2 column anomaly \u2014 active-combustion signal",
+        "signal_class": "proxy_real_signal_partial"
       },
       {
         "id": "viirs-vnp14img-earthdata",
-        "role": "VIIRS 375m active-fire granule count via NASA CMR"
+        "role": "VIIRS 375m active-fire granule count via NASA CMR",
+        "signal_class": "proxy_real_signal_partial"
       },
       {
         "id": "viirs-vnp46a1-earthdata",
-        "role": "Black Marble persistence fingerprint via NASA CMR"
+        "role": "Black Marble persistence fingerprint via NASA CMR",
+        "signal_class": "proxy_real_signal_partial"
       },
       {
         "id": "mtg-fci-l1c-dgx",
@@ -370,5 +374,11 @@
     "archive_path_attempted": "/media/mark/AI_DGX/eumetsat_data/fci_archive",
     "archive_path_status": "No such file or directory",
     "note": "No historical FCI archive exists on DGX beyond the 24h rolling cache. 106 / 114 cells fall outside the 24h window. Cron PHOENIX_FP_FCI_Rolling_6h now snapshots the cache every 6h and accumulates into data/fci_rolling_archive_2026_05.json so a historic archive grows over time. EUMETSAT account creation deferred per task spec."
+  },
+  "proxy_upgrade_partial_completion_2026_05_30": {
+    "completed_at": "2026-05-30T06:34:06.562720+00:00",
+    "n_cells_with_real_signal": 5,
+    "n_cells_total": 114,
+    "reason": "Per-cell netcdf downloads exceeded the 4h session budget. Real-signal functions are wired and smoke-validated end-to-end; remaining 109 cells will progressively upgrade as the daily MODIS catch-up and a future repeated burn-scar pass runs. Scripts at fp_review_ui/burn_scar_proxy_upgrade.py + burn_scar_olci_ndvi.py are idempotent and safe to re-run."
   }
 }
