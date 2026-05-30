@@ -1,0 +1,290 @@
+{
+  "generated_at": "2026-05-29T23:41:21.216148+00:00",
+  "purpose": "Burn-scar evidence source audit for FP-catalog re-analysis pass. Per the use-all-data directive, enumerate every burn-scar-relevant collection on Planetary Computer + DGX BEFORE computing, list which will be used and why; skipping requires a documented reason.",
+  "test_bbox": [
+    14.5,
+    37.18,
+    14.55,
+    37.23
+  ],
+  "test_window": [
+    "2026-04-29",
+    "2026-05-29"
+  ],
+  "candidates": [
+    {
+      "id": "sentinel-2-l2a",
+      "label": "USE",
+      "exists": true,
+      "title": "Sentinel-2 Level-2A",
+      "sample_items_recent_30d": 5,
+      "sample_search_sec": 0.72,
+      "sample_item_id": "S2B_MSIL2A_20260526T095019_R079_T33SVB_20260526T134536",
+      "sample_assets": [
+        "AOT",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL",
+        "WVP",
+        "datastrip-metadata",
+        "granule-metadata",
+        "inspire-metadata",
+        "product-metadata",
+        "rendered_preview",
+        "safe-manifest",
+        "tilejson",
+        "visual"
+      ],
+      "why_relevant": "10m optical NBR via B8A/B12; gold standard burn-scar",
+      "signal_class": "optical_nbr",
+      "default_action": "USE"
+    },
+    {
+      "id": "landsat-c2-l2",
+      "label": "USE",
+      "exists": true,
+      "title": "Landsat Collection 2 Level-2",
+      "sample_items_recent_30d": 3,
+      "sample_search_sec": 7.38,
+      "sample_item_id": "LC09_L2SP_189034_20260522_02_T1",
+      "sample_assets": [
+        "ang",
+        "atran",
+        "blue",
+        "cdist",
+        "coastal",
+        "drad",
+        "emis",
+        "emsd",
+        "green",
+        "lwir11",
+        "mtl.json",
+        "mtl.txt",
+        "mtl.xml",
+        "nir08",
+        "qa",
+        "qa_aerosol",
+        "qa_pixel",
+        "qa_radsat",
+        "red",
+        "rendered_preview",
+        "swir16",
+        "swir22",
+        "tilejson",
+        "trad",
+        "urad"
+      ],
+      "why_relevant": "30m optical NBR via nir08/swir22; fills S2 revisit gap",
+      "signal_class": "optical_nbr",
+      "default_action": "USE"
+    },
+    {
+      "id": "sentinel-1-rtc",
+      "label": "USE",
+      "exists": true,
+      "title": "Sentinel 1 Radiometrically Terrain Corrected (RTC)",
+      "sample_items_recent_30d": 5,
+      "sample_search_sec": 0.22,
+      "sample_item_id": "S1D_IW_GRDH_1SDV_20260527T050409_20260527T050434_002965_005168_rtc",
+      "sample_assets": [
+        "rendered_preview",
+        "tilejson",
+        "vh",
+        "vv"
+      ],
+      "why_relevant": "C-band SAR; cloud-immune backscatter delta; Mediterranean grass/scrub burn = \u0394VV ~ -1 to -3 dB",
+      "signal_class": "sar_backscatter_change",
+      "default_action": "USE"
+    },
+    {
+      "id": "modis-09A1-061",
+      "label": "USE",
+      "exists": true,
+      "title": "MODIS Surface Reflectance 8-Day (500m)",
+      "sample_items_recent_30d": 2,
+      "sample_search_sec": 0.34,
+      "sample_item_id": "MYD09A1.A2026113.h19v05.061.2026122040303",
+      "sample_assets": [
+        "hdf",
+        "rendered_preview",
+        "sur_refl_b01",
+        "sur_refl_b02",
+        "sur_refl_b03",
+        "sur_refl_b04",
+        "sur_refl_b05",
+        "sur_refl_b06",
+        "sur_refl_b07",
+        "sur_refl_day_of_year",
+        "sur_refl_qc_500m",
+        "sur_refl_raz",
+        "sur_refl_state_500m",
+        "sur_refl_szen",
+        "sur_refl_vzen",
+        "tilejson"
+      ],
+      "why_relevant": "MOD09A1 8-day SR 500m; NBR via b2/b7; daily revisit fills gaps",
+      "signal_class": "optical_nbr_coarse",
+      "default_action": "USE"
+    },
+    {
+      "id": "modis-14A1-061",
+      "label": "USE",
+      "exists": true,
+      "title": "MODIS Thermal Anomalies/Fire Daily",
+      "sample_items_recent_30d": 2,
+      "sample_search_sec": 0.18,
+      "sample_item_id": "MYD14A1.A2026113.h19v05.061.2026122000611",
+      "sample_assets": [
+        "FireMask",
+        "MaxFRP",
+        "QA",
+        "hdf",
+        "rendered_preview",
+        "sample",
+        "tilejson"
+      ],
+      "why_relevant": "MOD14A1 daily 1km active fire; thermal-history corroboration",
+      "signal_class": "thermal_history",
+      "default_action": "USE"
+    },
+    {
+      "id": "sentinel-3-olci-lfr-l2-land",
+      "label": "PROBE",
+      "exists": false,
+      "error": "get_collection failed: {\"code\":\"NotFoundError\",\"description\":\"No collection with id 'sentinel-3-olci-lfr-l2-land' found!\"}",
+      "why_relevant": "300m OLCI land L2 products; burn-scar lower-priority",
+      "signal_class": "optical_olci",
+      "default_action": "PROBE"
+    },
+    {
+      "id": "viirs-09a1-001",
+      "label": "PROBE",
+      "exists": false,
+      "error": "get_collection failed: {\"code\":\"NotFoundError\",\"description\":\"No collection with id 'viirs-09a1-001' found!\"}",
+      "why_relevant": "VIIRS surface reflectance; alternate NBR source",
+      "signal_class": "optical_nbr_coarse",
+      "default_action": "PROBE"
+    },
+    {
+      "id": "modis-14A2-061",
+      "label": "PROBE",
+      "exists": true,
+      "title": "MODIS Thermal Anomalies/Fire 8-Day",
+      "sample_items_recent_30d": 2,
+      "sample_search_sec": 0.35,
+      "sample_item_id": "MYD14A2.A2026113.h19v05.061.2026122000611",
+      "sample_assets": [
+        "FireMask",
+        "QA",
+        "hdf",
+        "rendered_preview",
+        "tilejson"
+      ],
+      "why_relevant": "MOD14A2 8-day active fire; alt thermal-history",
+      "signal_class": "thermal_history",
+      "default_action": "PROBE"
+    },
+    {
+      "id": "modis-09Q1-061",
+      "label": "PROBE",
+      "exists": true,
+      "title": "MODIS Surface Reflectance 8-Day (250m)",
+      "sample_items_recent_30d": 2,
+      "sample_search_sec": 0.39,
+      "sample_item_id": "MYD09Q1.A2026113.h19v05.061.2026122040303",
+      "sample_assets": [
+        "hdf",
+        "rendered_preview",
+        "sur_refl_b01",
+        "sur_refl_b02",
+        "sur_refl_qc_250m",
+        "sur_refl_state_250m",
+        "tilejson"
+      ],
+      "why_relevant": "MOD09Q1 8-day SR 250m; finer than 09A1 but only 2 bands",
+      "signal_class": "optical_nbr_coarse",
+      "default_action": "PROBE"
+    },
+    {
+      "id": "sentinel-1-grd",
+      "label": "PROBE",
+      "exists": true,
+      "title": "Sentinel 1 Level-1 Ground Range Detected (GRD)",
+      "sample_items_recent_30d": 5,
+      "sample_search_sec": 0.23,
+      "sample_item_id": "S1D_IW_GRDH_1SDV_20260527T050409_20260527T050434_002965_005168",
+      "sample_assets": [
+        "rendered_preview",
+        "safe-manifest",
+        "schema-calibration-vh",
+        "schema-calibration-vv",
+        "schema-noise-vh",
+        "schema-noise-vv",
+        "schema-product-vh",
+        "schema-product-vv",
+        "thumbnail",
+        "tilejson",
+        "vh",
+        "vv"
+      ],
+      "why_relevant": "GRD backscatter; raw VV/VH; alternative if RTC unavailable",
+      "signal_class": "sar_backscatter_change",
+      "default_action": "PROBE"
+    }
+  ],
+  "snapshot_db_thermal_persistence": {
+    "internal_fires_total": 9178,
+    "external_fires_total": 9902,
+    "external_sources_present": [
+      "firms_test",
+      "firms_viirs_noaa20",
+      "firms_viirs_noaa20_nrt_archive",
+      "firms_viirs_noaa21_nrt_archive",
+      "firms_viirs_snpp_nrt_archive",
+      "firms_modis_nrt_archive",
+      "firms_viirs_noaa20_global",
+      "mtg_af_l2",
+      "firms_viirs_noaa21",
+      "firms_viirs_snpp",
+      "firms_modis_nrt",
+      "vigili_fuoco",
+      "tropomi_hcho_anomaly",
+      "sentinel1_sar_change",
+      "tropomi_no2_anomaly"
+    ],
+    "status": "USE",
+    "reason": "Already wired; primary temporal-persistence signal"
+  },
+  "dgx_mtg_fci_check": {
+    "status": "SKIP",
+    "reason": "DGX SSH timed out at 12s connect (paramiko TimeoutError) at audit time. Per task spec, if DGX access exceeds the per-cell budget the source is skipped with a documented reason. Re-enable in next pass when Tailscale/DGX link is stable."
+  },
+  "decisions": {
+    "used": [
+      {"id": "sentinel-2-l2a", "role": "primary optical NBR @ 10m (B8A/B12)"},
+      {"id": "landsat-c2-l2", "role": "secondary optical NBR @ 30m (nir08/swir22); covers S2 revisit gaps"},
+      {"id": "sentinel-1-rtc", "role": "cloud-immune SAR backscatter change (VV+VH dB delta)"},
+      {"id": "modis-09A1-061", "role": "8-day 500m SR NBR (b02/b07) — coarse fill across long windows"},
+      {"id": "modis-14A1-061", "role": "daily 1km active-fire mask + MaxFRP — thermal-history corroboration"},
+      {"id": "snapshot_db", "role": "internal+external_fires temporal persistence (FIRMS, VIIRS, MODIS, MTG-AF, SLSTR proxy, VVF, S1-SAR, TROPOMI)"}
+    ],
+    "skipped": [
+      {"id": "sentinel-3-olci-lfr-l2-land", "reason": "Collection not found on PC (NotFoundError). No public OLCI burn-scar collection exposed under this id."},
+      {"id": "viirs-09a1-001", "reason": "Collection not found on PC under this id. MODIS-09A1 already covers coarse optical NBR."},
+      {"id": "modis-14A2-061", "reason": "Redundant with 14A1 (daily strictly finer than 8-day for thermal history). Held in reserve."},
+      {"id": "modis-09Q1-061", "reason": "Only 2 SR bands (b01/b02) — no SWIR for NBR. 09A1 provides full band stack."},
+      {"id": "sentinel-1-grd", "reason": "Redundant with RTC (RTC = terrain-corrected GRD)."},
+      {"id": "mtg_fci_l1c_dgx", "reason": "DGX SSH timed out at audit; per task budget, skip and document. Not silenced."}
+    ]
+  }
+}

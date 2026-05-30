@@ -81,21 +81,5 @@
     "applied_from": "burn_scar_suggestion",
     "basis": "no Sentinel-2 dNBR scar in post-window (max=0.16, severity=low) + thermal signal still active within 48h (last internal ts 2026-05-29T10:55:11.273294+00:00) \u2192 signal is persistent, not transient burn",
     "flag": "removed_from_ag_burn_pending_review"
-  },
-  {
-    "idx": 89,
-    "lat": 36.85,
-    "lon": 14.57,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Rural landscape with scattered vegetation, fields, and small settlement, no clear industrial features.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:30:18.097321+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
   }
 ]

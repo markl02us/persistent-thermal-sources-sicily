@@ -1046,6 +1046,32 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
+    "idx": 89,
+    "lat": 36.85,
+    "lon": 14.57,
+    "hits_7d": 3,
+    "avg_frp_mw": 8.58,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Rural landscape with scattered vegetation, fields, and small settlement, no clear industrial features.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T00:07:41.530110+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "applied_from": "burn_scar_multi_sensor_rerun",
+    "basis": "fused burn-scar across 1 sensors (S2 dNBR_max=0.3965 (moderate); Landsat dNBR_max=0.19 (low); S1 dVV=-0.076dB; MODIS-SR=no_data; MODIS-AF=no_data) + signal cooled (no 48h hits) + vision prior 'agricultural_field' -> transient ag burn",
+    "sensors_agreeing": [
+      "s2"
+    ],
+    "fusion_confidence": "low",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
     "idx": 91,
     "lat": 37.53,
     "lon": 14.59,

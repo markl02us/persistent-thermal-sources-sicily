@@ -1,0 +1,322 @@
+{
+  "waves": [
+    {
+      "wave": "v1_2_2_s2_only",
+      "generated_at": "2026-05-29T22:40:14.724057+00:00",
+      "method": "burn_scar (S2 dNBR) + temporal (snapshot.db internal+external_fires)",
+      "n_suggestions": 8,
+      "suggestions": [
+        {
+          "idx": 0,
+          "lat": 37.55,
+          "lon": 14.69,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.3469,
+            "severity": "moderate",
+            "scenes_pre": 4,
+            "scenes_post": 2,
+            "evidence": "localized scar in NE quadrant, ~244m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-23T13:57:31.849049+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "ag_burn",
+          "basis": "Sentinel-2 dNBR scar present (max=0.35, severity=moderate, localized scar in NE quadrant, ~244m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        },
+        {
+          "idx": 2,
+          "lat": 37.55,
+          "lon": 14.67,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.3623,
+            "severity": "moderate",
+            "scenes_pre": 4,
+            "scenes_post": 2,
+            "evidence": "localized scar in SW quadrant, ~170m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-23T13:57:31.849049+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "ag_burn",
+          "basis": "Sentinel-2 dNBR scar present (max=0.36, severity=moderate, localized scar in SW quadrant, ~170m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        },
+        {
+          "idx": 18,
+          "lat": 36.95,
+          "lon": 14.79,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.3606,
+            "severity": "moderate",
+            "scenes_pre": 6,
+            "scenes_post": 2,
+            "evidence": "localized scar in SE quadrant, ~257m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-23T13:39:22.483447+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "ag_burn",
+          "basis": "Sentinel-2 dNBR scar present (max=0.36, severity=moderate, localized scar in SE quadrant, ~257m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        },
+        {
+          "idx": 40,
+          "lat": 36.93,
+          "lon": 14.81,
+          "current_action": "ag_burn",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": false,
+            "dnbr_max": 0.1556,
+            "severity": "low",
+            "scenes_pre": 6,
+            "scenes_post": 2,
+            "evidence": "low-severity vegetation change (max dNBR 0.16)"
+          },
+          "temporal": {
+            "still_active_24h": true,
+            "still_active_48h": true,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-29T10:55:11.273294+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "unknown_fp",
+          "basis": "no Sentinel-2 dNBR scar in post-window (max=0.16, severity=low) + thermal signal still active within 48h (last internal ts 2026-05-29T10:55:11.273294+00:00) \u2192 signal is persistent, not transient burn"
+        },
+        {
+          "idx": 79,
+          "lat": 37.21,
+          "lon": 14.51,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.4802,
+            "severity": "high",
+            "scenes_pre": 4,
+            "scenes_post": 1,
+            "evidence": "localized scar in SW quadrant, ~185m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-25T06:06:28.125525+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "real_fire",
+          "basis": "Sentinel-2 dNBR scar present (max=0.48, severity=high, localized scar in SW quadrant, ~185m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        },
+        {
+          "idx": 83,
+          "lat": 37.05,
+          "lon": 14.91,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.4032,
+            "severity": "moderate",
+            "scenes_pre": 6,
+            "scenes_post": 3,
+            "evidence": "localized scar in SE quadrant, ~183m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-23T13:39:22.483447+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "real_fire",
+          "basis": "Sentinel-2 dNBR scar present (max=0.40, severity=moderate, localized scar in SE quadrant, ~183m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        },
+        {
+          "idx": 84,
+          "lat": 37.01,
+          "lon": 14.87,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.4771,
+            "severity": "high",
+            "scenes_pre": 6,
+            "scenes_post": 1,
+            "evidence": "localized scar in SW quadrant, ~247m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-25T06:06:28.125525+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "real_fire",
+          "basis": "Sentinel-2 dNBR scar present (max=0.48, severity=high, localized scar in SW quadrant, ~247m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        },
+        {
+          "idx": 100,
+          "lat": 37.25,
+          "lon": 14.55,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar": {
+            "status": "ok",
+            "has_scar": true,
+            "dnbr_max": 0.2741,
+            "severity": "moderate",
+            "scenes_pre": 4,
+            "scenes_post": 1,
+            "evidence": "localized scar in NE quadrant, ~74m extent"
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-25T06:06:28.125525+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "ag_burn",
+          "basis": "Sentinel-2 dNBR scar present (max=0.27, severity=moderate, localized scar in NE quadrant, ~74m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
+        }
+      ]
+    },
+    {
+      "wave": "v1_3_0_multi_sensor",
+      "generated_at": "2026-05-30T00:06:33.352608+00:00",
+      "method": "Multi-sensor fusion of S2 L2A NBR + Landsat C2 NBR + S1 RTC dVV + MODIS-09A1 SR NBR + MODIS-14A1 active-fire, has_scar_fused via OR. Temporal persistence from snapshot.db.",
+      "n_reviewed": 114,
+      "n_suggestions_raw": 1,
+      "n_suggestions_after_v1_2_2_dedupe": 1,
+      "duplicates_subtracted_indices": [
+        0,
+        2,
+        18,
+        40,
+        79,
+        83,
+        84,
+        100
+      ],
+      "n_mask_recheck_candidates": 0,
+      "suggestions": [
+        {
+          "idx": 89,
+          "lat": 36.85,
+          "lon": 14.57,
+          "current_action": "unsure",
+          "current_category": null,
+          "burn_scar_fused": {
+            "has_scar_fused": true,
+            "n_sensors_usable": 3,
+            "n_sensors_agree_scar": 1,
+            "sensors_agreeing": [
+              "s2"
+            ],
+            "confidence": "low",
+            "evidence": "S2 dNBR_max=0.3965 (moderate); Landsat dNBR_max=0.19 (low); S1 dVV=-0.076dB; MODIS-SR=no_data; MODIS-AF=no_data"
+          },
+          "per_sensor": {
+            "s2_nbr": {
+              "scenes_pre": 4,
+              "scenes_post": 1,
+              "status": "ok",
+              "dnbr_max": 0.3965,
+              "dnbr_mean": 0.2353,
+              "severity": "moderate",
+              "has_scar": true,
+              "sec": 12.9
+            },
+            "landsat_nbr": {
+              "scenes_pre": 4,
+              "scenes_post": 1,
+              "status": "ok",
+              "dnbr_max": 0.19,
+              "dnbr_mean": 0.1184,
+              "severity": "low",
+              "has_scar": false,
+              "sec": 5.4,
+              "post_window": [
+                "2026-05-23",
+                "2026-05-31"
+              ]
+            },
+            "s1_rtc": {
+              "scenes_pre": 3,
+              "scenes_post": 3,
+              "status": "ok",
+              "delta_vv_db": -0.076,
+              "delta_vh_db": -0.233,
+              "has_scar": false,
+              "sec": 45.1
+            },
+            "modis_sr_nbr": {
+              "scenes_pre": 4,
+              "scenes_post": 0,
+              "status": "no_data",
+              "reason": "no post-window items",
+              "sec": 0.7,
+              "post_window": [
+                "2026-05-23",
+                "2026-05-31"
+              ]
+            },
+            "modis_active_fire": {
+              "status": "no_data",
+              "n_hits_in_window": 0,
+              "scenes": 0,
+              "max_frp_mw": null,
+              "reason": "no items",
+              "sec": 0.2
+            }
+          },
+          "temporal": {
+            "still_active_24h": false,
+            "still_active_48h": false,
+            "still_active_7d": true,
+            "last_internal_ts": "2026-05-24T09:51:58.112591+00:00",
+            "last_external_ts": null,
+            "external_sources_ever": []
+          },
+          "suggested_action": "ag_burn",
+          "basis": "fused burn-scar across 1 sensors (S2 dNBR_max=0.3965 (moderate); Landsat dNBR_max=0.19 (low); S1 dVV=-0.076dB; MODIS-SR=no_data; MODIS-AF=no_data) + signal cooled (no 48h hits) + vision prior 'agricultural_field' -> transient ag burn"
+        }
+      ]
+    }
+  ]
+}

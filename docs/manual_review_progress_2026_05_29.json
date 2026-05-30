@@ -1139,6 +1139,21 @@
       "lon": 14.55,
       "ts": "2026-05-29T22:44:59.297600+00:00",
       "applied_from": "burn_scar_suggestion"
+    },
+    {
+      "idx": 89,
+      "action": "ag_burn",
+      "category": null,
+      "hotkey": "auto",
+      "lat": 36.85,
+      "lon": 14.57,
+      "ts": "2026-05-30T00:07:41.530110+00:00",
+      "applied_from": "burn_scar_multi_sensor_rerun",
+      "basis": "fused burn-scar across 1 sensors (S2 dNBR_max=0.3965 (moderate); Landsat dNBR_max=0.19 (low); S1 dVV=-0.076dB; MODIS-SR=no_data; MODIS-AF=no_data) + signal cooled (no 48h hits) + vision prior 'agricultural_field' -> transient ag burn",
+      "sensors_agreeing": [
+        "s2"
+      ],
+      "fusion_confidence": "low"
     }
   ],
   "started_at": "2026-05-29T22:00:58.912949+00:00"

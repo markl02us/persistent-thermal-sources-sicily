@@ -1,0 +1,40 @@
+{
+  "n_cells": 114,
+  "n_analyzed": 114,
+  "n_status_ok": 106,
+  "n_fused_scar": 59,
+  "n_s2_only_scar_for_compare": 39,
+  "sensor_success_rates": {
+    "s2_nbr": {
+      "ok": 77,
+      "no_data": 29,
+      "error": 0
+    },
+    "landsat_nbr": {
+      "ok": 74,
+      "no_data": 32,
+      "error": 0
+    },
+    "s1_rtc": {
+      "ok": 106,
+      "no_data": 0,
+      "error": 0
+    },
+    "modis_sr_nbr": {
+      "ok": 0,
+      "no_data": 106,
+      "error": 0
+    },
+    "modis_active_fire": {
+      "ok": 0,
+      "no_data": 106,
+      "error": 0
+    }
+  },
+  "n_suggestions_after_dedupe": 1,
+  "n_mask_recheck": 0,
+  "n_dup_subtracted": 0,
+  "n_unconfirmed_real_fire_ish": 0,
+  "runtime_sec": 1079.5,
+  "partial": false
+}
