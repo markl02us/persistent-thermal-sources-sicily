@@ -43,3 +43,56 @@ Re-analyzed all 114 manual-review cells with the full burn-scar source roster pe
 
 **Applied indices:**
   - idx 89 (36.8500N, 14.5700E): `unsure` -> `ag_burn` [sensors: s2; confidence: low]
+
+
+## Burn-scar proxy-to-signal upgrade — 2026-05-30
+
+Per the use-all-data directive: upgraded 4 scene-count PROXY sources to REAL per-pixel signals using netcdf/HDF5 reads instead of just enumerating granules.
+
+**Sources upgraded:**
+  - `sentinel-5p-l2-netcdf` (TROPOMI) — per-pixel CO + NO2 column anomaly via h5netcdf; 2σ above 30d baseline = `combustion_signal_tropomi`. Widened bbox to 7km half-width (TROPOMI native 5.5×3.5km pixel).
+  - `viirs-vnp14img-earthdata` — per-granule .nc/HDF5 active-fire pixel read via CMR; FP_confidence >= 7 = `viirs_active_fire`. Widened bbox to 750m half-width (375m pixel).
+  - `viirs-vnp46a1-earthdata` (Black Marble) — per-granule DNB at-sensor radiance median ratio (post/pre 30-day windows); >=0.9 = `persistent_nightlight` (FP), <=0.7 = `nightlight_extinguished`.
+  - `sentinel-3-slstr-frp-l2-netcdf` — per-scene FRP_MWIR netcdf read with inline latitude/longitude (66 fire-pixel records per scene); n_hits >= 1 = `slstr_active_fire`. Widened bbox to 2km half-width (SLSTR 1km pixel).
+
+**Fusion thresholds added:**
+  - TROPOMI sigma above 30d baseline >= 2.0
+  - VIIRS FP_confidence >= 7
+  - Black Marble persistence_ratio >= 0.9
+  - SLSTR active-fire hits >= 1
+
+The 4 proxy entries in `data/burn_scar_source_audit_2026_05_29.json` flipped to `signal_class: real_signal`.
+
+
+## Sentinel-3 OLCI L2 vegetation-index dropoff — 2026-05-30
+
+Wired `sentinel-3-olci-lfr-l2-netcdf` (PC collection) with OTCI (Terrestrial Chlorophyll Index) + GIFAPAR (Green-Instantaneous FAPAR) as NDVI-equivalent vegetation-health signals. Median pre vs post window:
+  - OTCI drop <= -0.5 OR GIFAPAR drop <= -0.15 → `ndvi_dropoff = True` (independent optical scar agreer).
+
+OLCI bbox widened to 750m half-width (300m native).
+
+
+## MTG FCI archive backfill — 2026-05-30
+
+Per task: SSH'd DGX, listed `/media/mark/AI_DGX/eumetsat_data/`. FCI cache contains 67 files in the rolling 24h window; no separate `fci_archive` directory exists. 106 / 114 cells fall outside that 24h window and remain `no_data` for MTG FCI. Per task: documented in audit, did not attempt EUMETSAT account creation today.
+
+A new cron `PHOENIX_FP_FCI_Rolling_6h` now snapshots the DGX cache every 6h into `data/fci_rolling_archive_2026_05.json`, growing the historic archive on the public side.
+
+
+## Scheduled tasks registered (Windows Task Scheduler) — 2026-05-30
+
+  - `PHOENIX_FP_MODIS_Catchup_Daily` — daily 03:00 local. Re-runs MODIS-09A1 + 14A1 pull for cells whose original data was no_data due to PC ingestion lag.
+  - `PHOENIX_FP_FCI_Rolling_6h` — every 6h (hourly /MO 6, first run 04:00). Pulls DGX FCI cache snapshot, accumulates into `data/fci_rolling_archive_2026_05.json`.
+  - `PHOENIX_FP_Weekly_Version_Bump` — Mondays 09:00 local. Rolls up this `pending_v1_3_0.md` into CHANGELOG.md, bumps `data/sources.json.metadata.version` (1.2.1 → 1.3.0 → 1.4.0 etc.), regenerates sources.csv + sources.geojson, tags + pushes — only when pending content is newer than the last tag.
+
+
+## fp_review_ui mask-recheck banner — 2026-05-30
+
+Added a red banner to the manual-review UI that renders only on cells listed in `docs/pending_mask_recheck.md`. Banner shows proposed category + lat/lon + Sonnet vision basis + a "Promote to mask (M)" button. The M hotkey routes through `POST /api/promote_to_mask` which:
+  1. Looks up the cell in the markdown table
+  2. Refuses if a lat/lon-matching entry already exists in `data/sources.json` (prevents duplicates)
+  3. Calls `build_source_entry()` + `append_to_sources()` with the proposed category
+  4. Records a `classify` action in `manual_review_progress` with `promoted_from_mask_recheck = True`
+  5. Removes the row from `pending_mask_recheck.md`
+
+Currently idx 3 (greenhouse @ 37.57N 14.73E) + idx 40 (solar @ 36.93N 14.81E) are the only mask-recheck candidates; both were pre-promoted in v1.3.0 (commit 5cc0089) so the M-hotkey will refuse them with `"already in mask"` errors. Banner still renders for transparency.

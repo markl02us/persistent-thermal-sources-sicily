@@ -36,3 +36,5 @@ water surfaces, not burned vegetation. The mask is correct.
 |---:|---:|---:|---|---|
 | 3 | 37.5700 | 14.7300 | greenhouse_complex | Sonnet vision (conf 0.92): The false-color composite shows bright cyan rectangular structures characteristic of plastic greenhouse coverings. The top-right corn |
 | 40 | 36.9300 | 14.8100 | solar_farm | Sonnet vision (conf 0.92): The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant, characteristic of solar PV panel |
+
+**STATUS NOTE (2026-05-30):** idx 3 + 40 were pre-promoted to the live mask in v1.3.0 (commits 5cc0089) as `manualv130glasshouse37p57n14p73` + `manualv130solar36p93n14p81`. The fp_review_ui M-hotkey path now refuses to duplicate these entries. The banner is still rendered in the UI for transparency / future audit. To suppress the banner, manually delete the corresponding rows from this file.

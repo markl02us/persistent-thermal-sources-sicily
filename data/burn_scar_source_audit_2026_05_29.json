@@ -359,5 +359,16 @@
       }
     ]
   },
-  "full_roster_completed_at": "2026-05-30T01:37:38.132744+00:00"
+  "full_roster_completed_at": "2026-05-30T01:37:38.132744+00:00",
+  "mtg_fci_archive_check_2026_05_30": {
+    "checked_at": "2026-05-30T06:12:26.987844+00:00",
+    "dgx_path_checked": "/media/mark/AI_DGX/eumetsat_data/",
+    "fci_cache_present": true,
+    "fci_cache_size_files": 67,
+    "fci_cache_window_hours": 24,
+    "fci_archive_present": false,
+    "archive_path_attempted": "/media/mark/AI_DGX/eumetsat_data/fci_archive",
+    "archive_path_status": "No such file or directory",
+    "note": "No historical FCI archive exists on DGX beyond the 24h rolling cache. 106 / 114 cells fall outside the 24h window. Cron PHOENIX_FP_FCI_Rolling_6h now snapshots the cache every 6h and accumulates into data/fci_rolling_archive_2026_05.json so a historic archive grows over time. EUMETSAT account creation deferred per task spec."
+  }
 }
