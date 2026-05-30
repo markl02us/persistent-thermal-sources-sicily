@@ -1,149 +1,5 @@
 [
   {
-    "idx": 0,
-    "lat": 37.55,
-    "lon": 14.69,
-    "hits_7d": 9,
-    "avg_frp_mw": 4.03,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Mixed agricultural landscape with cultivated fields, some organized tree plantings, and natural vegetation patterns without persistent thermal anomaly sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
-    "applied_from": "burn_scar_suggestion",
-    "basis": "Sentinel-2 dNBR scar present (max=0.35, severity=moderate, localized scar in NE quadrant, ~244m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
-  },
-  {
-    "idx": 2,
-    "lat": 37.55,
-    "lon": 14.67,
-    "hits_7d": 8,
-    "avg_frp_mw": 2.83,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Mixed agricultural land with green fields, terraced slopes, and orchards but no persistent industrial thermal sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
-    "applied_from": "burn_scar_suggestion",
-    "basis": "Sentinel-2 dNBR scar present (max=0.36, severity=moderate, localized scar in SW quadrant, ~170m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
-  },
-  {
-    "idx": 5,
-    "lat": 37.43,
-    "lon": 14.53,
-    "hits_7d": 7,
-    "avg_frp_mw": 3.03,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly agricultural cropland with field patterns and minimal industrial infrastructure visible, though small structures may be present.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:09:14.603176+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 6,
-    "lat": 37.29,
-    "lon": 14.43,
-    "hits_7d": 7,
-    "avg_frp_mw": 2.49,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Rolling agricultural terrain with field boundaries and mixed vegetation, lacking obvious industrial thermal sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:09:20.309190+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 9,
-    "lat": 37.29,
-    "lon": 14.41,
-    "hits_7d": 6,
-    "avg_frp_mw": 2.08,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Mixed cropland and pasture fields with no persistent industrial features visible, primarily green agricultural parcels.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:09:34.870141+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 10,
-    "lat": 37.03,
-    "lon": 14.87,
-    "hits_7d": 5,
-    "avg_frp_mw": 4.67,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Mixed agricultural fields with crop patterns, scattered trees, and field boundaries but no industrial infrastructure visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:09:40.037021+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 12,
-    "lat": 36.93,
-    "lon": 14.91,
-    "hits_7d": 5,
-    "avg_frp_mw": 2.03,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Hilly terrain with olive groves and scattered agricultural vegetation showing typical Mediterranean agricultural patterns.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:25:26.948019+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 13,
     "lat": 37.01,
     "lon": 14.95,
@@ -159,108 +15,6 @@
       "suggested_mask_radius_m": 400
     },
     "flagged_at": "2026-05-29T22:25:34.364674+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 14,
-    "lat": 37.29,
-    "lon": 14.53,
-    "hits_7d": 5,
-    "avg_frp_mw": 4.48,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly agricultural fields with some scattered small structures, but lacks clear industrial features that would cause persistent thermal anomalies.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:25:38.739714+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 15,
-    "lat": 37.33,
-    "lon": 14.57,
-    "hits_7d": 5,
-    "avg_frp_mw": 3.57,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly agricultural fields with irregular boundaries and some tree rows, but no obvious persistent industrial heat sources visible in this tile.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:25:42.432527+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 18,
-    "lat": 36.95,
-    "lon": 14.79,
-    "hits_7d": 5,
-    "avg_frp_mw": 2.89,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Rural agricultural landscape with mixed crop fields and a small settlement, showing typical Mediterranean farming patterns with no industrial heat sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall.",
-    "applied_from": "burn_scar_suggestion",
-    "basis": "Sentinel-2 dNBR scar present (max=0.36, severity=moderate, localized scar in SE quadrant, ~257m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
-  },
-  {
-    "idx": 19,
-    "lat": 37.27,
-    "lon": 14.43,
-    "hits_7d": 5,
-    "avg_frp_mw": 2.15,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Mixed agricultural landscape with forested areas, cultivated fields including orchards, and rural access roads in hilly terrain.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 350
-    },
-    "flagged_at": "2026-05-29T22:26:12.598870+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 20,
-    "lat": 37.03,
-    "lon": 14.75,
-    "hits_7d": 5,
-    "avg_frp_mw": 2.61,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Terraced agricultural hillside with scattered farm buildings and cultivated fields, typical rural Sicily landscape.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:26:15.746361+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -286,66 +40,6 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
-    "idx": 23,
-    "lat": 37.29,
-    "lon": 14.51,
-    "hits_7d": 5,
-    "avg_frp_mw": 4.25,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Hilly terrain with mixed agricultural parcels and some small cultivated patches, but no clear persistent industrial thermal source visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:26:35.291272+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 26,
-    "lat": 37.19,
-    "lon": 14.65,
-    "hits_7d": 5,
-    "avg_frp_mw": 3.04,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly agricultural fields with contoured terracing and crop patterns, no clear persistent thermal source visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:26:45.701646+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 30,
-    "lat": 36.83,
-    "lon": 14.57,
-    "hits_7d": 4,
-    "avg_frp_mw": 13.74,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Mixed agricultural parcels with scattered trees and field boundaries, small buildings present but no concentrated industrial features typical of persistent false positives.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:26:57.969655+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 31,
     "lat": 36.76,
     "lon": 14.82,
@@ -361,26 +55,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:27:02.061500+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 32,
-    "lat": 36.99,
-    "lon": 14.77,
-    "hits_7d": 4,
-    "avg_frp_mw": 1.83,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Terraced agricultural fields with scattered buildings and tree coverage, showing rural farming activity without industrial false-positive sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:27:05.581383+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -426,26 +100,6 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
-    "idx": 39,
-    "lat": 36.95,
-    "lon": 14.91,
-    "hits_7d": 4,
-    "avg_frp_mw": 2.54,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Mixed agricultural parcels showing crop fields with regular rectangular patterns and orchards in tan/beige colors indicating harvested or fallow fields.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:02.644424+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 41,
     "lat": 36.93,
     "lon": 14.87,
@@ -486,46 +140,6 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
-    "idx": 43,
-    "lat": 37.21,
-    "lon": 14.67,
-    "hits_7d": 4,
-    "avg_frp_mw": 2.74,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.9,
-      "evidence": "Open cropland with field boundaries and some linear vegetation strips but no persistent thermal anomaly sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:14.670052+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 44,
-    "lat": 37.35,
-    "lon": 14.53,
-    "hits_7d": 4,
-    "avg_frp_mw": 4.07,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Rolling agricultural terrain with field boundaries and cultivation patterns but no persistent industrial thermal source visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 500
-    },
-    "flagged_at": "2026-05-29T22:28:16.390653+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 45,
     "lat": 37.31,
     "lon": 14.49,
@@ -541,86 +155,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:28:18.004432+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 48,
-    "lat": 37.17,
-    "lon": 14.27,
-    "hits_7d": 4,
-    "avg_frp_mw": 1.94,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly bare agricultural fields with minimal infrastructure, though one small dense green area (top right) could be a small glasshouse cluster causing thermal anomaly.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:24.379535+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 49,
-    "lat": 37.07,
-    "lon": 14.31,
-    "hits_7d": 4,
-    "avg_frp_mw": 3.61,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Large rectangular reflective structures with green vegetation alongside transportation corridor, typical of commercial greenhouse operations near roadway infrastructure.",
-      "vision_primary": "glasshouse_complex",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:28:26.841658+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 52,
-    "lat": 37.27,
-    "lon": 14.49,
-    "hits_7d": 4,
-    "avg_frp_mw": 3.24,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly agricultural cropland with undulating terrain and scattered small structures, lacking clear persistent industrial thermal signatures.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:36.423324+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 53,
-    "lat": 37.19,
-    "lon": 14.61,
-    "hits_7d": 4,
-    "avg_frp_mw": 10.23,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Large agricultural fields with crop rows and some scattered vegetation, typical cropland without persistent industrial thermal features.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:28:38.262017+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -646,126 +180,6 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
-    "idx": 57,
-    "lat": 37.43,
-    "lon": 14.51,
-    "hits_7d": 4,
-    "avg_frp_mw": 2.44,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.88,
-      "evidence": "Mixed cropland with field boundaries and some orchard plantings visible, lacking distinct industrial thermal anomaly sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:46.129190+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 58,
-    "lat": 37.87,
-    "lon": 14.75,
-    "hits_7d": 4,
-    "avg_frp_mw": 8.12,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Mixed cropland and pasture with linear field patterns and scattered vegetation, lacking industrial infrastructure for persistent thermal signature.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:50.358696+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 59,
-    "lat": 37.35,
-    "lon": 14.49,
-    "hits_7d": 3,
-    "avg_frp_mw": 2.54,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Mixed agricultural terrain with some vegetation patches and field boundaries but no clear persistent industrial thermal source visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:51.926561+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 60,
-    "lat": 37.31,
-    "lon": 14.57,
-    "hits_7d": 3,
-    "avg_frp_mw": 2.12,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.65,
-      "evidence": "Hilly agricultural terrain with field patterns and scattered vegetation but no obvious persistent industrial thermal anomaly source.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:28:53.406101+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 64,
-    "lat": 37.72,
-    "lon": 13.4,
-    "hits_7d": 3,
-    "avg_frp_mw": 0.01,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Mixed agricultural fields with some tree lines and rural structures, but no distinct industrial or greenhouse features visible that would cause persistent thermal anomalies.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:02.505371+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 65,
-    "lat": 36.91,
-    "lon": 14.83,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.04,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Predominantly agricultural landscape with irregular field patterns, scattered trees, and some small structures but no clear industrial thermal source.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:29:04.505019+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 66,
     "lat": 36.76,
     "lon": 14.87,
@@ -781,66 +195,6 @@
       "suggested_mask_radius_m": 350
     },
     "flagged_at": "2026-05-29T22:29:08.607636+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 67,
-    "lat": 37.21,
-    "lon": 14.75,
-    "hits_7d": 3,
-    "avg_frp_mw": 5.44,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Rural agricultural landscape with scattered buildings, curved roads, and field boundaries but no persistent industrial heat sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:10.711217+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 68,
-    "lat": 36.97,
-    "lon": 14.89,
-    "hits_7d": 3,
-    "avg_frp_mw": 3.77,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "River meander with surrounding cultivated fields showing crop patterns and vegetation strips, with one isolated building but no industrial features.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 350
-    },
-    "flagged_at": "2026-05-29T22:29:12.646198+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 69,
-    "lat": 36.89,
-    "lon": 14.87,
-    "hits_7d": 3,
-    "avg_frp_mw": 3.69,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Mixed agricultural landscape with visible field parcels including orchards and cultivated areas with scattered farm buildings along roads.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:15.419731+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -886,26 +240,6 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
-    "idx": 73,
-    "lat": 37.33,
-    "lon": 14.49,
-    "hits_7d": 3,
-    "avg_frp_mw": 4.53,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Predominantly agricultural fields with varied crop patterns and some green vegetation but no clear persistent industrial thermal source visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:24.615966+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 74,
     "lat": 37.33,
     "lon": 14.51,
@@ -921,106 +255,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:29:28.438157+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 75,
-    "lat": 37.31,
-    "lon": 14.47,
-    "hits_7d": 3,
-    "avg_frp_mw": 4.89,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Mix of cultivated fields with irregular field patterns and winding roads, no clear industrial or persistent thermal source visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:29.902087+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 77,
-    "lat": 36.97,
-    "lon": 14.75,
-    "hits_7d": 3,
-    "avg_frp_mw": 2.26,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Mixture of cultivated fields, some forested areas, and scattered agricultural plots with no clear persistent thermal anomaly source.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:29:35.258852+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 85,
-    "lat": 37.01,
-    "lon": 14.89,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.1,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Mixed agricultural landscape with olive groves and crop fields showing typical Mediterranean farming patterns without obvious industrial thermal sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:56.905820+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 86,
-    "lat": 37.01,
-    "lon": 14.91,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.16,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Terraced hillside agriculture with olive groves and mixed cropland in a mountainous terrain, no persistent industrial features visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:29:58.599810+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 87,
-    "lat": 37.01,
-    "lon": 14.93,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.16,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Patchwork of agricultural fields with boundaries and roads, no industrial infrastructure visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:30:00.488679+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -1042,32 +276,6 @@
     },
     "flagged_at": "2026-05-29T22:30:02.545831+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 89,
-    "lat": 36.85,
-    "lon": 14.57,
-    "hits_7d": 3,
-    "avg_frp_mw": 8.58,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Rural landscape with scattered vegetation, fields, and small settlement, no clear industrial features.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-30T00:07:41.530110+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "applied_from": "burn_scar_multi_sensor_rerun",
-    "basis": "fused burn-scar across 1 sensors (S2 dNBR_max=0.3965 (moderate); Landsat dNBR_max=0.19 (low); S1 dVV=-0.076dB; MODIS-SR=no_data; MODIS-AF=no_data) + signal cooled (no 48h hits) + vision prior 'agricultural_field' -> transient ag burn",
-    "sensors_agreeing": [
-      "s2"
-    ],
-    "fusion_confidence": "low",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
@@ -1107,86 +315,6 @@
       "suggested_mask_radius_m": 300
     },
     "flagged_at": "2026-05-29T22:30:23.950702+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 94,
-    "lat": 37.49,
-    "lon": 14.55,
-    "hits_7d": 3,
-    "avg_frp_mw": 2.49,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Multiple small structures visible that appear to be greenhouses or agricultural buildings amid agricultural fields.",
-      "vision_primary": "glasshouse_complex",
-      "suggested_mask_radius_m": 350
-    },
-    "flagged_at": "2026-05-29T22:30:29.236329+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 95,
-    "lat": 37.45,
-    "lon": 14.49,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.86,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Mixed agricultural parcels with varying crop colors and field patterns, including green vegetated fields and bare soil areas with roads and field boundaries.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:30:31.267049+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 96,
-    "lat": 37.45,
-    "lon": 14.51,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.86,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Patchwork of agricultural fields with mixed vegetation states showing green crops and harvested brown fields with linear field boundaries.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:30:33.074079+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
-    "idx": 98,
-    "lat": 37.29,
-    "lon": 14.57,
-    "hits_7d": 3,
-    "avg_frp_mw": 2.76,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.85,
-      "evidence": "Rural agricultural area with field parcels, roads, and scattered vegetation but no persistent industrial heat sources visible.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:30:37.712827+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -1314,26 +442,6 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
-    "idx": 110,
-    "lat": 36.85,
-    "lon": 14.54,
-    "hits_7d": 3,
-    "avg_frp_mw": 5.52,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.7,
-      "evidence": "Agricultural area with what appears to be rectangular reflective structures in the center-left portion that could be greenhouses, though partially obscured.",
-      "vision_primary": "glasshouse_complex",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:31:05.948668+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "agricultural_burn_positive",
-    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
-  },
-  {
     "idx": 111,
     "lat": 37.83,
     "lon": 14.63,
@@ -1354,6 +462,906 @@
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
   },
   {
+    "idx": 1,
+    "lat": 37.59,
+    "lon": 14.95,
+    "hits_7d": 8,
+    "avg_frp_mw": 28.16,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.9,
+      "evidence": "Predominantly forested/vegetated hillside with scattered buildings and natural vegetation cover, no industrial thermal sources visible.",
+      "vision_primary": "forest",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:50:39.090407+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 3,
+    "lat": 37.57,
+    "lon": 14.73,
+    "hits_7d": 7,
+    "avg_frp_mw": 2.54,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed agricultural parcels with some green fields and bare soil, no persistent industrial features visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:50:52.619834+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 5,
+    "lat": 37.43,
+    "lon": 14.53,
+    "hits_7d": 7,
+    "avg_frp_mw": 3.03,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly agricultural cropland with field patterns and minimal industrial infrastructure visible, though small structures may be present.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:50:59.009835+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 6,
+    "lat": 37.29,
+    "lon": 14.43,
+    "hits_7d": 7,
+    "avg_frp_mw": 2.49,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Rolling agricultural terrain with field boundaries and mixed vegetation, lacking obvious industrial thermal sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:51:00.617139+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 9,
+    "lat": 37.29,
+    "lon": 14.41,
+    "hits_7d": 6,
+    "avg_frp_mw": 2.08,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed cropland and pasture fields with no persistent industrial features visible, primarily green agricultural parcels.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:51:10.540507+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 10,
+    "lat": 37.03,
+    "lon": 14.87,
+    "hits_7d": 5,
+    "avg_frp_mw": 4.67,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed agricultural fields with crop patterns, scattered trees, and field boundaries but no industrial infrastructure visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:51:28.188668+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 12,
+    "lat": 36.93,
+    "lon": 14.91,
+    "hits_7d": 5,
+    "avg_frp_mw": 2.03,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Hilly terrain with olive groves and scattered agricultural vegetation showing typical Mediterranean agricultural patterns.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T06:52:37.006470+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 14,
+    "lat": 37.29,
+    "lon": 14.53,
+    "hits_7d": 5,
+    "avg_frp_mw": 4.48,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly agricultural fields with some scattered small structures, but lacks clear industrial features that would cause persistent thermal anomalies.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:52:58.437875+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 15,
+    "lat": 37.33,
+    "lon": 14.57,
+    "hits_7d": 5,
+    "avg_frp_mw": 3.57,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly agricultural fields with irregular boundaries and some tree rows, but no obvious persistent industrial heat sources visible in this tile.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:53:01.507479+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 17,
+    "lat": 37.11,
+    "lon": 14.73,
+    "hits_7d": 5,
+    "avg_frp_mw": 2.01,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed agriculture with cleared fields, scattered orchards, and forest patches showing natural land use patterns without industrial thermal sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:53:42.139320+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 18,
+    "lat": 36.95,
+    "lon": 14.79,
+    "hits_7d": 5,
+    "avg_frp_mw": 2.89,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Rural agricultural landscape with mixed crop fields and a small settlement, showing typical Mediterranean farming patterns with no industrial heat sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:53:45.840232+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 19,
+    "lat": 37.27,
+    "lon": 14.43,
+    "hits_7d": 5,
+    "avg_frp_mw": 2.15,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Mixed agricultural landscape with forested areas, cultivated fields including orchards, and rural access roads in hilly terrain.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 350
+    },
+    "flagged_at": "2026-05-30T06:53:48.670504+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 20,
+    "lat": 37.03,
+    "lon": 14.75,
+    "hits_7d": 5,
+    "avg_frp_mw": 2.61,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Terraced agricultural hillside with scattered farm buildings and cultivated fields, typical rural Sicily landscape.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:53:51.534466+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 23,
+    "lat": 37.29,
+    "lon": 14.51,
+    "hits_7d": 5,
+    "avg_frp_mw": 4.25,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Hilly terrain with mixed agricultural parcels and some small cultivated patches, but no clear persistent industrial thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T06:54:07.064271+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 26,
+    "lat": 37.19,
+    "lon": 14.65,
+    "hits_7d": 5,
+    "avg_frp_mw": 3.04,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly agricultural fields with contoured terracing and crop patterns, no clear persistent thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:54:49.660738+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 30,
+    "lat": 36.83,
+    "lon": 14.57,
+    "hits_7d": 4,
+    "avg_frp_mw": 13.74,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Mixed agricultural parcels with scattered trees and field boundaries, small buildings present but no concentrated industrial features typical of persistent false positives.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:55:02.247431+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 32,
+    "lat": 36.99,
+    "lon": 14.77,
+    "hits_7d": 4,
+    "avg_frp_mw": 1.83,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Terraced agricultural fields with scattered buildings and tree coverage, showing rural farming activity without industrial false-positive sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:55:17.568597+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 39,
+    "lat": 36.95,
+    "lon": 14.91,
+    "hits_7d": 4,
+    "avg_frp_mw": 2.54,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural parcels showing crop fields with regular rectangular patterns and orchards in tan/beige colors indicating harvested or fallow fields.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:56:37.614427+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 43,
+    "lat": 37.21,
+    "lon": 14.67,
+    "hits_7d": 4,
+    "avg_frp_mw": 2.74,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.9,
+      "evidence": "Open cropland with field boundaries and some linear vegetation strips but no persistent thermal anomaly sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:56:54.862033+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 44,
+    "lat": 37.35,
+    "lon": 14.53,
+    "hits_7d": 4,
+    "avg_frp_mw": 4.07,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Rolling agricultural terrain with field boundaries and cultivation patterns but no persistent industrial thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 500
+    },
+    "flagged_at": "2026-05-30T06:56:57.157028+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 48,
+    "lat": 37.17,
+    "lon": 14.27,
+    "hits_7d": 4,
+    "avg_frp_mw": 1.94,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly bare agricultural fields with minimal infrastructure, though one small dense green area (top right) could be a small glasshouse cluster causing thermal anomaly.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:58:03.217984+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 49,
+    "lat": 37.07,
+    "lon": 14.31,
+    "hits_7d": 4,
+    "avg_frp_mw": 3.61,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Large rectangular reflective structures with green vegetation alongside transportation corridor, typical of commercial greenhouse operations near roadway infrastructure.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T06:58:06.056038+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 52,
+    "lat": 37.27,
+    "lon": 14.49,
+    "hits_7d": 4,
+    "avg_frp_mw": 3.24,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly agricultural cropland with undulating terrain and scattered small structures, lacking clear persistent industrial thermal signatures.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:58:30.740407+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 53,
+    "lat": 37.19,
+    "lon": 14.61,
+    "hits_7d": 4,
+    "avg_frp_mw": 10.23,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Large agricultural fields with crop rows and some scattered vegetation, typical cropland without persistent industrial thermal features.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T06:58:32.987525+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 57,
+    "lat": 37.43,
+    "lon": 14.51,
+    "hits_7d": 4,
+    "avg_frp_mw": 2.44,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.88,
+      "evidence": "Mixed cropland with field boundaries and some orchard plantings visible, lacking distinct industrial thermal anomaly sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:59:06.835869+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 58,
+    "lat": 37.87,
+    "lon": 14.75,
+    "hits_7d": 4,
+    "avg_frp_mw": 8.12,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Mixed cropland and pasture with linear field patterns and scattered vegetation, lacking industrial infrastructure for persistent thermal signature.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:59:09.772039+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 59,
+    "lat": 37.35,
+    "lon": 14.49,
+    "hits_7d": 3,
+    "avg_frp_mw": 2.54,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Mixed agricultural terrain with some vegetation patches and field boundaries but no clear persistent industrial thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:59:12.274091+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 60,
+    "lat": 37.31,
+    "lon": 14.57,
+    "hits_7d": 3,
+    "avg_frp_mw": 2.12,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.65,
+      "evidence": "Hilly agricultural terrain with field patterns and scattered vegetation but no obvious persistent industrial thermal anomaly source.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:59:47.123789+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 64,
+    "lat": 37.72,
+    "lon": 13.4,
+    "hits_7d": 3,
+    "avg_frp_mw": 0.01,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Mixed agricultural fields with some tree lines and rural structures, but no distinct industrial or greenhouse features visible that would cause persistent thermal anomalies.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:00:10.809340+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 65,
+    "lat": 36.91,
+    "lon": 14.83,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.04,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Predominantly agricultural landscape with irregular field patterns, scattered trees, and some small structures but no clear industrial thermal source.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T07:00:24.866736+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 67,
+    "lat": 37.21,
+    "lon": 14.75,
+    "hits_7d": 3,
+    "avg_frp_mw": 5.44,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Rural agricultural landscape with scattered buildings, curved roads, and field boundaries but no persistent industrial heat sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:00:56.645648+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 68,
+    "lat": 36.97,
+    "lon": 14.89,
+    "hits_7d": 3,
+    "avg_frp_mw": 3.77,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "River meander with surrounding cultivated fields showing crop patterns and vegetation strips, with one isolated building but no industrial features.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 350
+    },
+    "flagged_at": "2026-05-30T07:00:58.851809+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 69,
+    "lat": 36.89,
+    "lon": 14.87,
+    "hits_7d": 3,
+    "avg_frp_mw": 3.69,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Mixed agricultural landscape with visible field parcels including orchards and cultivated areas with scattered farm buildings along roads.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:01:01.003402+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 73,
+    "lat": 37.33,
+    "lon": 14.49,
+    "hits_7d": 3,
+    "avg_frp_mw": 4.53,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Predominantly agricultural fields with varied crop patterns and some green vegetation but no clear persistent industrial thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:01:34.412843+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 75,
+    "lat": 37.31,
+    "lon": 14.47,
+    "hits_7d": 3,
+    "avg_frp_mw": 4.89,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Mix of cultivated fields with irregular field patterns and winding roads, no clear industrial or persistent thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:01:39.737635+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 77,
+    "lat": 36.97,
+    "lon": 14.75,
+    "hits_7d": 3,
+    "avg_frp_mw": 2.26,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixture of cultivated fields, some forested areas, and scattered agricultural plots with no clear persistent thermal anomaly source.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T07:02:22.225047+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 85,
+    "lat": 37.01,
+    "lon": 14.89,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.1,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed agricultural landscape with olive groves and crop fields showing typical Mediterranean farming patterns without obvious industrial thermal sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:03:17.191994+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 86,
+    "lat": 37.01,
+    "lon": 14.91,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.16,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Terraced hillside agriculture with olive groves and mixed cropland in a mountainous terrain, no persistent industrial features visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:03:19.119085+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 87,
+    "lat": 37.01,
+    "lon": 14.93,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.16,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Patchwork of agricultural fields with boundaries and roads, no industrial infrastructure visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:03:20.983122+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 89,
+    "lat": 36.85,
+    "lon": 14.57,
+    "hits_7d": 3,
+    "avg_frp_mw": 8.58,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Rural landscape with scattered vegetation, fields, and small settlement, no clear industrial features.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:03:57.950218+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 94,
+    "lat": 37.49,
+    "lon": 14.55,
+    "hits_7d": 3,
+    "avg_frp_mw": 2.49,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Multiple small structures visible that appear to be greenhouses or agricultural buildings amid agricultural fields.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 350
+    },
+    "flagged_at": "2026-05-30T07:04:13.583089+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 95,
+    "lat": 37.45,
+    "lon": 14.49,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.86,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural parcels with varying crop colors and field patterns, including green vegetated fields and bare soil areas with roads and field boundaries.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:05:07.328120+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 96,
+    "lat": 37.45,
+    "lon": 14.51,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.86,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Patchwork of agricultural fields with mixed vegetation states showing green crops and harvested brown fields with linear field boundaries.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:05:09.303097+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 98,
+    "lat": 37.29,
+    "lon": 14.57,
+    "hits_7d": 3,
+    "avg_frp_mw": 2.76,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Rural agricultural area with field parcels, roads, and scattered vegetation but no persistent industrial heat sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:05:18.594436+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 110,
+    "lat": 36.85,
+    "lon": 14.54,
+    "hits_7d": 3,
+    "avg_frp_mw": 5.52,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Agricultural area with what appears to be rectangular reflective structures in the center-left portion that could be greenhouses, though partially obscured.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T07:06:57.280305+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
     "idx": 112,
     "lat": 37.86,
     "lon": 13.12,
@@ -1368,7 +1376,7 @@
       "vision_primary": "agricultural_field",
       "suggested_mask_radius_m": 300
     },
-    "flagged_at": "2026-05-29T22:31:09.977723+00:00",
+    "flagged_at": "2026-05-30T07:07:02.719024+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
@@ -1388,7 +1396,47 @@
       "vision_primary": "glasshouse_complex",
       "suggested_mask_radius_m": 400
     },
-    "flagged_at": "2026-05-29T22:31:11.937570+00:00",
+    "flagged_at": "2026-05-30T07:07:07.795394+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 0,
+    "lat": 37.55,
+    "lon": 14.69,
+    "hits_7d": 9,
+    "avg_frp_mw": 4.03,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural landscape with cultivated fields, some organized tree plantings, and natural vegetation patterns without persistent thermal anomaly sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:07:10.290197+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "agricultural_burn_positive",
+    "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."
+  },
+  {
+    "idx": 2,
+    "lat": 37.55,
+    "lon": 14.67,
+    "hits_7d": 8,
+    "avg_frp_mw": 2.83,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural land with green fields, terraced slopes, and orchards but no persistent industrial thermal sources visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:07:16.958438+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "agricultural_burn_positive",
     "note": "Small-fire training positive. NOT added to FP mask. Same thermal characteristics as wildfire; valuable for detector small-fire recall."

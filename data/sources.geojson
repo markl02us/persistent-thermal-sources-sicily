@@ -14589,6 +14589,145 @@
           ]
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.73,
+          37.57
+        ]
+      },
+      "properties": {
+        "id": "manualv130glasshouse37p57n14p73",
+        "name_it": "Complesso serre — 37.57, 14.73",
+        "name_en": "Glasshouse complex at 37.57, 14.73",
+        "category": "glasshouse_complex",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 1.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": null,
+        "viirs_confirmed_30d": 0,
+        "first_observed": null,
+        "last_observed": null,
+        "false_positive_confidence": 0.92,
+        "notes_it": "Promosso da pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: strutture rettangolari ciano caratteristiche di coperture in plastica per serre (Sonnet 4.5 conf 0.92).",
+        "notes_en": "Promoted from pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: bright cyan rectangular structures characteristic of plastic greenhouse coverings (Sonnet 4.5, conf 0.92).",
+        "sources_cited": [
+          "PHOENIX-miner",
+          "Sonnet-4.5-vision"
+        ],
+        "discovered_at": "2026-05-29T20:30:00+00:00",
+        "promoted_at": "2026-05-30T05:25:16.453999+00:00",
+        "vision_evidence": "The false-color composite shows bright cyan rectangular structures characteristic of plastic greenhouse coverings."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.81,
+          36.93
+        ]
+      },
+      "properties": {
+        "id": "manualv130solar36p93n14p81",
+        "name_it": "Impianto fotovoltaico — 36.93, 14.81",
+        "name_en": "Solar PV farm at 36.93, 14.81",
+        "category": "solar_farm",
+        "subcategory": "candidate_persistent_anomaly",
+        "radius_km": 1.5,
+        "country": "IT",
+        "region": "Sicilia",
+        "phoenix_detections_30d": null,
+        "viirs_confirmed_30d": 0,
+        "first_observed": null,
+        "last_observed": null,
+        "false_positive_confidence": 0.92,
+        "notes_it": "Promosso da pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: chiazza scura caratteristica di pannelli fotovoltaici con bassa riflettanza SWIR (Sonnet 4.5 conf 0.92).",
+        "notes_en": "Promoted from pending_mask_recheck v1_3_0_unsure_resolution_full_roster. Vision: distinct dark grey/black patch in upper-right quadrant characteristic of solar PV panels with low SWIR reflectance (Sonnet 4.5, conf 0.92).",
+        "sources_cited": [
+          "PHOENIX-miner",
+          "Sonnet-4.5-vision"
+        ],
+        "discovered_at": "2026-05-29T20:30:00+00:00",
+        "promoted_at": "2026-05-30T05:25:16.454018+00:00",
+        "vision_evidence": "The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant characteristic of solar PV panels with low SWIR reflectance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.95,
+          37.01
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_0100-14_9500",
+        "name_it": "Cella persistente 37.0100N 14.9500E (glasshouse_complex)",
+        "name_en": "Persistent cell 37.0100N 14.9500E (glasshouse_complex)",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.4,
+        "country": "IT",
+        "region": "Sicily",
+        "annotation": "manual",
+        "annotation_source": "manual_review_2026_05_29",
+        "annotation_confidence": "human_high",
+        "annotation_author": "Alessandria Della Rocca Applications",
+        "evidence": "Human review of Esri World Imagery tile, classified as glasshouse_complex. Vision prior: glasshouse_complex (0.75).",
+        "discovered_at": "2026-05-29T22:00:00+00:00",
+        "phoenix_stats": {
+          "hits_7d": 5,
+          "distinct_days_7d": 3,
+          "avg_confidence": 0.6,
+          "avg_frp_mw": 5.64,
+          "sources": [
+            "subpixel_v1_alpha",
+            "wind_diff"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.75,
+          37.01
+        ]
+      },
+      "properties": {
+        "id": "phoenix-37_0100-14_7500",
+        "name_it": "Cella persistente 37.0100N 14.7500E (glasshouse_complex)",
+        "name_en": "Persistent cell 37.0100N 14.7500E (glasshouse_complex)",
+        "category": "glasshouse_complex",
+        "subcategory": "plastic_polytunnel",
+        "radius_km": 0.4,
+        "country": "IT",
+        "region": "Sicily",
+        "annotation": "manual",
+        "annotation_source": "manual_review_2026_05_29",
+        "annotation_confidence": "human_high",
+        "annotation_author": "Alessandria Della Rocca Applications",
+        "evidence": "Human review of Esri World Imagery tile, classified as glasshouse_complex. Vision prior: agricultural_field (0.7).",
+        "discovered_at": "2026-05-29T22:00:00+00:00",
+        "phoenix_stats": {
+          "hits_7d": 4,
+          "distinct_days_7d": 2,
+          "avg_confidence": 0.561,
+          "avg_frp_mw": 2.57,
+          "sources": [
+            "subpixel_v1_alpha"
+          ]
+        }
+      }
     }
   ]
 }

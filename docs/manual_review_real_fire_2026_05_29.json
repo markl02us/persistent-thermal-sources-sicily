@@ -133,25 +133,6 @@
     "training_label": "real_wildfire_positive"
   },
   {
-    "idx": 61,
-    "lat": 37.05,
-    "lon": 14.87,
-    "hits_7d": 3,
-    "avg_frp_mw": 7.77,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "White reflective linear structures visible among terraced agricultural land and vegetation, consistent with greenhouse installations despite some cloud interference.",
-      "vision_primary": "glasshouse_complex",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:28:55.652389+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "real_wildfire_positive"
-  },
-  {
     "idx": 62,
     "lat": 37.21,
     "lon": 14.79,
@@ -228,25 +209,6 @@
     "training_label": "real_wildfire_positive"
   },
   {
-    "idx": 78,
-    "lat": 36.95,
-    "lon": 14.77,
-    "hits_7d": 3,
-    "avg_frp_mw": 2.26,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Light-colored rectangular structures visible on slopes amid forested and agricultural areas, typical of greenhouse installations.",
-      "vision_primary": "glasshouse_complex",
-      "suggested_mask_radius_m": 400
-    },
-    "flagged_at": "2026-05-29T22:29:37.794198+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "real_wildfire_positive"
-  },
-  {
     "idx": 79,
     "lat": 37.21,
     "lon": 14.51,
@@ -285,27 +247,6 @@
     "flagged_at": "2026-05-29T22:29:47.150672+00:00",
     "reviewer": "Alessandria Della Rocca Applications",
     "training_label": "real_wildfire_positive"
-  },
-  {
-    "idx": 83,
-    "lat": 37.05,
-    "lon": 14.91,
-    "hits_7d": 3,
-    "avg_frp_mw": 1.52,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.75,
-      "evidence": "Mixed residential and agricultural area with buildings, roads, and small field parcels scattered throughout wooded terrain.",
-      "vision_primary": "urban",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:44:59.297600+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "real_wildfire_positive",
-    "applied_from": "burn_scar_suggestion",
-    "basis": "Sentinel-2 dNBR scar present (max=0.40, severity=moderate, localized scar in SE quadrant, ~183m extent) + thermal signal cooled (no hits in last 48h) \u2192 transient burn signature"
   },
   {
     "idx": 84,
@@ -443,16 +384,6 @@
     "training_label": "real_wildfire_positive"
   },
   {
-    "idx": 1,
-    "lat": 37.59,
-    "lon": 14.95,
-    "flagged_at": "2026-05-30T01:40:42.591474+00:00",
-    "reviewer": "Alessandria Della Rocca Applications",
-    "training_label": "real_wildfire_positive",
-    "auto_applied_from": "v1_3_0_unsure_resolution_full_roster",
-    "basis": "Sonnet vision (conf 0.85): The optical image shows a dark burn scar pattern with scattered trees and disturbed vegetation typical of wildfire. Multi-sensor evidence supports active burning: moderate Sentinel-1 VV decrease (-0.166dB), 10 S3-FRP detections, 22 VNP14 granules, TROPOMI CO decline, and 7-day persistence all consistent with a recent wildfire event rather than a persistent thermal source."
-  },
-  {
     "idx": 11,
     "lat": 37.03,
     "lon": 14.91,
@@ -471,5 +402,157 @@
     "training_label": "real_wildfire_positive",
     "auto_applied_from": "v1_3_0_unsure_resolution_full_roster",
     "basis": "Sonnet vision (conf 0.82): The top orthophoto shows disturbed/darkened agricultural fields consistent with recent burning. Multi-sensor evidence strongly supports fire: positive dNBR (0.24 S2, 0.16 LS), 10 S3-FRP detections, 23 VNP14 granules, and elevated LST. The dark patches in yellow farmland (false-color) match burn scar signatures rather than persistent infrastructure."
+  },
+  {
+    "idx": 0,
+    "lat": 37.55,
+    "lon": 14.69,
+    "hits_7d": 9,
+    "avg_frp_mw": 4.03,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Mixed agricultural landscape with cultivated fields, some organized tree plantings, and natural vegetation patterns without persistent thermal anomaly sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:50:27.503256+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 38,
+    "lat": 36.95,
+    "lon": 14.89,
+    "hits_7d": 4,
+    "avg_frp_mw": 2.54,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Terraced hillsides with contour farming patterns and scattered vegetation, typical Mediterranean agricultural landscape with olive groves.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:56:33.912296+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 42,
+    "lat": 36.93,
+    "lon": 14.89,
+    "hits_7d": 4,
+    "avg_frp_mw": 2.54,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Terraced hillside with olive groves and natural vegetation showing typical Mediterranean agricultural patterns with winding contours but no industrial infrastructure.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:56:51.623720+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 61,
+    "lat": 37.05,
+    "lon": 14.87,
+    "hits_7d": 3,
+    "avg_frp_mw": 7.77,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "White reflective linear structures visible among terraced agricultural land and vegetation, consistent with greenhouse installations despite some cloud interference.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T06:59:51.850836+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 78,
+    "lat": 36.95,
+    "lon": 14.77,
+    "hits_7d": 3,
+    "avg_frp_mw": 2.26,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Light-colored rectangular structures visible on slopes amid forested and agricultural areas, typical of greenhouse installations.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 400
+    },
+    "flagged_at": "2026-05-30T07:02:26.702718+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 83,
+    "lat": 37.05,
+    "lon": 14.91,
+    "hits_7d": 3,
+    "avg_frp_mw": 1.52,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Mixed residential and agricultural area with buildings, roads, and small field parcels scattered throughout wooded terrain.",
+      "vision_primary": "urban",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:03:11.026407+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 100,
+    "lat": 37.25,
+    "lon": 14.55,
+    "hits_7d": 3,
+    "avg_frp_mw": 9.91,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Highway interchange with surrounding agricultural fields and vegetation corridor, no clear persistent thermal source.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 350
+    },
+    "flagged_at": "2026-05-30T07:05:44.856168+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
+  },
+  {
+    "idx": 1,
+    "lat": 37.59,
+    "lon": 14.95,
+    "hits_7d": 8,
+    "avg_frp_mw": 28.16,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.9,
+      "evidence": "Predominantly forested/vegetated hillside with scattered buildings and natural vegetation cover, no industrial thermal sources visible.",
+      "vision_primary": "forest",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:07:13.513886+00:00",
+    "reviewer": "Alessandria Della Rocca Applications",
+    "training_label": "real_wildfire_positive"
   }
 ]

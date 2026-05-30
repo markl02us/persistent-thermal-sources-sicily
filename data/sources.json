@@ -6,8 +6,8 @@
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "source_repo": "https://github.com/phoenix-wildfire/persistent-thermal-sources-sicily",
     "version": "1.2.1",
-    "updated_at": "2026-05-29T22:31:17.801276+00:00",
-    "n_sources": 335,
+    "updated_at": "2026-05-30T07:08:05.310294+00:00",
+    "n_sources": 339,
     "methodology_summary": "Static seed from INGV-HOTSAT volcanic knowledge + Round-2 council research on Sicilian industrial sites. Auto-enrichment via OpenStreetMap Overpass. Mining of additional candidates from PHOENIX internal_fires history (cells firing >=6x in 12h windows without VIIRS confirmation).",
     "osm_enriched": true,
     "last_run_summary": {
@@ -17,9 +17,9 @@
       "vision_cost_usd": 0.853,
       "novel_total": 398,
       "harvested_at": "2026-05-29T20:30:00+00:00",
-      "manual_review_classified": 17,
-      "manual_review_real_fire": 20,
-      "manual_review_ag_burn": 65,
+      "manual_review_classified": 19,
+      "manual_review_real_fire": 19,
+      "manual_review_ag_burn": 64,
       "manual_review_unsure": 12
     },
     "count": 337
@@ -11985,6 +11985,61 @@
       "discovered_at": "2026-05-29T20:30:00+00:00",
       "promoted_at": "2026-05-30T05:25:16.454018+00:00",
       "vision_evidence": "The Sentinel-2 false-color image shows a distinct dark grey/black patch in the upper-right quadrant characteristic of solar PV panels with low SWIR reflectance."
+    },
+    {
+      "id": "phoenix-37_0100-14_9500",
+      "name_it": "Cella persistente 37.0100N 14.9500E (glasshouse_complex)",
+      "name_en": "Persistent cell 37.0100N 14.9500E (glasshouse_complex)",
+      "category": "glasshouse_complex",
+      "subcategory": "plastic_polytunnel",
+      "lat": 37.01,
+      "lon": 14.95,
+      "radius_km": 0.4,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as glasshouse_complex. Vision prior: glasshouse_complex (0.75).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 5,
+        "distinct_days_7d": 3,
+        "avg_confidence": 0.6,
+        "avg_frp_mw": 5.64,
+        "sources": [
+          "subpixel_v1_alpha",
+          "wind_diff"
+        ]
+      }
+    },
+    {
+      "id": "phoenix-37_0100-14_7500",
+      "name_it": "Cella persistente 37.0100N 14.7500E (glasshouse_complex)",
+      "name_en": "Persistent cell 37.0100N 14.7500E (glasshouse_complex)",
+      "category": "glasshouse_complex",
+      "subcategory": "plastic_polytunnel",
+      "lat": 37.01,
+      "lon": 14.75,
+      "radius_km": 0.4,
+      "country": "IT",
+      "region": "Sicily",
+      "annotation": "manual",
+      "annotation_source": "manual_review_2026_05_29",
+      "annotation_confidence": "human_high",
+      "annotation_author": "Alessandria Della Rocca Applications",
+      "evidence": "Human review of Esri World Imagery tile, classified as glasshouse_complex. Vision prior: agricultural_field (0.7).",
+      "discovered_at": "2026-05-29T22:00:00+00:00",
+      "phoenix_stats": {
+        "hits_7d": 4,
+        "distinct_days_7d": 2,
+        "avg_confidence": 0.561,
+        "avg_frp_mw": 2.57,
+        "sources": [
+          "subpixel_v1_alpha"
+        ]
+      }
     }
   ],
   "last_updated": "2026-05-30T05:25:16.458750+00:00"

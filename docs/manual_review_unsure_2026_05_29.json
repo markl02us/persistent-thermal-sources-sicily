@@ -32,38 +32,6 @@
     "reviewer": "Alessandria Della Rocca Applications"
   },
   {
-    "idx": 11,
-    "lat": 37.03,
-    "lon": 14.91,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Green agricultural fields with scattered buildings, trees, and rural residential structures but no persistent industrial heat sources.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:25:19.605541+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
-    "idx": 33,
-    "lat": 37.12,
-    "lon": 14.12,
-    "vision_prior": {
-      "category": null,
-      "subcategory": null,
-      "source": "vision_low_conf",
-      "confidence": 0.8,
-      "evidence": "Large rectangular crop fields with some farm buildings and a meandering watercourse, typical agricultural land use without industrial features.",
-      "vision_primary": "agricultural_field",
-      "suggested_mask_radius_m": 300
-    },
-    "flagged_at": "2026-05-29T22:27:26.188904+00:00",
-    "reviewer": "Alessandria Della Rocca Applications"
-  },
-  {
     "idx": 40,
     "lat": 36.93,
     "lon": 14.81,
@@ -81,5 +49,181 @@
     "applied_from": "burn_scar_suggestion",
     "basis": "no Sentinel-2 dNBR scar in post-window (max=0.16, severity=low) + thermal signal still active within 48h (last internal ts 2026-05-29T10:55:11.273294+00:00) \u2192 signal is persistent, not transient burn",
     "flag": "removed_from_ag_burn_pending_review"
+  },
+  {
+    "idx": 11,
+    "lat": 37.03,
+    "lon": 14.91,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Green agricultural fields with scattered buildings, trees, and rural residential structures but no persistent industrial heat sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:52:24.388303+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 16,
+    "lat": 37.11,
+    "lon": 14.71,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Terraced agricultural land with winding roads through mixed forest and cleared areas, typical hillside farming in Sicily but no persistent thermal source visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:53:38.243512+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 22,
+    "lat": 37.49,
+    "lon": 15.03,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.9,
+      "evidence": "Mixed agricultural parcels with orchards (dark green rows), bare fields, and small farm structures with vegetation patterns.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 350
+    },
+    "flagged_at": "2026-05-30T06:54:01.425470+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 29,
+    "lat": 36.97,
+    "lon": 14.93,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Mixed agricultural fields with scattered structures and forested areas, lacking clear industrial or persistent thermal sources.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:54:58.664051+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 31,
+    "lat": 36.76,
+    "lon": 14.82,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Agricultural landscape with field parcels, tree lines along water courses, and sparse vegetation but no industrial infrastructure visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:55:13.409628+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 33,
+    "lat": 37.12,
+    "lon": 14.12,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Large rectangular crop fields with some farm buildings and a meandering watercourse, typical agricultural land use without industrial features.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:55:52.369792+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 34,
+    "lat": 37.01,
+    "lon": 14.85,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.7,
+      "evidence": "Terraced hillside cropland with contour farming patterns showing rows of trees or crops, no industrial infrastructure visible.",
+      "vision_primary": "agricultural_field",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T06:56:00.848692+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 62,
+    "lat": 37.21,
+    "lon": 14.79,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Regular rectangular patterns visible in the cleared agricultural area suggesting greenhouse structures on hillside terrain.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:00:00.604965+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 76,
+    "lat": 36.99,
+    "lon": 14.91,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.85,
+      "evidence": "Dense forest vegetation with natural contours and winding paths, no industrial features or persistent heat sources visible.",
+      "vision_primary": "forest",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:02:19.252310+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 79,
+    "lat": 37.21,
+    "lon": 14.51,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.75,
+      "evidence": "Residential and commercial development with regular street grid, buildings, and surrounding agricultural fields indicating suburban/peri-urban area.",
+      "vision_primary": "urban",
+      "suggested_mask_radius_m": 600
+    },
+    "flagged_at": "2026-05-30T07:02:41.151306+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
+  },
+  {
+    "idx": 105,
+    "lat": 37.0,
+    "lon": 14.7,
+    "vision_prior": {
+      "category": null,
+      "subcategory": null,
+      "source": "vision_low_conf",
+      "confidence": 0.8,
+      "evidence": "Large dark green rectangular structure in upper portion appears to be greenhouse complex with surrounding agricultural fields and tree lines.",
+      "vision_primary": "glasshouse_complex",
+      "suggested_mask_radius_m": 300
+    },
+    "flagged_at": "2026-05-30T07:06:22.214773+00:00",
+    "reviewer": "Alessandria Della Rocca Applications"
   }
 ]
