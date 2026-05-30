@@ -6,7 +6,7 @@
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "source_repo": "https://github.com/phoenix-wildfire/persistent-thermal-sources-sicily",
     "version": "1.2.1",
-    "updated_at": "2026-05-30T07:08:10.983873+00:00",
+    "updated_at": "2026-05-30T07:09:37.747636+00:00",
     "n_sources": 339,
     "methodology_summary": "Static seed from INGV-HOTSAT volcanic knowledge + Round-2 council research on Sicilian industrial sites. Auto-enrichment via OpenStreetMap Overpass. Mining of additional candidates from PHOENIX internal_fires history (cells firing >=6x in 12h windows without VIIRS confirmation).",
     "osm_enriched": true,
