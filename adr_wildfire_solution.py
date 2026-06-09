@@ -14,7 +14,7 @@ import numpy as np
 import logging
 import yaml
 from datetime import datetime, timedelta, timezone
-from flask import Flask, render_template_string, jsonify
+from flask import Flask, render_template_string, jsonify, request
 from threading import Thread
 import time
 import json
@@ -475,13 +475,87 @@ HTML_TEMPLATE = """
         <div class="legend-item" style="margin-top: 12px; font-size: 11px; color: #bdc3c7;">
             Data retained for 7 days | ML second-stage active
         </div>
+        <!-- Layer/source filter chips (added 2026-06-08) -->
+        <div style="margin-top: 10px; display:flex; flex-wrap:wrap; gap:4px;">
+            <span class="chip chip-phoenix" data-chip="PHOENIX" data-filter="PHOENIX"
+                  style="background:#3498db;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;">PHOENIX</span>
+            <span class="chip chip-firms" data-chip="FIRMS" data-filter="FIRMS"
+                  style="background:#e67e22;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;">FIRMS</span>
+            <span class="chip chip-eumetsat" data-chip="EUMETSAT" data-filter="EUMETSAT"
+                  style="background:#9b59b6;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;">EUMETSAT</span>
+            <span class="chip chip-press" data-chip="PRESS" data-filter="PRESS"
+                  style="background:#16a085;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;">Press</span>
+            <span class="chip chip-social" data-chip="SOCIAL" data-filter="SOCIAL"
+                  style="background:#e91e63;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;">Social</span>
+        </div>
     </div>
 
     <div id="map"></div>
 
+    <!-- Citizen "Segnala incendio" floating button + modal (added 2026-06-08) -->
+    <button id="cit-fab" data-chip="CITIZEN" onclick="citOpen()" title="Segnala incendio / Report a fire"
+        style="position:fixed;right:18px;bottom:18px;z-index:9999;background:#e74c3c;color:#fff;
+               border:none;border-radius:32px;padding:14px 22px;font-size:15px;font-weight:600;
+               box-shadow:0 4px 16px rgba(0,0,0,.4);cursor:pointer;font-family:inherit;">
+      <span class="lang-it">Segnala incendio</span><span class="lang-en">Report a fire</span>
+    </button>
+    <div id="cit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:10000;align-items:center;justify-content:center;">
+      <div style="background:#1a2530;color:#ecf0f1;border-radius:10px;padding:22px;width:min(90vw,420px);font-family:'Segoe UI',sans-serif;">
+        <h3 style="margin:0 0 10px 0;color:#e74c3c;">Segnala incendio <small style="color:#bdc3c7;font-weight:normal;">/ Report a fire</small></h3>
+        <p style="font-size:12px;color:#bdc3c7;margin-top:0;">I tuoi dati aiutano PHOENIX a rilevare incendi piu' velocemente. Per emergenze chiama <b>112 / 1515</b>.</p>
+        <label style="display:block;font-size:13px;margin-top:8px;">Tipo di osservazione:</label>
+        <div style="display:flex;gap:8px;margin:6px 0;">
+          <label><input type="radio" name="cit-kind" value="flame" checked> Fiamma</label>
+          <label><input type="radio" name="cit-kind" value="smoke"> Fumo</label>
+          <label><input type="radio" name="cit-kind" value="unsure"> Non sicuro</label>
+        </div>
+        <label style="display:block;font-size:13px;margin-top:8px;">Lat / Lon:</label>
+        <div style="display:flex;gap:6px;">
+          <input id="cit-lat" type="number" step="0.0001" placeholder="37.4167" style="flex:1;padding:6px;background:#2c3e50;border:1px solid #34495e;color:#ecf0f1;border-radius:4px;">
+          <input id="cit-lon" type="number" step="0.0001" placeholder="13.5167" style="flex:1;padding:6px;background:#2c3e50;border:1px solid #34495e;color:#ecf0f1;border-radius:4px;">
+        </div>
+        <button type="button" onclick="citGeoloc()" style="margin-top:6px;background:#3498db;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;font-size:12px;">Usa la mia posizione</button>
+        <label style="display:block;font-size:13px;margin-top:8px;">Note (opzionale, max 500 char):</label>
+        <textarea id="cit-note" rows="3" maxlength="500" style="width:100%;padding:6px;background:#2c3e50;border:1px solid #34495e;color:#ecf0f1;border-radius:4px;font-family:inherit;"></textarea>
+        <div id="cit-status" style="margin-top:8px;font-size:12px;min-height:18px;"></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px;">
+          <button type="button" onclick="citClose()" style="background:#7f8c8d;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;">Annulla</button>
+          <button type="button" onclick="citSubmit()" style="background:#e74c3c;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;font-weight:600;">Invia</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function citOpen(){ var m=document.getElementById('cit-modal'); m.style.display='flex'; }
+      function citClose(){ document.getElementById('cit-modal').style.display='none'; }
+      function citGeoloc(){
+        if(!navigator.geolocation){ document.getElementById('cit-status').textContent='Geoloc non disponibile'; return; }
+        navigator.geolocation.getCurrentPosition(function(p){
+          document.getElementById('cit-lat').value = p.coords.latitude.toFixed(4);
+          document.getElementById('cit-lon').value = p.coords.longitude.toFixed(4);
+        }, function(){ document.getElementById('cit-status').textContent='Geoloc rifiutata'; });
+      }
+      function citSubmit(){
+        var lat = parseFloat(document.getElementById('cit-lat').value);
+        var lon = parseFloat(document.getElementById('cit-lon').value);
+        var kind = document.querySelector('input[name="cit-kind"]:checked').value;
+        var note = document.getElementById('cit-note').value;
+        var s = document.getElementById('cit-status');
+        if (isNaN(lat) || isNaN(lon)){ s.textContent='Lat/Lon richiesti'; s.style.color='#e74c3c'; return; }
+        s.textContent='Invio...'; s.style.color='#bdc3c7';
+        fetch('/api/citizen_report', {method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({lat:lat, lng:lon, kind:kind, note:note, language:'it'})})
+          .then(function(r){ return r.json().then(function(j){return {status:r.status, body:j};}); })
+          .then(function(o){
+            if (o.status===200 && o.body.ok){ s.textContent='Grazie! Report #'+o.body.report_id+' ricevuto.'; s.style.color='#2ecc71';
+              setTimeout(citClose, 2000); }
+            else { s.textContent='Errore: '+(o.body.error||o.status); s.style.color='#e74c3c'; }
+          }).catch(function(e){ s.textContent='Errore di rete'; s.style.color='#e74c3c'; });
+      }
+    </script>
+
     <div id="info">
         <div class="stat">
-            <div class="stat-label">Active Detections</div>
+            <div class="stat-label">Incendi attivi / Active fires</div>
             <div class="stat-value" id="total">0</div>
         </div>
         <div class="stat">
@@ -503,6 +577,19 @@ HTML_TEMPLATE = """
         <div class="stat">
             <div class="stat-label">System Health</div>
             <div class="stat-value" style="font-size: 14px; color: #2ecc71;" id="health">OPTIMAL</div>
+        </div>
+        <!-- Live KPI tiles bound to real data (added 2026-06-08) -->
+        <div class="stat">
+            <div class="stat-label">Incendi attivi</div>
+            <div class="stat-value" style="color:#e74c3c;" id="kpi-active" data-value="0">0</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Vittorie / Wins (24h)</div>
+            <div class="stat-value" style="color:#2ecc71;" id="kpi-wins" data-value="0">0</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Zone mascherate (FP)</div>
+            <div class="stat-value" style="color:#95a5a6;" id="kpi-masked" data-value="0">0</div>
         </div>
     </div>
 
@@ -596,10 +683,75 @@ HTML_TEMPLATE = """
                 }).catch(err => console.error('Error fetching system info:', err));
         }
 
+        // Additional overlays for non-PHOENIX comparator sources (added 2026-06-08).
+        // These surface news/SLSTR/lightning as standalone markers regardless of
+        // whether PHOENIX has confirmed them — required by the audit so missed
+        // detections are visible to the public.
+        var newsMarkers = [];
+        var slstrMarkers = [];
+        function updateNewsOverlay(){
+            fetch('/api/news_reports').then(function(r){return r.json();}).then(function(data){
+                newsMarkers.forEach(function(m){ map.removeLayer(m); }); newsMarkers = [];
+                (data.reports||[]).forEach(function(n){
+                    if (n.lat == null || n.lng == null) return;
+                    var m = L.circleMarker([n.lat, n.lng], {radius:7, color:'#16a085',
+                        fillColor:'#16a085', weight:2, fillOpacity:0.7}).addTo(map);
+                    m.bindPopup('<b>Press: '+(n.source||'')+'</b><br>'+
+                        (n.title||'')+'<br><small>'+(n.ts||'')+'</small>'+
+                        (n.link ? '<br><a href="'+n.link+'" target="_blank">Open</a>' : ''));
+                    newsMarkers.push(m);
+                });
+            }).catch(function(e){ console.error('news fetch failed', e); });
+        }
+        function updateSlstrOverlay(){
+            fetch('/api/slstr_hits').then(function(r){return r.json();}).then(function(data){
+                slstrMarkers.forEach(function(m){ map.removeLayer(m); }); slstrMarkers = [];
+                (data.detections||[]).forEach(function(s){
+                    if (s.lat == null || s.lng == null) return;
+                    var m = L.circleMarker([s.lat, s.lng], {radius:8, color:'#9b59b6',
+                        fillColor:'#9b59b6', weight:2, fillOpacity:0.65}).addTo(map);
+                    m.bindPopup('<b>SLSTR FRP</b><br>'+(s.source||'')+'<br>FRP: '+
+                        (s.frp_mw||'-')+' MW<br><small>'+(s.ts||'')+'</small>');
+                    slstrMarkers.push(m);
+                });
+            }).catch(function(e){ console.error('slstr fetch failed', e); });
+        }
+
+        // Live KPI tile binding (added 2026-06-08).
+        function updateKpis(){
+            // Active fires KPI: count of distinct aoi from /api/detections 24h.
+            fetch('/api/detections?period=24h').then(function(r){return r.json();}).then(function(d){
+                var seen = new Set();
+                (d.detections||[]).forEach(function(x){ if(x.aoi_id) seen.add(x.aoi_id); else seen.add(x.lat.toFixed(2)+','+x.lon.toFixed(2)); });
+                var el = document.getElementById('kpi-active');
+                if (el) el.textContent = seen.size || (d.recent_24h || 0);
+            }).catch(function(){});
+            // Wins today
+            fetch('/api/feed_accuracy').then(function(r){return r.json();}).then(function(d){
+                var w = 0;
+                if (d && Array.isArray(d.sources)){
+                    d.sources.forEach(function(s){ if (s.phoenix_led_today != null) w += s.phoenix_led_today; });
+                }
+                var el = document.getElementById('kpi-wins');
+                if (el) el.textContent = w || '0';
+            }).catch(function(){});
+            // Masked-zones count via false_positive_zones.geojson features
+            fetch('/api/false_positive_zones.geojson').then(function(r){return r.json();}).then(function(g){
+                var el = document.getElementById('kpi-masked');
+                if (el) el.textContent = (g && g.features) ? g.features.length : 0;
+            }).catch(function(){});
+        }
+
         updateDetections();
         updateSystemInfo();
+        updateNewsOverlay();
+        updateSlstrOverlay();
+        updateKpis();
         setInterval(updateDetections, 30000);
         setInterval(updateSystemInfo, 5000);
+        setInterval(updateNewsOverlay, 120000);
+        setInterval(updateSlstrOverlay, 120000);
+        setInterval(updateKpis, 60000);
 
         // Meteosat-12 (MTG-I1) live stream widget — toggleable operator cross-check.
         // The widget HTML is below this <script> block, so we must defer wiring
@@ -726,6 +878,214 @@ def api_reverse_geocode():
     except Exception as exc:
         logger.warning("reverse_geocode failed: %s", exc)
         return jsonify({"label": "", "error": str(exc)}), 200
+
+
+# ── /api/firms, /api/status, /api/citizen_report (added 2026-06-08 per audit) ──
+
+@app.route('/api/firms')
+def api_firms():
+    """FIRMS VIIRS+MODIS detections over Sicily, period-filtered. Public read.
+
+    Sources covered: firms_viirs_noaa20, firms_viirs_noaa21, firms_viirs_snpp,
+    firms_modis_terra, firms_modis_aqua. Returns recent rows in the requested
+    window with mixed-format-ts handling (also filters by ingested_at)."""
+    import sqlite3
+    period = (request.args.get('period') or '24h').lower()
+    _pm = {"1h": 1, "6h": 6, "24h": 24, "7d": 168, "30d": 720}
+    hours = _pm.get(period, 24)
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=hours)).isoformat()
+    gt_db = Path(config['storage']['base_path']) / config['storage']['ground_truth_db']
+    out = []
+    try:
+        con = sqlite3.connect(str(gt_db))
+        rows = list(con.execute(
+            "SELECT id, source, lat, lng, ts, frp_w, ingested_at FROM external_fires "
+            "WHERE source LIKE 'firms_%' AND (ts > ? OR ingested_at > ?) "
+            "ORDER BY COALESCE(ingested_at, ts) DESC LIMIT 2000",
+            (cutoff, cutoff)
+        ))
+        con.close()
+        for rid, src, lat, lng, ts, frp_w, ingested in rows:
+            out.append({
+                'id': rid, 'source': src,
+                'lat': float(lat), 'lng': float(lng), 'lon': float(lng),
+                'ts': ts, 'ingested_at': ingested,
+                'frp_mw': (frp_w / 1000.0) if frp_w is not None else None,
+                'frp_w': frp_w,
+            })
+    except Exception as exc:
+        logger.error("api_firms DB read failed: %s", exc)
+    return jsonify({"detections": out, "period": period, "count": len(out)})
+
+
+# Per-table freshness thresholds (seconds). Fast feeds vs slow voter/validator.
+_STATUS_TABLES = [
+    ("internal_fires",          "ts",          7200),
+    ("external_fires",          "ingested_at", 7200),
+    ("wildfire_voted_events",   "updated_at",  86400),
+    ("sat_validator_verdicts",  "scored_at_utc", 86400),
+    ("single_frame_candidates", "ts_utc",      7200),
+    ("lightning_events",        "ts_utc",      7200),
+    ("weather_obs",             "ts",          7200),
+    ("air_obs",                 "ts",          7200),
+    ("firms_anchored_priors",   "updated_at",  86400),
+    ("smoke_proxies",           "ts_utc",      7200),
+]
+
+
+@app.route('/api/status')
+def api_status():
+    """Daemon liveness via DB last-write times.
+
+    For each known detector/feed table, return last_write timestamp, age in
+    seconds, and a `stale` boolean (true if older than per-table threshold).
+    Added 2026-06-08 — public liveness signal so dashboards know when feeds
+    have stopped writing."""
+    import sqlite3
+    gt_db = Path(config['storage']['base_path']) / config['storage']['ground_truth_db']
+    now = datetime.now(timezone.utc)
+    out = {}
+    try:
+        con = sqlite3.connect(str(gt_db))
+        # Discover which tables/columns actually exist before querying.
+        existing_tables = set(r[0] for r in con.execute(
+            "SELECT name FROM sqlite_master WHERE type='table'"
+        ))
+        for table, ts_col, stale_after in _STATUS_TABLES:
+            entry = {"last_write": None, "age_seconds": None, "stale": True,
+                     "stale_after_seconds": stale_after, "ts_col": ts_col}
+            if table not in existing_tables:
+                entry["error"] = "table_not_found"
+                out[table] = entry
+                continue
+            # Confirm column exists
+            try:
+                cols = [r[1] for r in con.execute(f"PRAGMA table_info({table})")]
+            except Exception:
+                cols = []
+            ts_use = ts_col if ts_col in cols else None
+            if ts_use is None:
+                # Try common fallbacks
+                for alt in ("ts", "ts_utc", "ingested_at", "created_at", "updated_at"):
+                    if alt in cols:
+                        ts_use = alt
+                        break
+            if ts_use is None:
+                entry["error"] = f"no_timestamp_column (cols={cols[:8]})"
+                out[table] = entry
+                continue
+            entry["ts_col"] = ts_use
+            try:
+                row = con.execute(f"SELECT MAX({ts_use}) FROM {table}").fetchone()
+                last = row[0] if row else None
+            except Exception as exc:
+                entry["error"] = f"query_failed: {exc}"
+                out[table] = entry
+                continue
+            entry["last_write"] = last
+            if last:
+                try:
+                    s = str(last)
+                    dt = datetime.fromisoformat(s.replace("Z", "+00:00") if s.endswith("Z") else s)
+                    if dt.tzinfo is None:
+                        dt = dt.replace(tzinfo=timezone.utc)
+                    age = (now - dt).total_seconds()
+                    entry["age_seconds"] = age
+                    entry["stale"] = age > stale_after
+                except Exception:
+                    entry["error"] = "unparseable_timestamp"
+            out[table] = entry
+        con.close()
+    except Exception as exc:
+        logger.error("api_status failed: %s", exc)
+        return jsonify({"error": str(exc), "tables": out}), 500
+    n_stale = sum(1 for v in out.values() if v.get("stale"))
+    return jsonify({
+        "now_utc": now.isoformat(),
+        "tables": out,
+        "n_tables": len(out),
+        "n_stale": n_stale,
+        "overall": "DEGRADED" if n_stale else "OK",
+    })
+
+
+# Simple in-process rate-limit for citizen_report (per device, per minute).
+_CITIZEN_RATE_BUCKET = {}
+
+
+def _citizen_rate_ok(key: str, max_per_min: int = 5) -> bool:
+    import time as _t
+    now = _t.time()
+    window = 60.0
+    bucket = _CITIZEN_RATE_BUCKET.setdefault(key, [])
+    # Drop old entries
+    bucket[:] = [t for t in bucket if t > now - window]
+    if len(bucket) >= max_per_min:
+        return False
+    bucket.append(now)
+    return True
+
+
+@app.route('/api/citizen_report', methods=['POST'])
+def api_citizen_report():
+    """Accept a citizen wildfire report. Writes to citizen_reports table.
+
+    Required: lat, lng/lon. Optional: kind (flame|smoke|unsure), note, photo_url.
+    Validates AOI (Sicily bbox), rate-limits per device_hash."""
+    import sqlite3, hashlib
+    data = request.get_json(force=True, silent=True) or {}
+    try:
+        lat = float(data.get("lat", 0))
+    except Exception:
+        return jsonify({"ok": False, "error": "bad_lat"}), 400
+    # Accept lng OR lon (frontend uses lng, test suite uses lon).
+    try:
+        lon_raw = data.get("lng", data.get("lon", 0))
+        lon = float(lon_raw)
+    except Exception:
+        return jsonify({"ok": False, "error": "bad_lon"}), 400
+    # Allow legacy "kind" or "description"/"observation_type"
+    kind = (data.get("kind") or data.get("observation_type") or "unsure").lower()
+    note = (data.get("note") or data.get("description") or "")[:500]
+    photo_url = (data.get("photo_url") or "")[:500]
+    language = (data.get("language") or "")[:8]
+
+    if not (35.0 < lat < 39.0 and 11.5 < lon < 16.5):
+        return jsonify({"ok": False, "error": "out_of_aoi_sicily",
+                        "got": {"lat": lat, "lng": lon}}), 400
+    if kind not in ("flame", "smoke", "unsure"):
+        return jsonify({"ok": False, "error": "bad_kind"}), 400
+
+    # Device hash: prefer client-supplied, else hash UA+IP.
+    ua = request.headers.get("User-Agent", "")
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr or "")
+    dev_hash = data.get("device_hash") or hashlib.sha256(
+        f"{ua}|{ip}".encode("utf-8", "ignore")).hexdigest()[:32]
+
+    if not _citizen_rate_ok(dev_hash, max_per_min=5):
+        return jsonify({"ok": False, "error": "rate_limited"}), 429
+
+    gt_db = Path(config['storage']['base_path']) / config['storage']['ground_truth_db']
+    ts_utc = datetime.now(timezone.utc).isoformat()
+    try:
+        con = sqlite3.connect(str(gt_db))
+        con.execute(
+            "INSERT INTO citizen_reports("
+            "device_hash, lat, lon, ts_utc, observation_type, language, "
+            "photo_path, validation_status, ingested_at_utc, reputation_score_at_ingest"
+            ") VALUES (?,?,?,?,?,?,?,?,?,?)",
+            (dev_hash, lat, lon, ts_utc, kind, language or "it",
+             photo_url, "pending", ts_utc, 0.5)
+        )
+        con.commit()
+        new_id = con.execute("SELECT last_insert_rowid()").fetchone()[0]
+        con.close()
+    except Exception as exc:
+        logger.error("citizen_report insert failed: %s", exc)
+        return jsonify({"ok": False, "error": str(exc)}), 500
+
+    return jsonify({"ok": True, "report_id": new_id, "ts_utc": ts_utc,
+                    "validation_status": "pending"})
 
 
 _COME_FUNZIONA_HTML = r"""<!DOCTYPE html>
@@ -1113,17 +1473,36 @@ def _is_in_fp_zone(lat, lon, zones):
 
 @app.route('/api/detections')
 def get_detections():
-    """Read the last 7 days of detections from SQLite internal_fires.
+    """Read recent detections from SQLite across all detection-relevant tables.
 
-    Previously this used the in-memory `detections_list` which resets on every
-    service restart — that's why the map appeared empty after each deploy.
-    DB-backed = survives restarts. Reformulated 2026-05-22."""
+    Honors `period` query param: 1h, 6h, 24h, 7d (default), 30d. Also accepts
+    legacy `hours` integer for back-compat. UNION-style assembly across
+    internal_fires + external_fires + wildfire_voted_events + single_frame_candidates
+    so every detector's output appears on the map.
+
+    Added 2026-06-08 per phoenix_audit_2026_06_08.md. The original 2-table query
+    only surfaced ~9 rows even though the DB had 12,516+ in the same window."""
     import sqlite3, math, json as _json
     gt_db = Path(config['storage']['base_path']) / config['storage']['ground_truth_db']
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=effis_retention_days)).isoformat()
+
+    # Period: 1h / 6h / 24h / 7d / 30d  →  hours
+    _period_map = {"1h": 1, "6h": 6, "24h": 24, "7d": 168, "30d": 720}
+    period_str = (request.args.get('period') or '7d').lower()
+    if period_str in _period_map:
+        hours = _period_map[period_str]
+    else:
+        try:
+            hours = int(request.args.get('hours', 168))
+        except Exception:
+            hours = 168
+    hours = max(1, min(hours, 24 * 60))  # clamp 1h…60d
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=hours)).isoformat()
     day_ago = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
     detections_out = []
     externals_raw = []
+    voted_raw = []
+    candidates_raw = []
+    rows = []
     try:
         con = sqlite3.connect(str(gt_db))
         rows = list(con.execute(
@@ -1131,13 +1510,36 @@ def get_detections():
             "temperature_c, raw_json FROM internal_fires "
             "WHERE ts > ? "
             "AND (raw_json IS NULL OR raw_json NOT LIKE '%expired%') "
-            "ORDER BY ts DESC LIMIT 500",
+            "ORDER BY ts DESC LIMIT 2000",
             (cutoff,)
         ))
+        # external_fires has a mixed-format ts landmine — also filter by ingested_at
+        # to catch legacy rows whose ts string can't compare correctly.
         externals_raw = list(con.execute(
-            "SELECT source, lat, lng, ts FROM external_fires WHERE ts > ?",
-            (cutoff,)
+            "SELECT source, lat, lng, ts FROM external_fires "
+            "WHERE ts > ? OR ingested_at > ? "
+            "ORDER BY COALESCE(ingested_at, ts) DESC LIMIT 2000",
+            (cutoff, cutoff)
         ))
+        try:
+            voted_raw = list(con.execute(
+                "SELECT event_id, ts_first_utc, lat_center, lon_center, "
+                "ensemble_confidence, frp_mw_max, n_voters, voter_count_per_source "
+                "FROM wildfire_voted_events WHERE ts_first_utc > ? "
+                "ORDER BY ts_first_utc DESC LIMIT 500",
+                (cutoff,)
+            ))
+        except Exception:
+            voted_raw = []
+        try:
+            candidates_raw = list(con.execute(
+                "SELECT id, detector, lat, lon, ts_utc, frp_mw, t_fire_k "
+                "FROM single_frame_candidates WHERE ts_utc > ? "
+                "ORDER BY ts_utc DESC LIMIT 500",
+                (cutoff,)
+            ))
+        except Exception:
+            candidates_raw = []
         con.close()
     except Exception as exc:
         logger.error("get_detections DB read failed: %s", exc)
@@ -1207,7 +1609,85 @@ def get_detections():
             adr_count += 1
         if ts > day_ago:
             recent_24h += 1
+        det['layer'] = 'internal'
         detections_out.append(det)
+
+    # Surface external_fires (FIRMS/SLSTR/ANSA/VVF/etc) as standalone rows.
+    # The original handler used these only as confirmation matches; per
+    # phoenix_audit 2026-06-08 they must appear as standalone markers too.
+    for esrc, elat, elng, ets in externals_raw:
+        try:
+            det = {
+                'id': None,
+                'source': esrc or 'external',
+                'aoi_id': None,
+                'lat': float(elat),
+                'lon': float(elng),
+                'lng': float(elng),
+                'timestamp': ets,
+                'ts': ets,
+                'confidence': None,
+                'frp_mw': 0.0,
+                'fire_temperature_c': 0.0,
+                'image_url': None,
+                'layer': 'external',
+            }
+            detections_out.append(det)
+            if ets and ets > day_ago:
+                recent_24h += 1
+        except Exception:
+            continue
+
+    # wildfire_voted_events — event-merged "events-not-detections" per HARD rule
+    for event_id, ts_v, latc, lonc, ens_conf, frp_max, n_v, voter_json in voted_raw:
+        try:
+            det = {
+                'id': event_id,
+                'source': 'voted_event',
+                'aoi_id': None,
+                'lat': float(latc),
+                'lon': float(lonc),
+                'lng': float(lonc),
+                'timestamp': ts_v,
+                'ts': ts_v,
+                'confidence': float(ens_conf or 0.0),
+                'frp_mw': float(frp_max or 0.0),
+                'fire_temperature_c': 0.0,
+                'image_url': None,
+                'layer': 'voted_event',
+                'n_voters': int(n_v or 0),
+                'voter_count_per_source': voter_json,
+            }
+            detections_out.append(det)
+            if ts_v and ts_v > day_ago:
+                recent_24h += 1
+        except Exception:
+            continue
+
+    # single_frame_candidates — dozier_v1_alpha / subpixel candidates not yet
+    # promoted to voted-events. Surface so the public can see the detector lineage.
+    for cand_id, detector, clat, clon, cts, cfrp, cT in candidates_raw:
+        try:
+            det = {
+                'id': cand_id,
+                'source': detector or 'single_frame_candidate',
+                'aoi_id': None,
+                'lat': float(clat),
+                'lon': float(clon),
+                'lng': float(clon),
+                'timestamp': cts,
+                'ts': cts,
+                'confidence': None,
+                'frp_mw': float(cfrp or 0.0),
+                'fire_temperature_c': (float(cT) - 273.15) if cT else 0.0,
+                'image_url': None,
+                'layer': 'candidate',
+            }
+            detections_out.append(det)
+            if cts and cts > day_ago:
+                recent_24h += 1
+        except Exception:
+            continue
 
     active_detections = detections_out
     enriched = detections_out
@@ -1229,6 +1709,9 @@ def get_detections():
         'confirmed_count': confirmed_count,
         'recent_24h': recent_24h,
         'last_effis_update': last_effis,
+        'period': period_str if period_str in _period_map else f"{hours}h",
+        'hours': hours,
+        'cutoff_utc': cutoff,
         'detections': enriched,
         'system_health': system_health,
         'system_status': 'OPERATIONAL'
@@ -2710,12 +3193,53 @@ def api_openapi_spec():
         "paths": {
             "/api/detections": {
                 "get": {
-                    "summary": "Active fire detections",
+                    "summary": "Active fire detections (UNION across internal_fires, external_fires, voted_events, single_frame_candidates)",
                     "parameters": [
-                        {"name": "hours", "in": "query", "schema": {"type": "integer", "default": 24}},
-                        {"name": "include_comparators", "in": "query", "schema": {"type": "integer", "default": 0}},
+                        {"name": "period", "in": "query",
+                         "schema": {"type": "string", "enum": ["1h", "6h", "24h", "7d", "30d"], "default": "7d"},
+                         "description": "Look-back window. 1h/6h/24h/7d/30d."},
+                        {"name": "hours", "in": "query", "schema": {"type": "integer", "default": 168},
+                         "description": "Look-back window in hours (used if `period` not supplied)."},
                     ],
-                    "responses": {"200": {"description": "JSON with detections array"}},
+                    "responses": {"200": {"description": "JSON with detections[] (each row has `layer`: internal|external|voted_event|candidate), `period`, `hours`, `cutoff_utc`."}},
+                }
+            },
+            "/api/firms": {
+                "get": {
+                    "summary": "FIRMS VIIRS+MODIS detections (period-filtered)",
+                    "parameters": [
+                        {"name": "period", "in": "query",
+                         "schema": {"type": "string", "enum": ["1h", "6h", "24h", "7d", "30d"], "default": "24h"}},
+                    ],
+                    "responses": {"200": {"description": "JSON with detections[] from external_fires WHERE source LIKE 'firms_%'"}},
+                }
+            },
+            "/api/status": {
+                "get": {
+                    "summary": "Per-table last-write times + staleness flags (daemon liveness proxy)",
+                    "responses": {"200": {"description": "JSON {now_utc, tables{}, n_stale, overall}"}},
+                }
+            },
+            "/api/citizen_report": {
+                "post": {
+                    "summary": "Submit a citizen wildfire observation",
+                    "requestBody": {"content": {"application/json": {"schema": {
+                        "type": "object",
+                        "required": ["lat", "lng"],
+                        "properties": {
+                            "lat": {"type": "number"},
+                            "lng": {"type": "number"},
+                            "lon": {"type": "number"},
+                            "kind": {"type": "string", "enum": ["flame", "smoke", "unsure"]},
+                            "note": {"type": "string", "maxLength": 500},
+                            "photo_url": {"type": "string"},
+                            "language": {"type": "string"},
+                        }}}}},
+                    "responses": {
+                        "200": {"description": "JSON {ok:true, report_id, ts_utc}"},
+                        "400": {"description": "JSON {ok:false, error: out_of_aoi_sicily|bad_kind|bad_lat|bad_lon}"},
+                        "429": {"description": "JSON {ok:false, error: rate_limited}"},
+                    },
                 }
             },
             "/api/feed_accuracy": {
@@ -2813,8 +3337,9 @@ def api_news_reports():
     con = sqlite3.connect(str(gt_db))
     rows = list(con.execute(
         "SELECT source, lat, lng, ts, raw_json FROM external_fires "
-        "WHERE source = 'ansa_news' AND ts > datetime('now','-7 days') "
-        "ORDER BY ts DESC LIMIT 100"
+        "WHERE source IN ('ansa_news','ansa_rss','vigili_fuoco','reddit','mastodon') "
+        "AND ts > datetime('now','-7 days') "
+        "ORDER BY ts DESC LIMIT 200"
     ))
     con.close()
     out = []
