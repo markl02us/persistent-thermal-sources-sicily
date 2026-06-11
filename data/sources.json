@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "PHOENIX persistent thermal sources — Sicily",
+    "name": "PHOENIX persistent thermal sources \u2014 Sicily",
     "description": "Coordinates that consistently appear as 'fires' to overhead satellite sensors (SEVIRI, FCI, MODIS, VIIRS) but are NOT wildfires. Sources are volcanic, industrial (refineries, petrochemical, ports), or persistent natural anomalies. Published as a public good for civil-protection, researchers, and Sicilians who want to interpret FIRMS / EUMETSAT maps correctly.",
     "license": "CC-BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "source_repo": "https://github.com/phoenix-wildfire/persistent-thermal-sources-sicily",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "updated_at": "2026-05-30T07:11:19.439344+00:00",
     "n_sources": 339,
     "methodology_summary": "Static seed from INGV-HOTSAT volcanic knowledge + Round-2 council research on Sicilian industrial sites. Auto-enrichment via OpenStreetMap Overpass. Mining of additional candidates from PHOENIX internal_fires history (cells firing >=6x in 12h windows without VIIRS confirmation).",
@@ -22,12 +22,13 @@
       "manual_review_ag_burn": 64,
       "manual_review_unsure": 12
     },
-    "count": 337
+    "count": 337,
+    "last_updated": "2026-06-11T23:05:04.061570+00:00"
   },
   "sources": [
     {
       "id": "etna-summit",
-      "name_it": "Mt. Etna — crateri sommitali",
+      "name_it": "Mt. Etna \u2014 crateri sommitali",
       "name_en": "Mt. Etna summit craters",
       "category": "volcanic",
       "subcategory": "active_stratovolcano",
@@ -45,7 +46,7 @@
       "false_positive_confidence": 1.0,
       "first_observed": null,
       "last_observed": null,
-      "notes_it": "Vulcano attivo. Le anomalie termiche sono dovute all'attività effusiva e fumarolica. Monitorato in continuo da INGV-HOTSAT.",
+      "notes_it": "Vulcano attivo. Le anomalie termiche sono dovute all'attivita\u0300 effusiva e fumarolica. Monitorato in continuo da INGV-HOTSAT.",
       "notes_en": "Active volcano. Thermal anomalies driven by effusive and fumarolic activity. Continuously monitored by INGV-HOTSAT.",
       "evidence_urls": [
         "https://www.ingv.it/",
@@ -107,9 +108,9 @@
           {
             "osm_id": "n441413717",
             "category": "volcano",
-            "name": "Cratere Piano del Lago o Escrivà",
+            "name": "Cratere Piano del Lago o Escriv\u00e0",
             "tags": {
-              "name": "Cratere Piano del Lago o Escrivà",
+              "name": "Cratere Piano del Lago o Escriv\u00e0",
               "natural": "volcano"
             }
           },
@@ -446,10 +447,10 @@
           {
             "osm_id": "w36825245",
             "category": "industrial_works",
-            "name": "Zappalà",
+            "name": "Zappal\u00e0",
             "tags": {
-              "name": "Zappalà",
-              "operator": "Zappalà s.p.a.",
+              "name": "Zappal\u00e0",
+              "operator": "Zappal\u00e0 s.p.a.",
               "man_made": "works"
             }
           },
@@ -791,7 +792,7 @@
       "false_positive_confidence": 1.0,
       "first_observed": null,
       "last_observed": null,
-      "notes_it": "Vulcano in attività continua. Esplosioni stromboliane permanenti.",
+      "notes_it": "Vulcano in attivit\u00e0 continua. Esplosioni stromboliane permanenti.",
       "notes_en": "Continuously active volcano. Permanent Strombolian explosions.",
       "evidence_urls": [
         "https://www.ct.ingv.it/"
@@ -1064,7 +1065,7 @@
       "false_positive_confidence": 0.98,
       "first_observed": null,
       "last_observed": null,
-      "notes_it": "Il più grande complesso petrolchimico d'Europa. Le torce di emergenza producono segnale termico permanente in MIR.",
+      "notes_it": "Il pi\u00f9 grande complesso petrolchimico d'Europa. Le torce di emergenza producono segnale termico permanente in MIR.",
       "notes_en": "Europe's largest petrochemical complex. Emergency gas flares produce a permanent MIR thermal signature.",
       "evidence_urls": [
         "https://en.wikipedia.org/wiki/Augusta-Priolo_petrochemical_complex"
@@ -1131,7 +1132,7 @@
       "false_positive_confidence": 0.97,
       "first_observed": null,
       "last_observed": null,
-      "notes_it": "Raffineria convertita in bioraffineria. Mantiene attività termiche residue.",
+      "notes_it": "Raffineria convertita in bioraffineria. Mantiene attivit\u00e0 termiche residue.",
       "notes_en": "Refinery converted to biorefinery. Maintains residual thermal activity.",
       "evidence_urls": [],
       "google_maps": {
@@ -1657,10 +1658,10 @@
           {
             "osm_id": "w418130425",
             "category": "industrial_works",
-            "name": "Amarù Giovanni",
+            "name": "Amar\u00f9 Giovanni",
             "tags": {
-              "name": "Amarù Giovanni",
-              "operator": "Amarù Giovanni S.r.l.",
+              "name": "Amar\u00f9 Giovanni",
+              "operator": "Amar\u00f9 Giovanni S.r.l.",
               "landuse": "industrial",
               "man_made": "works"
             }
@@ -2154,7 +2155,7 @@
       "region": "Sicilia",
       "province": "Messina",
       "operators": [
-        "RAM (Raffineria di Milazzo) — Eni + Q8"
+        "RAM (Raffineria di Milazzo) \u2014 Eni + Q8"
       ],
       "phoenix_detections_30d": null,
       "viirs_confirmed_30d": null,
@@ -2607,7 +2608,7 @@
       "false_positive_confidence": 0.9,
       "first_observed": null,
       "last_observed": null,
-      "notes_it": "Area industriale dismessa con attività portuali. Possibili attività termiche residue.",
+      "notes_it": "Area industriale dismessa con attivit\u00e0 portuali. Possibili attivit\u00e0 termiche residue.",
       "notes_en": "Decommissioned industrial area with active port. Possible residual thermal activity.",
       "evidence_urls": [],
       "google_maps": {
@@ -2660,7 +2661,7 @@
       "false_positive_confidence": 0.85,
       "first_observed": null,
       "last_observed": null,
-      "notes_it": "Attività portuali e raffinerie minori.",
+      "notes_it": "Attivit\u00e0 portuali e raffinerie minori.",
       "notes_en": "Port activity and small refineries.",
       "evidence_urls": [],
       "google_maps": {
@@ -3378,8 +3379,8 @@
     },
     {
       "id": "phoenix-36_9111-14_4283",
-      "name_it": "Fonte termica persistente 36.911°N 14.428°E",
-      "name_en": "Persistent thermal source 36.911°N 14.428°E",
+      "name_it": "Fonte termica persistente 36.911\u00b0N 14.428\u00b0E",
+      "name_en": "Persistent thermal source 36.911\u00b0N 14.428\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.9111,
@@ -3395,7 +3396,7 @@
       "first_observed": "2026-05-22T12:48:53.225775+00:00",
       "last_observed": "2026-05-23T14:53:00.310287+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.91110,14.42830",
@@ -3411,8 +3412,8 @@
     },
     {
       "id": "phoenix-36_7915-14_6081",
-      "name_it": "Fonte termica persistente 36.791°N 14.608°E",
-      "name_en": "Persistent thermal source 36.791°N 14.608°E",
+      "name_it": "Fonte termica persistente 36.791\u00b0N 14.608\u00b0E",
+      "name_en": "Persistent thermal source 36.791\u00b0N 14.608\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.7915,
@@ -3428,7 +3429,7 @@
       "first_observed": "2026-05-22T13:07:09.128860+00:00",
       "last_observed": "2026-05-23T14:53:00.310287+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.79150,14.60810",
@@ -3443,8 +3444,8 @@
     },
     {
       "id": "phoenix-36_9711-14_3681",
-      "name_it": "Fonte termica persistente 36.971°N 14.368°E",
-      "name_en": "Persistent thermal source 36.971°N 14.368°E",
+      "name_it": "Fonte termica persistente 36.971\u00b0N 14.368\u00b0E",
+      "name_en": "Persistent thermal source 36.971\u00b0N 14.368\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.9711,
@@ -3460,7 +3461,7 @@
       "first_observed": "2026-05-22T13:07:09.128860+00:00",
       "last_observed": "2026-05-23T14:53:00.310287+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.97110,14.36810",
@@ -3475,8 +3476,8 @@
     },
     {
       "id": "phoenix-37_5094-14_9896",
-      "name_it": "Fonte termica persistente 37.509°N 14.990°E",
-      "name_en": "Persistent thermal source 37.509°N 14.990°E",
+      "name_it": "Fonte termica persistente 37.509\u00b0N 14.990\u00b0E",
+      "name_en": "Persistent thermal source 37.509\u00b0N 14.990\u00b0E",
       "category": "industrial",
       "subcategory": "landfill",
       "lat": 37.5094,
@@ -3492,7 +3493,7 @@
       "first_observed": "2026-05-22T11:57:15.334694+00:00",
       "last_observed": "2026-05-23T09:39:20.835319",
       "annotation": "auto",
-      "notes_it": "Discarica con possibile attività di compostaggio o combustione interna. Firma termica intermittente.",
+      "notes_it": "Discarica con possibile attivit\u00e0 di compostaggio o combustione interna. Firma termica intermittente.",
       "notes_en": "Landfill with possible composting or internal combustion activity. Intermittent thermal signature.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=37.50940,14.98960",
@@ -3507,8 +3508,8 @@
     },
     {
       "id": "phoenix-37_5506-14_9297",
-      "name_it": "Fonte termica persistente 37.551°N 14.930°E",
-      "name_en": "Persistent thermal source 37.551°N 14.930°E",
+      "name_it": "Fonte termica persistente 37.551\u00b0N 14.930\u00b0E",
+      "name_en": "Persistent thermal source 37.551\u00b0N 14.930\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 37.5506,
@@ -3524,7 +3525,7 @@
       "first_observed": "2026-05-22T10:56:36.527272",
       "last_observed": "2026-05-23T13:39:22.483447+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=37.55060,14.92970",
@@ -3539,8 +3540,8 @@
     },
     {
       "id": "phoenix-36_7900-14_5900",
-      "name_it": "Fonte termica persistente 36.790°N 14.590°E",
-      "name_en": "Persistent thermal source 36.790°N 14.590°E",
+      "name_it": "Fonte termica persistente 36.790\u00b0N 14.590\u00b0E",
+      "name_en": "Persistent thermal source 36.790\u00b0N 14.590\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.79,
@@ -3556,7 +3557,7 @@
       "first_observed": "2026-05-22T11:57:15.334694+00:00",
       "last_observed": "2026-05-23T13:57:51.327460+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.79000,14.59000",
@@ -3572,8 +3573,8 @@
     },
     {
       "id": "phoenix-36_8900-14_4300",
-      "name_it": "Fonte termica persistente 36.890°N 14.430°E",
-      "name_en": "Persistent thermal source 36.890°N 14.430°E",
+      "name_it": "Fonte termica persistente 36.890\u00b0N 14.430\u00b0E",
+      "name_en": "Persistent thermal source 36.890\u00b0N 14.430\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.89,
@@ -3589,7 +3590,7 @@
       "first_observed": "2026-05-22T12:48:53.225775+00:00",
       "last_observed": "2026-05-23T13:57:51.327460+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.89000,14.43000",
@@ -3605,8 +3606,8 @@
     },
     {
       "id": "phoenix-36_9702-14_5103",
-      "name_it": "Fonte termica persistente 36.970°N 14.510°E",
-      "name_en": "Persistent thermal source 36.970°N 14.510°E",
+      "name_it": "Fonte termica persistente 36.970\u00b0N 14.510\u00b0E",
+      "name_en": "Persistent thermal source 36.970\u00b0N 14.510\u00b0E",
       "category": "urban",
       "subcategory": "urban_heat_island",
       "lat": 36.9702,
@@ -3637,8 +3638,8 @@
     },
     {
       "id": "phoenix-37_0696-14_7896",
-      "name_it": "Fonte termica persistente 37.070°N 14.790°E",
-      "name_en": "Persistent thermal source 37.070°N 14.790°E",
+      "name_it": "Fonte termica persistente 37.070\u00b0N 14.790\u00b0E",
+      "name_en": "Persistent thermal source 37.070\u00b0N 14.790\u00b0E",
       "category": "solar_farm",
       "subcategory": "photovoltaic_array",
       "lat": 37.0696,
@@ -3654,7 +3655,7 @@
       "first_observed": "2026-05-22T13:07:09.128860+00:00",
       "last_observed": "2026-05-27T06:07:17.513760",
       "annotation": "auto",
-      "notes_it": "Pannelli fotovoltaici. La superficie può presentare riflessi MIR che innescano falsi positivi quando l'angolo solare è basso.",
+      "notes_it": "Pannelli fotovoltaici. La superficie pu\u00f2 presentare riflessi MIR che innescano falsi positivi quando l'angolo solare \u00e8 basso.",
       "notes_en": "Photovoltaic panels. The surface can present MIR reflections that trigger false positives at low solar angles.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=37.06960,14.78960",
@@ -3669,8 +3670,8 @@
     },
     {
       "id": "phoenix-37_1300-14_1100",
-      "name_it": "Fonte termica persistente 37.130°N 14.110°E",
-      "name_en": "Persistent thermal source 37.130°N 14.110°E",
+      "name_it": "Fonte termica persistente 37.130\u00b0N 14.110\u00b0E",
+      "name_en": "Persistent thermal source 37.130\u00b0N 14.110\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 37.13,
@@ -3686,7 +3687,7 @@
       "first_observed": "2026-05-22T13:07:09.128860+00:00",
       "last_observed": "2026-05-25T15:32:33.180595+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=37.13000,14.11000",
@@ -3701,8 +3702,8 @@
     },
     {
       "id": "phoenix-37_1503-14_6693",
-      "name_it": "Fonte termica persistente 37.150°N 14.669°E",
-      "name_en": "Persistent thermal source 37.150°N 14.669°E",
+      "name_it": "Fonte termica persistente 37.150\u00b0N 14.669\u00b0E",
+      "name_en": "Persistent thermal source 37.150\u00b0N 14.669\u00b0E",
       "category": "solar_farm",
       "subcategory": "photovoltaic_array",
       "lat": 37.1503,
@@ -3718,7 +3719,7 @@
       "first_observed": "2026-05-22T11:57:15.334694+00:00",
       "last_observed": "2026-05-29T01:29:35.338934+00:00",
       "annotation": "auto",
-      "notes_it": "Pannelli fotovoltaici. La superficie può presentare riflessi MIR che innescano falsi positivi quando l'angolo solare è basso.",
+      "notes_it": "Pannelli fotovoltaici. La superficie pu\u00f2 presentare riflessi MIR che innescano falsi positivi quando l'angolo solare \u00e8 basso.",
       "notes_en": "Photovoltaic panels. The surface can present MIR reflections that trigger false positives at low solar angles.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=37.15030,14.66930",
@@ -3733,8 +3734,8 @@
     },
     {
       "id": "phoenix-37_4502-15_0493",
-      "name_it": "Fonte termica persistente 37.450°N 15.049°E",
-      "name_en": "Persistent thermal source 37.450°N 15.049°E",
+      "name_it": "Fonte termica persistente 37.450\u00b0N 15.049\u00b0E",
+      "name_en": "Persistent thermal source 37.450\u00b0N 15.049\u00b0E",
       "category": "solar_farm",
       "subcategory": "photovoltaic_array",
       "lat": 37.4502,
@@ -3750,7 +3751,7 @@
       "first_observed": "2026-05-22T13:26:12.347247+00:00",
       "last_observed": "2026-05-24T12:30:21.396177+00:00",
       "annotation": "auto",
-      "notes_it": "Pannelli fotovoltaici. La superficie può presentare riflessi MIR che innescano falsi positivi quando l'angolo solare è basso.",
+      "notes_it": "Pannelli fotovoltaici. La superficie pu\u00f2 presentare riflessi MIR che innescano falsi positivi quando l'angolo solare \u00e8 basso.",
       "notes_en": "Photovoltaic panels. The surface can present MIR reflections that trigger false positives at low solar angles.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=37.45020,15.04930",
@@ -3765,8 +3766,8 @@
     },
     {
       "id": "phoenix-36_7700-14_6100",
-      "name_it": "Fonte termica persistente 36.770°N 14.610°E",
-      "name_en": "Persistent thermal source 36.770°N 14.610°E",
+      "name_it": "Fonte termica persistente 36.770\u00b0N 14.610\u00b0E",
+      "name_en": "Persistent thermal source 36.770\u00b0N 14.610\u00b0E",
       "category": "urban",
       "subcategory": "urban_heat_island",
       "lat": 36.77,
@@ -3797,8 +3798,8 @@
     },
     {
       "id": "phoenix-36_7700-14_6300",
-      "name_it": "Fonte termica persistente 36.770°N 14.630°E",
-      "name_en": "Persistent thermal source 36.770°N 14.630°E",
+      "name_it": "Fonte termica persistente 36.770\u00b0N 14.630\u00b0E",
+      "name_en": "Persistent thermal source 36.770\u00b0N 14.630\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.77,
@@ -3814,7 +3815,7 @@
       "first_observed": "2026-05-22T12:48:53.225775+00:00",
       "last_observed": "2026-05-23T13:57:51.327460+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.77000,14.63000",
@@ -3830,8 +3831,8 @@
     },
     {
       "id": "phoenix-36_7920-14_4875",
-      "name_it": "Fonte termica persistente 36.792°N 14.488°E",
-      "name_en": "Persistent thermal source 36.792°N 14.488°E",
+      "name_it": "Fonte termica persistente 36.792\u00b0N 14.488\u00b0E",
+      "name_en": "Persistent thermal source 36.792\u00b0N 14.488\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.792,
@@ -3847,7 +3848,7 @@
       "first_observed": "2026-05-22T13:44:17.364217+00:00",
       "last_observed": "2026-05-23T14:53:00.310287+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.79200,14.48750",
@@ -3863,8 +3864,8 @@
     },
     {
       "id": "phoenix-36_8100-14_4900",
-      "name_it": "Fonte termica persistente 36.810°N 14.490°E",
-      "name_en": "Persistent thermal source 36.810°N 14.490°E",
+      "name_it": "Fonte termica persistente 36.810\u00b0N 14.490\u00b0E",
+      "name_en": "Persistent thermal source 36.810\u00b0N 14.490\u00b0E",
       "category": "glasshouse_complex",
       "subcategory": "plastic_polytunnel",
       "lat": 36.81,
@@ -3880,7 +3881,7 @@
       "first_observed": "2026-05-22T12:31:18.804135+00:00",
       "last_observed": "2026-05-24T12:10:55.716375+00:00",
       "annotation": "auto",
-      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica può presentare firma termica persistente, soprattutto al tramonto.",
+      "notes_it": "Tunnel di polietilene ad alta riflessione MIR. Il rivestimento in plastica pu\u00f2 presentare firma termica persistente, soprattutto al tramonto.",
       "notes_en": "Polyethylene polytunnels. The plastic cover can present a persistent thermal signature, especially at sunset.",
       "evidence_urls": [],
       "google_maps": "https://www.google.com/maps?q=36.81000,14.49000",
@@ -11936,7 +11937,7 @@
     },
     {
       "id": "manualv130glasshouse37p57n14p73",
-      "name_it": "Complesso serre — 37.57, 14.73",
+      "name_it": "Complesso serre \u2014 37.57, 14.73",
       "name_en": "Glasshouse complex at 37.57, 14.73",
       "category": "glasshouse_complex",
       "subcategory": "candidate_persistent_anomaly",
@@ -11962,7 +11963,7 @@
     },
     {
       "id": "manualv130solar36p93n14p81",
-      "name_it": "Impianto fotovoltaico — 36.93, 14.81",
+      "name_it": "Impianto fotovoltaico \u2014 36.93, 14.81",
       "name_en": "Solar PV farm at 36.93, 14.81",
       "category": "solar_farm",
       "subcategory": "candidate_persistent_anomaly",
