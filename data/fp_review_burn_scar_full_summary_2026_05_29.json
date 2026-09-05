@@ -34,6 +34,19 @@
   "olci_ndvi_dropoff_count": 0,
   "n_fused_scar_after_olci": 68,
   "olci_runtime_sec": 2268.9,
-  "last_modis_catchup_at": "2026-09-05T03:59:14.964214+00:00",
-  "modis_catchup_updates": 223
+  "last_modis_catchup_at": "2026-09-05T07:03:35.153657+00:00",
+  "modis_catchup_updates": 447,
+  "proxy_upgrade_at": "2026-09-05T04:28:34.709713+00:00",
+  "proxy_signal_hit_counts": {
+    "tropomi_combustion": 0,
+    "viirs_active_fire": 0,
+    "slstr_active_fire": 0,
+    "persistent_nightlight": 0,
+    "nightlight_extinguished": 0
+  },
+  "n_fused_scar_after_proxy_upgrade": 114,
+  "n_fused_scar_before_proxy_upgrade": 68,
+  "n_persistence_signal_after_proxy_upgrade": 0,
+  "n_combustion_signal_after_proxy_upgrade": 0,
+  "proxy_upgrade_runtime_sec": 2177.3
 }

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-05T03:59:14.964214+00:00",
-  "method": "Full-roster burn-scar fusion (STRICT v1.3.0): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire (FireMask>=2) + MODIS-11A1 daily LST anomaly (>=20K) as has_scar_fused agreers. Sentinel-3 SLSTR FRP scenes + Sentinel-3 SLSTR LST scenes + Sentinel-5P TROPOMI CO/NO2 (proxy scene counts) + VIIRS VNP14IMG (CMR granule count) + VIIRS VNP46A1 Black Marble persistence + MTG FCI L1c DGX-cache coverage tracked as coverage_only_signals (not in agreers \u2014 they are upper bounds on AF/anomaly until per-file netcdf read is added). Persistence (BM post/pre>=0.9) + combustion (TROPOMI + AF hits) derived flags. + Sentinel-3 OLCI L2 OTCI/GIFAPAR vegetation-index dropoff (OTCI<=-0.5 OR GIFAPAR<=-0.15 over cell AOI = ndvi_dropoff).",
+  "generated_at": "2026-09-05T07:03:35.153657+00:00",
+  "method": "Full-roster burn-scar fusion (v1.3.0 proxy-upgraded): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + MODIS-11A1 LST anomaly + Sentinel-3 SLSTR FRP (REAL per-pixel FRP via netcdf) + Sentinel-3 SLSTR LST (scene-count) + Sentinel-5P TROPOMI CO/NO2 (REAL per-pixel column anomaly, 2\u03c3 vs 30d baseline) + VIIRS VNP14IMG 375m active-fire (REAL per-granule HDF5 FP read, conf>=7) + VIIRS VNP46A1 Black Marble (REAL per-granule HDF5 DNB radiance ratio) + MTG FCI L1c DGX-cache file-count signal. has_scar_fused = >=1 agreer (optical NBR, SAR, LST, AF, TROPOMI). persistence_signal = BM post/pre>=0.9 (persistent NL). combustion_signal = TROPOMI 2\u03c3 anomaly on CO or NO2.",
   "aoi_box_m": 500,
   "cloud_max_pct": 50,
   "pre_window_offset_days_optical": [
@@ -21,7 +21,7 @@
   "n_cells_input": 114,
   "n_cells_analyzed": 114,
   "n_sources_audited": 14,
-  "n_sources_used": 13,
+  "n_sources_used": 12,
   "status": "complete",
   "phoenix-37_5900-14_9500": {
     "pre_window_optical": [
@@ -86,12 +86,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S1 dVV=-0.166dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->7; BM-pers=0.3",
+    "has_scar_fused": true,
+    "n_sensors_usable": 5,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S1 dVV=-0.166dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -166,10 +168,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -245,13 +244,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3783; LS dNBR=0.2507; HLS dNBR=0.1904; S1 dVV=-0.357dB; MODIS-LST \u0394=6.72K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3783; LS dNBR=0.2507; HLS dNBR=0.1904; S1 dVV=-0.357dB; MODIS-LST \u0394=6.72K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -334,10 +334,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -413,14 +410,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3623; LS dNBR=0.1638; HLS dNBR=0.2903; S1 dVV=-0.123dB; MODIS-LST \u0394=6.72K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3623; LS dNBR=0.1638; HLS dNBR=0.2903; S1 dVV=-0.123dB; MODIS-LST \u0394=6.72K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -503,10 +501,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -575,12 +570,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S1 dVV=-0.033dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->7; BM-pers=0.3",
+    "has_scar_fused": true,
+    "n_sensors_usable": 5,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S1 dVV=-0.033dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -655,10 +652,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -734,14 +728,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "landsat_nbr"
+      "landsat_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3963; LS dNBR=0.2885; HLS dNBR=0.2364; S1 dVV=0.532dB; MODIS-LST \u0394=8.83K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3963; LS dNBR=0.2885; HLS dNBR=0.2364; S1 dVV=0.532dB; MODIS-LST \u0394=8.83K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -824,10 +819,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -903,14 +895,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -993,10 +986,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -1072,14 +1062,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0139; LS dNBR=0.0196; HLS dNBR=1.0702; S1 dVV=-3.854dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0139; LS dNBR=0.0196; HLS dNBR=1.0702; S1 dVV=-3.854dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1157,10 +1148,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -1236,14 +1224,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; S1 dVV=-3.245dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; S1 dVV=-3.245dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1321,10 +1310,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -1391,12 +1377,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->6; BM-pers=0.2; MTG-FCI=3f",
+    "has_scar_fused": true,
+    "n_sensors_usable": 5,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -1471,10 +1459,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -1543,12 +1528,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "HLS dNBR=0.2322; S1 dVV=0.126dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.3",
+    "has_scar_fused": true,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "HLS dNBR=0.2322; S1 dVV=0.126dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1626,10 +1613,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -1705,14 +1689,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3252; LS dNBR=0.2083; HLS dNBR=0.3683; S1 dVV=0.278dB; MODIS-LST \u0394=9.9K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3252; LS dNBR=0.2083; HLS dNBR=0.3683; S1 dVV=0.278dB; MODIS-LST \u0394=9.9K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1795,10 +1780,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -1874,14 +1856,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0072; LS dNBR=-0.0233; HLS dNBR=0.3812; S1 dVV=-2.318dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0072; LS dNBR=-0.0233; HLS dNBR=0.3812; S1 dVV=-2.318dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1959,10 +1942,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -2038,13 +2018,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2127,10 +2108,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -2202,12 +2180,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; S1 dVV=0.449dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.6",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; S1 dVV=0.449dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2285,10 +2265,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -2361,14 +2338,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3333; HLS dNBR=0.2835; S1 dVV=0.423dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.4",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3333; HLS dNBR=0.2835; S1 dVV=0.423dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.4",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2446,10 +2424,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -2525,13 +2500,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.27; LS dNBR=0.1769; HLS dNBR=0.2531; S1 dVV=0.429dB; MODIS-LST \u0394=6.96K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.27; LS dNBR=0.1769; HLS dNBR=0.2531; S1 dVV=0.429dB; MODIS-LST \u0394=6.96K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2614,10 +2590,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -2693,13 +2666,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3537; LS dNBR=0.1543; HLS dNBR=0.164; S1 dVV=0.072dB; MODIS-LST \u0394=6.54K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3537; LS dNBR=0.1543; HLS dNBR=0.164; S1 dVV=0.072dB; MODIS-LST \u0394=6.54K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2782,10 +2756,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -2861,14 +2832,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.2971; LS dNBR=0.1052; HLS dNBR=0.346; S1 dVV=-0.067dB; MODIS-LST \u0394=4.61K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.2971; LS dNBR=0.1052; HLS dNBR=0.346; S1 dVV=-0.067dB; MODIS-LST \u0394=4.61K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2951,10 +2923,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -3029,12 +2998,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1271; LS dNBR=0.0483; HLS dNBR=0.0847; S1 dVV=0.189dB; MODIS-LST \u0394=5.62K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1271; LS dNBR=0.0483; HLS dNBR=0.0847; S1 dVV=0.189dB; MODIS-LST \u0394=5.62K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3117,10 +3088,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -3196,15 +3164,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.399; LS dNBR=0.3033; HLS dNBR=0.283; S1 dVV=-0.193dB; MODIS-LST \u0394=4.27K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.399; LS dNBR=0.3033; HLS dNBR=0.283; S1 dVV=-0.193dB; MODIS-LST \u0394=4.27K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3287,10 +3256,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -3366,14 +3332,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "landsat_nbr"
+      "landsat_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.2948; LS dNBR=0.3852; HLS dNBR=0.2571; S1 dVV=-0.178dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.2948; LS dNBR=0.3852; HLS dNBR=0.2571; S1 dVV=-0.178dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3451,10 +3418,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -3530,14 +3494,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0146; LS dNBR=0.0169; HLS dNBR=0.9015; S1 dVV=-6.945dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0146; LS dNBR=0.0169; HLS dNBR=0.9015; S1 dVV=-6.945dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3615,10 +3580,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -3694,13 +3656,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3442; LS dNBR=0.2532; HLS dNBR=0.2447; S1 dVV=0.411dB; MODIS-LST \u0394=6.68K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3442; LS dNBR=0.2532; HLS dNBR=0.2447; S1 dVV=0.411dB; MODIS-LST \u0394=6.68K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3783,10 +3746,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -3858,12 +3818,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.139; HLS dNBR=0.1544; S1 dVV=0.314dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.6",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.139; HLS dNBR=0.1544; S1 dVV=0.314dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3941,10 +3903,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -4020,14 +3979,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0057; LS dNBR=0.0457; HLS dNBR=0.3621; S1 dVV=-3.235dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0057; LS dNBR=0.0457; HLS dNBR=0.3621; S1 dVV=-3.235dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 4,
@@ -4105,10 +4065,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -4184,14 +4141,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0093; LS dNBR=0.0043; HLS dNBR=0.4709; S1 dVV=-5.83dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0093; LS dNBR=0.0043; HLS dNBR=0.4709; S1 dVV=-5.83dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4269,10 +4227,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -4348,13 +4303,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3336; LS dNBR=0.1624; HLS dNBR=0.2696; S1 dVV=0.239dB; MODIS-LST \u0394=8.94K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3336; LS dNBR=0.1624; HLS dNBR=0.2696; S1 dVV=0.239dB; MODIS-LST \u0394=8.94K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4437,10 +4393,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -4516,14 +4469,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0109; LS dNBR=0.0345; HLS dNBR=0.2958; S1 dVV=-4.43dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0109; LS dNBR=0.0345; HLS dNBR=0.2958; S1 dVV=-4.43dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -4601,10 +4555,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -4676,12 +4627,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1051; HLS dNBR=0.2224; S1 dVV=0.319dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.6",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1051; HLS dNBR=0.2224; S1 dVV=0.319dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4759,10 +4712,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -4841,14 +4791,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0021; LS dNBR=0.0394; HLS dNBR=0.8255; S1 dVV=-4.976dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0021; LS dNBR=0.0394; HLS dNBR=0.8255; S1 dVV=-4.976dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4926,10 +4877,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5005,13 +4953,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.4995; LS dNBR=0.2277; HLS dNBR=0.1911; S1 dVV=-0.503dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.6",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.4995; LS dNBR=0.2277; HLS dNBR=0.1911; S1 dVV=-0.503dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5089,10 +5038,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5167,12 +5113,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2513; LS dNBR=0.2641; HLS dNBR=0.1659; S1 dVV=0.153dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2513; LS dNBR=0.2641; HLS dNBR=0.1659; S1 dVV=0.153dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5250,10 +5198,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5328,12 +5273,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2388; LS dNBR=0.1575; HLS dNBR=0.1765; S1 dVV=-0.023dB; MODIS-LST \u0394=5.45K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2388; LS dNBR=0.1575; HLS dNBR=0.1765; S1 dVV=-0.023dB; MODIS-LST \u0394=5.45K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5416,10 +5363,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5495,15 +5439,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3288; LS dNBR=0.326; HLS dNBR=0.3615; S1 dVV=-0.085dB; MODIS-LST \u0394=7.39K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3288; LS dNBR=0.326; HLS dNBR=0.3615; S1 dVV=-0.085dB; MODIS-LST \u0394=7.39K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5586,10 +5531,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5661,12 +5603,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1626; HLS dNBR=0.1701; S1 dVV=0.278dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1626; HLS dNBR=0.1701; S1 dVV=0.278dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5744,10 +5688,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5823,14 +5764,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.0097; LS dNBR=0.0197; HLS dNBR=0.6339; S1 dVV=-4.958dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.0097; LS dNBR=0.0197; HLS dNBR=0.6339; S1 dVV=-4.958dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -5908,10 +5850,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -5987,14 +5926,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0091; LS dNBR=0.0079; HLS dNBR=0.5843; S1 dVV=-6.759dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0091; LS dNBR=0.0079; HLS dNBR=0.5843; S1 dVV=-6.759dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6072,10 +6012,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -6151,14 +6088,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3603; LS dNBR=0.2622; HLS dNBR=0.3626; S1 dVV=0.054dB; MODIS-LST \u0394=9.21K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3603; LS dNBR=0.2622; HLS dNBR=0.3626; S1 dVV=0.054dB; MODIS-LST \u0394=9.21K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6241,10 +6179,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -6319,12 +6254,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1421; LS dNBR=0.1693; HLS dNBR=0.118; S1 dVV=0.023dB; MODIS-LST \u0394=4.48K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1421; LS dNBR=0.1693; HLS dNBR=0.118; S1 dVV=0.023dB; MODIS-LST \u0394=4.48K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6407,10 +6344,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -6486,15 +6420,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3883; LS dNBR=0.2855; HLS dNBR=0.3284; S1 dVV=-0.085dB; MODIS-LST \u0394=7.41K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3883; LS dNBR=0.2855; HLS dNBR=0.3284; S1 dVV=-0.085dB; MODIS-LST \u0394=7.41K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6577,10 +6512,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -6656,14 +6588,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.2998; LS dNBR=0.1698; HLS dNBR=0.3752; S1 dVV=0.012dB; MODIS-LST \u0394=7.23K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.2998; LS dNBR=0.1698; HLS dNBR=0.3752; S1 dVV=0.012dB; MODIS-LST \u0394=7.23K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6746,10 +6679,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -6824,12 +6754,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2163; LS dNBR=0.1687; HLS dNBR=0.2553; S1 dVV=0.099dB; MODIS-LST \u0394=9.74K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2163; LS dNBR=0.1687; HLS dNBR=0.2553; S1 dVV=0.099dB; MODIS-LST \u0394=9.74K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6912,10 +6844,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -6990,12 +6919,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1598; LS dNBR=0.2439; HLS dNBR=0.1824; S1 dVV=-0.112dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1598; LS dNBR=0.2439; HLS dNBR=0.1824; S1 dVV=-0.112dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7073,10 +7004,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -7151,12 +7079,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1626; LS dNBR=0.0847; HLS dNBR=0.1363; S1 dVV=0.322dB; MODIS-LST \u0394=5.29K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1626; LS dNBR=0.0847; HLS dNBR=0.1363; S1 dVV=0.322dB; MODIS-LST \u0394=5.29K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7239,10 +7169,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -7317,12 +7244,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2171; LS dNBR=0.194; HLS dNBR=0.1989; S1 dVV=0.214dB; MODIS-LST \u0394=9.74K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2171; LS dNBR=0.194; HLS dNBR=0.1989; S1 dVV=0.214dB; MODIS-LST \u0394=9.74K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7405,10 +7334,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -7484,13 +7410,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3266; LS dNBR=0.1673; HLS dNBR=0.2696; S1 dVV=0.289dB; MODIS-LST \u0394=9.66K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3266; LS dNBR=0.1673; HLS dNBR=0.2696; S1 dVV=0.289dB; MODIS-LST \u0394=9.66K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7573,10 +7500,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -7637,15 +7561,12 @@
       "sec": 21.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2426,
+      "dnbr_mean": 0.2426,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
       "status": "ok",
@@ -7655,14 +7576,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3734; LS dNBR=0.1921; HLS dNBR=0.3468; S1 dVV=-0.444dB; MODIS-LST \u0394=8.76K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3734; LS dNBR=0.1921; HLS dNBR=0.3468; S1 dVV=-0.444dB; MODIS-LST \u0394=8.76K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7745,10 +7667,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -7823,12 +7742,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1062; LS dNBR=0.0587; HLS dNBR=0.0948; S1 dVV=0.053dB; MODIS-LST \u0394=4.23K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1062; LS dNBR=0.0587; HLS dNBR=0.0948; S1 dVV=0.053dB; MODIS-LST \u0394=4.23K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7911,10 +7832,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -7990,13 +7908,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3289; LS dNBR=0.2488; HLS dNBR=0.1954; S1 dVV=-0.235dB; MODIS-LST \u0394=7.38K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3289; LS dNBR=0.2488; HLS dNBR=0.1954; S1 dVV=-0.235dB; MODIS-LST \u0394=7.38K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -8079,10 +7998,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -8157,12 +8073,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2479; LS dNBR=0.1581; HLS dNBR=0.199; S1 dVV=0.098dB; MODIS-LST \u0394=2.9K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2479; LS dNBR=0.1581; HLS dNBR=0.199; S1 dVV=0.098dB; MODIS-LST \u0394=2.9K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -8245,10 +8163,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -8321,14 +8236,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3; HLS dNBR=0.3324; S1 dVV=-0.578dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.6",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3; HLS dNBR=0.3324; S1 dVV=-0.578dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -8406,10 +8322,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -8482,13 +8395,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.4643; S1 dVV=0.186dB; S3-FRP-scenes=10; VNP14-granules=25; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.4643; S1 dVV=0.186dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -8563,10 +8477,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -8645,13 +8556,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=-0.0101; LS dNBR=0.0275; HLS dNBR=0.1817; S1 dVV=-5.265dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=-0.0101; LS dNBR=0.0275; HLS dNBR=0.1817; S1 dVV=-5.265dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -8729,10 +8641,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -8808,14 +8717,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0059; LS dNBR=0.018; HLS dNBR=0.2947; S1 dVV=-3.905dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0059; LS dNBR=0.018; HLS dNBR=0.2947; S1 dVV=-3.905dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -8893,10 +8803,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -8972,15 +8879,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.5359; LS dNBR=0.372; HLS dNBR=0.3571; S1 dVV=0.141dB; MODIS-LST \u0394=8.58K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.5359; LS dNBR=0.372; HLS dNBR=0.3571; S1 dVV=0.141dB; MODIS-LST \u0394=8.58K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9063,10 +8971,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -9139,14 +9044,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3441; HLS dNBR=0.2715; S1 dVV=0.032dB; S3-FRP-scenes=10; VNP14-granules=18; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3441; HLS dNBR=0.2715; S1 dVV=0.032dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9224,10 +9130,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -9306,13 +9209,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=-0.0098; LS dNBR=0.0147; HLS dNBR=-0.0751; S1 dVV=-3.848dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=-0.0098; LS dNBR=0.0147; HLS dNBR=-0.0751; S1 dVV=-3.848dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -9390,10 +9294,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -9465,12 +9366,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1465; HLS dNBR=0.1538; S1 dVV=0.508dB; MODIS-LST \u0394=11.36K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1465; HLS dNBR=0.1538; S1 dVV=0.508dB; MODIS-LST \u0394=11.36K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9553,10 +9456,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -9632,15 +9532,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.5131; LS dNBR=0.4094; HLS dNBR=0.368; S1 dVV=-1.11dB; MODIS-LST \u0394=8.42K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.5131; LS dNBR=0.4094; HLS dNBR=0.368; S1 dVV=-1.11dB; MODIS-LST \u0394=8.42K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9723,10 +9624,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -9793,12 +9691,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->5; BM-pers=0.2; MTG-FCI=3f",
+    "has_scar_fused": true,
+    "n_sensors_usable": 5,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -9873,10 +9773,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -9949,13 +9846,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3673; S1 dVV=0.5dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3673; S1 dVV=0.5dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10030,10 +9928,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -10106,13 +10001,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.287; S1 dVV=0.297dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.287; S1 dVV=0.297dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10187,10 +10083,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -10257,12 +10150,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->5; BM-pers=0.2; MTG-FCI=3f",
+    "has_scar_fused": true,
+    "n_sensors_usable": 5,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10337,10 +10232,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -10412,12 +10304,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1479; S1 dVV=0.204dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1479; S1 dVV=0.204dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10492,10 +10386,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -10565,13 +10456,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "HLS dNBR=0.511; S1 dVV=0.024dB; S3-FRP-scenes=10; VNP14-granules=16; TROPOMI-CO 8->7; BM-pers=0.3",
+    "confidence": "medium",
+    "evidence": "HLS dNBR=0.511; S1 dVV=0.024dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10649,10 +10541,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -10728,13 +10617,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3435; LS dNBR=0.2517; HLS dNBR=0.2162; S1 dVV=-0.503dB; MODIS-LST \u0394=2.82K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3435; LS dNBR=0.2517; HLS dNBR=0.2162; S1 dVV=-0.503dB; MODIS-LST \u0394=2.82K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10817,10 +10707,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -10892,12 +10779,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1778; HLS dNBR=0.1555; S1 dVV=0.032dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1778; HLS dNBR=0.1555; S1 dVV=0.032dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10975,10 +10864,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -11054,13 +10940,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2766; LS dNBR=0.0832; HLS dNBR=0.1662; S1 dVV=0.156dB; MODIS-LST \u0394=8.34K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2766; LS dNBR=0.0832; HLS dNBR=0.1662; S1 dVV=0.156dB; MODIS-LST \u0394=8.34K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11143,10 +11030,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -11221,12 +11105,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2318; LS dNBR=0.0254; HLS dNBR=0.2665; S1 dVV=0.307dB; MODIS-LST \u0394=-0.39K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2318; LS dNBR=0.0254; HLS dNBR=0.2665; S1 dVV=0.307dB; MODIS-LST \u0394=-0.39K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11309,10 +11195,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -11385,14 +11268,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3452; HLS dNBR=0.3563; S1 dVV=0.059dB; MODIS-LST \u0394=8.75K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3452; HLS dNBR=0.3563; S1 dVV=0.059dB; MODIS-LST \u0394=8.75K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11475,10 +11359,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -11554,14 +11435,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "landsat_nbr"
+      "landsat_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.4617; LS dNBR=0.3312; HLS dNBR=0.2479; S1 dVV=-0.182dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.4617; LS dNBR=0.3312; HLS dNBR=0.2479; S1 dVV=-0.182dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11639,10 +11521,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -11717,12 +11596,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2499; LS dNBR=0.2493; HLS dNBR=0.2129; S1 dVV=-0.725dB; MODIS-LST \u0394=9.2K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2499; LS dNBR=0.2493; HLS dNBR=0.2129; S1 dVV=-0.725dB; MODIS-LST \u0394=9.2K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11805,10 +11686,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -11883,12 +11761,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.1841; LS dNBR=0.1295; HLS dNBR=0.12; S1 dVV=0.307dB; MODIS-LST \u0394=7.84K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.1841; LS dNBR=0.1295; HLS dNBR=0.12; S1 dVV=0.307dB; MODIS-LST \u0394=7.84K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11971,10 +11851,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -12049,12 +11926,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2302; LS dNBR=0.2011; HLS dNBR=0.197; S1 dVV=-0.189dB; MODIS-LST \u0394=8.08K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2302; LS dNBR=0.2011; HLS dNBR=0.197; S1 dVV=-0.189dB; MODIS-LST \u0394=8.08K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12137,10 +12016,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -12216,14 +12092,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.4223; LS dNBR=0.2376; HLS dNBR=0.4192; S1 dVV=-0.098dB; MODIS-LST \u0394=8.56K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.4223; LS dNBR=0.2376; HLS dNBR=0.4192; S1 dVV=-0.098dB; MODIS-LST \u0394=8.56K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12306,10 +12183,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -12382,13 +12256,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.2096; HLS dNBR=0.372; S1 dVV=-0.175dB; MODIS-LST \u0394=8.84K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.2096; HLS dNBR=0.372; S1 dVV=-0.175dB; MODIS-LST \u0394=8.84K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12471,10 +12346,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -12547,13 +12419,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.1184; HLS dNBR=0.2717; S1 dVV=-0.082dB; MODIS-LST \u0394=6.13K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.1184; HLS dNBR=0.2717; S1 dVV=-0.082dB; MODIS-LST \u0394=6.13K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12636,10 +12509,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -12712,14 +12582,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=0.3088; HLS dNBR=0.3195; S1 dVV=0.01dB; MODIS-LST \u0394=8.69K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=0.3088; HLS dNBR=0.3195; S1 dVV=0.01dB; MODIS-LST \u0394=8.69K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12802,10 +12673,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -12874,12 +12742,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "HLS dNBR=0.2457; S1 dVV=-0.039dB; MODIS-LST \u0394=3.64K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "HLS dNBR=0.2457; S1 dVV=-0.039dB; MODIS-LST \u0394=3.64K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12962,10 +12832,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13041,14 +12908,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=-0.0067; HLS dNBR=0.706; S1 dVV=-7.504dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=-0.0067; HLS dNBR=0.706; S1 dVV=-7.504dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13126,10 +12994,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13201,12 +13066,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.1101; HLS dNBR=0.1157; S1 dVV=-0.159dB; MODIS-LST \u0394=5.13K; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.1101; HLS dNBR=0.1157; S1 dVV=-0.159dB; MODIS-LST \u0394=5.13K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13289,10 +13156,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13365,14 +13229,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=0.0241; HLS dNBR=0.8331; S1 dVV=-2.963dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=0.0241; HLS dNBR=0.8331; S1 dVV=-2.963dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -13450,10 +13315,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13526,13 +13388,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.4802; S1 dVV=0.091dB; S3-FRP-scenes=10; VNP14-granules=24; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.4802; S1 dVV=0.091dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -13607,10 +13470,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13680,13 +13540,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "HLS dNBR=0.3209; S1 dVV=0.196dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "HLS dNBR=0.3209; S1 dVV=0.196dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13764,10 +13625,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13839,12 +13697,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.26; HLS dNBR=0.21; S1 dVV=-0.353dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.26; HLS dNBR=0.21; S1 dVV=-0.353dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13922,10 +13782,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -13995,13 +13852,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "HLS dNBR=0.3188; S1 dVV=0.203dB; MODIS-LST \u0394=6.76K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "HLS dNBR=0.3188; S1 dVV=0.203dB; MODIS-LST \u0394=6.76K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14084,10 +13942,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -14157,13 +14012,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "HLS dNBR=0.3355; S1 dVV=0.002dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "HLS dNBR=0.3355; S1 dVV=0.002dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14241,10 +14097,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -14314,13 +14167,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "HLS dNBR=0.3577; S1 dVV=0.295dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "HLS dNBR=0.3577; S1 dVV=0.295dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14398,10 +14252,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -14473,12 +14324,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.2624; HLS dNBR=0.1723; S1 dVV=-0.26dB; MODIS-LST \u0394=4.64K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.2624; HLS dNBR=0.1723; S1 dVV=-0.26dB; MODIS-LST \u0394=4.64K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14561,10 +14414,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -14637,14 +14487,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=0.0101; HLS dNBR=0.8046; S1 dVV=-6.991dB; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=0.0101; HLS dNBR=0.8046; S1 dVV=-6.991dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14722,10 +14573,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -14801,13 +14649,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3965; LS dNBR=0.19; HLS dNBR=0.1485; S1 dVV=-0.076dB; S3-FRP-scenes=10; VNP14-granules=23; TROPOMI-CO 8->8; BM-pers=0.6",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3965; LS dNBR=0.19; HLS dNBR=0.1485; S1 dVV=-0.076dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14885,10 +14734,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -14960,12 +14806,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.1286; HLS dNBR=0.1876; S1 dVV=0.027dB; MODIS-LST \u0394=8.28K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.1286; HLS dNBR=0.1876; S1 dVV=0.027dB; MODIS-LST \u0394=8.28K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15048,10 +14896,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -15123,12 +14968,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.1535; HLS dNBR=0.2205; S1 dVV=0.029dB; MODIS-LST \u0394=7.6K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.1535; HLS dNBR=0.2205; S1 dVV=0.029dB; MODIS-LST \u0394=7.6K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15211,10 +15058,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -15287,14 +15131,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "landsat_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=0.3246; HLS dNBR=0.331; S1 dVV=-0.218dB; MODIS-LST \u0394=6.5K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=0.3246; HLS dNBR=0.331; S1 dVV=-0.218dB; MODIS-LST \u0394=6.5K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15377,10 +15222,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -15452,12 +15294,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.1592; HLS dNBR=0.0997; S1 dVV=-0.175dB; MODIS-LST \u0394=8.65K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.1592; HLS dNBR=0.0997; S1 dVV=-0.175dB; MODIS-LST \u0394=8.65K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15540,10 +15384,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -15615,12 +15456,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.1807; HLS dNBR=0.1598; S1 dVV=0.118dB; MODIS-LST \u0394=6.64K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.1807; HLS dNBR=0.1598; S1 dVV=0.118dB; MODIS-LST \u0394=6.64K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15703,10 +15546,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -15779,13 +15619,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.1863; HLS dNBR=0.4123; S1 dVV=0.184dB; MODIS-LST \u0394=8.66K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.1863; HLS dNBR=0.4123; S1 dVV=0.184dB; MODIS-LST \u0394=8.66K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15868,10 +15709,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -15944,13 +15782,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.2575; HLS dNBR=0.3062; S1 dVV=0.135dB; MODIS-LST \u0394=9.7K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.2575; HLS dNBR=0.3062; S1 dVV=0.135dB; MODIS-LST \u0394=9.7K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16033,10 +15872,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -16109,13 +15945,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "landsat_nbr"
+      "landsat_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.2854; HLS dNBR=0.2053; S1 dVV=0.263dB; MODIS-LST \u0394=11.14K; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.2854; HLS dNBR=0.2053; S1 dVV=0.263dB; MODIS-LST \u0394=11.14K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16198,10 +16035,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -16273,12 +16107,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2265; S1 dVV=0.28dB; S3-FRP-scenes=10; VNP14-granules=24; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2265; S1 dVV=0.28dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -16353,10 +16189,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -16429,13 +16262,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2804; S1 dVV=-0.345dB; S3-FRP-scenes=10; VNP14-granules=24; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2804; S1 dVV=-0.345dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -16510,10 +16344,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -16585,12 +16416,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.0545; HLS dNBR=0.055; S1 dVV=0.404dB; MODIS-LST \u0394=3.98K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.0545; HLS dNBR=0.055; S1 dVV=0.404dB; MODIS-LST \u0394=3.98K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16673,10 +16506,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -16748,12 +16578,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "LS dNBR=0.0215; HLS dNBR=0.0404; S1 dVV=0.082dB; MODIS-LST \u0394=-1.32K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "LS dNBR=0.0215; HLS dNBR=0.0404; S1 dVV=0.082dB; MODIS-LST \u0394=-1.32K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16836,10 +16668,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -16906,12 +16735,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
+    "has_scar_fused": true,
     "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=17; TROPOMI-CO 8->3; BM-pers=0.1; MTG-FCI=58f",
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -16984,10 +16815,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17054,12 +16882,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
+    "has_scar_fused": true,
     "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=18; TROPOMI-CO 8->3; BM-pers=0.1; MTG-FCI=58f",
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17132,10 +16962,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17204,12 +17031,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "HLS dNBR=0.104; S1 dVV=0.027dB; MODIS-LST \u0394=-4.32K; S3-FRP-scenes=10; VNP14-granules=21; TROPOMI-CO 8->8; BM-pers=0.7",
+    "has_scar_fused": true,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "HLS dNBR=0.104; S1 dVV=0.027dB; MODIS-LST \u0394=-4.32K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -17292,10 +17121,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17368,14 +17194,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc"
+      "s1_rtc",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=0.029; HLS dNBR=0.7416; S1 dVV=-2.51dB; S3-FRP-scenes=10; VNP14-granules=22; TROPOMI-CO 8->8; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=0.029; HLS dNBR=0.7416; S1 dVV=-2.51dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -17453,10 +17280,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17528,12 +17352,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2674; S1 dVV=0.866dB; S3-FRP-scenes=10; VNP14-granules=19; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2674; S1 dVV=0.866dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17608,10 +17434,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17678,12 +17501,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
+    "has_scar_fused": true,
     "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=18; TROPOMI-CO 8->3; BM-pers=0.1; MTG-FCI=58f",
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17756,10 +17581,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17826,12 +17648,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
+    "has_scar_fused": true,
     "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=10; VNP14-granules=20; TROPOMI-CO 8->3; BM-pers=0.1; MTG-FCI=58f",
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17904,10 +17728,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -17974,12 +17795,14 @@
       "max_frp_mw": null
     },
     "status": "no_data",
-    "has_scar_fused": false,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S3-FRP-scenes=3; VNP14-granules=9; TROPOMI-CO 8->5; BM-pers=0.2; MTG-FCI=3f",
+    "has_scar_fused": true,
+    "n_sensors_usable": 5,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "SLSTR-FRP=3hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -18054,10 +17877,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -18129,12 +17949,14 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": false,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 0,
-    "sensors_agreeing": [],
-    "confidence": "none",
-    "evidence": "S2 dNBR=0.2093; S1 dVV=1.221dB; S3-FRP-scenes=10; VNP14-granules=19; TROPOMI-CO 8->8; BM-pers=0.5",
+    "has_scar_fused": true,
+    "n_sensors_usable": 6,
+    "n_sensors_agree_scar": 1,
+    "sensors_agreeing": [
+      "active_fire_thermal"
+    ],
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.2093; S1 dVV=1.221dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -18209,10 +18031,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -18285,13 +18104,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
-      "s2_nbr"
+      "s2_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.3976; HLS dNBR=0.145; S1 dVV=0.088dB; S3-FRP-scenes=10; VNP14-granules=18; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3976; HLS dNBR=0.145; S1 dVV=0.088dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -18369,10 +18189,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -18445,14 +18262,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr"
+      "hls_nbr",
+      "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.4184; HLS dNBR=0.3269; S1 dVV=0.085dB; S3-FRP-scenes=10; VNP14-granules=16; TROPOMI-CO 8->8; BM-pers=0.5",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.4184; HLS dNBR=0.3269; S1 dVV=0.085dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -18530,10 +18348,7 @@
     },
     "persistence_signal": false,
     "combustion_signal": false,
-    "coverage_only_signals": [
-      "s3_slstr_frp_coverage",
-      "viirs_af_high_granule_count"
-    ],
+    "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
       "reason": "missing"
@@ -18544,7 +18359,11 @@
     "sar_vv_delta_max_db": -1.5,
     "active_fire_min_hits_cross_sensor": 2,
     "lst_anomaly_min_k": 20.0,
-    "tropomi_anomaly_min_sigma": 2.0
+    "tropomi_anomaly_min_sigma": 2.0,
+    "viirs_af_min_confidence": 7,
+    "black_marble_persistent_min_ratio": 0.9,
+    "black_marble_extinguished_max_ratio": 0.7
   },
-  "last_modis_catchup_at": "2026-09-05T03:59:14.964214+00:00"
+  "n_sources_signal": 12,
+  "last_modis_catchup_at": "2026-09-05T07:03:35.153657+00:00"
 }
