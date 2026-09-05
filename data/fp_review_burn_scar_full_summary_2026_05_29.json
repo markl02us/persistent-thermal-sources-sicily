@@ -29,5 +29,11 @@
     "hls_nbr": 44,
     "landsat_nbr": 11,
     "s1_rtc": 17
-  }
+  },
+  "olci_wired_at": "2026-05-30T07:10:47.457475+00:00",
+  "olci_ndvi_dropoff_count": 0,
+  "n_fused_scar_after_olci": 68,
+  "olci_runtime_sec": 2268.9,
+  "last_modis_catchup_at": "2026-09-05T03:59:14.964214+00:00",
+  "modis_catchup_updates": 223
 }

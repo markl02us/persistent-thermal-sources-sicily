@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-30T01:39:33.260213+00:00",
-  "method": "Full-roster burn-scar fusion (STRICT v1.3.0): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire (FireMask>=2) + MODIS-11A1 daily LST anomaly (>=20K) as has_scar_fused agreers. Sentinel-3 SLSTR FRP scenes + Sentinel-3 SLSTR LST scenes + Sentinel-5P TROPOMI CO/NO2 (proxy scene counts) + VIIRS VNP14IMG (CMR granule count) + VIIRS VNP46A1 Black Marble persistence + MTG FCI L1c DGX-cache coverage tracked as coverage_only_signals (not in agreers \u2014 they are upper bounds on AF/anomaly until per-file netcdf read is added). Persistence (BM post/pre>=0.9) + combustion (TROPOMI + AF hits) derived flags.",
+  "generated_at": "2026-09-05T03:59:14.964214+00:00",
+  "method": "Full-roster burn-scar fusion (STRICT v1.3.0): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire (FireMask>=2) + MODIS-11A1 daily LST anomaly (>=20K) as has_scar_fused agreers. Sentinel-3 SLSTR FRP scenes + Sentinel-3 SLSTR LST scenes + Sentinel-5P TROPOMI CO/NO2 (proxy scene counts) + VIIRS VNP14IMG (CMR granule count) + VIIRS VNP46A1 Black Marble persistence + MTG FCI L1c DGX-cache coverage tracked as coverage_only_signals (not in agreers \u2014 they are upper bounds on AF/anomaly until per-file netcdf read is added). Persistence (BM post/pre>=0.9) + combustion (TROPOMI + AF hits) derived flags. + Sentinel-3 OLCI L2 OTCI/GIFAPAR vegetation-index dropoff (OTCI<=-0.5 OR GIFAPAR<=-0.15 over cell AOI = ndvi_dropoff).",
   "aoi_box_m": 500,
   "cloud_max_pct": 50,
   "pre_window_offset_days_optical": [
@@ -21,7 +21,7 @@
   "n_cells_input": 114,
   "n_cells_analyzed": 114,
   "n_sources_audited": 14,
-  "n_sources_used": 12,
+  "n_sources_used": 13,
   "status": "complete",
   "phoenix-37_5900-14_9500": {
     "pre_window_optical": [
@@ -72,23 +72,18 @@
       "sec": 14.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.5,
-      "post_window": [
-        "2026-05-26",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4158,
+      "dnbr_mean": 0.4158,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -174,7 +169,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_5500-14_6900": {
     "pre_window_optical": [
@@ -231,23 +230,18 @@
       "sec": 11.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 7.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1592,
+      "dnbr_mean": 0.1592,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -343,7 +337,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_5500-14_6700": {
     "pre_window_optical": [
@@ -400,23 +398,18 @@
       "sec": 11.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 7.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2443,
+      "dnbr_mean": 0.2443,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -513,7 +506,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_5700-14_7300": {
     "pre_window_optical": [
@@ -564,23 +561,18 @@
       "sec": 12.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 9.2,
-      "post_window": [
-        "2026-05-26",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2762,
+      "dnbr_mean": 0.2762,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -666,7 +658,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4300-14_5300": {
     "pre_window_optical": [
@@ -723,23 +719,18 @@
       "sec": 15.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3476,
+      "dnbr_mean": 0.3476,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -836,7 +827,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2900-14_4300": {
     "pre_window_optical": [
@@ -893,23 +888,18 @@
       "sec": 17.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 1.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3419,
+      "dnbr_mean": 0.3419,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -1006,7 +996,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7700-14_5900": {
     "pre_window_optical": [
@@ -1063,23 +1057,18 @@
       "sec": 16.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2075,
+      "dnbr_mean": 0.2075,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -1171,7 +1160,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7700-14_5700": {
     "pre_window_optical": [
@@ -1228,23 +1221,18 @@
       "sec": 16.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4174,
+      "dnbr_mean": 0.4174,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -1336,7 +1324,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0300-14_8700": {
     "pre_window_optical": [
@@ -1385,23 +1377,18 @@
       "sec": 0.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.0,
-      "post_window": [
-        "2026-05-27",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2952,
+      "dnbr_mean": 0.2952,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -1487,7 +1474,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0300-14_9100": {
     "pre_window_optical": [
@@ -1538,23 +1529,18 @@
       "sec": 8.9
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.7,
-      "post_window": [
-        "2026-05-26",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1359,
+      "dnbr_mean": 0.1359,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -1643,7 +1629,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2900-14_4100": {
     "pre_window_optical": [
@@ -1700,23 +1690,18 @@
       "sec": 13.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3933,
+      "dnbr_mean": 0.3933,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -1813,7 +1798,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7500-14_6100": {
     "pre_window_optical": [
@@ -1870,23 +1859,18 @@
       "sec": 13.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 3.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.67,
+      "dnbr_mean": 0.67,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -1978,7 +1962,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2900-14_5300": {
     "pre_window_optical": [
@@ -2035,23 +2023,18 @@
       "sec": 10.9
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 3.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3765,
+      "dnbr_mean": 0.3765,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -2147,7 +2130,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_9500": {
     "pre_window_optical": [
@@ -2201,23 +2188,18 @@
       "sec": 11.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.4,
-      "post_window": [
-        "2026-05-23",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4349,
+      "dnbr_mean": 0.4349,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -2306,7 +2288,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9300-14_9100": {
     "pre_window_optical": [
@@ -2360,23 +2346,18 @@
       "sec": 16.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.0,
-      "post_window": [
-        "2026-05-25",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2092,
+      "dnbr_mean": 0.2092,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -2468,7 +2449,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3300-14_5700": {
     "pre_window_optical": [
@@ -2525,23 +2510,18 @@
       "sec": 17.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2268,
+      "dnbr_mean": 0.2268,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.3
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -2637,7 +2617,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2700-14_4300": {
     "pre_window_optical": [
@@ -2694,23 +2678,18 @@
       "sec": 11.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 2.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2377,
+      "dnbr_mean": 0.2377,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -2806,7 +2785,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1100-14_7300": {
     "pre_window_optical": [
@@ -2863,23 +2846,18 @@
       "sec": 11.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": -0.0553,
+      "dnbr_mean": -0.0553,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.1
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -2976,7 +2954,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1100-14_7100": {
     "pre_window_optical": [
@@ -3033,23 +3015,18 @@
       "sec": 11.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1315,
+      "dnbr_mean": 0.1315,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -3143,7 +3120,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9500-14_7900": {
     "pre_window_optical": [
@@ -3200,23 +3181,18 @@
       "sec": 13.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2809,
+      "dnbr_mean": 0.2809,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -3314,7 +3290,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0300-14_7500": {
     "pre_window_optical": [
@@ -3371,23 +3351,18 @@
       "sec": 18.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.298,
+      "dnbr_mean": 0.298,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -3479,7 +3454,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_8500-14_4300": {
     "pre_window_optical": [
@@ -3536,23 +3515,18 @@
       "sec": 17.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.5702,
+      "dnbr_mean": 0.5702,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -3644,7 +3618,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2900-14_5100": {
     "pre_window_optical": [
@@ -3701,23 +3679,18 @@
       "sec": 32.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.1,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3677,
+      "dnbr_mean": 0.3677,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -3813,7 +3786,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4900-15_0300": {
     "pre_window_optical": [
@@ -3867,23 +3844,18 @@
       "sec": 32.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.6,
-      "post_window": [
-        "2026-05-23",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1205,
+      "dnbr_mean": 0.1205,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -3972,7 +3944,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_1500": {
     "pre_window_optical": [
@@ -4029,23 +4005,18 @@
       "sec": 16.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0574,
+      "dnbr_mean": 0.0574,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -4137,7 +4108,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9100-14_3900": {
     "pre_window_optical": [
@@ -4194,23 +4169,18 @@
       "sec": 16.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.1,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 1.0487,
+      "dnbr_mean": 1.0487,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -4302,7 +4272,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1900-14_6500": {
     "pre_window_optical": [
@@ -4359,23 +4333,18 @@
       "sec": 11.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3612,
+      "dnbr_mean": 0.3612,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.3
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -4471,7 +4440,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_1100": {
     "pre_window_optical": [
@@ -4528,23 +4501,18 @@
       "sec": 20.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": -0.2364,
+      "dnbr_mean": -0.2364,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -4636,7 +4604,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9700-14_9300": {
     "pre_window_optical": [
@@ -4690,23 +4662,18 @@
       "sec": 12.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.0,
-      "post_window": [
-        "2026-05-23",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2605,
+      "dnbr_mean": 0.2605,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -4795,7 +4762,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_2900": {
     "pre_window_optical": [
@@ -4863,12 +4834,10 @@
       ]
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -4960,7 +4929,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_8300-14_5700": {
     "pre_window_optical": [
@@ -5017,23 +4990,18 @@
       "sec": 14.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.6,
-      "post_window": [
-        "2026-05-23",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1777,
+      "dnbr_mean": 0.1777,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -5124,7 +5092,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7600-14_8200": {
     "pre_window_optical": [
@@ -5181,23 +5153,18 @@
       "sec": 25.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1741,
+      "dnbr_mean": 0.1741,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -5286,7 +5253,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1200-14_1200": {
     "pre_window_optical": [
@@ -5343,23 +5314,18 @@
       "sec": 17.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2753,
+      "dnbr_mean": 0.2753,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -5453,7 +5419,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9900-14_7700": {
     "pre_window_optical": [
@@ -5510,23 +5480,18 @@
       "sec": 20.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3095,
+      "dnbr_mean": 0.3095,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -5624,7 +5589,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_8500": {
     "pre_window_optical": [
@@ -5678,23 +5647,18 @@
       "sec": 17.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0809,
+      "dnbr_mean": 0.0809,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -5783,7 +5747,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0700-14_1900": {
     "pre_window_optical": [
@@ -5840,23 +5808,18 @@
       "sec": 13.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 1.0719,
+      "dnbr_mean": 1.0719,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -5948,7 +5911,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0700-14_2100": {
     "pre_window_optical": [
@@ -6005,23 +5972,18 @@
       "sec": 13.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2005,
+      "dnbr_mean": 0.2005,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -6113,7 +6075,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9500-14_8900": {
     "pre_window_optical": [
@@ -6170,23 +6136,18 @@
       "sec": 11.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 3.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2922,
+      "dnbr_mean": 0.2922,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -6283,7 +6244,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9100-14_9100": {
     "pre_window_optical": [
@@ -6340,23 +6305,18 @@
       "sec": 15.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.13,
+      "dnbr_mean": 0.13,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -6450,7 +6410,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9500-14_9100": {
     "pre_window_optical": [
@@ -6507,23 +6471,18 @@
       "sec": 13.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3583,
+      "dnbr_mean": 0.3583,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -6621,7 +6580,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9300-14_8900": {
     "pre_window_optical": [
@@ -6678,23 +6641,18 @@
       "sec": 11.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2118,
+      "dnbr_mean": 0.2118,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -6791,7 +6749,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9300-14_8700": {
     "pre_window_optical": [
@@ -6848,23 +6810,18 @@
       "sec": 11.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0998,
+      "dnbr_mean": 0.0998,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -6958,7 +6915,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9300-14_8100": {
     "pre_window_optical": [
@@ -7015,23 +6976,18 @@
       "sec": 15.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2172,
+      "dnbr_mean": 0.2172,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -7120,7 +7076,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2700-14_4100": {
     "pre_window_optical": [
@@ -7177,23 +7137,18 @@
       "sec": 13.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1802,
+      "dnbr_mean": 0.1802,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.1
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -7287,7 +7242,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3100-14_4900": {
     "pre_window_optical": [
@@ -7344,23 +7303,18 @@
       "sec": 13.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4194,
+      "dnbr_mean": 0.4194,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -7454,7 +7408,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2100-14_6700": {
     "pre_window_optical": [
@@ -7511,23 +7469,18 @@
       "sec": 17.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 2.2,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3941,
+      "dnbr_mean": 0.3941,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -7623,7 +7576,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3500-14_5300": {
     "pre_window_optical": [
@@ -7691,12 +7648,10 @@
       ]
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -7793,7 +7748,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2500-14_4100": {
     "pre_window_optical": [
@@ -7850,23 +7809,18 @@
       "sec": 17.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0597,
+      "dnbr_mean": 0.0597,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -7960,7 +7914,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0700-14_3100": {
     "pre_window_optical": [
@@ -8017,23 +7975,18 @@
       "sec": 20.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1324,
+      "dnbr_mean": 0.1324,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -8129,7 +8082,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_7500": {
     "pre_window_optical": [
@@ -8186,23 +8143,18 @@
       "sec": 18.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1606,
+      "dnbr_mean": 0.1606,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -8296,7 +8248,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1700-14_2700": {
     "pre_window_optical": [
@@ -8350,23 +8306,18 @@
       "sec": 28.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-23",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3114,
+      "dnbr_mean": 0.3114,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -8458,7 +8409,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1900-14_6100": {
     "pre_window_optical": [
@@ -8512,23 +8467,18 @@
       "sec": 23.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.2,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3356,
+      "dnbr_mean": 0.3356,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -8616,7 +8566,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_0700": {
     "pre_window_optical": [
@@ -8684,12 +8638,10 @@
       ]
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -8780,7 +8732,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_1300": {
     "pre_window_optical": [
@@ -8837,23 +8793,18 @@
       "sec": 23.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.2,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.5679,
+      "dnbr_mean": 0.5679,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -8945,7 +8896,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2700-14_4900": {
     "pre_window_optical": [
@@ -9002,23 +8957,18 @@
       "sec": 22.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2318,
+      "dnbr_mean": 0.2318,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -9116,7 +9066,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_8700-14_7500": {
     "pre_window_optical": [
@@ -9170,23 +9124,18 @@
       "sec": 21.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.3,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3159,
+      "dnbr_mean": 0.3159,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -9278,7 +9227,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_0900": {
     "pre_window_optical": [
@@ -9346,12 +9299,10 @@
       ]
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -9442,7 +9393,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9900-14_8700": {
     "pre_window_optical": [
@@ -9496,23 +9451,18 @@
       "sec": 22.9
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2499,
+      "dnbr_mean": 0.2499,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -9606,7 +9556,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4300-14_5100": {
     "pre_window_optical": [
@@ -9663,23 +9617,18 @@
       "sec": 38.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2022,
+      "dnbr_mean": 0.2022,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.4
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -9777,7 +9726,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3100-14_5700": {
     "pre_window_optical": [
@@ -9826,23 +9779,18 @@
       "sec": 0.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.6,
-      "post_window": [
-        "2026-05-27",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2397,
+      "dnbr_mean": 0.2397,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -9928,7 +9876,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3500-14_4900": {
     "pre_window_optical": [
@@ -9982,23 +9934,18 @@
       "sec": 15.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.2,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2578,
+      "dnbr_mean": 0.2578,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -10086,7 +10033,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0500-14_8700": {
     "pre_window_optical": [
@@ -10140,23 +10091,18 @@
       "sec": 10.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 7.5,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3136,
+      "dnbr_mean": 0.3136,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -10244,7 +10190,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2100-14_7900": {
     "pre_window_optical": [
@@ -10293,23 +10243,18 @@
       "sec": 0.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 3.2,
-      "post_window": [
-        "2026-05-27",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2062,
+      "dnbr_mean": 0.2062,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -10395,7 +10340,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0700-14_9300": {
     "pre_window_optical": [
@@ -10449,23 +10398,18 @@
       "sec": 17.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.0,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1174,
+      "dnbr_mean": 0.1174,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -10551,7 +10495,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_7200-13_4000": {
     "pre_window_optical": [
@@ -10602,23 +10550,18 @@
       "sec": 10.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.2,
-      "post_window": [
-        "2026-05-26",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4493,
+      "dnbr_mean": 0.4493,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -10709,7 +10652,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9100-14_8300": {
     "pre_window_optical": [
@@ -10766,23 +10713,18 @@
       "sec": 14.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1815,
+      "dnbr_mean": 0.1815,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -10878,7 +10820,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7600-14_8700": {
     "pre_window_optical": [
@@ -10932,23 +10878,18 @@
       "sec": 20.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.5,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0201,
+      "dnbr_mean": 0.0201,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -11037,7 +10978,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2100-14_7500": {
     "pre_window_optical": [
@@ -11094,23 +11039,18 @@
       "sec": 15.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4286,
+      "dnbr_mean": 0.4286,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -11206,7 +11146,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_7700": {
     "pre_window_optical": [
@@ -11263,23 +11207,18 @@
       "sec": 16.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0426,
+      "dnbr_mean": 0.0426,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -11373,7 +11312,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9700-14_8900": {
     "pre_window_optical": [
@@ -11427,23 +11370,18 @@
       "sec": 17.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.318,
+      "dnbr_mean": 0.318,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -11540,7 +11478,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_8900-14_8700": {
     "pre_window_optical": [
@@ -11597,23 +11539,18 @@
       "sec": 15.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2882,
+      "dnbr_mean": 0.2882,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.4
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -11705,7 +11642,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_8900-14_9300": {
     "pre_window_optical": [
@@ -11762,23 +11703,18 @@
       "sec": 11.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2171,
+      "dnbr_mean": 0.2171,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -11872,7 +11808,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3300-14_5100": {
     "pre_window_optical": [
@@ -11929,23 +11869,18 @@
       "sec": 16.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 2.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.5075,
+      "dnbr_mean": 0.5075,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -12039,7 +11974,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4100-14_4900": {
     "pre_window_optical": [
@@ -12096,23 +12035,18 @@
       "sec": 13.7
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.1,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3327,
+      "dnbr_mean": 0.3327,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -12206,7 +12140,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3300-14_4900": {
     "pre_window_optical": [
@@ -12263,23 +12201,18 @@
       "sec": 15.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 3.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-30"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2282,
+      "dnbr_mean": 0.2282,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -12376,7 +12309,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3100-14_4700": {
     "pre_window_optical": [
@@ -12430,23 +12367,18 @@
       "sec": 16.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2649,
+      "dnbr_mean": 0.2649,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -12542,7 +12474,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9500-14_7700": {
     "pre_window_optical": [
@@ -12596,23 +12532,18 @@
       "sec": 12.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1697,
+      "dnbr_mean": 0.1697,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -12708,7 +12639,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9700-14_7500": {
     "pre_window_optical": [
@@ -12762,23 +12697,18 @@
       "sec": 10.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2569,
+      "dnbr_mean": 0.2569,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -12875,7 +12805,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9900-14_9100": {
     "pre_window_optical": [
@@ -12926,23 +12860,18 @@
       "sec": 15.9
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0307,
+      "dnbr_mean": 0.0307,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -13036,7 +12965,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7900-14_4500": {
     "pre_window_optical": [
@@ -13101,12 +13034,10 @@
       ]
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -13198,7 +13129,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2500-14_3900": {
     "pre_window_optical": [
@@ -13252,23 +13187,18 @@
       "sec": 17.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3326,
+      "dnbr_mean": 0.3326,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.4
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -13362,7 +13292,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9700-14_3500": {
     "pre_window_optical": [
@@ -13416,23 +13350,18 @@
       "sec": 23.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0639,
+      "dnbr_mean": 0.0639,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -13524,7 +13453,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2100-14_5100": {
     "pre_window_optical": [
@@ -13578,23 +13511,18 @@
       "sec": 24.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.5,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0896,
+      "dnbr_mean": 0.0896,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -13682,7 +13610,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_9100": {
     "pre_window_optical": [
@@ -13733,23 +13665,18 @@
       "sec": 19.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3754,
+      "dnbr_mean": 0.3754,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -13840,7 +13767,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_8700": {
     "pre_window_optical": [
@@ -13894,23 +13825,18 @@
       "sec": 18.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 7.4,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2361,
+      "dnbr_mean": 0.2361,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -13999,7 +13925,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_8900": {
     "pre_window_optical": [
@@ -14050,23 +13980,18 @@
       "sec": 18.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 7.4,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1464,
+      "dnbr_mean": 0.1464,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -14162,7 +14087,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0500-14_9100": {
     "pre_window_optical": [
@@ -14213,23 +14142,18 @@
       "sec": 24.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 1.4,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0024,
+      "dnbr_mean": 0.0024,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -14320,7 +14244,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0100-14_9300": {
     "pre_window_optical": [
@@ -14371,23 +14299,18 @@
       "sec": 25.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.3,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1423,
+      "dnbr_mean": 0.1423,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -14478,7 +14401,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9100-14_9300": {
     "pre_window_optical": [
@@ -14532,23 +14459,18 @@
       "sec": 27.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 3.4,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.165,
+      "dnbr_mean": 0.165,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -14642,7 +14564,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_7900-14_4700": {
     "pre_window_optical": [
@@ -14696,23 +14622,18 @@
       "sec": 25.9
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 4.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": -0.0554,
+      "dnbr_mean": -0.0554,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -14804,7 +14725,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_8500-14_5700": {
     "pre_window_optical": [
@@ -14861,23 +14786,18 @@
       "sec": 45.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-23",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0601,
+      "dnbr_mean": 0.0601,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -14968,7 +14888,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_5300-14_5900": {
     "pre_window_optical": [
@@ -15022,23 +14946,18 @@
       "sec": 16.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2797,
+      "dnbr_mean": 0.2797,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -15132,7 +15051,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_5100-14_5700": {
     "pre_window_optical": [
@@ -15186,23 +15109,18 @@
       "sec": 16.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3265,
+      "dnbr_mean": 0.3265,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -15296,7 +15214,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4900-14_5500": {
     "pre_window_optical": [
@@ -15350,23 +15272,18 @@
       "sec": 14.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.8,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3288,
+      "dnbr_mean": 0.3288,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -15463,7 +15380,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4900-14_5300": {
     "pre_window_optical": [
@@ -15517,23 +15438,18 @@
       "sec": 16.3
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.9,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1302,
+      "dnbr_mean": 0.1302,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -15627,7 +15543,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4300-14_4900": {
     "pre_window_optical": [
@@ -15681,23 +15601,18 @@
       "sec": 27.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 8.5,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2655,
+      "dnbr_mean": 0.2655,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -15791,7 +15706,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2900-14_5700": {
     "pre_window_optical": [
@@ -15845,23 +15764,18 @@
       "sec": 34.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 1.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2558,
+      "dnbr_mean": 0.2558,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -15957,7 +15871,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4500-14_4900": {
     "pre_window_optical": [
@@ -16011,23 +15929,18 @@
       "sec": 27.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 9.4,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.1687,
+      "dnbr_mean": 0.1687,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -16123,7 +16036,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4500-14_5100": {
     "pre_window_optical": [
@@ -16177,23 +16094,18 @@
       "sec": 38.2
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3167,
+      "dnbr_mean": 0.3167,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -16289,7 +16201,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2700-14_5500": {
     "pre_window_optical": [
@@ -16343,23 +16259,18 @@
       "sec": 16.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 6.9,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4103,
+      "dnbr_mean": 0.4103,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -16445,7 +16356,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_2500-14_5500": {
     "pre_window_optical": [
@@ -16499,23 +16414,18 @@
       "sec": 21.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 2.3,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2731,
+      "dnbr_mean": 0.2731,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -16603,7 +16513,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_7300": {
     "pre_window_optical": [
@@ -16657,23 +16571,18 @@
       "sec": 20.0
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 2.6,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0061,
+      "dnbr_mean": 0.0061,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -16767,7 +16676,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0700-14_7500": {
     "pre_window_optical": [
@@ -16821,23 +16734,18 @@
       "sec": 15.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 7.0,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2587,
+      "dnbr_mean": 0.2587,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -16931,7 +16839,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0000-14_7000": {
     "pre_window_optical": [
@@ -16980,23 +16892,18 @@
       "sec": 0.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.5,
-      "post_window": [
-        "2026-05-28",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3298,
+      "dnbr_mean": 0.3298,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -17080,7 +16987,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1800-14_7500": {
     "pre_window_optical": [
@@ -17129,23 +17040,18 @@
       "sec": 0.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 1.4,
-      "post_window": [
-        "2026-05-28",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3358,
+      "dnbr_mean": 0.3358,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -17229,7 +17135,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0300-14_9500": {
     "pre_window_optical": [
@@ -17280,23 +17190,18 @@
       "sec": 15.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.1,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.0809,
+      "dnbr_mean": 0.0809,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -17390,7 +17295,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_9900-14_3300": {
     "pre_window_optical": [
@@ -17444,23 +17353,18 @@
       "sec": 25.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-22",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": -0.0939,
+      "dnbr_mean": -0.0939,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -17552,7 +17456,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_3300-14_2700": {
     "pre_window_optical": [
@@ -17606,23 +17514,18 @@
       "sec": 27.8
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3846,
+      "dnbr_mean": 0.3846,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -17708,7 +17611,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_1500-14_7800": {
     "pre_window_optical": [
@@ -17757,23 +17664,18 @@
       "sec": 0.6
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-28",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4102,
+      "dnbr_mean": 0.4102,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -17857,7 +17759,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_0900-14_3400": {
     "pre_window_optical": [
@@ -17906,23 +17812,18 @@
       "sec": 0.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-28",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2281,
+      "dnbr_mean": 0.2281,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.3
+      "scenes": 4,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -18006,7 +17907,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_4200-13_5600": {
     "pre_window_optical": [
@@ -18055,23 +17960,18 @@
       "sec": 0.5
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 5.9,
-      "post_window": [
-        "2026-05-27",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.2751,
+      "dnbr_mean": 0.2751,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "no_data",
     "has_scar_fused": false,
@@ -18157,7 +18057,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_8300-14_6300": {
     "pre_window_optical": [
@@ -18211,23 +18115,18 @@
       "sec": 16.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.6,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.4991,
+      "dnbr_mean": 0.4991,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": false,
@@ -18313,7 +18212,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-36_8500-14_5400": {
     "pre_window_optical": [
@@ -18367,23 +18270,18 @@
       "sec": 19.4
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.7,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.14,
+      "dnbr_mean": 0.14,
+      "has_scar": false,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -18474,7 +18372,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "phoenix-37_8600-13_1200": {
     "pre_window_optical": [
@@ -18528,23 +18430,18 @@
       "sec": 11.1
     },
     "modis_sr_nbr": {
-      "scenes_pre": 4,
-      "scenes_post": 0,
-      "status": "no_data",
-      "reason": "no post-window items",
-      "sec": 0.6,
-      "post_window": [
-        "2026-05-24",
-        "2026-05-31"
-      ]
+      "status": "ok",
+      "dnbr_max": 0.3984,
+      "dnbr_mean": 0.3984,
+      "has_scar": true,
+      "scenes_pre": 3,
+      "scenes_post": 3
     },
     "modis_active_fire": {
-      "status": "no_data",
+      "status": "ok",
       "n_hits_in_window": 0,
-      "scenes": 0,
-      "max_frp_mw": null,
-      "reason": "no items",
-      "sec": 0.2
+      "scenes": 2,
+      "max_frp_mw": null
     },
     "status": "ok",
     "has_scar_fused": true,
@@ -18636,7 +18533,11 @@
     "coverage_only_signals": [
       "s3_slstr_frp_coverage",
       "viirs_af_high_granule_count"
-    ]
+    ],
+    "olci_veg_index": {
+      "status": "no_data",
+      "reason": "missing"
+    }
   },
   "fusion_thresholds": {
     "optical_dnbr_min": 0.27,
@@ -18644,5 +18545,6 @@
     "active_fire_min_hits_cross_sensor": 2,
     "lst_anomaly_min_k": 20.0,
     "tropomi_anomaly_min_sigma": 2.0
-  }
+  },
+  "last_modis_catchup_at": "2026-09-05T03:59:14.964214+00:00"
 }
