@@ -305,8 +305,8 @@
       },
       {
         "id": "sentinel-3-slstr-frp-l2-netcdf",
-        "role": "S3 SLSTR active-fire FRP \u2014 independent thermal signal",
-        "signal_class": "proxy_real_signal_partial"
+        "role": "S3 SLSTR active-fire FRP (REAL per-scene netcdf FRP_MWIR read)",
+        "signal_class": "real_signal"
       },
       {
         "id": "sentinel-3-slstr-lst-l2-netcdf",
@@ -314,29 +314,30 @@
       },
       {
         "id": "sentinel-5p-l2-netcdf",
-        "role": "TROPOMI CO/NO2 column anomaly \u2014 active-combustion signal",
-        "signal_class": "proxy_real_signal_partial"
+        "role": "TROPOMI CO/NO2 column anomaly (REAL per-pixel netcdf read, 2\u03c3 vs 30d baseline)",
+        "signal_class": "real_signal"
       },
       {
         "id": "viirs-vnp14img-earthdata",
-        "role": "VIIRS 375m active-fire granule count via NASA CMR",
-        "signal_class": "proxy_real_signal_partial"
+        "role": "VIIRS 375m active-fire (REAL per-granule HDF5; FP_confidence histogram)",
+        "signal_class": "real_signal"
       },
       {
         "id": "viirs-vnp46a1-earthdata",
-        "role": "Black Marble persistence fingerprint via NASA CMR",
-        "signal_class": "proxy_real_signal_partial"
+        "role": "Black Marble persistence (REAL per-granule HDF5; DNB radiance ratio)",
+        "signal_class": "real_signal"
       },
       {
         "id": "mtg-fci-l1c-dgx",
         "role": "MTG FCI L1c DGX-cache file-count signal (Sicily 10-min cadence); rolling 24h cache covers 8/114 cells in [first_seen,last_seen] window \u2014 sparse signal limited by cache retention, not by code"
+      },
+      {
+        "id": "sentinel-3-olci-lfr-l2-netcdf",
+        "role": "OLCI L2 vegetation-index dropoff (OTCI + GIFAPAR median pre vs post)",
+        "signal_class": "real_signal"
       }
     ],
     "skipped": [
-      {
-        "id": "sentinel-3-olci-lfr-l2-land",
-        "reason": "Collection not found on PC (NotFoundError). No public OLCI burn-scar collection exposed under this id."
-      },
       {
         "id": "viirs-09a1-001",
         "reason": "Collection not found on PC under this id. MODIS-09A1 already covers coarse optical NBR."
@@ -356,10 +357,6 @@
       {
         "id": "ecostress-eco2lste",
         "reason": "Not available on Planetary Computer (no collection id). NASA Earthdata download viable but data volume + auth wall too heavy for 114-cell pass. Substituted with MODIS-11A1 daily 1km LST which gives equivalent anomaly signal at coarser resolution."
-      },
-      {
-        "id": "sentinel-3-olci-lfr-l2-netcdf",
-        "reason": "OLCI Land L2 product has no SWIR band suitable for NBR computation. Burn-scar signal from S3 covered by SLSTR LST + SLSTR FRP collections instead."
       }
     ]
   },
@@ -380,5 +377,38 @@
     "n_cells_with_real_signal": 5,
     "n_cells_total": 114,
     "reason": "Per-cell netcdf downloads exceeded the 4h session budget. Real-signal functions are wired and smoke-validated end-to-end; remaining 109 cells will progressively upgrade as the daily MODIS catch-up and a future repeated burn-scar pass runs. Scripts at fp_review_ui/burn_scar_proxy_upgrade.py + burn_scar_olci_ndvi.py are idempotent and safe to re-run."
+  },
+  "olci_wired_at": "2026-05-30T07:10:47.444785+00:00",
+  "olci_summary": {
+    "n_cells_processed": 0,
+    "n_ndvi_dropoff_hits": 0,
+    "thresholds": {
+      "otci_drop_max": -0.5,
+      "gifapar_drop_max": -0.15
+    }
+  },
+  "proxy_upgrade_completed_at": "2026-09-05T04:28:34.690755+00:00",
+  "proxy_upgrade_summary": {
+    "sources_upgraded": [
+      "sentinel-5p-l2-netcdf",
+      "viirs-vnp14img-earthdata",
+      "viirs-vnp46a1-earthdata",
+      "sentinel-3-slstr-frp-l2-netcdf"
+    ],
+    "signal_hit_counts": {
+      "tropomi_combustion": 0,
+      "viirs_active_fire": 0,
+      "slstr_active_fire": 0,
+      "persistent_nightlight": 0,
+      "nightlight_extinguished": 0
+    },
+    "n_cells_processed": 0,
+    "thresholds": {
+      "tropomi_sigma": 2.0,
+      "viirs_af_min_confidence": 7,
+      "bm_persistent_min": 0.9,
+      "bm_extinguished_max": 0.7,
+      "slstr_af_min_hits": 1
+    }
   }
 }
