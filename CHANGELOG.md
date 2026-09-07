@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v1.5.0 - 2026-09-07
+
+Rolled-up automated corrections since last release. See per-section
+details below; this consolidates intervening agent passes (burn-scar
+re-runs, relabel suggestions, proxy->signal upgrades, mask-recheck
+promotions, etc.) into one coherent release.
+
+# Pending changes for next weekly bump
+
+(Rolled up into v1.4.0 on 2026-06-15. Append new changes below.)
+
+
 ## v1.4.0 - 2026-06-15
 
 Rolled-up automated corrections since last release. See per-section
