@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-05T07:03:35.153657+00:00",
-  "method": "Full-roster burn-scar fusion (v1.3.0 proxy-upgraded): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + MODIS-11A1 LST anomaly + Sentinel-3 SLSTR FRP (REAL per-pixel FRP via netcdf) + Sentinel-3 SLSTR LST (scene-count) + Sentinel-5P TROPOMI CO/NO2 (REAL per-pixel column anomaly, 2\u03c3 vs 30d baseline) + VIIRS VNP14IMG 375m active-fire (REAL per-granule HDF5 FP read, conf>=7) + VIIRS VNP46A1 Black Marble (REAL per-granule HDF5 DNB radiance ratio) + MTG FCI L1c DGX-cache file-count signal. has_scar_fused = >=1 agreer (optical NBR, SAR, LST, AF, TROPOMI). persistence_signal = BM post/pre>=0.9 (persistent NL). combustion_signal = TROPOMI 2\u03c3 anomaly on CO or NO2.",
+  "generated_at": "2026-09-07T10:48:21.016011+00:00",
+  "method": "Full-roster burn-scar fusion (v1.3.0 proxy-upgraded): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + MODIS-11A1 LST anomaly + Sentinel-3 SLSTR FRP (REAL per-pixel FRP via netcdf) + Sentinel-3 SLSTR LST (scene-count) + Sentinel-5P TROPOMI CO/NO2 (REAL per-pixel column anomaly, 2\u03c3 vs 30d baseline) + VIIRS VNP14IMG 375m active-fire (REAL per-granule HDF5 FP read, conf>=7) + VIIRS VNP46A1 Black Marble (REAL per-granule HDF5 DNB radiance ratio) + MTG FCI L1c DGX-cache file-count signal. has_scar_fused = >=1 agreer (optical NBR, SAR, LST, AF, TROPOMI). persistence_signal = BM post/pre>=0.9 (persistent NL). combustion_signal = TROPOMI 2\u03c3 anomaly on CO or NO2. + Sentinel-3 OLCI L2 OTCI/GIFAPAR vegetation-index dropoff (OTCI<=-0.5 OR GIFAPAR<=-0.15 over cell AOI = ndvi_dropoff).",
   "aoi_box_m": 500,
   "cloud_max_pct": 50,
   "pre_window_offset_days_optical": [
@@ -21,7 +21,7 @@
   "n_cells_input": 114,
   "n_cells_analyzed": 114,
   "n_sources_audited": 14,
-  "n_sources_used": 12,
+  "n_sources_used": 13,
   "status": "complete",
   "phoenix-37_5900-14_9500": {
     "pre_window_optical": [
@@ -87,13 +87,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
+    "n_sensors_usable": 7,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
-      "active_fire_thermal"
+      "modis_sr_nbr"
     ],
     "confidence": "low",
-    "evidence": "S1 dVV=-0.166dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
+    "evidence": "MODIS-SR dNBR=0.4158; S1 dVV=-0.166dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=-13.17/-2.76; BM-pers=1.246",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -112,11 +112,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 7.1
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 39.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -128,32 +133,61 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 7
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0297,
+        "pre_std": 0.0001,
+        "post_max": 0.0281,
+        "sigma_above_baseline": -13.17,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 5
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -2.76,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.2
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1643.5
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.8
+      "n_granules_searched": 30,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 14.9
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 3,
-      "persistence_ratio": 0.3,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 2.0
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.4207,
+      "persistence_ratio": 1.246,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 268.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -166,7 +200,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -244,14 +278,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
-      "s2_nbr",
-      "active_fire_thermal"
+      "s2_nbr"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3783; LS dNBR=0.2507; HLS dNBR=0.1904; S1 dVV=-0.357dB; MODIS-LST \u0394=6.72K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "low",
+    "evidence": "S2 dNBR=0.3783; LS dNBR=0.2507; HLS dNBR=0.1904; MODIS-SR dNBR=0.1592; S1 dVV=-0.357dB; MODIS-LST \u0394=6.72K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-21.54; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -278,11 +311,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 6.3
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 87.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -294,32 +332,55 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -21.54,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.2
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1601.0
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 1.1
+      "n_granules_searched": 25,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 29.4
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.5
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 248.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -332,7 +393,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -410,15 +471,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr",
-      "active_fire_thermal"
+      "hls_nbr"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3623; LS dNBR=0.1638; HLS dNBR=0.2903; S1 dVV=-0.123dB; MODIS-LST \u0394=6.72K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.3623; LS dNBR=0.1638; HLS dNBR=0.2903; MODIS-SR dNBR=0.2443; S1 dVV=-0.123dB; MODIS-LST \u0394=6.72K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-33.08; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -445,11 +505,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 6.3
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 37.7
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -461,32 +526,55 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -33.08,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.9
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1643.3
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.9
+      "n_granules_searched": 25,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 15.5
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.7
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 268.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -499,7 +587,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -571,13 +659,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
+    "n_sensors_usable": 7,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
-      "active_fire_thermal"
+      "modis_sr_nbr"
     ],
     "confidence": "low",
-    "evidence": "S1 dVV=-0.033dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
+    "evidence": "MODIS-SR dNBR=0.2762; S1 dVV=-0.033dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-5.68; BM-pers=1.246",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -596,11 +684,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 7.8
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 137.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -612,32 +705,55 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 7
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 5
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -5.68,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.1
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1600.8
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 23,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.9
+      "n_granules_searched": 30,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 29.4
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 3,
-      "persistence_ratio": 0.3,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.7
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.4207,
+      "persistence_ratio": 1.246,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 271.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -650,7 +766,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -728,15 +844,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
-      "active_fire_thermal"
+      "modis_sr_nbr"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3963; LS dNBR=0.2885; HLS dNBR=0.2364; S1 dVV=0.532dB; MODIS-LST \u0394=8.83K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3963; LS dNBR=0.2885; HLS dNBR=0.2364; MODIS-SR dNBR=0.3476; S1 dVV=0.532dB; MODIS-LST \u0394=8.83K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -763,11 +879,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.5
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 57.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -777,34 +898,51 @@
       "sec": 1.2
     },
     "s5p_tropomi": {
-      "status": "ok",
+      "status": "no_data",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=0, post=2"
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.2
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1455.4
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 1.5
+      "n_granules_searched": 25,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 26.5
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.5
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 118.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -817,7 +955,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -895,15 +1033,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr",
-      "active_fire_thermal"
+      "modis_sr_nbr",
+      "hls_nbr"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; MODIS-SR dNBR=0.3419; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-8.67; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -930,11 +1068,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 6.0
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 22.7
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -946,32 +1089,55 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -8.67,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 3.7
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1530.5
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 23,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.9
+      "n_granules_searched": 26,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 23.6
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.6
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 89.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -984,7 +1150,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1062,15 +1228,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
-      "s1_rtc",
-      "active_fire_thermal"
+      "s1_rtc"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=-0.0139; LS dNBR=0.0196; HLS dNBR=1.0702; S1 dVV=-3.854dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=-0.0139; LS dNBR=0.0196; HLS dNBR=1.0702; MODIS-SR dNBR=0.2075; S1 dVV=-3.854dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1092,11 +1257,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.9
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 112.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1106,34 +1276,51 @@
       "sec": 1.2
     },
     "s5p_tropomi": {
-      "status": "ok",
+      "status": "no_data",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=0, post=2"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=0, post=2"
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.2
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1613.2
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.9
+      "n_granules_searched": 25,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 30.1
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 2.0
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 283.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1146,7 +1333,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1224,15 +1411,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "s1_rtc",
-      "active_fire_thermal"
+      "tropomi_combustion"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; S1 dVV=-3.245dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; MODIS-SR dNBR=0.4174; S1 dVV=-3.245dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=6.76/7.98; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1254,11 +1442,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.5
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 20.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1270,32 +1463,61 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0296,
+        "pre_std": 0.0001,
+        "post_max": 0.0299,
+        "sigma_above_baseline": 6.76,
+        "anomaly": true,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": 7.98,
+        "anomaly": true,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
-      "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.0
+      "has_anomaly": true,
+      "combustion_signal_tropomi": true,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 1630.3
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.8
+      "n_granules_searched": 25,
+      "n_granules_pulled": 2,
+      "n_granules_failed": 0,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 20.6
     },
     "black_marble": {
       "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.8
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 294.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1308,8 +1530,8 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
-    "combustion_signal": false,
+    "persistence_signal": true,
+    "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
@@ -1378,13 +1600,14 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
+    "confidence": "medium",
+    "evidence": "MODIS-SR dNBR=0.2952; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -1529,13 +1752,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "HLS dNBR=0.2322; S1 dVV=0.126dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
+    "evidence": "HLS dNBR=0.2322; MODIS-SR dNBR=0.1359; S1 dVV=0.126dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1689,15 +1912,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3252; LS dNBR=0.2083; HLS dNBR=0.3683; S1 dVV=0.278dB; MODIS-LST \u0394=9.9K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3252; LS dNBR=0.2083; HLS dNBR=0.3683; MODIS-SR dNBR=0.3933; S1 dVV=0.278dB; MODIS-LST \u0394=9.9K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1856,15 +2080,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "s1_rtc",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=-0.0072; LS dNBR=-0.0233; HLS dNBR=0.3812; S1 dVV=-2.318dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=-0.0072; LS dNBR=-0.0233; HLS dNBR=0.3812; MODIS-SR dNBR=0.67; S1 dVV=-2.318dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2018,14 +2243,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; MODIS-SR dNBR=0.3765; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2181,13 +2407,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; S1 dVV=0.449dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; MODIS-SR dNBR=0.4349; S1 dVV=0.449dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2338,7 +2565,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -2346,7 +2573,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3333; HLS dNBR=0.2835; S1 dVV=0.423dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.4",
+    "evidence": "S2 dNBR=0.3333; HLS dNBR=0.2835; MODIS-SR dNBR=0.2092; S1 dVV=0.423dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.4",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2500,14 +2727,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.27; LS dNBR=0.1769; HLS dNBR=0.2531; S1 dVV=0.429dB; MODIS-LST \u0394=6.96K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.27; LS dNBR=0.1769; HLS dNBR=0.2531; MODIS-SR dNBR=0.2268; S1 dVV=0.429dB; MODIS-LST \u0394=6.96K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2666,14 +2893,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3537; LS dNBR=0.1543; HLS dNBR=0.164; S1 dVV=0.072dB; MODIS-LST \u0394=6.54K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3537; LS dNBR=0.1543; HLS dNBR=0.164; MODIS-SR dNBR=0.2377; S1 dVV=0.072dB; MODIS-LST \u0394=6.54K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2832,7 +3059,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -2840,7 +3067,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.2971; LS dNBR=0.1052; HLS dNBR=0.346; S1 dVV=-0.067dB; MODIS-LST \u0394=4.61K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2971; LS dNBR=0.1052; HLS dNBR=0.346; MODIS-SR dNBR=-0.0553; S1 dVV=-0.067dB; MODIS-LST \u0394=4.61K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2999,13 +3226,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1271; LS dNBR=0.0483; HLS dNBR=0.0847; S1 dVV=0.189dB; MODIS-LST \u0394=5.62K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.1271; LS dNBR=0.0483; HLS dNBR=0.0847; MODIS-SR dNBR=0.1315; S1 dVV=0.189dB; MODIS-LST \u0394=5.62K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3164,16 +3391,17 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 4,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 5,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.399; LS dNBR=0.3033; HLS dNBR=0.283; S1 dVV=-0.193dB; MODIS-LST \u0394=4.27K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.399; LS dNBR=0.3033; HLS dNBR=0.283; MODIS-SR dNBR=0.2809; S1 dVV=-0.193dB; MODIS-LST \u0394=4.27K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3332,15 +3560,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.2948; LS dNBR=0.3852; HLS dNBR=0.2571; S1 dVV=-0.178dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.2948; LS dNBR=0.3852; HLS dNBR=0.2571; MODIS-SR dNBR=0.298; S1 dVV=-0.178dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3494,15 +3723,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "s1_rtc",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=-0.0146; LS dNBR=0.0169; HLS dNBR=0.9015; S1 dVV=-6.945dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=-0.0146; LS dNBR=0.0169; HLS dNBR=0.9015; MODIS-SR dNBR=0.5702; S1 dVV=-6.945dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3656,14 +3886,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3442; LS dNBR=0.2532; HLS dNBR=0.2447; S1 dVV=0.411dB; MODIS-LST \u0394=6.68K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3442; LS dNBR=0.2532; HLS dNBR=0.2447; MODIS-SR dNBR=0.3677; S1 dVV=0.411dB; MODIS-LST \u0394=6.68K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3819,13 +4050,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.139; HLS dNBR=0.1544; S1 dVV=0.314dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "evidence": "S2 dNBR=0.139; HLS dNBR=0.1544; MODIS-SR dNBR=0.1205; S1 dVV=0.314dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3979,7 +4210,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -3987,7 +4218,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=-0.0057; LS dNBR=0.0457; HLS dNBR=0.3621; S1 dVV=-3.235dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=-0.0057; LS dNBR=0.0457; HLS dNBR=0.3621; MODIS-SR dNBR=0.0574; S1 dVV=-3.235dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 4,
@@ -4141,15 +4372,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "s1_rtc",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=-0.0093; LS dNBR=0.0043; HLS dNBR=0.4709; S1 dVV=-5.83dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=-0.0093; LS dNBR=0.0043; HLS dNBR=0.4709; MODIS-SR dNBR=1.0487; S1 dVV=-5.83dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4303,14 +4535,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3336; LS dNBR=0.1624; HLS dNBR=0.2696; S1 dVV=0.239dB; MODIS-LST \u0394=8.94K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3336; LS dNBR=0.1624; HLS dNBR=0.2696; MODIS-SR dNBR=0.3612; S1 dVV=0.239dB; MODIS-LST \u0394=8.94K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4469,7 +4702,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -4477,7 +4710,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=-0.0109; LS dNBR=0.0345; HLS dNBR=0.2958; S1 dVV=-4.43dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=-0.0109; LS dNBR=0.0345; HLS dNBR=0.2958; MODIS-SR dNBR=-0.2364; S1 dVV=-4.43dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -4628,13 +4861,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1051; HLS dNBR=0.2224; S1 dVV=0.319dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "evidence": "S2 dNBR=0.1051; HLS dNBR=0.2224; MODIS-SR dNBR=0.2605; S1 dVV=0.319dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4791,7 +5024,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -4799,7 +5032,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=-0.0021; LS dNBR=0.0394; HLS dNBR=0.8255; S1 dVV=-4.976dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=-0.0021; LS dNBR=0.0394; HLS dNBR=0.8255; S1 dVV=-4.976dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4953,14 +5186,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.4995; LS dNBR=0.2277; HLS dNBR=0.1911; S1 dVV=-0.503dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "evidence": "S2 dNBR=0.4995; LS dNBR=0.2277; HLS dNBR=0.1911; MODIS-SR dNBR=0.1777; S1 dVV=-0.503dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5114,13 +5347,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.2513; LS dNBR=0.2641; HLS dNBR=0.1659; S1 dVV=0.153dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2513; LS dNBR=0.2641; HLS dNBR=0.1659; MODIS-SR dNBR=0.1741; S1 dVV=0.153dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5274,13 +5507,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2388; LS dNBR=0.1575; HLS dNBR=0.1765; S1 dVV=-0.023dB; MODIS-LST \u0394=5.45K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2388; LS dNBR=0.1575; HLS dNBR=0.1765; MODIS-SR dNBR=0.2753; S1 dVV=-0.023dB; MODIS-LST \u0394=5.45K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5439,16 +5673,17 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 4,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 5,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.3288; LS dNBR=0.326; HLS dNBR=0.3615; S1 dVV=-0.085dB; MODIS-LST \u0394=7.39K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3288; LS dNBR=0.326; HLS dNBR=0.3615; MODIS-SR dNBR=0.3095; S1 dVV=-0.085dB; MODIS-LST \u0394=7.39K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5604,13 +5839,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1626; HLS dNBR=0.1701; S1 dVV=0.278dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.1626; HLS dNBR=0.1701; MODIS-SR dNBR=0.0809; S1 dVV=0.278dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -5764,15 +5999,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "s1_rtc",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.0097; LS dNBR=0.0197; HLS dNBR=0.6339; S1 dVV=-4.958dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.0097; LS dNBR=0.0197; HLS dNBR=0.6339; MODIS-SR dNBR=1.0719; S1 dVV=-4.958dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -5926,7 +6162,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -5934,7 +6170,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=-0.0091; LS dNBR=0.0079; HLS dNBR=0.5843; S1 dVV=-6.759dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=-0.0091; LS dNBR=0.0079; HLS dNBR=0.5843; MODIS-SR dNBR=0.2005; S1 dVV=-6.759dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6088,15 +6324,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3603; LS dNBR=0.2622; HLS dNBR=0.3626; S1 dVV=0.054dB; MODIS-LST \u0394=9.21K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3603; LS dNBR=0.2622; HLS dNBR=0.3626; MODIS-SR dNBR=0.2922; S1 dVV=0.054dB; MODIS-LST \u0394=9.21K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6255,13 +6492,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1421; LS dNBR=0.1693; HLS dNBR=0.118; S1 dVV=0.023dB; MODIS-LST \u0394=4.48K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.1421; LS dNBR=0.1693; HLS dNBR=0.118; MODIS-SR dNBR=0.13; S1 dVV=0.023dB; MODIS-LST \u0394=4.48K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6420,16 +6657,17 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 4,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 5,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.3883; LS dNBR=0.2855; HLS dNBR=0.3284; S1 dVV=-0.085dB; MODIS-LST \u0394=7.41K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3883; LS dNBR=0.2855; HLS dNBR=0.3284; MODIS-SR dNBR=0.3583; S1 dVV=-0.085dB; MODIS-LST \u0394=7.41K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6588,7 +6826,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -6596,7 +6834,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.2998; LS dNBR=0.1698; HLS dNBR=0.3752; S1 dVV=0.012dB; MODIS-LST \u0394=7.23K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2998; LS dNBR=0.1698; HLS dNBR=0.3752; MODIS-SR dNBR=0.2118; S1 dVV=0.012dB; MODIS-LST \u0394=7.23K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6755,13 +6993,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.2163; LS dNBR=0.1687; HLS dNBR=0.2553; S1 dVV=0.099dB; MODIS-LST \u0394=9.74K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2163; LS dNBR=0.1687; HLS dNBR=0.2553; MODIS-SR dNBR=0.0998; S1 dVV=0.099dB; MODIS-LST \u0394=9.74K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -6920,13 +7158,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1598; LS dNBR=0.2439; HLS dNBR=0.1824; S1 dVV=-0.112dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.1598; LS dNBR=0.2439; HLS dNBR=0.1824; MODIS-SR dNBR=0.2172; S1 dVV=-0.112dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7080,13 +7318,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1626; LS dNBR=0.0847; HLS dNBR=0.1363; S1 dVV=0.322dB; MODIS-LST \u0394=5.29K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.1626; LS dNBR=0.0847; HLS dNBR=0.1363; MODIS-SR dNBR=0.1802; S1 dVV=0.322dB; MODIS-LST \u0394=5.29K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7245,13 +7483,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2171; LS dNBR=0.194; HLS dNBR=0.1989; S1 dVV=0.214dB; MODIS-LST \u0394=9.74K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2171; LS dNBR=0.194; HLS dNBR=0.1989; MODIS-SR dNBR=0.4194; S1 dVV=0.214dB; MODIS-LST \u0394=9.74K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7410,14 +7649,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.3266; LS dNBR=0.1673; HLS dNBR=0.2696; S1 dVV=0.289dB; MODIS-LST \u0394=9.66K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.3266; LS dNBR=0.1673; HLS dNBR=0.2696; MODIS-SR dNBR=0.3941; S1 dVV=0.289dB; MODIS-LST \u0394=9.66K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7576,7 +7816,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -7584,7 +7824,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3734; LS dNBR=0.1921; HLS dNBR=0.3468; S1 dVV=-0.444dB; MODIS-LST \u0394=8.76K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3734; LS dNBR=0.1921; HLS dNBR=0.3468; MODIS-SR dNBR=0.2426; S1 dVV=-0.444dB; MODIS-LST \u0394=8.76K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7743,13 +7983,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1062; LS dNBR=0.0587; HLS dNBR=0.0948; S1 dVV=0.053dB; MODIS-LST \u0394=4.23K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.1062; LS dNBR=0.0587; HLS dNBR=0.0948; MODIS-SR dNBR=0.0597; S1 dVV=0.053dB; MODIS-LST \u0394=4.23K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -7908,14 +8148,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3289; LS dNBR=0.2488; HLS dNBR=0.1954; S1 dVV=-0.235dB; MODIS-LST \u0394=7.38K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3289; LS dNBR=0.2488; HLS dNBR=0.1954; MODIS-SR dNBR=0.1324; S1 dVV=-0.235dB; MODIS-LST \u0394=7.38K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -8074,13 +8314,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.2479; LS dNBR=0.1581; HLS dNBR=0.199; S1 dVV=0.098dB; MODIS-LST \u0394=2.9K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2479; LS dNBR=0.1581; HLS dNBR=0.199; MODIS-SR dNBR=0.1606; S1 dVV=0.098dB; MODIS-LST \u0394=2.9K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -8236,15 +8476,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3; HLS dNBR=0.3324; S1 dVV=-0.578dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3; HLS dNBR=0.3324; MODIS-SR dNBR=0.3114; S1 dVV=-0.578dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -8395,14 +8636,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.4643; S1 dVV=0.186dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.4643; MODIS-SR dNBR=0.3356; S1 dVV=0.186dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -8556,14 +8798,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s1_rtc",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0101; LS dNBR=0.0275; HLS dNBR=0.1817; S1 dVV=-5.265dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=-0.0101; LS dNBR=0.0275; HLS dNBR=0.1817; S1 dVV=-5.265dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -8717,15 +8959,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "s1_rtc",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=-0.0059; LS dNBR=0.018; HLS dNBR=0.2947; S1 dVV=-3.905dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=-0.0059; LS dNBR=0.018; HLS dNBR=0.2947; MODIS-SR dNBR=0.5679; S1 dVV=-3.905dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -8879,7 +9122,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
@@ -8888,7 +9131,7 @@
       "active_fire_thermal"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.5359; LS dNBR=0.372; HLS dNBR=0.3571; S1 dVV=0.141dB; MODIS-LST \u0394=8.58K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.5359; LS dNBR=0.372; HLS dNBR=0.3571; MODIS-SR dNBR=0.2318; S1 dVV=0.141dB; MODIS-LST \u0394=8.58K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9044,15 +9287,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3441; HLS dNBR=0.2715; S1 dVV=0.032dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3441; HLS dNBR=0.2715; MODIS-SR dNBR=0.3159; S1 dVV=0.032dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9209,14 +9453,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s1_rtc",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0098; LS dNBR=0.0147; HLS dNBR=-0.0751; S1 dVV=-3.848dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=-0.0098; LS dNBR=0.0147; HLS dNBR=-0.0751; S1 dVV=-3.848dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -9367,13 +9611,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1465; HLS dNBR=0.1538; S1 dVV=0.508dB; MODIS-LST \u0394=11.36K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.1465; HLS dNBR=0.1538; MODIS-SR dNBR=0.2499; S1 dVV=0.508dB; MODIS-LST \u0394=11.36K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9532,7 +9776,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
@@ -9541,7 +9785,7 @@
       "active_fire_thermal"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.5131; LS dNBR=0.4094; HLS dNBR=0.368; S1 dVV=-1.11dB; MODIS-LST \u0394=8.42K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.5131; LS dNBR=0.4094; HLS dNBR=0.368; MODIS-SR dNBR=0.2022; S1 dVV=-1.11dB; MODIS-LST \u0394=8.42K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -9692,13 +9936,13 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
+    "n_sensors_usable": 7,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
+    "evidence": "MODIS-SR dNBR=0.2397; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -9846,14 +10090,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3673; S1 dVV=0.5dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.3673; MODIS-SR dNBR=0.2578; S1 dVV=0.5dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10001,14 +10245,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.287; S1 dVV=0.297dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.287; MODIS-SR dNBR=0.3136; S1 dVV=0.297dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10151,13 +10396,13 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
+    "n_sensors_usable": 7,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
+    "evidence": "MODIS-SR dNBR=0.2062; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10305,13 +10550,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1479; S1 dVV=0.204dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.1479; MODIS-SR dNBR=0.1174; S1 dVV=0.204dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -10456,14 +10701,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "HLS dNBR=0.511; S1 dVV=0.024dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
+    "confidence": "high",
+    "evidence": "HLS dNBR=0.511; MODIS-SR dNBR=0.4493; S1 dVV=0.024dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.3",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10617,14 +10863,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3435; LS dNBR=0.2517; HLS dNBR=0.2162; S1 dVV=-0.503dB; MODIS-LST \u0394=2.82K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3435; LS dNBR=0.2517; HLS dNBR=0.2162; MODIS-SR dNBR=0.1815; S1 dVV=-0.503dB; MODIS-LST \u0394=2.82K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10780,13 +11026,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.1778; HLS dNBR=0.1555; S1 dVV=0.032dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.1778; HLS dNBR=0.1555; MODIS-SR dNBR=0.0201; S1 dVV=0.032dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10940,14 +11186,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.2766; LS dNBR=0.0832; HLS dNBR=0.1662; S1 dVV=0.156dB; MODIS-LST \u0394=8.34K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.2766; LS dNBR=0.0832; HLS dNBR=0.1662; MODIS-SR dNBR=0.4286; S1 dVV=0.156dB; MODIS-LST \u0394=8.34K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11106,13 +11353,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.2318; LS dNBR=0.0254; HLS dNBR=0.2665; S1 dVV=0.307dB; MODIS-LST \u0394=-0.39K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2318; LS dNBR=0.0254; HLS dNBR=0.2665; MODIS-SR dNBR=0.0426; S1 dVV=0.307dB; MODIS-LST \u0394=-0.39K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11268,15 +11515,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.3452; HLS dNBR=0.3563; S1 dVV=0.059dB; MODIS-LST \u0394=8.75K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.3452; HLS dNBR=0.3563; MODIS-SR dNBR=0.318; S1 dVV=0.059dB; MODIS-LST \u0394=8.75K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11435,15 +11683,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.4617; LS dNBR=0.3312; HLS dNBR=0.2479; S1 dVV=-0.182dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.4617; LS dNBR=0.3312; HLS dNBR=0.2479; MODIS-SR dNBR=0.2882; S1 dVV=-0.182dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11597,13 +11846,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.2499; LS dNBR=0.2493; HLS dNBR=0.2129; S1 dVV=-0.725dB; MODIS-LST \u0394=9.2K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2499; LS dNBR=0.2493; HLS dNBR=0.2129; MODIS-SR dNBR=0.2171; S1 dVV=-0.725dB; MODIS-LST \u0394=9.2K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11762,13 +12011,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.1841; LS dNBR=0.1295; HLS dNBR=0.12; S1 dVV=0.307dB; MODIS-LST \u0394=7.84K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.1841; LS dNBR=0.1295; HLS dNBR=0.12; MODIS-SR dNBR=0.5075; S1 dVV=0.307dB; MODIS-LST \u0394=7.84K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -11927,13 +12177,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 11,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2302; LS dNBR=0.2011; HLS dNBR=0.197; S1 dVV=-0.189dB; MODIS-LST \u0394=8.08K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2302; LS dNBR=0.2011; HLS dNBR=0.197; MODIS-SR dNBR=0.3327; S1 dVV=-0.189dB; MODIS-LST \u0394=8.08K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12092,7 +12343,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -12100,7 +12351,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.4223; LS dNBR=0.2376; HLS dNBR=0.4192; S1 dVV=-0.098dB; MODIS-LST \u0394=8.56K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.4223; LS dNBR=0.2376; HLS dNBR=0.4192; MODIS-SR dNBR=0.2282; S1 dVV=-0.098dB; MODIS-LST \u0394=8.56K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12256,14 +12507,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "LS dNBR=0.2096; HLS dNBR=0.372; S1 dVV=-0.175dB; MODIS-LST \u0394=8.84K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.2096; HLS dNBR=0.372; MODIS-SR dNBR=0.2649; S1 dVV=-0.175dB; MODIS-LST \u0394=8.84K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12419,14 +12670,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "LS dNBR=0.1184; HLS dNBR=0.2717; S1 dVV=-0.082dB; MODIS-LST \u0394=6.13K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.1184; HLS dNBR=0.2717; MODIS-SR dNBR=0.1697; S1 dVV=-0.082dB; MODIS-LST \u0394=6.13K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12582,7 +12833,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "landsat_nbr",
@@ -12590,7 +12841,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "LS dNBR=0.3088; HLS dNBR=0.3195; S1 dVV=0.01dB; MODIS-LST \u0394=8.69K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.3088; HLS dNBR=0.3195; MODIS-SR dNBR=0.2569; S1 dVV=0.01dB; MODIS-LST \u0394=8.69K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12743,13 +12994,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "HLS dNBR=0.2457; S1 dVV=-0.039dB; MODIS-LST \u0394=3.64K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "HLS dNBR=0.2457; MODIS-SR dNBR=0.0307; S1 dVV=-0.039dB; MODIS-LST \u0394=3.64K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -12908,7 +13159,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -12916,7 +13167,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "LS dNBR=-0.0067; HLS dNBR=0.706; S1 dVV=-7.504dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=-0.0067; HLS dNBR=0.706; S1 dVV=-7.504dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13067,13 +13318,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.1101; HLS dNBR=0.1157; S1 dVV=-0.159dB; MODIS-LST \u0394=5.13K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.1101; HLS dNBR=0.1157; MODIS-SR dNBR=0.3326; S1 dVV=-0.159dB; MODIS-LST \u0394=5.13K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13229,7 +13481,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -13237,7 +13489,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "LS dNBR=0.0241; HLS dNBR=0.8331; S1 dVV=-2.963dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.0241; HLS dNBR=0.8331; MODIS-SR dNBR=0.0639; S1 dVV=-2.963dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -13388,14 +13640,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.4802; S1 dVV=0.091dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.4802; MODIS-SR dNBR=0.0896; S1 dVV=0.091dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -13540,14 +13792,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "HLS dNBR=0.3209; S1 dVV=0.196dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "HLS dNBR=0.3209; MODIS-SR dNBR=0.3754; S1 dVV=0.196dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13698,13 +13951,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.26; HLS dNBR=0.21; S1 dVV=-0.353dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.26; HLS dNBR=0.21; MODIS-SR dNBR=0.2361; S1 dVV=-0.353dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -13852,14 +14105,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "HLS dNBR=0.3188; S1 dVV=0.203dB; MODIS-LST \u0394=6.76K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "HLS dNBR=0.3188; MODIS-SR dNBR=0.1464; S1 dVV=0.203dB; MODIS-LST \u0394=6.76K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14012,14 +14265,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "HLS dNBR=0.3355; S1 dVV=0.002dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "HLS dNBR=0.3355; MODIS-SR dNBR=0.0024; S1 dVV=0.002dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14167,14 +14420,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "HLS dNBR=0.3577; S1 dVV=0.295dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "HLS dNBR=0.3577; MODIS-SR dNBR=0.1423; S1 dVV=0.295dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14325,13 +14578,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "LS dNBR=0.2624; HLS dNBR=0.1723; S1 dVV=-0.26dB; MODIS-LST \u0394=4.64K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.2624; HLS dNBR=0.1723; MODIS-SR dNBR=0.165; S1 dVV=-0.26dB; MODIS-LST \u0394=4.64K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14487,7 +14740,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -14495,7 +14748,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "LS dNBR=0.0101; HLS dNBR=0.8046; S1 dVV=-6.991dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.0101; HLS dNBR=0.8046; MODIS-SR dNBR=-0.0554; S1 dVV=-6.991dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14649,14 +14902,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3965; LS dNBR=0.19; HLS dNBR=0.1485; S1 dVV=-0.076dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "evidence": "S2 dNBR=0.3965; LS dNBR=0.19; HLS dNBR=0.1485; MODIS-SR dNBR=0.0601; S1 dVV=-0.076dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14807,13 +15060,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.1286; HLS dNBR=0.1876; S1 dVV=0.027dB; MODIS-LST \u0394=8.28K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.1286; HLS dNBR=0.1876; MODIS-SR dNBR=0.2797; S1 dVV=0.027dB; MODIS-LST \u0394=8.28K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -14969,13 +15223,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "LS dNBR=0.1535; HLS dNBR=0.2205; S1 dVV=0.029dB; MODIS-LST \u0394=7.6K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "LS dNBR=0.1535; HLS dNBR=0.2205; MODIS-SR dNBR=0.3265; S1 dVV=0.029dB; MODIS-LST \u0394=7.6K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15131,15 +15386,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "landsat_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "LS dNBR=0.3246; HLS dNBR=0.331; S1 dVV=-0.218dB; MODIS-LST \u0394=6.5K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "very_high",
+    "evidence": "LS dNBR=0.3246; HLS dNBR=0.331; MODIS-SR dNBR=0.3288; S1 dVV=-0.218dB; MODIS-LST \u0394=6.5K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15295,13 +15551,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "LS dNBR=0.1592; HLS dNBR=0.0997; S1 dVV=-0.175dB; MODIS-LST \u0394=8.65K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.1592; HLS dNBR=0.0997; MODIS-SR dNBR=0.1302; S1 dVV=-0.175dB; MODIS-LST \u0394=8.65K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15457,13 +15713,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "LS dNBR=0.1807; HLS dNBR=0.1598; S1 dVV=0.118dB; MODIS-LST \u0394=6.64K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.1807; HLS dNBR=0.1598; MODIS-SR dNBR=0.2655; S1 dVV=0.118dB; MODIS-LST \u0394=6.64K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15619,14 +15875,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "LS dNBR=0.1863; HLS dNBR=0.4123; S1 dVV=0.184dB; MODIS-LST \u0394=8.66K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.1863; HLS dNBR=0.4123; MODIS-SR dNBR=0.2558; S1 dVV=0.184dB; MODIS-LST \u0394=8.66K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15782,14 +16038,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "LS dNBR=0.2575; HLS dNBR=0.3062; S1 dVV=0.135dB; MODIS-LST \u0394=9.7K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.2575; HLS dNBR=0.3062; MODIS-SR dNBR=0.1687; S1 dVV=0.135dB; MODIS-LST \u0394=9.7K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -15945,14 +16201,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "landsat_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "LS dNBR=0.2854; HLS dNBR=0.2053; S1 dVV=0.263dB; MODIS-LST \u0394=11.14K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "LS dNBR=0.2854; HLS dNBR=0.2053; MODIS-SR dNBR=0.3167; S1 dVV=0.263dB; MODIS-LST \u0394=11.14K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16108,13 +16365,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2265; S1 dVV=0.28dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2265; MODIS-SR dNBR=0.4103; S1 dVV=0.28dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -16262,14 +16520,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 2,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "medium",
-    "evidence": "S2 dNBR=0.2804; S1 dVV=-0.345dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "high",
+    "evidence": "S2 dNBR=0.2804; MODIS-SR dNBR=0.2731; S1 dVV=-0.345dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -16417,13 +16676,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "LS dNBR=0.0545; HLS dNBR=0.055; S1 dVV=0.404dB; MODIS-LST \u0394=3.98K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.0545; HLS dNBR=0.055; MODIS-SR dNBR=0.0061; S1 dVV=0.404dB; MODIS-LST \u0394=3.98K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16579,13 +16838,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "LS dNBR=0.0215; HLS dNBR=0.0404; S1 dVV=0.082dB; MODIS-LST \u0394=-1.32K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.0215; HLS dNBR=0.0404; MODIS-SR dNBR=0.2587; S1 dVV=0.082dB; MODIS-LST \u0394=-1.32K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -16736,13 +16995,14 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
+    "confidence": "medium",
+    "evidence": "MODIS-SR dNBR=0.3298; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -16883,13 +17143,14 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
+    "confidence": "medium",
+    "evidence": "MODIS-SR dNBR=0.3358; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17032,13 +17293,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "HLS dNBR=0.104; S1 dVV=0.027dB; MODIS-LST \u0394=-4.32K; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "HLS dNBR=0.104; MODIS-SR dNBR=0.0809; S1 dVV=0.027dB; MODIS-LST \u0394=-4.32K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -17194,7 +17455,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "hls_nbr",
@@ -17202,7 +17463,7 @@
       "active_fire_thermal"
     ],
     "confidence": "high",
-    "evidence": "LS dNBR=0.029; HLS dNBR=0.7416; S1 dVV=-2.51dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "LS dNBR=0.029; HLS dNBR=0.7416; MODIS-SR dNBR=-0.0939; S1 dVV=-2.51dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -17353,13 +17614,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2674; S1 dVV=0.866dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2674; MODIS-SR dNBR=0.3846; S1 dVV=0.866dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17502,13 +17764,14 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
+    "confidence": "medium",
+    "evidence": "MODIS-SR dNBR=0.4102; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17649,13 +17912,13 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
+    "n_sensors_usable": 7,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "active_fire_thermal"
     ],
     "confidence": "low",
-    "evidence": "SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
+    "evidence": "MODIS-SR dNBR=0.2281; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.1",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17796,13 +18059,14 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 5,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 7,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "SLSTR-FRP=3hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
+    "confidence": "medium",
+    "evidence": "MODIS-SR dNBR=0.2751; MODIS-AF=0; SLSTR-FRP=3hits; VNP14=0hi-conf/0tot; BM-pers=0.2",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -17950,13 +18214,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 6,
-    "n_sensors_agree_scar": 1,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
+      "modis_sr_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.2093; S1 dVV=1.221dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2093; MODIS-SR dNBR=0.4991; S1 dVV=1.221dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -18104,14 +18369,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "active_fire_thermal"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3976; HLS dNBR=0.145; S1 dVV=0.088dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "evidence": "S2 dNBR=0.3976; HLS dNBR=0.145; MODIS-SR dNBR=0.14; S1 dVV=0.088dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -18262,15 +18527,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
+      "modis_sr_nbr",
       "hls_nbr",
       "active_fire_thermal"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.4184; HLS dNBR=0.3269; S1 dVV=0.085dB; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
+    "confidence": "very_high",
+    "evidence": "S2 dNBR=0.4184; HLS dNBR=0.3269; MODIS-SR dNBR=0.3984; S1 dVV=0.085dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,

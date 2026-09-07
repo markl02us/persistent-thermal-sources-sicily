@@ -378,7 +378,7 @@
     "n_cells_total": 114,
     "reason": "Per-cell netcdf downloads exceeded the 4h session budget. Real-signal functions are wired and smoke-validated end-to-end; remaining 109 cells will progressively upgrade as the daily MODIS catch-up and a future repeated burn-scar pass runs. Scripts at fp_review_ui/burn_scar_proxy_upgrade.py + burn_scar_olci_ndvi.py are idempotent and safe to re-run."
   },
-  "olci_wired_at": "2026-05-30T07:10:47.444785+00:00",
+  "olci_wired_at": "2026-09-07T10:48:21.071288+00:00",
   "olci_summary": {
     "n_cells_processed": 0,
     "n_ndvi_dropoff_hits": 0,
@@ -387,7 +387,7 @@
       "gifapar_drop_max": -0.15
     }
   },
-  "proxy_upgrade_completed_at": "2026-09-05T04:28:34.690755+00:00",
+  "proxy_upgrade_completed_at": "2026-09-07T10:07:28.540083+00:00",
   "proxy_upgrade_summary": {
     "sources_upgraded": [
       "sentinel-5p-l2-netcdf",
@@ -396,13 +396,13 @@
       "sentinel-3-slstr-frp-l2-netcdf"
     ],
     "signal_hit_counts": {
-      "tropomi_combustion": 0,
+      "tropomi_combustion": 1,
       "viirs_active_fire": 0,
       "slstr_active_fire": 0,
-      "persistent_nightlight": 0,
+      "persistent_nightlight": 8,
       "nightlight_extinguished": 0
     },
-    "n_cells_processed": 0,
+    "n_cells_processed": 8,
     "thresholds": {
       "tropomi_sigma": 2.0,
       "viirs_af_min_confidence": 7,

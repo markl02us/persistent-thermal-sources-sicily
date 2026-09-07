@@ -30,23 +30,23 @@
     "landsat_nbr": 11,
     "s1_rtc": 17
   },
-  "olci_wired_at": "2026-05-30T07:10:47.457475+00:00",
+  "olci_wired_at": "2026-09-07T10:48:21.090489+00:00",
   "olci_ndvi_dropoff_count": 0,
-  "n_fused_scar_after_olci": 68,
-  "olci_runtime_sec": 2268.9,
+  "n_fused_scar_after_olci": 114,
+  "olci_runtime_sec": 2447.0,
   "last_modis_catchup_at": "2026-09-05T07:03:35.153657+00:00",
   "modis_catchup_updates": 447,
-  "proxy_upgrade_at": "2026-09-05T04:28:34.709713+00:00",
+  "proxy_upgrade_at": "2026-09-07T10:07:28.553868+00:00",
   "proxy_signal_hit_counts": {
-    "tropomi_combustion": 0,
+    "tropomi_combustion": 1,
     "viirs_active_fire": 0,
     "slstr_active_fire": 0,
-    "persistent_nightlight": 0,
+    "persistent_nightlight": 8,
     "nightlight_extinguished": 0
   },
   "n_fused_scar_after_proxy_upgrade": 114,
-  "n_fused_scar_before_proxy_upgrade": 68,
-  "n_persistence_signal_after_proxy_upgrade": 0,
-  "n_combustion_signal_after_proxy_upgrade": 0,
-  "proxy_upgrade_runtime_sec": 2177.3
+  "n_fused_scar_before_proxy_upgrade": 114,
+  "n_persistence_signal_after_proxy_upgrade": 8,
+  "n_combustion_signal_after_proxy_upgrade": 1,
+  "proxy_upgrade_runtime_sec": 2242.4
 }
