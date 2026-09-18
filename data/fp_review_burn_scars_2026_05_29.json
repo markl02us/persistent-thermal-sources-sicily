@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T10:46:39.462058+00:00",
+  "generated_at": "2026-09-18T10:39:39.290596+00:00",
   "method": "Full-roster burn-scar fusion (v1.3.0 proxy-upgraded): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + MODIS-11A1 LST anomaly + Sentinel-3 SLSTR FRP (REAL per-pixel FRP via netcdf) + Sentinel-3 SLSTR LST (scene-count) + Sentinel-5P TROPOMI CO/NO2 (REAL per-pixel column anomaly, 2\u03c3 vs 30d baseline) + VIIRS VNP14IMG 375m active-fire (REAL per-granule HDF5 FP read, conf>=7) + VIIRS VNP46A1 Black Marble (REAL per-granule HDF5 DNB radiance ratio) + MTG FCI L1c DGX-cache file-count signal. has_scar_fused = >=1 agreer (optical NBR, SAR, LST, AF, TROPOMI). persistence_signal = BM post/pre>=0.9 (persistent NL). combustion_signal = TROPOMI 2\u03c3 anomaly on CO or NO2. + Sentinel-3 OLCI L2 OTCI/GIFAPAR vegetation-index dropoff (OTCI<=-0.5 OR GIFAPAR<=-0.15 over cell AOI = ndvi_dropoff).",
   "aoi_box_m": 500,
   "cloud_max_pct": 50,
@@ -87,13 +87,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 6,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "modis_sr_nbr"
     ],
     "confidence": "low",
-    "evidence": "MODIS-SR dNBR=0.4158; S1 dVV=-0.166dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=-13.17/-2.76; BM-pers=1.246",
+    "evidence": "MODIS-SR dNBR=0.4158; S1 dVV=-0.166dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=-13.17/-2.76",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -121,7 +121,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 73.8
+      "sec": 14.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -159,35 +159,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 835.9
+      "sec": 592.5
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 30,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.8
+      "sec": 5.5
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.4207,
-      "persistence_ratio": 1.246,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 110.5
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -200,7 +190,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -278,13 +268,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "s2_nbr"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.3783; LS dNBR=0.2507; HLS dNBR=0.1904; MODIS-SR dNBR=0.1592; S1 dVV=-0.357dB; MODIS-LST \u0394=6.72K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-21.54; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.3783; LS dNBR=0.2507; HLS dNBR=0.1904; MODIS-SR dNBR=0.1592; S1 dVV=-0.357dB; MODIS-LST \u0394=6.72K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-21.54",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -320,7 +310,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 47.6
+      "sec": 37.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -352,35 +342,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 842.2
+      "sec": 569.6
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 12.4
+      "sec": 5.9
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 107.7
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -393,7 +373,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -471,14 +451,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "hls_nbr"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3623; LS dNBR=0.1638; HLS dNBR=0.2903; MODIS-SR dNBR=0.2443; S1 dVV=-0.123dB; MODIS-LST \u0394=6.72K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-33.08; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.3623; LS dNBR=0.1638; HLS dNBR=0.2903; MODIS-SR dNBR=0.2443; S1 dVV=-0.123dB; MODIS-LST \u0394=6.72K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-33.08",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -514,7 +494,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 58.4
+      "sec": 54.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -546,35 +526,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 823.0
+      "sec": 550.7
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 19.2
+      "sec": 3.8
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 106.1
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -587,7 +557,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -659,13 +629,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 6,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "modis_sr_nbr"
     ],
     "confidence": "low",
-    "evidence": "MODIS-SR dNBR=0.2762; S1 dVV=-0.033dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-5.68; BM-pers=1.246",
+    "evidence": "MODIS-SR dNBR=0.2762; S1 dVV=-0.033dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-5.68",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -693,7 +663,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 65.4
+      "sec": 29.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -725,35 +695,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 822.7
+      "sec": 571.9
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 30,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 19.3
+      "sec": 5.0
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.4207,
-      "persistence_ratio": 1.246,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 99.0
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -766,7 +726,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -844,7 +804,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -852,7 +812,7 @@
       "modis_sr_nbr"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3963; LS dNBR=0.2885; HLS dNBR=0.2364; MODIS-SR dNBR=0.3476; S1 dVV=0.532dB; MODIS-LST \u0394=8.83K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.3963; LS dNBR=0.2885; HLS dNBR=0.2364; MODIS-SR dNBR=0.3476; S1 dVV=0.532dB; MODIS-LST \u0394=8.83K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -888,7 +848,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 29.3
+      "sec": 15.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -914,35 +874,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 749.3
+      "sec": 592.6
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.2
+      "sec": 5.5
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 55.2
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 3.3
     },
     "mtg_fci": {
       "status": "no_data",
@@ -955,7 +905,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1033,7 +983,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -1041,7 +991,7 @@
       "hls_nbr"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; MODIS-SR dNBR=0.3419; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-8.67; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; MODIS-SR dNBR=0.3419; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-8.67",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1077,7 +1027,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 8.3
+      "sec": 7.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1109,35 +1059,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 772.5
+      "sec": 598.9
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 26,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 12.5
+      "sec": 4.6
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 57.3
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 3.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1150,7 +1090,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1228,14 +1168,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "hls_nbr",
       "s1_rtc"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=-0.0139; LS dNBR=0.0196; HLS dNBR=1.0702; MODIS-SR dNBR=0.2075; S1 dVV=-3.854dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
+    "evidence": "S2 dNBR=-0.0139; LS dNBR=0.0196; HLS dNBR=1.0702; MODIS-SR dNBR=0.2075; S1 dVV=-3.854dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1266,7 +1206,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 49.7
+      "sec": 7.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1292,35 +1232,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 835.9
+      "sec": 601.4
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.9
+      "sec": 4.9
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 110.5
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 3.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1333,7 +1263,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1411,7 +1341,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "modis_sr_nbr",
@@ -1420,7 +1350,7 @@
       "tropomi_combustion"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; MODIS-SR dNBR=0.4174; S1 dVV=-3.245dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=6.76/7.98; BM-pers=1.064",
+    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; MODIS-SR dNBR=0.4174; S1 dVV=-3.245dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=6.76/7.98",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1451,7 +1381,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 58.4
+      "sec": 6.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1489,35 +1419,25 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 815.6
+      "sec": 598.8
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 20.1
+      "sec": 5.0
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 112.5
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 3.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1530,7 +1450,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1600,14 +1520,14 @@
     },
     "status": "no_data",
     "has_scar_fused": true,
-    "n_sensors_usable": 7,
+    "n_sensors_usable": 6,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "modis_sr_nbr",
       "tropomi_combustion"
     ],
     "confidence": "medium",
-    "evidence": "MODIS-SR dNBR=0.2952; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/20.35; BM-pers=2.614",
+    "evidence": "MODIS-SR dNBR=0.2952; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/20.35",
     "hls_nbr": {
       "status": "no_data",
       "scenes_pre": 0,
@@ -1635,7 +1555,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 61.7
+      "sec": 45.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1667,35 +1587,25 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 685.8
+      "sec": 729.8
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 30,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 21.3
+      "sec": 3.9
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.8823,
-      "persistence_ratio": 2.614,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 73.6
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.3
     },
     "mtg_fci": {
       "status": "ok",
@@ -1708,7 +1618,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1780,13 +1690,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 8,
+    "n_sensors_usable": 7,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "tropomi_combustion"
     ],
     "confidence": "low",
-    "evidence": "HLS dNBR=0.2322; MODIS-SR dNBR=0.1359; S1 dVV=0.126dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=54.18/2.04; BM-pers=1.246",
+    "evidence": "HLS dNBR=0.2322; MODIS-SR dNBR=0.1359; S1 dVV=0.126dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=54.18/2.04",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1817,7 +1727,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 161.0
+      "sec": 35.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1855,35 +1765,25 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 684.7
+      "sec": 739.3
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 30,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 21.2
+      "sec": 4.4
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.4207,
-      "persistence_ratio": 1.246,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 78.1
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1896,7 +1796,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1974,7 +1874,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "s2_nbr",
@@ -1982,7 +1882,7 @@
       "hls_nbr"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.3252; LS dNBR=0.2083; HLS dNBR=0.3683; MODIS-SR dNBR=0.3933; S1 dVV=0.278dB; MODIS-LST \u0394=9.9K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-9.5; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.3252; LS dNBR=0.2083; HLS dNBR=0.3683; MODIS-SR dNBR=0.3933; S1 dVV=0.278dB; MODIS-LST \u0394=9.9K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-9.5",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2018,7 +1918,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 309.2
+      "sec": 108.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2050,35 +1950,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 567.3
+      "sec": 667.4
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 26,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 16.9
+      "sec": 3.9
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 48.3
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2091,7 +1981,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -2169,7 +2059,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "modis_sr_nbr",
@@ -2177,7 +2067,7 @@
       "s1_rtc"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=-0.0072; LS dNBR=-0.0233; HLS dNBR=0.3812; MODIS-SR dNBR=0.67; S1 dVV=-2.318dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
+    "evidence": "S2 dNBR=-0.0072; LS dNBR=-0.0233; HLS dNBR=0.3812; MODIS-SR dNBR=0.67; S1 dVV=-2.318dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2208,7 +2098,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 411.0
+      "sec": 156.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2234,35 +2124,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 472.5
+      "sec": 620.4
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 15.1
+      "sec": 5.1
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 47.3
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2275,7 +2155,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -2353,14 +2233,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "modis_sr_nbr"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; MODIS-SR dNBR=0.3765; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; MODIS-SR dNBR=0.3765; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2396,7 +2276,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 13.7
+      "sec": 8.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2422,35 +2302,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 545.4
+      "sec": 771.1
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.2
+      "sec": 3.8
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 60.3
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2463,7 +2333,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -2538,14 +2408,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "modis_sr_nbr",
       "tropomi_combustion"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; MODIS-SR dNBR=0.4349; S1 dVV=0.449dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=51.62/-1.62; BM-pers=1.381",
+    "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; MODIS-SR dNBR=0.4349; S1 dVV=0.449dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=51.62/-1.62",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2576,7 +2446,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 144.9
+      "sec": 123.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2614,35 +2484,25 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 666.8
+      "sec": 648.9
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 27,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.6
+      "sec": 4.0
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.4662,
-      "persistence_ratio": 1.381,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 85.5
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2655,7 +2515,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -2730,14 +2590,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
       "hls_nbr"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3333; HLS dNBR=0.2835; MODIS-SR dNBR=0.2092; S1 dVV=0.423dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=-40.49/-128.39; BM-pers=1.158",
+    "evidence": "S2 dNBR=0.3333; HLS dNBR=0.2835; MODIS-SR dNBR=0.2092; S1 dVV=0.423dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=-40.49/-128.39",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2768,7 +2628,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 126.8
+      "sec": 17.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2806,35 +2666,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 681.6
+      "sec": 755.2
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 30,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 25.3
+      "sec": 3.6
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.391,
-      "persistence_ratio": 1.158,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 78.3
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2847,7 +2697,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -2925,13 +2775,13 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 1,
     "sensors_agreeing": [
       "s2_nbr"
     ],
     "confidence": "low",
-    "evidence": "S2 dNBR=0.27; LS dNBR=0.1769; HLS dNBR=0.2531; MODIS-SR dNBR=0.2268; S1 dVV=0.429dB; MODIS-LST \u0394=6.96K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-15.74; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.27; LS dNBR=0.1769; HLS dNBR=0.2531; MODIS-SR dNBR=0.2268; S1 dVV=0.429dB; MODIS-LST \u0394=6.96K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-15.74",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -2967,7 +2817,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 252.5
+      "sec": 67.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2999,35 +2849,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 586.8
+      "sec": 705.1
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 16.8
+      "sec": 4.1
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 68.0
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3040,7 +2880,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -3118,14 +2958,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
-      "active_fire_thermal"
+      "tropomi_combustion"
     ],
     "confidence": "medium",
-    "evidence": "S2 dNBR=0.3537; LS dNBR=0.1543; HLS dNBR=0.164; MODIS-SR dNBR=0.2377; S1 dVV=0.072dB; MODIS-LST \u0394=6.54K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.3537; LS dNBR=0.1543; HLS dNBR=0.164; MODIS-SR dNBR=0.2377; S1 dVV=0.072dB; MODIS-LST \u0394=6.54K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=16.33/-45.54",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3152,11 +2992,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 6.0
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 32.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3168,32 +3013,51 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0248,
+        "pre_std": 0.0002,
+        "post_max": 0.0276,
+        "sigma_above_baseline": 16.33,
+        "anomaly": true,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -45.54,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
-      "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 6.8
+      "has_anomaly": true,
+      "combustion_signal_tropomi": true,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 636.7
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 23,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.9
+      "n_granules_searched": 26,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 4.7
     },
     "black_marble": {
-      "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.6
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 3.3
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3207,7 +3071,7 @@
       "thermal_signal_available": false
     },
     "persistence_signal": false,
-    "combustion_signal": false,
+    "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
@@ -3284,15 +3148,14 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_usable": 10,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
-      "hls_nbr",
-      "active_fire_thermal"
+      "hls_nbr"
     ],
-    "confidence": "high",
-    "evidence": "S2 dNBR=0.2971; LS dNBR=0.1052; HLS dNBR=0.346; MODIS-SR dNBR=-0.0553; S1 dVV=-0.067dB; MODIS-LST \u0394=4.61K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "medium",
+    "evidence": "S2 dNBR=0.2971; LS dNBR=0.1052; HLS dNBR=0.346; MODIS-SR dNBR=-0.0553; S1 dVV=-0.067dB; MODIS-LST \u0394=4.61K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-41.08",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3319,11 +3182,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.8
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 90.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3335,32 +3203,45 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -41.08,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.3
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 581.7
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 21,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.8
+      "n_granules_searched": 24,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 4.8
     },
     "black_marble": {
-      "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 2.0
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3451,11 +3332,11 @@
     },
     "status": "ok",
     "has_scar_fused": false,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 0,
     "sensors_agreeing": [],
     "confidence": "none",
-    "evidence": "S2 dNBR=0.1271; LS dNBR=0.0483; HLS dNBR=0.0847; MODIS-SR dNBR=0.1315; S1 dVV=0.189dB; MODIS-LST \u0394=5.62K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-20.22; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.1271; LS dNBR=0.0483; HLS dNBR=0.0847; MODIS-SR dNBR=0.1315; S1 dVV=0.189dB; MODIS-LST \u0394=5.62K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-20.22",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3491,7 +3372,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 252.0
+      "sec": 99.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3523,35 +3404,25 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 511.0
+      "sec": 571.5
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 24,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.2
+      "sec": 5.2
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 51.2
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3564,7 +3435,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -3642,17 +3513,17 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 5,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
       "modis_sr_nbr",
       "hls_nbr",
-      "active_fire_thermal"
+      "tropomi_combustion"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.399; LS dNBR=0.3033; HLS dNBR=0.283; MODIS-SR dNBR=0.2809; S1 dVV=-0.193dB; MODIS-LST \u0394=4.27K; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.399; LS dNBR=0.3033; HLS dNBR=0.283; MODIS-SR dNBR=0.2809; S1 dVV=-0.193dB; MODIS-LST \u0394=4.27K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/7.39",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3679,11 +3550,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.7
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 110.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3695,32 +3571,45 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": 7.39,
+        "anomaly": true,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
-      "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 5.1
+      "has_anomaly": true,
+      "combustion_signal_tropomi": true,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 559.9
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 21,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 1.0
+      "n_granules_searched": 24,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 4.2
     },
     "black_marble": {
-      "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.9
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.3
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3734,7 +3623,7 @@
       "thermal_signal_available": false
     },
     "persistence_signal": false,
-    "combustion_signal": false,
+    "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
@@ -3811,16 +3700,16 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
+    "n_sensors_usable": 9,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
       "landsat_nbr",
       "modis_sr_nbr",
-      "active_fire_thermal"
+      "tropomi_combustion"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.2948; LS dNBR=0.3852; HLS dNBR=0.2571; MODIS-SR dNBR=0.298; S1 dVV=-0.178dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "evidence": "S2 dNBR=0.2948; LS dNBR=0.3852; HLS dNBR=0.2571; MODIS-SR dNBR=0.298; S1 dVV=-0.178dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/8.27",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -3842,11 +3731,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.7
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 60.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3858,32 +3752,45 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=2, post=0"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 6,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": 8.27,
+        "anomaly": true,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
-      "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.7
+      "has_anomaly": true,
+      "combustion_signal_tropomi": true,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 610.4
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 21,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.8
+      "n_granules_searched": 24,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 4.5
     },
     "black_marble": {
-      "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.7
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3897,7 +3804,7 @@
       "thermal_signal_available": false
     },
     "persistence_signal": false,
-    "combustion_signal": false,
+    "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
       "status": "no_data",
@@ -3974,16 +3881,15 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 4,
+    "n_sensors_usable": 9,
+    "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "modis_sr_nbr",
       "hls_nbr",
-      "s1_rtc",
-      "active_fire_thermal"
+      "s1_rtc"
     ],
-    "confidence": "very_high",
-    "evidence": "S2 dNBR=-0.0146; LS dNBR=0.0169; HLS dNBR=0.9015; MODIS-SR dNBR=0.5702; S1 dVV=-6.945dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.7",
+    "confidence": "high",
+    "evidence": "S2 dNBR=-0.0146; LS dNBR=0.0169; HLS dNBR=0.9015; MODIS-SR dNBR=0.5702; S1 dVV=-6.945dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/1.51",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4005,11 +3911,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 7.1
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 25.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4021,32 +3932,45 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "no_data",
+        "reason": "insufficient reads: pre=0, post=2"
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": 1.51,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 4.2
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 645.1
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.8
+      "n_granules_searched": 25,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 4.2
     },
     "black_marble": {
-      "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 7,
-      "persistence_ratio": 0.7,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.5
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 2.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4300,14 +4224,12 @@
       "max_frp_mw": null
     },
     "status": "ok",
-    "has_scar_fused": true,
-    "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 1,
-    "sensors_agreeing": [
-      "active_fire_thermal"
-    ],
-    "confidence": "low",
-    "evidence": "S2 dNBR=0.139; HLS dNBR=0.1544; MODIS-SR dNBR=0.1205; S1 dVV=0.314dB; MODIS-AF=0; SLSTR-FRP=5hits; VNP14=0hi-conf/0tot; BM-pers=0.6",
+    "has_scar_fused": false,
+    "n_sensors_usable": 8,
+    "n_sensors_agree_scar": 0,
+    "sensors_agreeing": [],
+    "confidence": "none",
+    "evidence": "S2 dNBR=0.139; HLS dNBR=0.1544; MODIS-SR dNBR=0.1205; S1 dVV=0.314dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=-0.12/-37.04",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -4329,11 +4251,16 @@
     },
     "s3_slstr_frp": {
       "status": "ok",
-      "n_hits": 5,
-      "max_frp_mw": null,
-      "scenes": 10,
-      "has_anomaly": true,
-      "sec": 5.6
+      "n_scenes_searched": 10,
+      "n_scenes_pulled": 5,
+      "n_scenes_failed": 0,
+      "n_active_fire_hits": 0,
+      "max_frp_mw": 0.0,
+      "slstr_active_fire": false,
+      "n_hits": 0,
+      "has_anomaly": false,
+      "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
+      "sec": 47.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4345,32 +4272,51 @@
     "s5p_tropomi": {
       "status": "ok",
       "co": {
-        "n_pre": 8,
-        "n_post": 8
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0328,
+        "pre_std": 0.0001,
+        "post_max": 0.0328,
+        "sigma_above_baseline": -0.12,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "no2": {
-        "n_pre": 8,
-        "n_post": 7
+        "n_pre_scenes": 12,
+        "n_post_scenes": 8,
+        "status": "ok",
+        "pre_mean": 0.0,
+        "pre_std": 0.0,
+        "post_max": 0.0,
+        "sigma_above_baseline": -37.04,
+        "anomaly": false,
+        "n_pre_reads": 2,
+        "n_post_reads": 2
       },
       "has_anomaly": false,
-      "note": "scene-count proxy (netcdf retrieval skipped for runtime)",
-      "sec": 3.9
+      "combustion_signal_tropomi": false,
+      "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
+      "sec": 621.7
     },
     "viirs_af": {
       "status": "ok",
-      "n_granules": 22,
-      "has_anomaly": false,
-      "note": "granule count is upper bound; HDF5 pull skipped",
-      "sec": 0.8
+      "n_granules_searched": 27,
+      "n_granules_pulled": 0,
+      "n_granules_failed": 2,
+      "n_hits_total": 0,
+      "n_high_conf_hits": 0,
+      "max_conf": 0,
+      "max_frp_mw": 0.0,
+      "viirs_active_fire": false,
+      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
+      "sec": 4.3
     },
     "black_marble": {
-      "status": "ok",
-      "n_granules_pre": 10,
-      "n_granules_post": 6,
-      "persistence_ratio": 0.6,
-      "persistence_signal": false,
-      "note": "granule-count proxy; HDF5 pull skipped",
-      "sec": 1.7
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 3.2
     },
     "mtg_fci": {
       "status": "no_data",
