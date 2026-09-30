@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T10:41:43.443094+00:00",
+  "generated_at": "2026-09-30T10:41:27.195538+00:00",
   "method": "Full-roster burn-scar fusion (v1.3.0 proxy-upgraded): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + MODIS-11A1 LST anomaly + Sentinel-3 SLSTR FRP (REAL per-pixel FRP via netcdf) + Sentinel-3 SLSTR LST (scene-count) + Sentinel-5P TROPOMI CO/NO2 (REAL per-pixel column anomaly, 2\u03c3 vs 30d baseline) + VIIRS VNP14IMG 375m active-fire (REAL per-granule HDF5 FP read, conf>=7) + VIIRS VNP46A1 Black Marble (REAL per-granule HDF5 DNB radiance ratio) + MTG FCI L1c DGX-cache file-count signal. has_scar_fused = >=1 agreer (optical NBR, SAR, LST, AF, TROPOMI). persistence_signal = BM post/pre>=0.9 (persistent NL). combustion_signal = TROPOMI 2\u03c3 anomaly on CO or NO2. + Sentinel-3 OLCI L2 OTCI/GIFAPAR vegetation-index dropoff (OTCI<=-0.5 OR GIFAPAR<=-0.15 over cell AOI = ndvi_dropoff).",
   "aoi_box_m": 500,
   "cloud_max_pct": 50,
@@ -121,7 +121,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 177.2
+      "sec": 30.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -159,7 +159,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 548.9
+      "sec": 597.9
     },
     "viirs_af": {
       "status": "ok",
@@ -172,12 +172,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.6
+      "sec": 3.9
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.3
+      "sec": 3.0
     },
     "mtg_fci": {
       "status": "no_data",
@@ -310,7 +310,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 147.8
+      "sec": 9.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -342,7 +342,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 578.5
+      "sec": 629.3
     },
     "viirs_af": {
       "status": "ok",
@@ -360,7 +360,7 @@
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.0
+      "sec": 2.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -494,7 +494,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 138.5
+      "sec": 10.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -526,7 +526,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 589.5
+      "sec": 616.8
     },
     "viirs_af": {
       "status": "ok",
@@ -539,12 +539,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.6
+      "sec": 4.0
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.8
+      "sec": 2.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -663,7 +663,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 107.7
+      "sec": 7.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -695,7 +695,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 619.9
+      "sec": 622.5
     },
     "viirs_af": {
       "status": "ok",
@@ -708,12 +708,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.9
+      "sec": 4.8
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.9
+      "sec": 2.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -848,7 +848,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 27.5
+      "sec": 43.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -874,7 +874,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 706.7
+      "sec": 584.9
     },
     "viirs_af": {
       "status": "ok",
@@ -887,12 +887,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.8
+      "sec": 4.1
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.2
+      "sec": 2.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1027,7 +1027,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 12.1
+      "sec": 7.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1059,7 +1059,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 732.5
+      "sec": 622.6
     },
     "viirs_af": {
       "status": "ok",
@@ -1072,12 +1072,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 5.2
+      "sec": 4.6
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.9
+      "sec": 2.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1206,7 +1206,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 44.7
+      "sec": 38.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1232,7 +1232,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 687.4
+      "sec": 629.1
     },
     "viirs_af": {
       "status": "ok",
@@ -1245,12 +1245,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 5.0
+      "sec": 4.7
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.2
+      "sec": 2.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1381,7 +1381,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 32.9
+      "sec": 19.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1419,7 +1419,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 700.8
+      "sec": 609.5
     },
     "viirs_af": {
       "status": "ok",
@@ -1432,12 +1432,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.2
+      "sec": 4.1
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.2
+      "sec": 2.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1555,7 +1555,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 67.7
+      "sec": 142.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1587,7 +1587,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 603.7
+      "sec": 523.1
     },
     "viirs_af": {
       "status": "ok",
@@ -1600,12 +1600,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.6
+      "sec": 5.0
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.1
+      "sec": 3.3
     },
     "mtg_fci": {
       "status": "ok",
@@ -1727,7 +1727,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 67.9
+      "sec": 23.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1765,7 +1765,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 603.3
+      "sec": 646.8
     },
     "viirs_af": {
       "status": "ok",
@@ -1778,12 +1778,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.6
+      "sec": 4.5
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.0
+      "sec": 2.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1918,7 +1918,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 77.0
+      "sec": 27.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1950,7 +1950,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 595.9
+      "sec": 642.3
     },
     "viirs_af": {
       "status": "ok",
@@ -1968,7 +1968,7 @@
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.2
+      "sec": 2.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2098,7 +2098,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 133.5
+      "sec": 8.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2124,7 +2124,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 536.5
+      "sec": 670.6
     },
     "viirs_af": {
       "status": "ok",
@@ -2137,12 +2137,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 5.3
+      "sec": 4.0
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.9
+      "sec": 2.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2276,7 +2276,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 36.2
+      "sec": 9.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2302,7 +2302,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 631.4
+      "sec": 649.7
     },
     "viirs_af": {
       "status": "ok",
@@ -2315,12 +2315,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 3.8
+      "sec": 3.5
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.3
+      "sec": 2.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2446,7 +2446,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 17.8
+      "sec": 23.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2484,7 +2484,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 649.6
+      "sec": 645.0
     },
     "viirs_af": {
       "status": "ok",
@@ -2497,12 +2497,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.0
+      "sec": 4.1
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.7
+      "sec": 2.3
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2628,7 +2628,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 46.7
+      "sec": 48.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2666,7 +2666,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 620.1
+      "sec": 620.4
     },
     "viirs_af": {
       "status": "ok",
@@ -2679,12 +2679,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.2
+      "sec": 4.1
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.9
+      "sec": 2.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2817,7 +2817,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 11.4
+      "sec": 7.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2849,7 +2849,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 656.5
+      "sec": 625.4
     },
     "viirs_af": {
       "status": "ok",
@@ -2867,7 +2867,7 @@
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 3.3
+      "sec": 2.0
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3001,7 +3001,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 51.2
+      "sec": 18.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3039,7 +3039,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 688.9
+      "sec": 691.5
     },
     "viirs_af": {
       "status": "ok",
@@ -3052,12 +3052,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 3.8
+      "sec": 4.9
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.4
+      "sec": 3.0
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3191,7 +3191,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 35.8
+      "sec": 30.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3223,7 +3223,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 698.2
+      "sec": 684.1
     },
     "viirs_af": {
       "status": "ok",
@@ -3236,12 +3236,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.3
+      "sec": 4.6
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.9
+      "sec": 2.3
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3372,7 +3372,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 15.7
+      "sec": 34.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3404,7 +3404,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 725.1
+      "sec": 678.6
     },
     "viirs_af": {
       "status": "ok",
@@ -3417,12 +3417,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.5
+      "sec": 4.2
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.3
+      "sec": 2.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3559,7 +3559,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 62.8
+      "sec": 21.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3591,7 +3591,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 679.4
+      "sec": 692.1
     },
     "viirs_af": {
       "status": "ok",
@@ -3604,12 +3604,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 4.0
+      "sec": 4.7
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.4
+      "sec": 2.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3740,7 +3740,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 86.5
+      "sec": 51.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3772,7 +3772,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 651.7
+      "sec": 658.3
     },
     "viirs_af": {
       "status": "ok",
@@ -3790,7 +3790,7 @@
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.7
+      "sec": 2.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3920,7 +3920,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 127.0
+      "sec": 101.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3952,7 +3952,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 610.2
+      "sec": 604.9
     },
     "viirs_af": {
       "status": "ok",
@@ -3965,7 +3965,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 3.7
+      "sec": 3.9
     },
     "black_marble": {
       "status": "no_data",
@@ -4104,7 +4104,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 8.9
+      "sec": 16.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4136,7 +4136,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 729.9
+      "sec": 687.5
     },
     "viirs_af": {
       "status": "ok",
@@ -4149,12 +4149,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 3.9
+      "sec": 4.9
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.4
+      "sec": 2.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4277,7 +4277,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 148.8
+      "sec": 12.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4315,7 +4315,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 585.3
+      "sec": 706.2
     },
     "viirs_af": {
       "status": "ok",
@@ -4328,12 +4328,12 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 6.3
+      "sec": 3.7
     },
     "black_marble": {
       "status": "no_data",
       "reason": "no pre granules pulled",
-      "sec": 2.7
+      "sec": 2.4
     },
     "mtg_fci": {
       "status": "no_data",
