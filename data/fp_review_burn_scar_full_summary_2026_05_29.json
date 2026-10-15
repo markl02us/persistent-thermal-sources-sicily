@@ -34,8 +34,8 @@
   "olci_ndvi_dropoff_count": 3,
   "n_fused_scar_after_olci": 108,
   "olci_runtime_sec": 1883.4,
-  "last_modis_catchup_at": "2026-09-05T07:03:35.153657+00:00",
-  "modis_catchup_updates": 447,
+  "last_modis_catchup_at": "2026-10-15T07:00:31.700182+00:00",
+  "modis_catchup_updates": 449,
   "proxy_upgrade_at": "2026-10-14T10:05:45.089480+00:00",
   "proxy_signal_hit_counts": {
     "tropomi_combustion": 52,
