@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T10:36:26.163109+00:00",
+  "generated_at": "2026-10-16T10:36:54.392986+00:00",
   "method": "Full-roster burn-scar fusion (v1.3.0 proxy-upgraded): Sentinel-2 L2A NBR + Landsat C2 L2 NBR + Sentinel-1 RTC SAR + MODIS-09A1 SR NBR + HLS L30/S30 NBR + MODIS-14A1 active-fire + MODIS-11A1 LST anomaly + Sentinel-3 SLSTR FRP (REAL per-pixel FRP via netcdf) + Sentinel-3 SLSTR LST (scene-count) + Sentinel-5P TROPOMI CO/NO2 (REAL per-pixel column anomaly, 2\u03c3 vs 30d baseline) + VIIRS VNP14IMG 375m active-fire (REAL per-granule HDF5 FP read, conf>=7) + VIIRS VNP46A1 Black Marble (REAL per-granule HDF5 DNB radiance ratio) + MTG FCI L1c DGX-cache file-count signal. has_scar_fused = >=1 agreer (optical NBR, SAR, LST, AF, TROPOMI). persistence_signal = BM post/pre>=0.9 (persistent NL). combustion_signal = TROPOMI 2\u03c3 anomaly on CO or NO2. + Sentinel-3 OLCI L2 OTCI/GIFAPAR vegetation-index dropoff (OTCI<=-0.5 OR GIFAPAR<=-0.15 over cell AOI = ndvi_dropoff).",
   "aoi_box_m": 500,
   "cloud_max_pct": 50,
@@ -121,7 +121,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 77.3
+      "sec": 61.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -159,7 +159,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 242.4
+      "sec": 180.5
     },
     "viirs_af": {
       "status": "ok",
@@ -172,7 +172,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 25.4
+      "sec": 12.3
     },
     "black_marble": {
       "status": "ok",
@@ -187,7 +187,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 32.2
+      "sec": 20.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -334,7 +334,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 69.5
+      "sec": 70.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -366,7 +366,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 245.6
+      "sec": 179.9
     },
     "viirs_af": {
       "status": "ok",
@@ -379,7 +379,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 34.3
+      "sec": 12.9
     },
     "black_marble": {
       "status": "ok",
@@ -394,7 +394,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 28.5
+      "sec": 22.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -542,7 +542,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 82.2
+      "sec": 57.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -574,7 +574,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 240.6
+      "sec": 204.6
     },
     "viirs_af": {
       "status": "ok",
@@ -587,7 +587,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 19.9
+      "sec": 14.6
     },
     "black_marble": {
       "status": "ok",
@@ -602,7 +602,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 34.0
+      "sec": 27.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -735,7 +735,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 34.5
+      "sec": 66.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -767,7 +767,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 178.0
+      "sec": 201.1
     },
     "viirs_af": {
       "status": "ok",
@@ -780,7 +780,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.2
+      "sec": 15.6
     },
     "black_marble": {
       "status": "ok",
@@ -795,7 +795,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 21.1
+      "sec": 20.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -944,7 +944,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 34.0
+      "sec": 70.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -970,7 +970,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 183.0
+      "sec": 197.4
     },
     "viirs_af": {
       "status": "ok",
@@ -983,7 +983,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.2
+      "sec": 15.5
     },
     "black_marble": {
       "status": "ok",
@@ -998,7 +998,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 17.8
+      "sec": 24.3
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1103,7 +1103,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 11,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
@@ -1112,7 +1112,7 @@
       "olci_veg_dropoff"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; MODIS-SR dNBR=0.3419; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-8.67; BM-pers=1.064",
+    "evidence": "S2 dNBR=0.3779; LS dNBR=0.1837; HLS dNBR=0.4209; MODIS-SR dNBR=0.3419; S1 dVV=0.059dB; MODIS-LST \u0394=9.46K; MODIS-AF=0; SLSTR-FRP=0hits; TROPOMI CO/NO2 \u03c3=None/-8.67; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1148,7 +1148,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 39.9
+      "sec": 113.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1180,20 +1180,12 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 172.7
+      "sec": 531.9
     },
     "viirs_af": {
-      "status": "ok",
-      "n_granules_searched": 26,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
-      "n_hits_total": 0,
-      "n_high_conf_hits": 0,
-      "max_conf": 0,
-      "max_frp_mw": 0.0,
-      "viirs_active_fire": false,
-      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.4
+      "status": "no_data",
+      "reason": "HTTPSConnectionPool(host='cmr.earthdata.nasa.gov', port=443): Max retries exceeded with url: /search/granules.json?short_name=VNP14IMG&bounding_box=14.42153153636077%2C37.28326266618757%2C14.438468463639229%2C37.29673733381243&temporal=2026-05-21T00%3A00%3A00Z%2C2026-05-28T23%3A59%3A59Z&page_size=30 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))",
+      "sec": 42.3
     },
     "black_marble": {
       "status": "ok",
@@ -1208,7 +1200,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 21.8
+      "sec": 118.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1351,7 +1343,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 27.4
+      "sec": 62.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1377,7 +1369,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 184.9
+      "sec": 191.7
     },
     "viirs_af": {
       "status": "ok",
@@ -1390,7 +1382,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 17.6
+      "sec": 13.7
     },
     "black_marble": {
       "status": "ok",
@@ -1405,7 +1397,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 17.1
+      "sec": 23.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1510,7 +1502,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
+    "n_sensors_usable": 8,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "modis_sr_nbr",
@@ -1519,7 +1511,7 @@
       "tropomi_combustion"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; MODIS-SR dNBR=0.4174; S1 dVV=-3.245dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=6.76/7.98; BM-pers=1.064",
+    "evidence": "S2 dNBR=-0.0095; LS dNBR=-0.0054; HLS dNBR=0.8109; MODIS-SR dNBR=0.4174; S1 dVV=-3.245dB; MODIS-AF=0; SLSTR-FRP=0hits; TROPOMI CO/NO2 \u03c3=6.76/7.98",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -1550,7 +1542,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 34.2
+      "sec": 121.7
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1588,35 +1580,17 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 170.3
+      "sec": 482.9
     },
     "viirs_af": {
-      "status": "ok",
-      "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
-      "n_hits_total": 0,
-      "n_high_conf_hits": 0,
-      "max_conf": 0,
-      "max_frp_mw": 0.0,
-      "viirs_active_fire": false,
-      "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 16.1
+      "status": "no_data",
+      "reason": "HTTPSConnectionPool(host='cmr.earthdata.nasa.gov', port=443): Max retries exceeded with url: /search/granules.json?short_name=VNP14IMG&bounding_box=14.56158931823285%2C36.76326266618757%2C14.578410681767151%2C36.776737333812434&temporal=2026-05-21T00%3A00%3A00Z%2C2026-05-28T23%3A59%3A59Z&page_size=30 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))",
+      "sec": 57.7
     },
     "black_marble": {
-      "status": "ok",
-      "n_pre_granules": 15,
-      "n_post_granules": 15,
-      "n_pre_reads": 1,
-      "n_post_reads": 1,
-      "pre_median_nw": 0.3376,
-      "post_median_nw": 0.3592,
-      "persistence_ratio": 1.064,
-      "persistent_nightlight": true,
-      "nightlight_extinguished": false,
-      "persistence_signal": true,
-      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 25.7
+      "status": "no_data",
+      "reason": "no pre granules pulled",
+      "sec": 44.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -1629,7 +1603,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": true,
+    "persistence_signal": false,
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -1737,7 +1711,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 35.5
+      "sec": 46.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1769,7 +1743,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 120.4
+      "sec": 355.1
     },
     "viirs_af": {
       "status": "ok",
@@ -1782,7 +1756,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.0
+      "sec": 14.1
     },
     "black_marble": {
       "status": "ok",
@@ -1797,7 +1771,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 19.0
+      "sec": 21.3
     },
     "mtg_fci": {
       "status": "ok",
@@ -1933,7 +1907,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 40.1
+      "sec": 41.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -1971,7 +1945,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 120.5
+      "sec": 347.5
     },
     "viirs_af": {
       "status": "ok",
@@ -1984,7 +1958,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 9.6
+      "sec": 14.6
     },
     "black_marble": {
       "status": "ok",
@@ -1999,7 +1973,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 14.9
+      "sec": 22.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2016,22 +1990,8 @@
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
-      "status": "ok",
-      "n_pre_scenes": 6,
-      "n_post_scenes": 6,
-      "otci_pre_med": 1.894,
-      "otci_post_med": 2.098,
-      "otci_drop": 0.205,
-      "gifapar_pre_med": 0.39,
-      "gifapar_post_med": 0.262,
-      "gifapar_drop": -0.128,
-      "ndvi_dropoff": false,
-      "has_scar": false,
-      "thresholds": {
-        "otci_drop_max": -0.5,
-        "gifapar_drop_max": -0.15
-      },
-      "note": "Per-scene OLCI L2 OTCI + GIFAPAR netcdf read (chlorophyll + FAPAR as NDVI-equivalent vegetation health indices); median pre vs post window. drop in OTCI<=-0.5 OR GIFAPAR<=-0.15 = vegetation loss = scar."
+      "status": "no_data",
+      "reason": "missing"
     }
   },
   "phoenix-37_2900-14_4100": {
@@ -2149,7 +2109,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 34.9
+      "sec": 21.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2181,7 +2141,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 119.0
+      "sec": 341.7
     },
     "viirs_af": {
       "status": "ok",
@@ -2194,7 +2154,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.0
+      "sec": 12.9
     },
     "black_marble": {
       "status": "ok",
@@ -2209,7 +2169,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 14.7
+      "sec": 19.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2353,7 +2313,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 34.7
+      "sec": 33.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2379,7 +2339,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 116.0
+      "sec": 305.9
     },
     "viirs_af": {
       "status": "ok",
@@ -2392,7 +2352,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.0
+      "sec": 15.7
     },
     "black_marble": {
       "status": "ok",
@@ -2407,7 +2367,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 17.3
+      "sec": 24.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2501,13 +2461,12 @@
     "status": "ok",
     "has_scar_fused": true,
     "n_sensors_usable": 10,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "s2_nbr",
-      "modis_sr_nbr",
-      "olci_veg_dropoff"
+      "modis_sr_nbr"
     ],
-    "confidence": "high",
+    "confidence": "medium",
     "evidence": "S2 dNBR=0.2858; LS dNBR=0.1841; HLS dNBR=0.1373; MODIS-SR dNBR=0.3765; S1 dVV=0.233dB; MODIS-LST \u0394=6.52K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
@@ -2544,7 +2503,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 76.3
+      "sec": 70.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2570,7 +2529,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 220.3
+      "sec": 61.3
     },
     "viirs_af": {
       "status": "ok",
@@ -2583,7 +2542,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 38.1
+      "sec": 11.4
     },
     "black_marble": {
       "status": "ok",
@@ -2598,7 +2557,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 33.1
+      "sec": 18.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2615,22 +2574,8 @@
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
-      "status": "ok",
-      "n_pre_scenes": 6,
-      "n_post_scenes": 6,
-      "otci_pre_med": 1.446,
-      "otci_post_med": 1.484,
-      "otci_drop": 0.038,
-      "gifapar_pre_med": 0.376,
-      "gifapar_post_med": 0.161,
-      "gifapar_drop": -0.215,
-      "ndvi_dropoff": true,
-      "has_scar": true,
-      "thresholds": {
-        "otci_drop_max": -0.5,
-        "gifapar_drop_max": -0.15
-      },
-      "note": "Per-scene OLCI L2 OTCI + GIFAPAR netcdf read (chlorophyll + FAPAR as NDVI-equivalent vegetation health indices); median pre vs post window. drop in OTCI<=-0.5 OR GIFAPAR<=-0.15 = vegetation loss = scar."
+      "status": "no_data",
+      "reason": "missing"
     }
   },
   "phoenix-37_0100-14_9500": {
@@ -2701,13 +2646,12 @@
     "status": "ok",
     "has_scar_fused": true,
     "n_sensors_usable": 9,
-    "n_sensors_agree_scar": 3,
+    "n_sensors_agree_scar": 2,
     "sensors_agreeing": [
       "modis_sr_nbr",
-      "tropomi_combustion",
-      "olci_veg_dropoff"
+      "tropomi_combustion"
     ],
-    "confidence": "high",
+    "confidence": "medium",
     "evidence": "S2 dNBR=0.1234; HLS dNBR=0.05; MODIS-SR dNBR=0.4349; S1 dVV=0.449dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=51.62/-1.62; BM-pers=1.381",
     "hls_nbr": {
       "status": "ok",
@@ -2739,7 +2683,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 81.5
+      "sec": 40.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2777,7 +2721,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 260.9
+      "sec": 345.6
     },
     "viirs_af": {
       "status": "ok",
@@ -2790,7 +2734,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 23.7
+      "sec": 14.7
     },
     "black_marble": {
       "status": "ok",
@@ -2805,7 +2749,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 33.2
+      "sec": 22.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -2822,22 +2766,8 @@
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
-      "status": "ok",
-      "n_pre_scenes": 6,
-      "n_post_scenes": 6,
-      "otci_pre_med": 1.759,
-      "otci_post_med": 1.683,
-      "otci_drop": -0.077,
-      "gifapar_pre_med": 0.462,
-      "gifapar_post_med": 0.289,
-      "gifapar_drop": -0.172,
-      "ndvi_dropoff": true,
-      "has_scar": true,
-      "thresholds": {
-        "otci_drop_max": -0.5,
-        "gifapar_drop_max": -0.15
-      },
-      "note": "Per-scene OLCI L2 OTCI + GIFAPAR netcdf read (chlorophyll + FAPAR as NDVI-equivalent vegetation health indices); median pre vs post window. drop in OTCI<=-0.5 OR GIFAPAR<=-0.15 = vegetation loss = scar."
+      "status": "no_data",
+      "reason": "missing"
     }
   },
   "phoenix-36_9300-14_9100": {
@@ -2945,7 +2875,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 35.8
+      "sec": 41.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -2983,7 +2913,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 123.7
+      "sec": 346.8
     },
     "viirs_af": {
       "status": "ok",
@@ -2996,7 +2926,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.8
+      "sec": 14.5
     },
     "black_marble": {
       "status": "ok",
@@ -3011,7 +2941,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 12.7
+      "sec": 23.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3028,22 +2958,8 @@
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
-      "status": "ok",
-      "n_pre_scenes": 6,
-      "n_post_scenes": 6,
-      "otci_pre_med": 1.766,
-      "otci_post_med": 1.894,
-      "otci_drop": 0.128,
-      "gifapar_pre_med": 0.307,
-      "gifapar_post_med": 0.244,
-      "gifapar_drop": -0.063,
-      "ndvi_dropoff": false,
-      "has_scar": false,
-      "thresholds": {
-        "otci_drop_max": -0.5,
-        "gifapar_drop_max": -0.15
-      },
-      "note": "Per-scene OLCI L2 OTCI + GIFAPAR netcdf read (chlorophyll + FAPAR as NDVI-equivalent vegetation health indices); median pre vs post window. drop in OTCI<=-0.5 OR GIFAPAR<=-0.15 = vegetation loss = scar."
+      "status": "no_data",
+      "reason": "missing"
     }
   },
   "phoenix-37_3300-14_5700": {
@@ -3158,7 +3074,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 77.8
+      "sec": 94.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3190,7 +3106,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 244.3
+      "sec": 95.7
     },
     "viirs_af": {
       "status": "ok",
@@ -3203,7 +3119,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 32.2
+      "sec": 13.8
     },
     "black_marble": {
       "status": "ok",
@@ -3218,7 +3134,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 34.1
+      "sec": 18.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3352,7 +3268,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 54.3
+      "sec": 49.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3390,7 +3306,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 204.2
+      "sec": 145.7
     },
     "viirs_af": {
       "status": "ok",
@@ -3403,7 +3319,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 15.2
+      "sec": 12.4
     },
     "black_marble": {
       "status": "ok",
@@ -3418,7 +3334,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 21.3
+      "sec": 19.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3552,7 +3468,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 6.8
+      "sec": 55.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3584,7 +3500,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 184.4
+      "sec": 139.2
     },
     "viirs_af": {
       "status": "ok",
@@ -3597,7 +3513,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.9
+      "sec": 13.6
     },
     "black_marble": {
       "status": "ok",
@@ -3612,7 +3528,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 16.7
+      "sec": 23.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3743,7 +3659,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 19.4
+      "sec": 101.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3775,7 +3691,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 165.6
+      "sec": 251.9
     },
     "viirs_af": {
       "status": "ok",
@@ -3788,7 +3704,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.2
+      "sec": 28.1
     },
     "black_marble": {
       "status": "ok",
@@ -3803,7 +3719,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 23.7
+      "sec": 24.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -3940,7 +3856,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 11.2
+      "sec": 47.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -3972,7 +3888,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 195.7
+      "sec": 149.8
     },
     "viirs_af": {
       "status": "ok",
@@ -3985,7 +3901,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 12.2
+      "sec": 13.1
     },
     "black_marble": {
       "status": "ok",
@@ -4000,7 +3916,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 19.1
+      "sec": 17.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4131,7 +4047,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 11.3
+      "sec": 33.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4163,7 +4079,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 200.8
+      "sec": 165.2
     },
     "viirs_af": {
       "status": "ok",
@@ -4176,7 +4092,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.6
+      "sec": 12.5
     },
     "black_marble": {
       "status": "ok",
@@ -4191,7 +4107,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 14.9
+      "sec": 16.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4321,7 +4237,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 35.0
+      "sec": 105.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4353,7 +4269,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 75.2
+      "sec": 263.0
     },
     "viirs_af": {
       "status": "ok",
@@ -4366,7 +4282,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 9.8
+      "sec": 26.0
     },
     "black_marble": {
       "status": "ok",
@@ -4381,7 +4297,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 16.8
+      "sec": 56.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4515,7 +4431,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 48.2
+      "sec": 51.8
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4547,20 +4463,20 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 85.5
+      "sec": 111.9
     },
     "viirs_af": {
       "status": "ok",
       "n_granules_searched": 25,
-      "n_granules_pulled": 2,
-      "n_granules_failed": 0,
+      "n_granules_pulled": 1,
+      "n_granules_failed": 1,
       "n_hits_total": 0,
       "n_high_conf_hits": 0,
       "max_conf": 0,
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.5
+      "sec": 24.6
     },
     "black_marble": {
       "status": "ok",
@@ -4575,7 +4491,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 18.0
+      "sec": 16.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4698,7 +4614,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 30.0
+      "sec": 70.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4736,7 +4652,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 78.0
+      "sec": 130.5
     },
     "viirs_af": {
       "status": "ok",
@@ -4749,7 +4665,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.3
+      "sec": 13.0
     },
     "black_marble": {
       "status": "ok",
@@ -4764,7 +4680,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 15.3
+      "sec": 16.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -4893,7 +4809,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 46.8
+      "sec": 40.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -4931,7 +4847,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 89.5
+      "sec": 137.4
     },
     "viirs_af": {
       "status": "ok",
@@ -4944,7 +4860,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 12.4
+      "sec": 11.9
     },
     "black_marble": {
       "status": "ok",
@@ -4959,7 +4875,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 12.6
+      "sec": 17.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -5090,7 +5006,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 64.6
+      "sec": 41.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -5122,7 +5038,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 67.5
+      "sec": 134.0
     },
     "viirs_af": {
       "status": "ok",
@@ -5135,7 +5051,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.2
+      "sec": 12.1
     },
     "black_marble": {
       "status": "ok",
@@ -5150,7 +5066,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 16.9
+      "sec": 19.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -5284,7 +5200,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 34.0
+      "sec": 36.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -5316,7 +5232,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 162.1
+      "sec": 138.6
     },
     "viirs_af": {
       "status": "ok",
@@ -5329,7 +5245,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 20.5
+      "sec": 13.2
     },
     "black_marble": {
       "status": "ok",
@@ -5344,7 +5260,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 22.0
+      "sec": 17.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -5474,7 +5390,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 56.4
+      "sec": 58.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -5512,7 +5428,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 178.3
+      "sec": 146.5
     },
     "viirs_af": {
       "status": "ok",
@@ -5525,7 +5441,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.5
+      "sec": 18.3
     },
     "black_marble": {
       "status": "ok",
@@ -5540,7 +5456,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 32.8
+      "sec": 16.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -5665,7 +5581,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 33.2
+      "sec": 74.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -5703,7 +5619,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 132.0
+      "sec": 72.0
     },
     "viirs_af": {
       "status": "ok",
@@ -5716,7 +5632,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.2
+      "sec": 10.3
     },
     "black_marble": {
       "status": "ok",
@@ -5731,7 +5647,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 24.0
+      "sec": 19.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -5864,7 +5780,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 67.3
+      "sec": 46.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -5896,7 +5812,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 188.4
+      "sec": 81.8
     },
     "viirs_af": {
       "status": "ok",
@@ -5909,7 +5825,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 19.6
+      "sec": 11.7
     },
     "black_marble": {
       "status": "ok",
@@ -5924,7 +5840,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 22.9
+      "sec": 17.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -6052,7 +5968,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 37.8
+      "sec": 136.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -6078,7 +5994,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 118.3
+      "sec": 219.7
     },
     "viirs_af": {
       "status": "ok",
@@ -6091,7 +6007,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 15.2
+      "sec": 40.9
     },
     "black_marble": {
       "status": "ok",
@@ -6106,7 +6022,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 22.2
+      "sec": 49.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -6234,7 +6150,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 42.7
+      "sec": 32.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -6266,7 +6182,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 127.1
+      "sec": 152.9
     },
     "viirs_af": {
       "status": "ok",
@@ -6279,7 +6195,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 18.1
+      "sec": 12.5
     },
     "black_marble": {
       "status": "ok",
@@ -6294,7 +6210,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 22.8
+      "sec": 15.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -6428,7 +6344,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 39.0
+      "sec": 34.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -6466,7 +6382,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 91.6
+      "sec": 149.3
     },
     "viirs_af": {
       "status": "ok",
@@ -6479,7 +6395,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 9.4
+      "sec": 11.4
     },
     "black_marble": {
       "status": "ok",
@@ -6494,7 +6410,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 21.0
+      "sec": 16.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -6631,7 +6547,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 39.7
+      "sec": 35.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -6663,7 +6579,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 122.4
+      "sec": 147.6
     },
     "viirs_af": {
       "status": "ok",
@@ -6676,7 +6592,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.9
+      "sec": 12.3
     },
     "black_marble": {
       "status": "ok",
@@ -6691,7 +6607,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 21.6
+      "sec": 17.0
     },
     "mtg_fci": {
       "status": "no_data",
@@ -6814,7 +6730,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 62.2
+      "sec": 60.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -6852,7 +6768,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 65.3
+      "sec": 161.6
     },
     "viirs_af": {
       "status": "ok",
@@ -6865,7 +6781,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 9.7
+      "sec": 11.7
     },
     "black_marble": {
       "status": "ok",
@@ -6880,7 +6796,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 16.6
+      "sec": 18.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -6971,7 +6887,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 9,
+    "n_sensors_usable": 10,
     "n_sensors_agree_scar": 3,
     "sensors_agreeing": [
       "modis_sr_nbr",
@@ -6979,7 +6895,7 @@
       "s1_rtc"
     ],
     "confidence": "high",
-    "evidence": "S2 dNBR=0.0097; LS dNBR=0.0197; HLS dNBR=0.6339; MODIS-SR dNBR=1.0719; S1 dVV=-4.958dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-26.8",
+    "evidence": "S2 dNBR=0.0097; LS dNBR=0.0197; HLS dNBR=0.6339; MODIS-SR dNBR=1.0719; S1 dVV=-4.958dB; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=None/-26.8; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 5,
@@ -7010,7 +6926,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 71.8
+      "sec": 121.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -7042,7 +6958,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 130.8
+      "sec": 285.9
     },
     "viirs_af": {
       "status": "ok",
@@ -7055,12 +6971,22 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 17.2
+      "sec": 34.6
     },
     "black_marble": {
-      "status": "no_data",
-      "reason": "no post granules pulled",
-      "sec": 14.6
+      "status": "ok",
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 39.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -7073,7 +6999,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": false,
     "coverage_only_signals": [],
     "olci_veg_index": {
@@ -7189,7 +7115,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 46.3
+      "sec": 66.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -7221,7 +7147,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 104.7
+      "sec": 100.7
     },
     "viirs_af": {
       "status": "ok",
@@ -7234,7 +7160,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.3
+      "sec": 10.4
     },
     "black_marble": {
       "status": "ok",
@@ -7249,7 +7175,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 22.5
+      "sec": 17.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -7385,7 +7311,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 44.1
+      "sec": 45.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -7423,7 +7349,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 110.2
+      "sec": 114.0
     },
     "viirs_af": {
       "status": "ok",
@@ -7436,7 +7362,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.1
+      "sec": 13.3
     },
     "black_marble": {
       "status": "ok",
@@ -7451,7 +7377,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 19.1
+      "sec": 17.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -7584,7 +7510,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 60.1
+      "sec": 40.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -7622,7 +7548,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 72.7
+      "sec": 148.1
     },
     "viirs_af": {
       "status": "ok",
@@ -7635,7 +7561,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.8
+      "sec": 11.1
     },
     "black_marble": {
       "status": "ok",
@@ -7650,7 +7576,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 28.3
+      "sec": 17.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -7787,7 +7713,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 42.4
+      "sec": 44.2
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -7825,7 +7751,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 112.6
+      "sec": 119.2
     },
     "viirs_af": {
       "status": "ok",
@@ -7838,7 +7764,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.7
+      "sec": 12.8
     },
     "black_marble": {
       "status": "ok",
@@ -7853,7 +7779,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 23.5
+      "sec": 20.8
     },
     "mtg_fci": {
       "status": "no_data",
@@ -7988,7 +7914,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 49.1
+      "sec": 77.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -8026,7 +7952,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 97.4
+      "sec": 122.8
     },
     "viirs_af": {
       "status": "ok",
@@ -8039,7 +7965,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 14.4
+      "sec": 12.4
     },
     "black_marble": {
       "status": "ok",
@@ -8054,7 +7980,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 27.5
+      "sec": 17.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -8187,7 +8113,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 67.7
+      "sec": 53.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -8225,7 +8151,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 157.0
+      "sec": 125.4
     },
     "viirs_af": {
       "status": "ok",
@@ -8238,7 +8164,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 31.6
+      "sec": 10.1
     },
     "black_marble": {
       "status": "ok",
@@ -8253,7 +8179,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 28.0
+      "sec": 16.0
     },
     "mtg_fci": {
       "status": "no_data",
@@ -8379,7 +8305,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 71.4
+      "sec": 43.6
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -8411,7 +8337,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 155.9
+      "sec": 117.1
     },
     "viirs_af": {
       "status": "ok",
@@ -8424,7 +8350,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 15.2
+      "sec": 12.5
     },
     "black_marble": {
       "status": "ok",
@@ -8439,7 +8365,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 23.6
+      "sec": 17.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -8572,7 +8498,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 42.2
+      "sec": 69.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -8610,7 +8536,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 94.4
+      "sec": 120.1
     },
     "viirs_af": {
       "status": "ok",
@@ -8623,7 +8549,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.6
+      "sec": 11.5
     },
     "black_marble": {
       "status": "ok",
@@ -8638,7 +8564,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 24.6
+      "sec": 18.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -8771,7 +8697,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 83.4
+      "sec": 72.1
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -8803,7 +8729,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 133.6
+      "sec": 116.1
     },
     "viirs_af": {
       "status": "ok",
@@ -8816,7 +8742,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 17.6
+      "sec": 10.4
     },
     "black_marble": {
       "status": "ok",
@@ -8831,7 +8757,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 19.2
+      "sec": 19.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -8965,7 +8891,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 45.6
+      "sec": 69.0
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -8997,7 +8923,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 92.4
+      "sec": 98.6
     },
     "viirs_af": {
       "status": "ok",
@@ -9010,7 +8936,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 8.9
+      "sec": 12.8
     },
     "black_marble": {
       "status": "ok",
@@ -9025,7 +8951,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 17.5
+      "sec": 15.1
     },
     "mtg_fci": {
       "status": "no_data",
@@ -9159,7 +9085,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 46.8
+      "sec": 135.7
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -9185,7 +9111,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 93.5
+      "sec": 221.2
     },
     "viirs_af": {
       "status": "ok",
@@ -9198,7 +9124,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.4
+      "sec": 29.5
     },
     "black_marble": {
       "status": "ok",
@@ -9213,7 +9139,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 21.5
+      "sec": 32.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -9346,7 +9272,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 43.2
+      "sec": 59.9
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -9384,7 +9310,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 92.9
+      "sec": 123.1
     },
     "viirs_af": {
       "status": "ok",
@@ -9397,7 +9323,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 12.4
+      "sec": 13.3
     },
     "black_marble": {
       "status": "ok",
@@ -9412,7 +9338,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 18.1
+      "sec": 17.4
     },
     "mtg_fci": {
       "status": "no_data",
@@ -9545,7 +9471,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 49.4
+      "sec": 62.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -9577,7 +9503,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 100.9
+      "sec": 120.0
     },
     "viirs_af": {
       "status": "ok",
@@ -9590,7 +9516,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 10.4
+      "sec": 11.3
     },
     "black_marble": {
       "status": "ok",
@@ -9605,7 +9531,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 14.5
+      "sec": 16.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -9738,7 +9664,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 48.5
+      "sec": 70.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -9770,7 +9696,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 94.2
+      "sec": 127.4
     },
     "viirs_af": {
       "status": "ok",
@@ -9783,7 +9709,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 11.2
+      "sec": 12.1
     },
     "black_marble": {
       "status": "ok",
@@ -9798,7 +9724,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 16.3
+      "sec": 15.9
     },
     "mtg_fci": {
       "status": "no_data",
@@ -9925,7 +9851,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 49.7
+      "sec": 56.3
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -9957,7 +9883,7 @@
       "has_anomaly": false,
       "combustion_signal_tropomi": false,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 159.5
+      "sec": 136.3
     },
     "viirs_af": {
       "status": "ok",
@@ -9970,7 +9896,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 31.3
+      "sec": 11.9
     },
     "black_marble": {
       "status": "ok",
@@ -9985,7 +9911,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 29.7
+      "sec": 20.5
     },
     "mtg_fci": {
       "status": "no_data",
@@ -10109,7 +10035,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 42.8
+      "sec": 53.4
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -10147,7 +10073,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 108.5
+      "sec": 114.2
     },
     "viirs_af": {
       "status": "ok",
@@ -10160,7 +10086,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 19.2
+      "sec": 12.1
     },
     "black_marble": {
       "status": "ok",
@@ -10175,7 +10101,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 24.7
+      "sec": 18.2
     },
     "mtg_fci": {
       "status": "no_data",
@@ -10304,7 +10230,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 42.6
+      "sec": 44.5
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -10342,7 +10268,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 118.8
+      "sec": 133.8
     },
     "viirs_af": {
       "status": "ok",
@@ -10355,7 +10281,7 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 13.7
+      "sec": 14.1
     },
     "black_marble": {
       "status": "ok",
@@ -10370,7 +10296,7 @@
       "nightlight_extinguished": false,
       "persistence_signal": true,
       "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
-      "sec": 17.9
+      "sec": 17.7
     },
     "mtg_fci": {
       "status": "no_data",
@@ -10657,7 +10583,7 @@
     },
     "status": "ok",
     "has_scar_fused": true,
-    "n_sensors_usable": 10,
+    "n_sensors_usable": 11,
     "n_sensors_agree_scar": 4,
     "sensors_agreeing": [
       "s2_nbr",
@@ -10666,7 +10592,7 @@
       "tropomi_combustion"
     ],
     "confidence": "very_high",
-    "evidence": "S2 dNBR=0.5359; LS dNBR=0.372; HLS dNBR=0.3571; MODIS-SR dNBR=0.2318; S1 dVV=0.141dB; MODIS-LST \u0394=8.58K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=16.33/-40.35",
+    "evidence": "S2 dNBR=0.5359; LS dNBR=0.372; HLS dNBR=0.3571; MODIS-SR dNBR=0.2318; S1 dVV=0.141dB; MODIS-LST \u0394=8.58K; MODIS-AF=0; SLSTR-FRP=0hits; VNP14=0hi-conf/0tot; TROPOMI CO/NO2 \u03c3=16.33/-40.35; BM-pers=1.064",
     "hls_nbr": {
       "status": "ok",
       "scenes_pre": 6,
@@ -10702,7 +10628,7 @@
       "n_hits": 0,
       "has_anomaly": false,
       "note": "Per-scene SLSTR FRP netcdf read; FRP pixels within bbox.",
-      "sec": 40.9
+      "sec": 44.7
     },
     "s3_slstr_lst": {
       "status": "ok",
@@ -10740,7 +10666,7 @@
       "has_anomaly": true,
       "combustion_signal_tropomi": true,
       "note": "Per-pixel TROPOMI netcdf read; 2\u03c3 above 30d baseline = combustion.",
-      "sec": 109.5
+      "sec": 134.2
     },
     "viirs_af": {
       "status": "ok",
@@ -10753,12 +10679,22 @@
       "max_frp_mw": 0.0,
       "viirs_active_fire": false,
       "note": "Per-granule HDF5 read; FP_confidence>=7 = high-confidence fire pixel.",
-      "sec": 9.2
+      "sec": 16.5
     },
     "black_marble": {
-      "status": "no_data",
-      "reason": "no post granules pulled",
-      "sec": 9.5
+      "status": "ok",
+      "n_pre_granules": 15,
+      "n_post_granules": 15,
+      "n_pre_reads": 1,
+      "n_post_reads": 1,
+      "pre_median_nw": 0.3376,
+      "post_median_nw": 0.3592,
+      "persistence_ratio": 1.064,
+      "persistent_nightlight": true,
+      "nightlight_extinguished": false,
+      "persistence_signal": true,
+      "note": "Per-granule HDF5 read; DNB at-sensor radiance median ratio. ratio>=0.9 = persistent industrial/urban (FP signal); ratio<=0.7 = signal extinguished (supports transient fire).",
+      "sec": 17.6
     },
     "mtg_fci": {
       "status": "no_data",
@@ -10771,7 +10707,7 @@
       "note": "DGX cache file-count signal only (10-min full-disk cadence; Sicily covered by every full-disk scene). Direct band reads skipped \u2014 would require DGX-side scripted netcdf processing.",
       "thermal_signal_available": false
     },
-    "persistence_signal": false,
+    "persistence_signal": true,
     "combustion_signal": true,
     "coverage_only_signals": [],
     "olci_veg_index": {
