@@ -36,7 +36,7 @@
   "olci_runtime_sec": 1867.6,
   "last_modis_catchup_at": "2026-10-15T07:00:31.700182+00:00",
   "modis_catchup_updates": 449,
-  "proxy_upgrade_at": "2026-10-17T10:05:19.229797+00:00",
+  "proxy_upgrade_at": "2026-10-18T10:11:40.118512+00:00",
   "proxy_signal_hit_counts": {
     "tropomi_combustion": 52,
     "viirs_active_fire": 0,
@@ -48,5 +48,5 @@
   "n_fused_scar_before_proxy_upgrade": 108,
   "n_persistence_signal_after_proxy_upgrade": 80,
   "n_combustion_signal_after_proxy_upgrade": 52,
-  "proxy_upgrade_runtime_sec": 2113.8
+  "proxy_upgrade_runtime_sec": 2494.7
 }
