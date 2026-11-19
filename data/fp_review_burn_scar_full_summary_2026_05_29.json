@@ -36,17 +36,17 @@
   "olci_runtime_sec": 1920.1,
   "last_modis_catchup_at": "2026-10-15T07:00:31.700182+00:00",
   "modis_catchup_updates": 449,
-  "proxy_upgrade_at": "2026-11-17T10:42:10.693014+00:00",
+  "proxy_upgrade_at": "2026-11-18T11:05:11.430480+00:00",
   "proxy_signal_hit_counts": {
     "tropomi_combustion": 55,
     "viirs_active_fire": 0,
     "slstr_active_fire": 0,
-    "persistent_nightlight": 95,
+    "persistent_nightlight": 96,
     "nightlight_extinguished": 0
   },
   "n_fused_scar_after_proxy_upgrade": 107,
   "n_fused_scar_before_proxy_upgrade": 107,
-  "n_persistence_signal_after_proxy_upgrade": 95,
+  "n_persistence_signal_after_proxy_upgrade": 96,
   "n_combustion_signal_after_proxy_upgrade": 55,
-  "proxy_upgrade_runtime_sec": 724.9
+  "proxy_upgrade_runtime_sec": 2106.0
 }
