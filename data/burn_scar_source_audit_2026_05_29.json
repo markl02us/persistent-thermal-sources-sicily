@@ -387,7 +387,7 @@
       "gifapar_drop_max": -0.15
     }
   },
-  "proxy_upgrade_completed_at": "2026-11-17T10:42:10.675118+00:00",
+  "proxy_upgrade_completed_at": "2026-11-18T11:05:11.413436+00:00",
   "proxy_upgrade_summary": {
     "sources_upgraded": [
       "sentinel-5p-l2-netcdf",
@@ -399,10 +399,10 @@
       "tropomi_combustion": 55,
       "viirs_active_fire": 0,
       "slstr_active_fire": 0,
-      "persistent_nightlight": 95,
+      "persistent_nightlight": 96,
       "nightlight_extinguished": 0
     },
-    "n_cells_processed": 16,
+    "n_cells_processed": 90,
     "thresholds": {
       "tropomi_sigma": 2.0,
       "viirs_af_min_confidence": 7,
